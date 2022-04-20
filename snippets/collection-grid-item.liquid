@@ -1,0 +1,21 @@
+{% unless image %}
+    {% assign image = collection.image | default:collection.products.first.featured_media.preview_image %} 
+{% endunless %}
+<a href="{{ collection.url }}" class="tw-relative tw-group tw-block" style="padding-bottom: 100%;">
+    <div class="tw-absolute tw-w-full tw-h-full tw-inset-0">
+        {% if collection.image %}
+        {% render "[image]", image:image image_box_ratio:'100%  %}
+        {% elsif collection.products.first and collection.products.first.media != empty %}
+            {% render "[image]", image:image image_box_ratio:'100%' %}
+        {% else %}
+            <div class="tw-w-full">
+                {% render "[image]-holder" %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-flex tw-items-center tw-duration-700 tw-ease-in-out tw-bg-black tw-transition-colors tw-bg-opacity-0 tw-justify-center lg:tw-justify-end group-hover:tw-bg-opacity-50" >
+        <h3 class="tw-m-0 tw-text-white tw-font-bold tw-text-xs sm:tw-text-base  tw-duration-700 tw-ease-in-out tw-px-3 tw-py-2 tw-bg-black tw-bg-opacity-50 group-hover:tw-bg-opacity-0 tw-max-w-[80%]">
+            {{ collection.title }}
+        </h3>
+    </div>
+</a>

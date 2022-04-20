@@ -1,0 +1,145 @@
+{% comment %}
+Custom blocks from custom pages and collections in 1 single snippet to reduce repeating code for faster usage, fixes and editing
+{% endcomment %}
+
+<div data-section-id="{{ section.id }}" data-section-type="custom-page-section">
+    <div class="custom-page-content" id="content">
+        {% if settings.breadcrumb %}
+            {% render 'breadcrumb' %}
+        {% endif %}
+        <!-- start the custom content -->
+        <div class="page-sections tw-space-y-6">
+            <div class="section-title desktop-12 mobile-3 span-12">
+                <h1 class="tw-py-6">
+                    {{page.title }}
+                </h1>
+            </div>
+            <div class="tw-block tw-w-full tw-text-center tw-mx-auto tw-max-w-prose tw-prose">
+                {{page.content }}
+            </div>
+            <div class="{% render '[class]-container' fluid:true class: 'tw-mt-6' %} tw-max-w-[2000px]">
+                <div class="gallery tw-grid-cols-2 tw-grid md:tw-grid-cols-3 lg:tw-grid-cols-4 tw-gap-px" id="gallery"></div>
+                <div class="tw-flex tw-w-full tw-justify-center tw-text-center tw-mt-12">
+                    <div>
+                        <button class="tw-h-12 tw-inline-block tw-leading-[48px] tw-px-6 tw-text-center" hidden id="seemorebtn">
+                            {{ 'strings.general.see_all' | t }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- end the custom content -->
+    </div>
+</div>
+<script>
+    function createElementFromHTML(htmlString) {
+        var div = document.createElement("div");
+        div.innerHTML = htmlString.trim();
+
+        // Change this to div.childNodes to support multiple top-level nodes
+        return div.firstChild;
+    }
+    let promohashtags = [
+        "#designericonsOnsale",
+        "#designericoniconsPromo",
+        "#designericonSale",
+        "#designericonWeeklySale",
+        "#designericonFlashSale",
+        "#designericonGrandSale"
+    ]
+    function onloadMoreClick(e) {
+        console.log(e)
+        const page = e.target.getAttribute("data-page")
+        if (page) {
+            loadFeed(page)
+        }
+    }
+    function loadFeed(page) {
+        let url
+        if (page) {
+            url = `{{"instagram-feed-[page].json" | file_url }}`.replace("[page]", page);
+        } else {
+            url = `{{"instagram-feed.json" | file_url }}`
+        }
+
+        document
+            .querySelector("#seemorebtn")
+            .addEventListener("click", onloadMoreClick)
+            fetch(url)
+            .then(res => res.json())
+            .then(result => {
+                console
+                    .log({result})
+                    document
+                    .querySelector("#seemorebtn")
+                    .setAttribute("hidden", true)
+                const itemsFragments = document.createDocumentFragment()
+                let str = ""
+                result
+                    .data
+                    .user
+                    .edge_owner_to_timeline_media
+                    .edges
+                    .filter(({node}) => {
+                        const text = node
+                            .edge_media_to_caption
+                            .edges[0]
+                            .node
+                            .text
+                        return ! promohashtags.find((hashtag) => text.includes(hashtag))
+                    })
+                    .forEach(({node}) => {
+                        const text = node
+                            .edge_media_to_caption
+                            .edges[0]
+                            .node
+                            .text
+                        let imageUrl = ` https://res.cloudinary.com/dfgbpib38/image/upload/w_400,f_auto/instagram/ngohoanglong/instagram-feed/main/out/images/instagram-feed-${
+                            node.id
+                        }.jpg`;
+                        let str = `<a target="_blank" href="https://www.instagram.com/p/${
+                            node.shortcode
+                        }/"  class="keen-slider__slide tw-group tw-relative tw-leading-none tw-pb-[100%]">
+                <img class="lazyload  lazyload-fade tw-absolute tw-inset-0 !tw-w-full !tw-h-full tw-object-cover tw-leading-none " data-src="${imageUrl}" alt="{{shop.name}}"/>
+                <noscript>
+                  <img class="lazyload  lazyload-fade tw-absolute tw-inset-0 !tw-w-full !tw-h-full tw-object-cover tw-leading-none " src="${imageUrl}" alt="{{shop.name}}"/>
+                </noscript>
+                <div class="tw-flex tw-flex-col tw-gap-3 tw-pointer-events-none tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-justify-center tw-items-center">
+                  <div class="tw-text-5xl">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                  </div>
+                  <p style="  -webkit-line-clamp: 3; -webkit-box-orient: vertical;display: -webkit-box;" class="tw-px-6 box tw-overflow-hidden tw-text-center tw-h-[43px] tw-text-ellipsis">
+                    ${text}
+                  </p>
+                </div>
+            </a>`;
+                        document.querySelector("#gallery").appendChild(createElementFromHTML(str))
+                    })
+                try {
+                    let nextCursor = result
+                        .data
+                        .user
+                        .edge_owner_to_timeline_media
+                        .page_info
+                        .end_cursor
+                    if (nextCursor) {
+                        let url = "{{ " instagram - feed - nextCursor
+                            .json " | file_url }}"
+                            .replace("nextCursor", nextCursor)
+                            document
+                            .querySelector("#seemorebtn")
+                            .removeAttribute("hidden")
+                        if (page) {
+                            document.querySelector("#seemorebtn").setAttribute("data-page", page + 1)
+                        } else {
+                            document.querySelector("#seemorebtn").setAttribute("data-page", 2)
+                        }
+                    }
+                } catch (error) {
+                    console.error("nextCursor not found", error)
+                }
+            })
+    }
+    loadFeed()
+</script>

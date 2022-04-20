@@ -1,0 +1,21 @@
+{% comment %}Used for home page sections only when featured products is chosen but no content has been selected{% endcomment %}
+
+{% for i in (1..prod_limit) %}
+{% capture current %}{% cycle 1, 2, 3, 4, 5 %}{% endcapture %}
+  {%- assign placeholder = 'product-' | append: current -%}
+  <div class="featured__collection-product product-index">
+    <div class="onboard ci">
+        <div class="reveal">
+          {{ placeholder | placeholder_svg_tag }}
+        </div>
+    </div>
+    <div class="product-details">
+        <a href="#">
+          <span class="prod-title">Sample product {{ forloop.index }}</span>
+        </a>
+        <div class="price">
+          9.99
+        </div>
+    </div>
+  </div>
+  {% endfor %}

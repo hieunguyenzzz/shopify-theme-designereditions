@@ -1,0 +1,27 @@
+  <div id="pagination" class="flex desktop-12 mobile-3 span-12 tw-py-8 tw-flex tw-justify-between tw-flex-col tw-items-center">
+    <span class="count">
+      {% if template != 'list-collections' %}
+      {{ 'general.pagination.showing_items' | t }}{% endif %} {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} {{ 'general.pagination.of' | t }} {{ paginate.items }}.
+    </span>
+    <div class="clear"></div>
+    <div class="tw-flex tw-gap-3">
+      {%- if paginate.previous -%}
+      <a href="{{ paginate.previous.url }}" class="paginate_prev"><i class="la la-angle-left" aria-hidden="true"></i></a>
+      {%- endif -%}
+      {%- for part in paginate.parts -%}
+        {%- if part.is_link -%}
+          {{ part.title | link_to: part.url }}
+        {%- else -%}
+          {%- if part.title == '<i class="la la-ellipsis-h" aria-hidden="true"></i>' -%}
+            {{ part.title }}
+          {%- else -%}
+            <span class="current">{{ part.title }}</span>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if paginate.next -%}
+        <a href="{{ paginate.next.url }}" class="paginate_next"><i class="la la-angle-right" aria-hidden="true"></i></a>
+      {%- endif -%}
+    </div>
+    
+  </div>

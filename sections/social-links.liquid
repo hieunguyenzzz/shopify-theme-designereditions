@@ -1,0 +1,84 @@
+<section class="homepage-social"
+data-section-id="{{ section.id }}"
+data-aos="{{ settings.scroll_animation }}">
+  <article class="row">
+    <div class="social-content desktop-6 desktop-push-3 tablet-4 tablet-push-1 mobile-3">
+      {% if section.settings.heading != blank %}
+        <h4>{{ section.settings.heading | escape }}</h4>
+      {% endif %}
+        <ul id="social-icons">
+        {% if settings.facebook_url != blank %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="fab fa-facebook-f la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.instagram-id != blank %}<li><a href="//instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="la la-instagram la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.twittername != blank %}<li><a href="{{ settings.twittername }}" target="_blank"><i class="la la-twitter la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.pinterest_url != blank %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="la la-pinterest la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.tumblr_url != blank %}<li><a href="{{ settings.tumblr_url }}" target="_blank"><i class="la la-tumblr la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.youtube_url != blank %}<li><a href="{{ settings.youtube_url }}" target="_blank"><i class="la la-youtube la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.googleplus_url != blank %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="la la-google-plus la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.snapchat-id != blank %}<li><a href="//snapchat.com/add/{{ settings.snapchat-id }}" target="_blank"><i class="fab fa-snapchat-ghost la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        {% if settings.weibo-id != blank %}<li><a href="//weibo.com/{{ settings.weibo-id }}" target="_blank"><i class="la la-weibo la-2x" aria-hidden="true"></i></a></li>{% endif %}
+        </ul>
+      {% if section.settings.show_mailchimp %}
+      {% form 'customer' %}
+      {{ form.errors | default_errors }}
+      {% if form.posted_successfully? %}
+      <p class="success">{{ 'password.general.thanks' | t }}</p>
+      {% else %}
+      <input type="hidden" name="contact[tags]" value="prospect, password page">
+      <input type="email" name="contact[email]" id="social-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+      <input type="submit" id="social-subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+      {% endif %}
+      {% endform %}
+      {% endif %}
+    </div>
+  </article>
+</section>
+<div class="clear"></div>
+
+
+<style>
+  section.homepage-social {
+    background: {{ section.settings.homepage_social_background }};
+  }
+
+  section.homepage-social h4 {
+    color: {{ section.settings.homepage_social_color }}!important;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Social media",
+    "class": "index-section",
+    "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Connect with us"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mailchimp",
+      "label": "Show email signup form"
+    },
+      {
+        "type": "color",
+        "id": "homepage_social_color",
+        "label": "Section title color",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "homepage_social_background",
+        "label": "Section background color",
+        "default": "#fff"
+      }
+	],
+  "presets": [
+    {
+      "name": "Social media",
+      "category": "Social media"
+    }
+  ]
+  }
+{% endschema %}

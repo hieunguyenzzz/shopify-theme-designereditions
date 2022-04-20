@@ -1,0 +1,174 @@
+  
+<div class="shopify_explorer__content">
+  {%- assign expand_questions = section.settings.expand_questions -%}
+ 
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'separator' -%}
+        <h2 class="shopify_explorer_faq__separator h3" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h2>
+ 
+      {%- when 'question' -%}
+        <div class="shopify_explorer_faq__item {% unless expand_questions %}shopify_explorer_faq__item--expandable{% endunless %}" {{ block.shopify_attributes }}>
+          <h3 class="shopify_explorer_faq__question h5 {% unless expand_questions %}link{% endunless %}">{{ block.settings.title }}</h3>
+          <div class="shopify_explorer_faq__answer rte">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+{% schema %}
+  {
+    "name": "FAQs",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "expand_questions",
+        "label": "Expand all questions by default",
+        "default": false
+      }
+  ],
+    "blocks": [
+      {
+        "type": "separator",
+        "name": "Section separator",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          }
+        ]
+      },
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+ 
+{% stylesheet %}
+{% endstylesheet %}
+
+<style>
+  .active {
+    background: transparent;
+}
+  
+ 
+/**
+ * FAQ
+ */
+.shopify_explorer_faq__item--expandable > .shopify_explorer_faq__question {
+  cursor: pointer;
+}
+.shopify_explorer_faq__item--expandable > .shopify_explorer_faq__answer {
+  display: none;
+}
+.shopify_explorer_faq__separator {
+    text-transform: none;
+    text-align: left;
+    padding: 30px 0;
+}
+.shopify_explorer_faq__separator :not(:first-child) {
+  margin-top: 1.2em;
+}
+ 
+.shopify_explorer_faq__item:not(:last-child) {
+  margin-bottom: 0.9em;
+}
+.shopify_explorer_faq__item .shopify_explorer_faq__question {
+    margin-bottom: 0.2em;
+    position: relative;
+    padding-right: 30px;
+    margin: 0;
+    padding: 1em 0;
+    
+    overflow-y: hidden;
+}
+  .shopify_explorer_faq__item.shopify_explorer_faq__item--expandable {
+    border-bottom: 1px solid #f2f2f2;
+}
+.shopify_explorer_faq__item .shopify_explorer_faq__question.active::before {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.shopify_explorer_faq__item .shopify_explorer_faq__answer {
+  padding: 5px 15px;
+}
+ 
+.shopify_explorer_faq__item .shopify_explorer_faq__question::before {
+  position: absolute;
+  right: 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  content: '';
+  display: block;
+  height: 12px;
+  margin-top: -11px;
+  pointer-events: none;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform-origin: 66% 66%;
+  -ms-transform-origin: 66% 66%;
+  transform-origin: 66% 66%;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  width: 12px;
+}
+@media (max-width: 590px) {
+  .shopify_explorer_faq__item .shopify_explorer_faq__question::before {
+    width: 8px;
+    height: 8px;
+    margin-top: -7px;
+    right: 3px;
+  }
+}
+h2.shopify_explorer_faq__separator.h3,h3.shopify_explorer_faq__question.h5.link {
+    color: #000000;
+    font-weight: 300;font-family: "Brandon Text",sans-serif;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+</style>
+
+
+
+  
+{% javascript %}
+(function() {
+  $('body').on('click', '.shopify_explorer_faq__question', function() {
+    $(this).next('.shopify_explorer_faq__answer').slideToggle(150).toggleClass('active');
+    $(this).toggleClass('active');
+  });
+ 
+  $(document).on('shopify:block:select', '#shopify-section-page-shopify_explorer_faq-template', function(event) {
+    $(event.target).find('.shopify_explorer_faq__answer').slideDown(150);
+  });
+ 
+  $(document).on('shopify:block:deselect', '#shopify-section-page-shopify_explorer_faq-template', function(event) {
+    $(event.target).find('.shopify_explorer_faq__answer').slideUp(150);
+  });
+}());
+{% endjavascript %}

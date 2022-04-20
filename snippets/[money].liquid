@@ -1,0 +1,5 @@
+{% if localization.country.iso_code == "NO" %}
+{{price | money_without_trailing_zeros | replace: '.', ' '}}
+{% else %}
+{{price | money}}
+{% endif %}

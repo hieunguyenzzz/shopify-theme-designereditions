@@ -1,0 +1,30 @@
+<script id="otRegion" type='text/javascript'>
+    otRegionShop = Shopify.shop;
+    let otRegionRootLink = 
+        "https://apps.omegatheme.com/region-restrictions";
+    let otRegionDomBlockIP = localStorage.getItem("otRegionDomBlockIP");
+    let otRegionAutoBlock = localStorage.getItem("otRegionAutoBlock");
+    let otRegionTypeBlock = localStorage.getItem("otRegionTypeBlock");
+    let otRegionDomBlockCollection = JSON.parse(
+        localStorage.getItem("otRegionDomBlockCollection")
+    );
+    let otRegioncollectionCache;
+    const endpointGetRestrictions = `${otRegionRootLink}/region.php?action=getRestrictions&shop=${otRegionShop}`;
+    const createEndpoint = (action, id) =>
+        `${otRegionRootLink}/region.php?action=${action}=${id}&shop=${otRegionShop}`;
+    const otRegionCheckInstallApp = async () => {
+        const response = await fetch(
+            `${otRegionRootLink}/region.php?action=checkInstallApp&shop=${otRegionShop}`
+        );
+        const data = await response.json();
+        return data;
+    };
+    const otRegionLoadfile = async () => {
+        const { install, expired } = await otRegionCheckInstallApp();
+        if (install == true && expired == false) {
+            otRegionMain();
+        }
+    };
+    otRegionLoadfile();
+    {% include 'otRegion.js' %}
+</script>

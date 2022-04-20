@@ -1,0 +1,82 @@
+<product-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+        {% capture items %}
+            {% for product in recommendations.products limit: 4 %}
+                <div class="tw-w-full" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                    <div class="tw-w-full tw-max-w-[292px] tw-min-h-full">
+                        {% render 'product-listing', product: product %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endcapture %}
+
+        <div id="{{section.id}}" class="tw-pb-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+            <div class="{% render '[class]-container' class: '' %} tw-flex tw-flex-col tw-gap-6 lg:tw-grid-cols-2">
+                <div class="tw-w-full tw-flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-4">
+                        <div class="tw-text-left tw-flex tw-justify-between tw-items-baseline tw-w-full">
+                            <h2 class="tw-font-bold tw-mb-0">
+                                {{ section.settings.product_recommendations_heading | escape }}
+                            </h2>
+                        </div>
+                </div>
+                <div class="tw-w-full tw-gap-6 tw-grid-cols-2 lg:tw-grid-cols-4 tw-grid">
+                  {{items}}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</product-recommendations>
+{% javascript %}
+
+class Recommendations extends HTMLElement {
+    constructor() {
+        super();
+        const handleIntersection = (entries, observer) => {
+            if (!entries[0].isIntersecting) 
+                return;
+            
+
+            observer.unobserve(this);
+
+            fetch(this.dataset.url).then(response => response.text()).then(text => {
+                const html = document.createElement('div');
+                html.innerHTML = text;
+                const recommendations = html.querySelector('product-recommendations');
+                if (recommendations && recommendations.innerHTML.trim().length) {
+                    this.innerHTML = recommendations.innerHTML;
+                }
+            }).catch(e => {
+                console.error(e);
+            });
+        }
+
+        new IntersectionObserver(handleIntersection.bind(this), {
+            rootMargin: '0px 0px 200px 0px'
+        }).observe(this);
+    }
+
+}
+customElements.define('product-recommendations', Recommendations);
+
+{% endjavascript %}
+{% schema %}
+
+{
+    "name": "Product Recommendations",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_product_recommendations",
+            "label": "Show dynamic recommendations",
+            "info": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+            "default": true
+        }, {
+            "type": "text",
+            "id": "product_recommendations_heading",
+            "label": "Heading",
+            "default": "You may also like"
+        }
+    ]
+}
+
+{% endschema %}

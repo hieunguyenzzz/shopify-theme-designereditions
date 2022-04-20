@@ -1,0 +1,132 @@
+{% assign countrymap = '
+GB en ,
+SE se /sv-se,
+DE de /de-de,
+NO no /no-no,
+FR fr /fr-fr,
+NL nl /nl-nl,
+BE nl /nl-be show,
+BE fr /fr-be show,
+AT de /de-at show,
+ES es /es-es' %}
+{% assign path = request.path %}
+{% if request.locale.root_url and request.locale.root_url != "/" %}
+    {% assign path = request.path | replace_first: request.locale.root_url, '/' %}
+{% endif %}
+<noscript>
+    {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
+        <div class="localization-form__select">
+            <h2 class="visually-hidden" id="FooterCountryLabelNoScript">{{ 'localization.country_label'  | t }}</h2>
+            <select aria-labelledby="FooterCountryLabelNoScript" class="localization-selector link" name="country_code">
+                {%- for country in localization.available_countries -%}
+                    <option value="{{ country.iso_code }}" {%- if country.iso_code==localization.country.iso_code %} selected {% endif %}>
+                        {{ country.name | capitalize}}
+                        ({{ country.currency.iso_code }}
+                        {{ country.currency.symbol }})
+                    </option>
+                {%- endfor -%}
+            </select>
+            <svg aria-hidden="true" class="icon icon-caret tw-text-sm" focusable="false" height="1em" role="presentation" viewbox="0 0 10 6" width="1em">
+                <path clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill-rule="evenodd" fill="currentColor"/>
+            </svg>
+        </div>
+        <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+    {%- endform -%}
+</noscript>
+<localization-form>
+    {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+
+        <input class="tw-modal-toggle" id="footercountryformmodal" type="checkbox">
+        <div class="tw-modal !tw-bg-none !tw-bg-transparent">
+            <label aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel" aria-expanded="false" class="tw-fixed tw-w-full tw-h-full tw-left-0 tw-top-0" for="footercountryformmodal" tabindex="0" type="button">
+                
+            </label>
+            <div class="tw-p-0 tw-modal-box lg:tw-max-w-xs">
+                <div class="tw-w-full  tw-p-8 tw-pt-12 tw-max-h-[calc(100vh-100px)] tw-overflow-auto">
+                    <div class="tw-p-0 !tw-transition-all  tw-pb-24 lg:tw-pb-0  !tw-relative tw-w-full lg:tw-ml-auto tw-bg-base-100 " id="FooterLanguageList" role="list">
+                        {% assign contrylangs = countrymap | split: ',' %}
+                        {%- for contrylang in contrylangs -%}
+                        
+                            {% assign contrylangarray = contrylang | split: ' ' %}
+                            {% assign contrycode = contrylangarray[0] %}
+                            {% assign langcode = contrylangarray[1] %}
+                            {% assign root_url = contrylangarray[2] %}
+                            {% assign show = contrylangarray[3] %}
+                            {% assign country =  localization.available_countries | where: "iso_code", contrycode | first %}
+                            {% unless country %}
+                                {% continue %}
+                            {% endunless %}
+                            {% assign lang =  localization.available_languages | where: "iso_code", langcode | first | default: localization.language  %}
+                            <a title="{{lang.endonym_name}}" href="{{root_url | append: path | replace: '//', '/'}}" class=" tw-items-center tw-capitalize tw-flex tw-justify-between !tw-px-3 !tw-py-1 tw-gap-2  hover:tw-bg-gray-200 {% if country.iso_code == localization.country.iso_code %} tw-font-bold{% endif %} focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-country="{{ country.iso_code }}" data-lang="{{ lang.iso_code }}" data-value="{{ country.iso_code }}">
+                                {{ country.name | capitalize }}
+                                {% if show %}
+                                    ({{lang.name | capitalize}})
+                                {% endif %}
+                                {%- assign iconPath =  country.iso_code | downcase | append:'-flag' | append: '.svg' %}
+                                <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                            </a>
+                        {%- endfor -%}
+                    </div>
+                </div>
+    
+                <label class="tw-btn tw-btn-square tw-btn-ghost tw-bg-white tw-bg-opacity-30 tw-rounded-box tw-border-none tw-absolute tw-top-0 tw-right-0" for="footercountryformmodal">
+                    <svg aria-hidden="true" class="icon icon-close-small" fill="none" focusable="false" height="2em" role="presentation" viewbox="0 0 12 13" width="2em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.48627 9.32917L2.82849 3.67098" stroke-linecap="round" stroke-linejoin="round" stroke="#333030"/>
+                        <path d="M2.88539 9.38504L8.42932 3.61524" stroke-linecap="round" stroke-linejoin="round" stroke="#333030"/>
+                    </svg>
+                </label>
+            </div>
+            
+        </div>
+
+        <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+        <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}"/>
+    {%- endform -%}
+</localization-form>
+
+<script>
+
+    class LocalizationForm extends HTMLElement {
+        constructor() {
+            super();
+            this.elements = {
+                inputlocalecode: this.querySelector("input[name=\"locale_code\"]"),
+                inputcountrycode: this.querySelector("input[name=\"country_code\"]"),
+                panel: this.querySelector("ul")
+            };
+            this.querySelectorAll("li div").forEach(item => item.addEventListener("click", this.onItemClick.bind(this)));
+        }
+
+        onItemClick(event) {
+            event.preventDefault();
+            const form = this.querySelector("form");
+            if (event
+                    .currentTarget
+                    .dataset
+                    .lang) {
+                this
+                    .elements
+                    .inputlocalecode
+                    .value = event
+                    .currentTarget
+                    .dataset
+                    .lang;
+            }
+            if (event
+                    .currentTarget
+                    .dataset
+                    .country) {
+                this
+                    .elements
+                    .inputcountrycode
+                    .value = event
+                    .currentTarget
+                    .dataset
+                    .country;
+            }
+            form.submit();
+        }
+    }
+
+    customElements.define("localization-form", LocalizationForm);
+</script>

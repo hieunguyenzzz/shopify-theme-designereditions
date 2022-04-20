@@ -1,0 +1,110 @@
+{% for link in linklists[section.settings.main_nav1].links %}
+    {% assign linkProps = nil %}
+    {% if link.url contains 'http://' or link.url contains 'https://' %}
+        {% assign linkProps = 'target="_blank"' %}
+    {% endif %}
+    {% render 'navigation', link: link ,linkProps:linkProps %}
+{% endfor %}
+
+<li class="seeks">
+    <search-trigger>
+        <a href="#" id="search_trigger">
+            <i aria-hidden="true" class="icon icon-search"></i>
+        </a>
+    </search-trigger>
+</li>
+{% if shop.customer_accounts_enabled %}
+    {% if customer  %}
+        <li class="cust tw-group tw-relative">
+            <a href="{{ routes.account_url }}">
+                <i aria-hidden="true" class="la la-user"></i>
+            </a>
+            <div class="flex tw-min-w-[120px] tw-transition tw-opacity-0 group-hover:tw-opacity-100 tw-absolute tw-flex-col tw-text-left tw-invisible group-hover:tw-visible tw-top-full tw-right-0 tw-bg-white tw-shadow-lg tw-p-2">
+                <a href="{{ routes.account_url }}" class="!tw-px-3 tw-font-semibold !tw-py-1 !tw-leading-loose hover:tw-bg-gray-200 tw-w-full">
+                    Account
+                </a>
+                <a href="{{ routes.account_logout_url }}" class="!tw-px-3 tw-font-semibold !tw-py-1 !tw-leading-loose hover:tw-bg-gray-200 tw-w-full">
+                    Logout
+                </a>
+            </div>
+        </li>
+
+    {% else %}
+
+        <li class="cust">
+            <a href="{{ routes.account_login_url }}">
+                <i aria-hidden="true" class="la la-user"></i>
+            </a>
+        </li>
+    {% endif %}
+{% endif %}
+{%- if hd_locale_selector -%}
+    <li class="lang-selector">
+        {%- form 'localization', class: 'selectors-form' -%}
+            <div class="selectors-form__item">
+                <h2 class="visually-hidden" id="lang-heading">
+                    {{ 'general.language.dropdown_label' | t }}
+                </h2>
+
+                <div class="disclosure" data-disclosure-locale>
+                    <button aria-controls="lang-list" aria-describedby="lang-heading" aria-expanded="false" class="disclosure__toggle" data-disclosure-toggle type="button">
+                        {{ form.current_locale.iso_code }}
+                    </button>
+                    <ul class="disclosure-list" data-disclosure-list id="lang-list">
+                        {% for locale in form.available_locales %}
+                            <li class="disclosure-list__item {% if locale.iso_code == form.current_locale.iso_code %}disclosure-list__item--current{% endif %}">
+                                <a class="disclosure-list__option" href="#" lang="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %} aria-current="true" {% endif %} data-value="{{ locale.iso_code }}" data-disclosure-option>
+                                    {{ locale.endonym_name }}
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                    <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ form.current_locale.iso_code }}" data-disclosure-input/>
+                </div>
+            </div>
+        {%- endform -%}
+    </li>
+{%- endif -%}
+{%- if hd_currency_selector -%}
+    <li class="curr-selector">
+        {%- form 'localization', class: 'selectors-form' -%}
+            <div class="selectors-form__item">
+                <h2 class="visually-hidden" id="currency-heading">
+                    {{ 'general.currency.dropdown_label' | t }}
+                </h2>
+
+                <div class="disclosure" data-disclosure-currency>
+                    <button aria-controls="currency-list" aria-describedby="currency-heading" aria-expanded="false" class="disclosure__toggle" data-disclosure-toggle type="button">
+                        {{ form.current_currency.iso_code }}
+                        {%- if form.current_currency.symbol -%}
+                            {{ form.current_currency.symbol }}
+                        {%- endif -%}
+                    </button>
+                    <ul class="disclosure-list" data-disclosure-list id="currency-list">
+                        {% for currency in form.available_currencies %}
+                            <li class="disclosure-list__item {% if currency.iso_code == form.current_currency.iso_code %}disclosure-list__item--current{% endif %}">
+                                <a class="disclosure-list__option" href="#" {% if currency.iso_code == form.current_currency.iso_code %} aria-current="true" {% endif %} data-value="{{ currency.iso_code }}" data-disclosure-option>
+                                    {{ currency.iso_code }}
+                                    {%- if currency.symbol -%}
+                                        {{ currency.symbol }}
+                                    {%- endif -%}
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                    <input type="hidden" name="currency_code" id="CurrencySelector" value="{{ form.current_currency.iso_code }}" data-disclosure-input/>
+                </div>
+            </div>
+        {%- endform -%}
+    </li>
+{%- endif -%}
+<li>
+    <a href="{{ routes.cart_url }}" {% if settings.ajax_cart_method == 'drawer' %} class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" {% endif %}>
+        <span class="cart-words"></span>
+        &nbsp;<i aria-hidden="true" class="icon icon-cart"></i>
+        <span class="CartCount tw-badge tw-badge-sm empty:tw-hidden">{% if cart.item_count >0  %}
+            {{ cart.item_count }}
+        {% endif %}</span>
+        &nbsp;<span class="CartCost tw-hidden">{{ cart.total_price | money }}</span>
+    </a>
+</li>

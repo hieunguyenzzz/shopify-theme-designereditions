@@ -1,0 +1,32 @@
+<div class="section-title span-12">
+    <h1>{{ page.title }}</h1>
+</div>
+<section class="page-width row ">
+    <div class="pages-content">
+        <div class="rte">
+            {{ page.content }}
+        </div>
+    </div>
+</section>
+
+
+{% section 'featured-collection-pages' %}
+
+
+<style>
+    .flickity__section button.flickity-button.flickity-prev-next-button {
+        font-size: 20px !important;
+        top: 33% !important;
+    }
+    div#shopify-section-featured-collection-pages {
+        border-top: 1px solid #d6d3d357;
+    }
+    .page-width {
+        max-width: 780px;
+        padding: 4rem 2rem;
+    }
+    .section-title.span-12 {
+        background-color: #eef5f1;
+        padding: 61px 0;
+    }
+</style>

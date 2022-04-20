@@ -1,0 +1,300 @@
+let otRegionCheckAdminUpdate = true;
+let checkAllSite;
+let linkRedirectOtRegion = document.createElement('meta');
+linkRedirectOtRegion.setAttribute('http-equiv', 'refresh');
+
+const changeDom = (data, page, id) => {
+    localStorage.setItem("otRegionAutoBlock", data.autoBlock);
+    localStorage.setItem("otRegionTypeBlock", data.typeBlock);
+    let res = regexScriptTag(data.html);
+    data.html.startsWith("linkHref=")
+        ? (addMetaRedirect(data.html.slice(
+              data.html.indexOf("=") + 1,
+              data.html.length
+          )))
+        : otInitialElement(res);
+    if (page == "home") {
+        localStorage.setItem("otRegionDomBlockIP", data.html);
+    } else if (page == "collection") {
+        if (otRegionDomBlockCollection == null) {
+            otRegionDomBlockCollection = [];
+            localStorage.setItem(
+                "otRegionDomBlockCollection",
+                JSON.stringify([{ value: data.html, idCollection: id }])
+            );
+        } else {
+            if (
+                otRegionDomBlockCollection.find((item) => item.id == id) !==
+                undefined
+            ) {
+                const newCollection = otRegionDomBlockCollection.map((item) =>
+                    item.id == id
+                        ? { value: data.html, idCollection: id }
+                        : item
+                );
+                localStorage.setItem(
+                    "otRegionDomBlockCollection",
+                    JSON.stringify(newCollection)
+                );
+            } else {
+                localStorage.setItem(
+                    "otRegionDomBlockCollection",
+                    JSON.stringify([
+                        ...otRegionDomBlockCollection,
+                        { value: data.html, idCollection: id },
+                    ])
+                );
+            }
+        }
+    }
+};
+
+const handleDomCache = (data) => {
+    handleIpCandidateDynamic(data);
+    if (data !== "") {
+        fetch(
+            `${otRegionRootLink}/region.php?action=updateStatistic&shop=${otRegionShop}`
+        );
+    }
+};
+
+const handleIpCandidate = () => {
+    // Handle optimize perform
+    // Construct a new RTCPeerConnection
+    let pc = new RTCPeerConnection({});
+    let candidates = [];
+    //  listen for candidate events
+    pc.onicecandidate = (e) => {
+        if (!e.candidate) {
+            return;
+        }
+        candidates.push(
+            convertCandidateOutput(e.candidate.candidate.split(" ")[0])
+        );
+        localStorage.setItem(
+            "otRegionIpcandidate",
+            JSON.stringify([{ ipCandidate: candidates[0] }])
+        );
+    };
+
+    pc.createDataChannel("");
+    pc.createOffer().then((offer) => pc.setLocalDescription(offer));
+};
+
+const checkResPonseBlockAllSite = (data) => (data == "" ? true : false);
+
+function fetchApiHandleDom(url, page, id) {
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            data.typeBlock == "1" &&
+                localStorage.setItem("otRegionIp", data.ipFirst);
+            handleIpCandidate();
+            checkAllSite =
+                page === "home" ? checkResPonseBlockAllSite(data.html) : true;
+            changeDom(data, page, id);
+        });
+}
+
+const checkCollectionInBlock = (id, dom) => {
+    if (dom === null) {
+        return true;
+    } else {
+        let collectionBlock = dom.filter((item) => item.idCollection == id);
+        if (collectionBlock.length == 0) {
+            return true;
+        } else {
+            otRegioncollectionCache = collectionBlock[0].value;
+            return false;
+        }
+    }
+};
+
+const regionInit = async () => {
+    let keysToRemove = [
+        "otRegionDomBlockIP",
+        "otRegionDomBlockCollection",
+        "otRegionIpcandidate",
+        "otRegionAutoBlock",
+        "otRegionTypeBlock",
+        "otRegionIp",
+    ];
+    keysToRemove.forEach((k) => localStorage.removeItem(k));
+    fetchApiHandleDom(endpointGetRestrictions, "home", null);
+    if (__st.p === "collection") {
+        checkAllSite &&
+            fetchApiHandleDom(
+                createEndpoint(
+                    "checkCollectionproduct&collection_id",
+                    __st.rid
+                ),
+                "collection",
+                __st.rid
+            );
+    }
+    if (__st.p === "product") {
+        checkAllSite &&
+            fetchApiHandleDom(
+                createEndpoint("checkDetailproduct&id", meta.product.id),
+                "product",
+                null
+            );
+    }
+
+    fetch(
+        `${otRegionRootLink}/region.php?action=installThemeLiquid&shop=${otRegionShop}`
+    );
+};
+
+const otRegionMain = () => {
+    if (otRegionCheckAdminUpdate !== null) {
+        regionInit();
+    } else {
+        let otRegionIpcandidate = localStorage.getItem("otRegionIpcandidate");
+        if (otRegionIpcandidate !== null && otRegionDomBlockIP !== null) {
+            handleDomCache(otRegionDomBlockIP);
+            if (__st.p === "collection") {
+                if (otRegionDomBlockIP === "") {
+                    checkCollectionInBlock(__st.rid, otRegionDomBlockCollection)
+                        ? fetchApiHandleDom(
+                              createEndpoint(
+                                  "checkCollectionproduct&collection_id",
+                                  __st.rid
+                              ),
+                              "collection",
+                              __st.rid
+                          )
+                        : handleDomCache(otRegioncollectionCache);
+                }
+            }
+            if (__st.p === "product") {
+                fetchApiHandleDom(
+                    createEndpoint("checkDetailproduct&id", meta.product.id),
+                    "product",
+                    null
+                );
+            }
+        } else {
+            regionInit();
+        }
+    }
+};
+
+// helper
+function handleIpCandidateDynamic(data) {
+    let otRegionIpcandidate = localStorage.getItem("otRegionIpcandidate");
+    let otRegionIp = localStorage.getItem("otRegionIp");
+    let otRegionTypeBlock = localStorage.getItem("otRegionTypeBlock");
+    let otRegionAutoBlock = localStorage.getItem("otRegionAutoBlock");
+
+    let arrayIP = JSON.parse(otRegionIpcandidate);
+    // Handle optimize perform
+    // Construct a new RTCPeerConnection
+    let pc = new RTCPeerConnection({});
+    let candidates = [];
+
+    //  listen for candidate events
+    pc.onicecandidate = (e) => {
+        if (!e.candidate) {
+            return;
+        }
+        candidates.push(
+            convertCandidateOutput(e.candidate.candidate.split(" ")[0])
+        );
+        if (otRegionAutoBlock == "1" && otRegionTypeBlock == "1") {
+            if (data !== "") {
+                renderDomCache(data);
+                if (!checkIpCandidateInArr(arrayIP, candidates[0])) {
+                    let newArrIp = [...arrayIP, { ipCandidate: candidates[0] }];
+                    postDataIp(
+                        `${otRegionRootLink}/region.php?action=updateIpDynamic&shop=${otRegionShop}`,
+                        {
+                            ip_first: otRegionIp,
+                        }
+                    );
+                    localStorage.setItem(
+                        "otRegionIpcandidate",
+                        JSON.stringify(newArrIp)
+                    );
+                }
+            } else {
+                !checkIpCandidateInArr(arrayIP, candidates[0]) 
+                    ? regionInit()
+                    : renderDomCache(data);
+            }
+        } else {
+            (!checkIpCandidateInArr(arrayIP, candidates[0]) && otRegionTypeBlock == "1")
+                ? regionInit()
+                : renderDomCache(data);
+        }
+    };
+
+    pc.createDataChannel("");
+    pc.createOffer().then((offer) => pc.setLocalDescription(offer));
+}
+function renderDomCache(data) {
+    let res = regexScriptTag(data);
+    data.startsWith("linkHref=")
+        ? (addMetaRedirect(data.slice(
+              data.indexOf("=") + 1,
+              data.length
+          )))
+        : otInitialElement(res);
+}
+
+function convertCandidateOutput(candidate) {
+    return candidate.slice(candidate.indexOf(":") + 1, candidate.length);
+}
+
+function checkIpCandidateInArr(arrayIP, candidate) {
+    return arrayIP.some(
+        (item) => item.ipCandidate == convertCandidateOutput(candidate)
+    );
+}
+
+async function postDataIp(url = "", data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response; // parses JSON response into native JavaScript objects
+}
+
+function regexScriptTag(data) {
+    let startScript = /<script\b[^>]*>/gm;
+    let endScript = /<\/script>/gm;
+    let res = data
+        .replaceAll(startScript, "&lt;script&gt;")
+        .replaceAll(endScript, "&lt;/script&gt;");
+    return res;
+}
+
+function addMetaRedirect(linkRedirect){
+    linkRedirectOtRegion.setAttribute("http-equiv", "refresh");
+    linkRedirectOtRegion.setAttribute("content", `0; url=${linkRedirect}`);
+    document.getElementsByTagName("head")[0].appendChild(linkRedirectOtRegion);
+}
+
+function otInitialElement(res) {
+    let d = new Date();
+    let ver = d.getTime();
+    let otRegionBody = document.querySelector("body");
+    let otRegionHead = document.querySelector("head");
+    let otRegionContent = document.createElement("div");
+    let link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = `${otRegionRootLink}/assets/css/region.css?v=${ver}`;
+    otRegionContent.classList.add("ot-redirect");
+    otRegionHead.appendChild(link);
+    otRegionBody.appendChild(otRegionContent);
+    otRegionContent.innerHTML = res;
+    res !== "" && otRegionBody.classList.add("stopScrolling");
+}

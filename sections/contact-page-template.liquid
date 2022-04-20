@@ -1,0 +1,180 @@
+ {% render 'breadcrumb' %}
+<div data-section-id="{{ section.id }}" data-section-type="page-section">
+
+  {% if section.settings.image != blank %}
+    <div class="collection-banner">
+      {% render 'basic-responsive-image', type: section.settings.image, data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+      <noscript>
+        <img src="{{ section.settings.image | img_url: '1024x' }}" alt="{{ section.settings.image.alt }}">
+      </noscript>
+    </div>
+  {% endif %}
+
+  <div id="content" class="row">
+    <div class="section-title">
+      <h1>{{ page.title }}</h1>
+    </div>
+      {% if section.settings.form_position != 'center' %}
+        <div id="contact-page" class="desktop-6 tablet-6 mobile-3{% if section.settings.form_position == 'left' %} form-left{% endif %}">
+          <div class="rte" style="min-height: 1px">
+            {{ page.content }}
+          </div>
+        </div>
+      <div class="desktop-6 mobile-3 tablet-6">
+        {% render 'custom-contact' type: section %}
+      </div>
+      {% else %}
+        {% comment %}If we have the contact form centered only {% endcomment %}
+        <div id="page" class="desktop-8 desktop-push-2 tablet-6 mobile-3 centered-form">
+          <div class="rte">
+            {{ page.content }}
+          </div>
+          {% render 'custom-contact' type: section %}
+        </div>
+      {% endif %}
+  </div>
+  <style media="screen">
+    div#contact-page.form-left {
+      float: right;
+    }
+  </style>
+</div>
+
+
+{% schema %}
+{
+    "name": "Contact page",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image"
+    },
+		{
+        "type": "select",
+        "id": "form_position",
+        "label": "Contact form position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_first_name",
+        "label": "Show first name",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_last_name",
+        "label": "Show last name",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_company_name",
+        "label": "Show company name",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_address",
+        "label": "Show address",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_website_url",
+        "label": "Show website url",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_phone",
+        "label": "Show phone number",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_subject",
+        "label": "Show subject",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Custom Field One"
+      },
+      {
+        "type": "checkbox",
+        "id": "cf_show_custom_field_one",
+        "label": "Show custom field one",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "cf_custom_field_one",
+        "label": "Field Placeholder",
+        "default": "Custom Field One"
+      },
+      {
+       "type":      "select",
+       "id":        "cf_custom_field_one_type",
+       "label":     "Field Type",
+       "default":   "input",
+       "options": [
+         {
+           "value": "textarea",
+           "label": "Multiple line text"
+         },
+         {
+           "value": "input",
+           "label": "Single line text"
+         }
+       ]
+     },
+     {
+       "type": "header",
+       "content": "Custom Field Two"
+     },
+     {
+       "type": "checkbox",
+       "id": "cf_show_custom_field_two",
+       "label": "Show custom field one",
+       "default": false
+     },
+     {
+       "type": "text",
+       "id": "cf_custom_field_two",
+       "label": "Field Placeholder",
+       "default": "Custom Field Two"
+     },
+     {
+      "type":      "select",
+      "id":        "cf_custom_field_two_type",
+      "label":     "Field Type",
+      "default":   "input",
+      "options": [
+        {
+          "value": "textarea",
+          "label": "Multiple line text"
+        },
+        {
+          "value": "input",
+          "label": "Single line text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

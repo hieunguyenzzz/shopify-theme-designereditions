@@ -1,0 +1,24 @@
+<div class="section-title desktop-12 mobile-3">
+  <h1>{{ 'general.404.title' | t }}</h1>
+</div>
+
+<div id="page" class="desktop-12 tablet-6 mobile-3">
+  {{ 'general.404.subtext' | t }}
+  <div id="search-bar">
+    <search-trigger>
+    <form action="{{ routes.search_url }}" method="get">
+      <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}"/>
+      <input type="hidden" name="type" value="product">
+      <input value="{{ 'general.search.submit' | t }}" name="submit" id="search_button" class="button" type="submit">
+      {% if search.performed %}
+        {% if search.results_count == 0 %}
+          <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+        {% else %}
+          <p>{{ 'general.search.results_for_html' | t: terms: search.terms }}</p>
+        {% endif %}
+      {% endif %}
+    </form>
+    </search-trigger>
+  </div>
+</div>
+{% include 'wiser_recentview' %}{% include 'wiser_trending' %}{% include 'wiser_topselling' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_recent_related' %}

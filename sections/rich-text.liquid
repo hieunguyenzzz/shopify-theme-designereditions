@@ -1,0 +1,86 @@
+<section class="homepage-rich-text-{{ section.id }}" data-section-id="{{ section.id }}" data-aos="{{ settings.scroll_animation }}">
+  {% if section.settings.heading != blank %}
+    <div class="section-title row">
+      <h2>{{ section.settings.heading | escape }}</h2>
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="desktop-8 desktop-push-2 tablet-6 mobile-3">
+      {% if section.settings.page != blank %}
+        {%- assign feat_page = pages[section.settings.page] -%}
+        {{ feat_page.content }}
+      {% else %}
+        <div class="rte">
+          {{ section.settings.rich_text }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.page == blank and section.settings.rich_text == blank %}
+        <div class="content-onboard">
+          <p>Use this section to tell customers about your store or add content from one of your pages which makes it easy to add images, video or any other content</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<div class="clear"></div>
+
+<style>
+  section.homepage-rich-text-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+  }
+  section.homepage-rich-text-{{ section.id }} h2,
+  section.homepage-rich-text-{{ section.id }} p {
+    color: {{ section.settings.text_color }} !important;
+  }
+
+  section.homepage-rich-text-{{ section.id }} .section-title:after {
+    background: {{ section.settings.text_color }};
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Rich text",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#fff"
+    },
+    {
+    	"type": "richtext",
+    	"id": "rich_text",
+    	"label": "Text",
+    	"default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+    },
+    {
+      "type": "page",
+      "id": "page",
+	  "label": "Or Show content from a page"
+    }
+  ],
+   "presets":[
+      {
+       "name":"Rich text",
+       "category":"Text"
+
+	  }
+   ]
+}
+{% endschema %}

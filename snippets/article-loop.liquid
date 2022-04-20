@@ -1,0 +1,94 @@
+<div data-aos="{{ settings.scroll_animation }}" class="single-article {% if articleCycle == 'even' %}even{% elsif articleCycle == 'odd' %}odd{% endif %}{% if template contains 'article' %}odd{% endif %}">
+{% capture articleImage %}
+  <div class="article-image">
+    {% if article.image != blank %}
+      <a href="{{ article.url }}">
+        {% render "basic-responsive-image", type: article.image %}
+        <noscript>
+          <img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.image.alt }}">
+        </noscript>
+      </a>
+    {% else %}
+    {% if article.content contains "<img" %}
+        <a href="{{ article.url }}">
+          {% assign article_images = article.content | split: 'src="' %}
+          {% for article_image in article_images %}
+            {% if forloop.index0 == 1 %}
+              {% assign first_image_src = article_image | split: '"' | first %}
+              {% if article.content contains "alt" %}
+                {% assign first_image_alt = article_image | split: 'alt="' | last | split: '"' | first %}
+              {% else %}
+                {% assign first_image_alt = "" %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <img src="{{ first_image_src }}" {% if first_image_alt != blank %} alt="{{ first_image_alt }}" {% endif %} width="100%" />
+        </a>
+      {% else %}
+      {% capture placeholderCycle %}{% cycle 'collection-1', 'collection-2', 'collection-3' %}{% endcapture %}
+      <div class="onboard">
+        {{ placeholderCycle | placeholder_svg_tag }}
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% endcapture %}
+
+ {% if section.settings.blog_layout_grid %}
+ {{ articleImage }}
+ {% endif %}
+
+{% unless section.settings.blog_layout_grid %}
+  {% if articleCycle == 'odd' %}
+  {{ articleImage }}
+  {% else %}
+  <div class="mobile-image">
+    {{ articleImage }}
+  </div>
+  {% endif %}
+{% endunless %}
+
+  <div class="article-body" data-aos="{{ settings.scroll_animation }}">
+    <h3>
+      <a href="{{ article.url }}">
+        {{ article.title }}
+      </a>
+    </h3>
+    <div class="clear"></div>
+    <div class="rte">
+      {% if article.excerpt != blank %}
+        {{ article.excerpt }}
+      {% else %}
+        {% if shop.locale == "ia" %}{{ article.content | strip_html | truncatewords: 10000 }}{% else %}{{ article.content | strip_html | truncatewords: 30 }}{% endif %} <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+      {% endif %}
+    </div>
+    <div class="clear"></div>
+    <div class="post_meta">
+      {% assign published_at = article.published_at | date: "%b %d, %Y" %}
+        <span class="posted">
+          {{ 'blogs.article.posted_on_date_html' | t: date: published_at }}
+        </span>
+        {% if section.settings.show_author %}
+        <span class="posted_by">
+          By {{ article.user.first_name }}
+        </span>
+      {% endif %}
+      {% if article.tags.size > 0 and section.settings.post_tags %}
+        <ul>
+          {% for tag in article.tags %}
+            <li class="tags">
+              <a href="{{ blog.url }}/tagged/{{ tag | handle }}">
+                {{ tag }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if articleCycle == 'even' and section.settings.blog_layout_grid == false %}
+  {{ articleImage }}
+  {% endif %}
+
+</div>

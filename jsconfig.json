@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shopify-directory/*": ["./shopify/*"],
+      "@snippets/*": ["./shopify/*"]
+    }
+  }
+}

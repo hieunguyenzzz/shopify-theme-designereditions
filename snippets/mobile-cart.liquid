@@ -1,0 +1,29 @@
+<!-- Shown on Mobile Only -->
+
+<ul class="tw-list-none tw-flex">
+{% if settings.show_multiple_currencies %}
+  <li>
+    {% render 'currencies-switcher' %}
+  </li>
+{% endif %}
+ <li class="seeks tw-px-2">
+  <a id="search_trigger" class="js-search-trigger js-search-mobile-trigger" href="#">
+    <i class="icon icon-search" aria-hidden="true"></i>
+  </a>
+</li>
+  
+  <li>
+    <a href="{{ routes.cart_url }}" class="site-header__cart-toggle js-drawer-open-right tw-relative" aria-controls="CartDrawer" aria-expanded="false">
+      <span class="cart-words">{{ 'cart.general.title' | t }}</span>
+      &nbsp;<i class="icon icon-cart" aria-hidden="true"></i>
+      <span class="CartCount tw-absolute tw-top-0 tw-leading-loose tw-right-0 tw-badge tw-badge-xs tw-h-[1.2em] tw-transform tw-translate-x-1/2 tw--translate-y-1/3 empty:tw-hidden">{% if cart.item_count > 0 %}
+        {{ cart.item_count }}
+      {% endif %}</span>
+    </a>
+  </li>
+  <li class="text-left slideout__trigger--open tw-ml-3">
+    <button aria-label="Open navigation" class="text-left tw-px-0 tw-text-black slideout__trigger-mobile-menu js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="mobile-navigation" name="button" tabindex="0" type="button">
+        <i aria-hidden="true" class="la la-bars"></i>
+    </button>
+</li>
+</ul>

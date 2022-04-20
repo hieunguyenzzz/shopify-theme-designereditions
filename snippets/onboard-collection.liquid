@@ -1,0 +1,30 @@
+{% comment %}Used for home page sections only when featured collections is chosen but no content has been selected{% endcomment %}
+
+<article id="collection-loop" class="row">
+
+  {% if section.settings.title != blank %}
+    <div class="section-title row">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% for i in (1..3) %}
+    {% capture current %}{{ forloop.index }}{% endcapture %}
+    {%- assign placeholder = 'collection-' | append: current -%}
+
+    <div class="desktop-4 tablet-2 mobile-half" {{ block.shopify_attributes }}>
+      {%- assign image_size = '500x' -%}
+      <div class="collection-image ci onboard">
+        <a href="" title="">
+          {{ placeholder | placeholder_svg_tag }}
+        </a>
+      </div>
+      
+    </div>
+    <div class="product-details">
+      <h3>
+        <a href="#">Sample collection {{ forloop.index }}</a>
+      </h3>
+    </div>
+  {% endfor %}
+</article>

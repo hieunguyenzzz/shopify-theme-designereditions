@@ -1,0 +1,200 @@
+{%- comment -%}
+const allInspiredOf = [
+        {
+            "name": "A and P Castiglioni"
+        },
+        {
+            "name": "Alvar Aalto"
+        },
+        {
+            "name": "Anna Castelli Ferrieri"
+        },
+        {
+            "name": "Arne Jacobsen"
+        },
+        {
+            "name": "August Thonet"
+        },
+        {
+            "name": "Bertjan Pot"
+        },
+        {
+            "name": " Børge Mogensen"
+        },
+        {
+            "name": "Carlo Mollino"
+        },
+        {
+            "name": "Charles Eames"
+        },
+        {
+            "name": "Christian Dell"
+        },
+        {
+            "name": "Draga Obradovic & Aurel K. Basedow"
+        },
+        {
+            "name": "Ebbe Gehl & Søren Nissen  "
+        },
+        {
+            "name": "Eero Aarnio"
+        },
+        {
+            "name": "Eero Saarinen"
+        },
+        {
+            "name": "Eileen Gray"
+        },
+        {
+            "name": "Erik Buch"
+        },
+        {
+            "name": "Fabricius and Kastholm"
+        },
+        {
+            "name": "Finn Juhl"
+        },
+        {
+            "name": "Florence Knoll"
+        },
+        {
+            "name": "Gabriele & Oscar Buratti"
+        },
+        {
+            "name": "George Nelson"
+        },
+        {
+            "name": "Gino Sarfatti"
+        },
+        {
+            "name": "Grant Featherston"
+        },
+        {
+            "name": "Greta Grossman"
+        },
+        {
+            "name": "Hans J. Wegner"
+        },
+        {
+            "name": "Harry Bertoia"
+        },
+        {
+            "name": "Isamu Noguchi"
+        },
+        {
+            "name": "Jean Prouvé"
+        },
+        {
+            "name": "Jens Risom"
+        },
+        {
+            "name": "Jo Hammerborg"
+        },
+        {
+            "name": "Juha Ilmari Leiviskä"
+        },
+        {
+            "name": "Jørn Oberg Utzon"
+        },
+        {
+            "name": "Kai Kristiansen"
+        },
+        {
+            "name": "Le Corbusier"
+        },
+        {
+            "name": "Marcel Breuer"
+        },
+        {
+            "name": "Mariano Fortuny y Madrazo"
+        },
+        {
+            "name": "Mark Stam"
+        },
+        {
+            "name": "Michael Thonet"
+        },
+        {
+            "name": "Mies Van Der Rohe"
+        },
+        {
+            "name": "Designer Icons"
+        },
+        {
+            "name": "Nicolaj Nøddesbo & Tommy Hyldahl"
+        },
+        {
+            "name": "Paulo Rizzatto"
+        },
+        {
+            "name": "Pierre Paulin"
+        },
+        {
+            "name": "Philippe Starck"
+        },
+        {
+            "name": "Poul Christiansen"
+        },
+        {
+            "name": "Poul Henningsen"
+        },
+        {
+            "name": "Poul Kjærholm"
+        },
+        {
+            "name": "Poul Volther"
+        },
+        {
+            "name": "Robert Dudley Best"
+        },
+        {
+            "name": "Serge Mouille"
+        },
+        {
+            "name": "Sigurd Ressell"
+        },
+        {
+            "name": "Sori Yanagi"
+        },
+        {
+            "name": "Xavier Pauchard"
+        },
+        {
+            "name": "Verner Panton"
+        },
+        {
+            "name": "Vico Magistretti"
+        },
+        {
+            "name": "Warren Platner"
+        },
+        {
+            "name": "Wilhelm Wagenfeld"
+        },
+        {
+            "name": "Bernard Schottlander"
+        },
+        {
+            "name": "Bernard-Albin Gras"
+        },
+        {
+            "name": "Shin and Tomoko Azumi"
+        },
+        {
+            "name": "Mario Bellini"
+        }
+    ];
+{%- endcomment -%}
+
+
+{% assign designers = 'A and P Castiglioni,Alvar Aalto,Anna Castelli Ferrieri,Arne Jacobsen,August Thonet,Bertjan Pot, Børge Mogensen,Carlo Mollino,Charles Eames,Christian Dell,Draga Obradovic & Aurel K. Basedow,Ebbe Gehl & Søren Nissen  ,Eero Aarnio,Eero Saarinen,Eileen Gray,Erik Buch,Fabricius and Kastholm,Finn Juhl,Florence Knoll,Gabriele & Oscar Buratti,George Nelson,Gino Sarfatti,Grant Featherston,Greta Grossman,Hans J. Wegner,Harry Bertoia,Isamu Noguchi,Jean Prouvé,Jens Risom,Jo Hammerborg,Juha Ilmari Leiviskä,Jørn Oberg Utzon,Kai Kristiansen,Le Corbusier,Marcel Breuer,Mariano Fortuny y Madrazo,Mark Stam,Michael Thonet,Mies Van Der Rohe,Designer Icons,Nicolaj Nøddesbo & Tommy Hyldahl,Paulo Rizzatto,Pierre Paulin,Philippe Starck,Poul Christiansen,Poul Henningsen,Poul Kjærholm,Poul Volther,Robert Dudley Best,Serge Mouille,Sigurd Ressell,Sori Yanagi,Xavier Pauchard,Verner Panton,Vico Magistretti,Warren Platner,Wilhelm Wagenfeld,Bernard Schottlander,Bernard-Albin Gras,Shin and Tomoko Azumi,Mario Bellini' | split: ',' | sort %}
+
+{% for designer in designers %}
+    {% assign handlizedDisigner = designer | handleize %}
+    {% assign collection = collections[handlizedDisigner] %}
+    {% if collection and collection.products.size > 0  %}
+        <li {% if class %} class="{{class}}" {% else %} class="megamenu__listitem tw-w-[340px]" {% endif %}>
+            <a {% if class %} {% else %} class="megamenu__listlink" {% endif %} href="/collections/{{designer | handleize}}">{{designer}}</a>
+        </li>
+    {% endif %}
+{% endfor %}

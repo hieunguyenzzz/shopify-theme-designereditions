@@ -1,0 +1,78 @@
+{% assign instructions = product.variants[0].metafields.global %}
+{% if product.variants.size != 1 %}
+    {% assign instructions = product.selected_variant.metafields.global %}
+{% endif %}
+<div id="{{section.id}}">
+    {% render 'product-descriptions' instructions:instructions %}
+</div>
+
+{% for variant  in product.variants %}
+    <template data-{{section.id}}="{{variant.id}}">
+        {% render 'product-descriptions' instructions:variant.metafields.global %}
+    </template>
+{% endfor %}
+
+<script>
+  window.addEventListener("themeloaded", function(event) { // (1)
+    Events.on('variantchange', function(variant,product, context){
+      // console.log({variant,product, context})
+			const wrapper =  document.querySelector('#{{section.id}}')
+			const content =  document.querySelector(`[data-{{section.id}}='${variant.id}']`).content
+			wrapper.innerText=''
+			wrapper.append(content.cloneNode(true))
+    })
+  })
+	// setTimeout(()=>{
+	// 	window.Events.on('variantchange', function(variant,product, context){
+	// 		const wrapper =  document.querySelector('#{{section.id}}')
+	// 		const content =  document.querySelector(`[data-{{section.id}}='${variant.id}']`).content
+	// 		wrapper.innerText=''
+	// 		// console.log({
+	// 		// 	wrapper,
+	// 		// 	content
+	// 		// })
+	// 		wrapper.append(content.cloneNode(true))
+  //       })
+	// },700)
+</script>
+<style>
+
+
+  .lifestyle__text.center.half {
+    width: 50%;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+  div#shopify-section-product-descriptions-section .desktop-12 {
+    margin-top: 20px;
+}
+  h3 {
+    text-transform: uppercase;
+}
+  .lifestyle__text1 {
+    vertical-align: middle;
+    display: block;
+    padding: 10%;
+}
+
+  .desktop-12.inpiredby.row {
+    padding-top: 50px;
+}
+  div#shopify-section-product-descriptions-section img {
+    width: 100%;
+    padding: 30px;
+    /* max-height: 530px; */
+    width: auto;
+    text-align: center;
+    align-items: center;
+    display: table;
+}
+</style>
+{% schema %}
+
+{
+    "name": "Section name",
+    "settings": []
+}
+
+{% endschema %}

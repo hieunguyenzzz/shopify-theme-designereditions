@@ -1,0 +1,97 @@
+{% if template contains 'index' %}
+ <script type="application/ld+json">
+   {
+   "@context": "https://schema.org",
+   "@type": "Organization",
+   "name": "{{ shop.name }}",
+   "url": "{{ routes.root_url }}",
+   {% if settings.social_logo != blank %}
+   {%- assign image_size = '600x' -%}
+   "logo": "{{ settings.social_logo | img_url: image_size }}",
+   {% endif %}
+   "contactPoint": {
+     "@type": "ContactPoint",
+     "contactType": "customer support",
+     "email": "{{ shop.email }}",
+     "url": "{{ routes.root_url }}"
+   },
+   "sameAs": [
+   	"{{ shop.url }}",
+      {% if settings.facebook_url != blank %}"{{ settings.facebook_url }}",{% endif %}
+      {% if settings.twitter_url != blank %}"{{ settings.twittername }}",{% endif %}
+      {% if settings.pinterest_url != blank %}"{{ settings.pinterest_url }}",{% endif %}
+      {% if settings.instagram_url != blank %}"//instagram.com/{{ settings.instagram-id }}"{% endif %}
+     ]
+   }
+ </script>
+{% elsif template contains 'article' %}
+ <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "BlogPosting",
+     "author": {
+       "@type": "Person",
+       "name": "{{ article.author }}"
+     },
+     "datePublished": "{{ article.created_at | date: "%F" }}",
+     "headline": "{{ article.title | strip_html | escape }}",
+     "image": "{{ article.image }}",
+     "publisher": {
+       "@type": "Organization",
+       "name": "{{ shop.name }}",
+       "url": "{{ routes.root_url }}"
+       {% if settings.social_logo != blank %},
+       {%- assign image_size = '600x' -%}
+       "logo": {
+         "@type": "ImageObject",
+         "url": "{{ settings.social_logo | img_url: image_size }}"
+       }
+       {% endif %}
+     },
+     "dateModified": "{{ article.published_at | date: "%F" }}",
+     "mainEntityOfPage": "{{ article.url }}"
+   }
+ </script>
+{% elsif template contains 'product' %}
+ <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Product",
+     "id": "{{ product.handle }}",
+     "url": "{{ routes.root_url }}{{ product.url }}",
+     "image": "{{ product.featured_image | img_url: '1024x' }}",
+     "name": "{{ product.title | strip_html | escape }}",
+     "brand": "{{ product.vendor | escape }}",
+     "description": "{{ product.description | strip_html | escape }}",
+     {%- if product.variants.first.sku != blank -%}
+       "sku": "{{ product.variants.first.sku }}",
+     {%- else -%}
+       "sku": "{{ product.variants.first.id }}",
+     {%- endif -%}
+     {%- if product.variants.first.barcode.size == 12 -%}
+       "gtin12": {{ product.variants.first.barcode }},
+     {%- endif -%}
+     {%- if product.variants.first.barcode.size == 13 -%}
+       "gtin13": {{ product.variants.first.barcode }},
+     {%- endif -%}
+     {%- if product.variants.first.barcode.size == 14 -%}
+       "gtin14": {{ product.variants.first.barcode }},
+     {%- endif -%}
+     "offers": {
+       "@type": "Offer",
+       "price": "{{ product.selected_or_first_available_variant.price | money_without_currency }}",
+       "priceCurrency": "{{ cart.currency.iso_code }}",
+       "availability": "http://schema.org/InStock",
+       "priceValidUntil": "2030-01-01",
+       "url": "{{ product.url }}"
+     }
+    {%- if product.metafields.spr.reviews -%}
+    ,"aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": {{ product.metafields.spr.reviews | split: 'ratingValue" content="' | last | split: '"' | first | plus: 0 }},
+      "ratingCount": {{ product.metafields.spr.reviews | split: 'reviewCount" content="' | last | split: '"' | first | plus: 0 }}
+    }
+    {%- endif -%}
+   }
+ </script>
+{% endif %}

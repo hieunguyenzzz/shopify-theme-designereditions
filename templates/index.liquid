@@ -1,0 +1,31 @@
+<div class="index-sections"><div class="margins">
+  {{ content_for_index }}
+  </div>
+</div>
+<style>
+	  @media screen and (max-width: 768px)
+    {   
+  p,  h1, h2, h3, h4, h5, h6    {
+     
+    text-align: center;
+}.cta {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+    }
+     
+    @media screen and (min-width: 1768px)
+    { 
+
+  div#section-1618896363be3841e6,div#shopify-section-16189013725b548575 {
+    max-width: 1600px;
+    margin: 0 auto;
+} 
+      
+      
+   
+ 
+      
+    }
+</style>{% include 'wiser_recentview' %}{% include 'wiser_trending' %}{% include 'wiser_topselling' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_recent_related' %}

@@ -1,0 +1,49 @@
+
+
+{% assign countrymap = '
+GB en ,
+SE se /sv-se,
+DE de /de-de,
+NO no /no-no,
+FR fr /fr-fr,
+NL nl /nl-nl,
+BE nl /nl-be show,
+BE fr /fr-be show,
+AT de /de-at show,
+ES es /es-es' %}
+{% assign path = request.path %}
+{% if request.locale.root_url and request.locale.root_url != "/" %}
+    {% assign path = request.path | replace_first: request.locale.root_url, '/' %}
+{% endif %}
+<div class="tw-dropdown tw-flex tw-dropdown-end tw-dropdown-hover">
+    <div tabindex="0" class="tw-btn tw-btn-ghost !tw-font-normal !tw-mb-0 tw-rounded-none tw-btn-xs tw-items-center tw-gap-1">
+            {%- assign iconPath =  localization.country.iso_code | downcase | append:'-flag' | append: '.svg' %}
+            <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                              {{ localization.language.iso_code | append: '/' | append: localization.country.iso_code | downcase | split: '/' | uniq | join: '/'}}
+    </div> 
+    <div tabindex="0" class="p-2 tw-top-full tw-py-4 tw-flex tw-flex-col tw-shadow tw-dropdown-content tw-bg-base-100 tw-rounded tw-w-[240px] tw-truncate">
+        {% assign contrylangs = countrymap | split: ',' %}
+        {%- for contrylang in contrylangs -%}
+        
+            {% assign contrylangarray = contrylang | split: ' ' %}
+            {% assign contrycode = contrylangarray[0] %}
+            {% assign langcode = contrylangarray[1] %}
+            {% assign root_url = contrylangarray[2] %}
+            {% assign show = contrylangarray[3] %}
+            {% assign country =  localization.available_countries | where: "iso_code", contrycode | first %}
+            {% unless country %}
+                {% continue %}
+            {% endunless %}
+            {% assign lang =  localization.available_languages | where: "iso_code", langcode | first | default: localization.language  %}
+                <a title="{{lang.endonym_name}}" href="{{root_url | append: path | replace: '//', '/'}}" class=" tw-items-center !tw-py-2 tw-leading-none tw-capitalize !tw-flex tw-justify-between !tw-px-3 tw-gap-2  hover:tw-underline {% if country.iso_code == localization.country.iso_code %} tw-font-bold{% endif %} focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-country="{{ country.iso_code }}" data-lang="{{ lang.iso_code }}" data-value="{{ country.iso_code }}">
+                    {{ country.name | capitalize }}
+                    {% if show %}
+                        ({{lang.name | capitalize}})
+                    {% endif %}
+                    {%- assign iconPath =  country.iso_code | downcase | append:'-flag' | append: '.svg' %}
+                    <img width="16" height="16" class="!tw-pl-0 tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                </a>
+            
+        {%- endfor -%}
+    </div>
+  </div>

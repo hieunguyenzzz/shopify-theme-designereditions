@@ -1,0 +1,27 @@
+{% assign object_fit = 'tw-object-contain' %}
+{% unless image_size %}
+    {% assign image_size = '800x' %}
+{% endunless %}
+{% if cover %}
+    {% assign object_fit = 'tw-object-cover' %}
+{% endif %}
+{%- if image.size > 0 -%}
+    {% if image_box_ratio %}
+        {% else %}
+            {% assign image_box_ratio = image.height | append: ".0" | times: 1 | divided_by: image.width | times: 100 | append: "%" %}
+    {% endif %}
+    {% assign img_url = image | img_url: image_size  %}
+    {% if layout == 'fill' %}
+        <img class="lazyload tw-p-[4%] tw-absolute tw-inset-0 !tw-w-full !tw-h-full {{object_fit}} lazyload-fade {{ is_first }}  {{class}}" id="{{ image.id }}" data-src="{{ img_url }}" data-sizes="auto" width="{{ image.image.width }}" height="{{ image.image.height }}" data-original="{{ image | img_url: image_size }}" {%- if data_widths != blank -%} data-widths="{{ data_widths }}" {%- endif -%} alt="{{ image.alt | escape }}">
+        <noscript>
+            <img class="tw-p-[4%] tw-absolute tw-inset-0 !tw-w-full !tw-h-full {{object_fit}}" width="{{ image.width }}" height="{{ image.height }}" src="{{ image | img_url: image_size }}" alt="{{ image.alt }}">
+        </noscript>
+    {% else %}
+        <div class="!tw-w-full tw-relative" style="padding-bottom: {{ image_box_ratio }};">
+            <img class="lazyload tw-p-[4%] tw-absolute tw-inset-0 !tw-w-full !tw-h-full {{object_fit}} lazyload-fade {{ is_first }} {{class}}" id="{{ image.id }}" data-src="{{ img_url }}" data-sizes="auto" width="{{ image.image.width }}" height="{{ image.image.height }}" data-original="{{ image | img_url: image_size }}" {%- if data_widths != blank -%} data-widths="{{ data_widths }}" {%- endif -%} alt="{{ image.alt | escape }}">
+            <noscript>
+                <img class="tw-p-[4%] tw-absolute tw-inset-0 !tw-w-full !tw-h-full {{object_fit}} " width="{{ image.width }}" height="{{ image.height }}" src="{{ image | img_url: image_size}}" alt="{{ image.alt }}">
+            </noscript>
+        </div>
+    {% endif %}
+{%- endif -%}

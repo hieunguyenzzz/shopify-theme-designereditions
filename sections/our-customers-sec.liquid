@@ -1,0 +1,216 @@
+{% render 'our-customers-snip', page: page %}
+
+{% schema %}
+
+{
+  "name": "Custom customers",
+  "max_blocks": 40,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "page_title",
+      "name": "Page Title",
+      "settings": []
+    }, {
+      "type": "page_content",
+      "name": "Page Content",
+      "settings": [
+        {
+          "type": "select",
+          "id": "pc_align",
+          "label": "Content alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            }, {
+              "value": "left",
+              "label": "Left"
+            }, {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }, {
+          "type": "range",
+          "id": "pc_max_width",
+          "min": 600,
+          "max": 1000,
+          "step": 100,
+          "unit": "px",
+          "label": "Content width",
+          "default": 800
+        }
+      ]
+    }, {
+      "type": "featured_collection",
+      "name": "Featured Collection",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "sellers",
+          "type": "text",
+          "label": "Title"
+        }, {
+          "id": "fc_collection",
+          "type": "collection",
+          "label": "Collection"
+        }, {
+          "id": "fc_carousel",
+          "type": "checkbox",
+          "label": "Display in carousel"
+        }, {
+          "type": "range",
+          "id": "fc_grid",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "label": "Products per row",
+          "default": 4
+        }, {
+          "type": "range",
+          "id": "fc_limit",
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "label": "Products shown",
+          "default": 8
+        }
+      ]
+    }, {
+      "type": "card",
+      "name": "Blocks",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }, {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        }, {
+          "type": "text",
+          "id": "subHeading",
+          "label": "Sub heading",
+          "default": "Sub heading"
+        }, {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }, {
+     "type": "collection",
+      "name": "Featured collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Featured collection"
+        },
+       {
+           "type": "checkbox",
+           "id": "hidelabel",
+           "label": "Hide label",
+           "default": false
+       }
+        ,  {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+        }, {
+            "type": "range",
+            "id": "limit",
+            "min": 2,
+            "max": 30,
+            "step": 1,
+            "label": "Products shown",
+            "default": 8
+        }
+    ]
+    },{
+      "type": "collection_list",
+      "name": "Collection List",
+      "settings": [
+        {
+          "type": "range",
+          "id": "cl_collections_per_row",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "label": "Collections per row",
+          "default": 4
+        }, {
+          "type": "header",
+          "content": "Choose Collections"
+        }, {
+          "label": "Collection 1",
+          "id": "cl_collection_1",
+          "type": "collection"
+        }, {
+          "label": "Collection 2",
+          "id": "cl_collection_2",
+          "type": "collection"
+        }, {
+          "label": "Collection 3",
+          "id": "cl_collection_3",
+          "type": "collection"
+        }, {
+          "label": "Collection 4",
+          "id": "cl_collection_4",
+          "type": "collection"
+        }
+      ]
+    }, {
+      "type": "rich_text",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rt_heading",
+          "label": "Heading",
+          "default": "Welcome"
+        }, {
+          "type": "richtext",
+          "id": "rt_text",
+          "label": "Text",
+          "info": "Use basic HTML to format text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }, {
+          "type": "page",
+          "id": "rt_page",
+          "label": "Or Show content from a page"
+        }, {
+          "type": "select",
+          "id": "rt_alignment",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            }, {
+              "value": "center",
+              "label": "Center"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "page_title"
+      }, {
+        "type": "page_content"
+      }
+    ]
+  }
+}
+
+{% endschema %}

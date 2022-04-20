@@ -1,0 +1,25 @@
+{% for i in (1..post_limit) %}
+  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+  {%- assign placeholder = 'lifestyle-' | append: current -%}
+  <div class="single-article desktop-6 tablet-3 mobile-3">
+
+    <h3>
+      <a href="#">Blog post {{ forloop.index }}</a>
+    </h3>
+    <div class="article-content">
+      {%- assign image_size = '800x' -%}
+      <div class="article-image onboard">
+        <a href="#">
+          {{ placeholder | placeholder_svg_tag }}
+        </a>
+      </div>
+    </div>
+    <div class="article-body">
+      <span class="posted">{{ 'now' | date: "%a, %b %d, %y" }}</span>
+      <div class="clear"></div>
+      <div class="rte">
+        Blog post {{ forloop.index }} sample text
+      </div>
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,255 @@
+<div id="shopping-cart" class="desktop-12 tablet-6 mobile-3">
+  {% if cart.item_count == 0 %}
+    <div class="empty-cart-wrapper">
+      <h1 class="page-title">{{ 'cart.general.title' | t }}</h1>
+      <p>{{ 'cart.general.empty' | t }}</p>
+      <div class="clear"></div>
+    </div>
+  {% else %}
+    <script type="text/javascript">
+      function remove_item(id) {
+        document.getElementById('updates_'+id).value = 0;
+        document.getElementById('cartform').submit();
+      }
+    </script>
+
+    <form action="{{ routes.cart_url }}" method="post" id="cartform">
+
+      <div class="desktop-8 tablet-6 mobile-3">
+        <h1 class="page-title">{{ 'cart.general.title' | t }} <span class="CartCount">{{ cart.item_count }} {{ 'cart.general.items' | t }}</span></h1>
+
+        {% for item in cart.items %}
+          <div class="cart-item">
+            <a class="remove" href="#" onclick="remove_item({{ item.variant.id }}); return false;"><span>+</span></a>
+            <div class="cart-image">
+              <a href="{{ item.url }}" title="{{ item.product.title | escape }}">
+                {% render "basic-responsive-image" | type: item.image %}
+              </a>
+            </div>
+            <div class="cart-title">
+              {% if settings.vendor %}
+                <em>{{ item.vendor }}</em>
+              {% endif %}
+              <h4>{{ item.product.title }}
+<!-- **BEGIN** Hextom USB Integration // Cart Include - DO NOT MODIFY -->
+    {% render 'hextom_usb_cart', item: item %}
+    <!-- **END** Hextom USB Integration // Cart Include - DO NOT MODIFY -->
+</h4>
+              {%- unless item.variant.title contains 'Default' -%}
+                <p>
+                  {% for option in item.product.options %}
+                    {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                  {% endfor %}
+                </p>
+              {%- endunless -%}
+
+              {% if item.selling_plan_allocation %}
+               <p>{{ item.selling_plan_allocation.selling_plan.name }}<p>
+              {% endif %}
+
+              {% assign property_size = item.properties | size %}
+              {% if property_size > 0 %}
+                {% for p in item.properties %}
+                  {% unless p.last == blank %}
+                  {{ p.first }}:
+
+                  {% comment %}
+                  Check if there was an uploaded file associated
+                  {% endcomment %}
+                  {% if p.last contains '/uploads/' %}
+                  <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                  {% else %}
+                  {{ p.last }}
+                  {% endif %}
+
+                  <br>
+                  {% endunless %}
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="cart-price">
+              <div class="item-pricing">
+                <p><b>{{ 'cart.general.price' | t }}</b></p>
+                {%- assign hasDiscount = false -%}
+                {%- if item.original_price != item.final_price -%}
+                  {%- assign hasDiscount = true -%}
+                {%- endif -%}
+
+                <div data-cart-item-price>
+                    <dl data-cart-item-price-list>
+                      {%- comment -%}
+                        Markup template for discount item
+                      {%- endcomment -%}
+                      <div {% unless hasDiscount %}class="hide" {% endunless %}data-cart-item-discounted-price-group>
+                        <dt>
+                          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                        </dt>
+                        <dd>
+                          <s data-cart-item-original-price><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}</s>
+                        </dd>
+                        <dt>
+                          <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                        </dt>
+                        <dd>
+                          <span class="order-discount onsale" data-cart-item-final-price><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_3" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_price | money }}</span>
+                        </dd>
+                      </div>
+
+                      {%- comment -%}
+                        Markup template for regular price item
+                      {%- endcomment -%}
+                      <div {% if hasDiscount %}class="hide" {% endif %}data-cart-item-regular-price-group>
+                        <dt>
+                          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                        </dt>
+                        <dd data-cart-item-regular-price>
+                          <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}
+                        </dd>
+                      </div>
+
+                      {%- comment -%}
+                        Markup template for unit price
+                      {%- endcomment -%}
+                      <div {% unless item.unit_price_measurement %}class="hide" {% endunless %}data-unit-price-group>
+                        <dt>
+                          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+                        </dt>
+                        <dd>
+                          <span class="price-unit-price">
+                            {%- capture unit_price_separator -%}
+                              <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+                            {%- endcapture -%}
+                            {%- capture unit_price_base_unit -%}
+                              {%- if item.unit_price_measurement.reference_value != 1 -%}
+                                {{- item.unit_price_measurement.reference_value -}}
+                              {%- endif -%}
+                              {{ item.unit_price_measurement.reference_unit }}
+                            {%- endcapture -%}
+
+                            <span data-unit-price>{{ item.unit_price | money }}</span>{{- unit_price_separator -}}<span data-unit-price-base-unit>{{- unit_price_base_unit -}}</span>
+                          </span>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+              </div>
+              <div class="qty">
+                <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+                <input min="1" type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} />
+              </div>
+              <div class="line-pricing">
+                <p><b>{{ 'cart.general.total' | t }}</b></p>
+                <h5>
+                  <p><span class="cart-item-price money {% if item.original_price > item.final_price or item.variant.compare_at_price > item.final_price %}onsale{% endif %}" data-key="{{item.key}}" style="margin-right: 5px;"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</span>
+                    {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
+                </h5>
+              </div>
+              {% if item.line_level_discount_allocations.size > 0 %}
+                {% for discount_allocation in item.line_level_discount_allocations %}
+                  <p class="onsale"><i class="la la-tag"></i> {{ 'cart.general.discount_applied' | t }} {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div id="basket-right" class="desktop-4 tablet-6 mobile-3">
+        <h2>{{ 'cart.general.summary' | t }}</h2>
+        <div class="cart-final-details">
+          <div class="subtotal">
+            <p class="title">{{ 'cart.general.subtotal' | t }}</p>
+            <p class="subtotal-price"><span class="cart-original-total money">{{ cart.items_subtotal_price | money }}</span></p>
+          </div>
+          {%- if settings.show_tax_note -%}
+            <div class="tax">
+              <p class="title">{{ 'cart.general.tax' | t }}</p>
+              <p>{{ 'cart.general.at_checkout' | t }}</p>
+            </div>
+          {%- endif -%}
+          {%- if settings.show_shipping_note -%}
+            <div class="shipping">
+              <p class="title">{{ 'cart.general.shipping' | t }}</p>
+              <p>{{ 'cart.general.at_checkout' | t }}</p>
+            </div>
+          {%- endif -%}
+          <div class="discounts">
+            {%- if cart.cart_level_discount_applications != blank -%}
+              <p>{{ 'cart.general.discounts' | t }}</p>
+              <ul>
+                {%- for discount_application in cart.cart_level_discount_applications -%}
+                  <li><i class="la la-tag"></i> {{ discount_application.title }}
+                   (-{{ discount_application.total_allocated_amount | money }})</li>
+                {%- endfor -%}
+                </ul>
+            {%- else -%}
+              {% if cart.total_discounts > 0 %}
+                <div class="cart_savings onsale">
+                  <p><em>{{ 'cart.general.savings' | t }}</em></p>
+                  <p class="cart-savings-amount"><em>{{ cart.total_discounts | money }}</em></p>
+                </div>
+              {% endif %}
+            {%- endif -%}
+          </div>
+          <div class="total">
+            <h3 class="title">{{ 'cart.general.total' | t }}</h3>
+            <h3 class="total-price"><span class="cart-original-total money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</span>
+            <span class="cart-total"></span></h3>
+          </div>
+        </div>
+        <div class="cart-extras rte-accordion">
+          {% if settings.show_shipping_countdown %}
+            {% render 'cart-free-shipping', cart: cart %}
+          {% endif %}
+          {% if settings.show_cart_notes %}
+            <div id="cart-notes" class="item">
+              <input class="trigger" id="item-one" type="checkbox" name="items" />
+              <label class="accordion-label" for="item-one"><span class="item-heading">{{ 'cart.general.note' | t }}</span></label>
+              <div class="item-content">
+                <textarea name="note" id="note" rows="5" cols="60">{{cart.note}}</textarea>
+              </div>
+            </div>
+          {% endif %}
+          {% if settings.show_shipping_calculator %}
+            {% render 'shipping-calculator', cart: cart %}
+          {% endif %}
+        </div>
+        <div class="cart-buttons">
+          <input type="submit" name="checkout" id="checkout" value="{{ 'cart.general.checkout' | t }}" class="button" />
+          <!-- <h5 class="text-center or-divider"><span>Or</span></h5>
+          <div class="clear"></div>
+          {% if additional_checkout_buttons %}
+            <div class="additional-checkout-buttons">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
+          {% endif %} -->
+          <div class="clear"></div>
+          <div class="payment-types tw-flex tw-flex-wrap tw-gap-1">
+            {% for type in shop.enabled_payment_types %}
+              <img src="{{ type | payment_type_img_url }}" />
+            {% endfor %}
+          </div>
+          <div class="clear"></div>
+           <input type="submit" name="update" id="update-cart" value="{{ 'cart.general.update' | t }}" class="outline-button" />
+           <a class="outline-button" href="/collections">{{ 'cart.general.continue' | t }}</a>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+
+  <div class="clear"></div>
+  <script>
+    jQuery('[max]').change(function() {
+      var max = parseInt(jQuery(this).attr('max'), 10) || 10000;
+      var value = parseInt(jQuery(this).val(), 10) || 0;
+      if (value > max) {
+        var msg = {{ 'products.product.qty_error_first' | t | json }} + "\xa0" + max + "\xa0" + {{ 'products.product.qty_error_last' | t | json }};
+        var msg = '<h2 class="errors qty-error">' + msg + '</h2>'
+
+        $.fancybox.open(msg);
+
+        jQuery(this).val(max);
+      }
+    });
+  </script>
+</div>
+{% include 'wiser_related' %}{% include 'wiser_recommended' %}{% include 'wiser_trending' %}{% include 'wiser_recentview' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_topselling' %}{% include 'wiser_recent_related' %}

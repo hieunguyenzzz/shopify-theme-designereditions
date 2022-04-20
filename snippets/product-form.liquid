@@ -1,0 +1,217 @@
+{% assign featuredShowexpress = false %}
+{% for variant in product.variants %}
+  {% if variant.metafields.global.in-stock == 'true' or variant.metafields.global.in-stock == true %}
+    {% assign featuredShowexpress = true %}
+  {% endif %}
+{% endfor %}
+<input type="hidden" name="product_url" id="product_url" value="{{ product.title | handle }}">
+  {% form 'product', product, id: "AddToCartForm", class: "product_form !tw-flex tw-flex-col", data-product-form:product_form_config, data-product-id: product.id %}
+<!--   <a class="sprs" href="#product-reviews"> <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">    </span></a> -->
+{% if featuredShowexpress %}
+<label class="tw-alert tw-rounded-none tw-alert-sm tw-clear-both ">
+  <div class="tw-flex-1 tw-flex tw-w-full">
+    <div class="tw-flex-1 tw-text-xs md:tw-text-sm tw-leading-[20px]">
+      <div>{{ 'strings.general.show_express_delivery_options' | t }}
+      </div>
+    </div>
+    <input id="showExpress" type="checkbox" class="tw-toggle tw-toggle-sm md:tw-toggle-md">
+  </div>
+</label>
+<style>
+  .show-outstock input[data-in-stock="false"]+label{
+    display: none;
+  }
+</style>
+<script>
+  function handleShowExpressDeliveryOptions (variantId){
+    const show = document.querySelector("#showExpress").checked
+    if(show){
+      document.querySelector('.product-form').classList.add('show-outstock')
+    }else{
+      document.querySelector('.product-form').classList.remove('show-outstock')
+    }
+
+    let current = document.querySelector(`[data-in-stock][value="${variantId}"]`)
+
+      let instockinput = optionSelectors.product.options.reduce((result,value,index,array)=>{
+        if(index===0){
+          result.push(`option[data-in-stock="true"]`)
+        }
+        if(index>0 && index <array.length){
+          const value = current.dataset[`option-${index}`]
+          result.push(`${result[index-1]||''}[data-option-${index}="${value}"]`)
+        }
+        
+        return result
+      },[]).reduce((result,selector,index)=>{
+        // console.log({selector})
+        document.querySelectorAll(selector).forEach(e=>{
+          result.push(`product-template-swatch-${index+1}-${e.dataset[`option-${index+1}`].toLowerCase()}`)
+        })
+        return result
+      },[])
+      // console.log({current,'optionSelectors.product.options':instockinput})
+      document.querySelectorAll('.swatch-element>input').forEach(e=>{
+        if(instockinput.includes(e.id)){
+          e.setAttribute('data-in-stock',"true")
+        }else{
+          e.setAttribute('data-in-stock',"false")
+        }
+      })
+  }
+  window.addEventListener("themeloaded", function(event) {
+    let variantchangeevent
+    document.querySelector("#showExpress").addEventListener('input',(e)=>{
+      handleShowExpressDeliveryOptions(optionSelectors.variantIdField.value)
+      if(!variantchangeevent){
+        variantchangeevent=Events.on('variantchange', function(variant,product, context){
+          handleShowExpressDeliveryOptions(variant.id)
+        })
+      }
+      let current =document.querySelector(`[data-in-stock="true"][value="${optionSelectors.variantIdField.value}"]`)
+      if(!current){
+        current =document.querySelector(`[data-in-stock="true"]`)
+        const variantId = current.value
+        optionSelectors.selectVariant(variantId)
+      }
+
+    })
+
+  })
+</script>
+{% endif %}
+
+{% if product.options.size > 1 %}
+    <div class="select" {% if product.variants.size == 1 or section.settings.product_variants == 'swatches' %} style="display: none;" {% endif %}>
+        <select id="{{ section.id }}-product-select-{{ product.id }}" name="id">
+            {% for variant in product.variants %}
+                {% capture data_options %}
+                    {% for option in variant.options %}
+                        data-option-{{forloop.index}}="{{option | handleize}}"{{' '}}
+                    {% endfor %}
+                {% endcapture %}
+                {% capture data-inventory-quantity %}
+                    data-inventory-quantity="{{variant.inventory_quantity}}"
+                {% endcapture %}
+                {% capture data-in-stock %}
+                    data-in-stock="{{variant.metafields.global.in-stock | default:'false'}}"
+                {% endcapture %}
+                <option value="{{ variant.id }}" data-available="{{product.available}}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
+                    {{ variant.title }}
+                    -
+                    {{ variant.price | money }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if section.settings.product_variants == 'swatches' %}
+        {% for option in product.options_with_values %}
+            {% render "swatch", product: product, option: option, current_variant: current_variant %}
+        {% endfor %}
+    {% endif %}
+{% elsif product.options.size == 1 and product.variants.size > 0 %}
+    <div class="select" {% if product.variants.size == 1 or section.settings.product_variants == 'swatches' %} style="display: none;" {% endif %}>
+        <label>{{ product.options[0] }}</label>
+        <select id="{{ section.id }}-product-select-{{ product.id }}" name="id">
+            {% for variant in product.variants %}
+                {% capture data_options %}
+                    {% for option in variant.options %}
+                        data-option-{{forloop.index}}="{{option | handleize}}"{{' '}}
+                    {% endfor %}
+                {% endcapture %}
+                {% capture data-inventory-quantity %}
+                    data-inventory-quantity="{{variant.inventory_quantity}}"
+                {% endcapture %}
+                {% capture data-in-stock %}
+                    data-in-stock="{{variant.metafields.global.in-stock | default:'false'}}"
+                {% endcapture %}
+                <option data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
+                    {{ variant.title }}
+                    -
+                    {{ variant.price | money }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if section.settings.product_variants == 'swatches' %}
+        {% for option in product.options_with_values %}
+            {% render "swatch", product: product, option: option, current_variant: current_variant, index: forloop.index %}
+        {% endfor %}
+    {% endif %}
+{% else %}
+    <div class="what-is-it">
+        {% if product.options.first != 'Title' %}
+            <label>{{ product.options.first }}:</label>
+            {% for variant in product.variants %}
+                <span class="it-is">{{ variant.option1 | escape }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="product-variants"></div><!-- product variants -->
+    <input type="hidden" id="{{ variant.id }}" name="id" data-sku="{{ variant.sku }}" value="{{ product.variants[0].id }}"/>
+{% endif %}
+
+{% if show_sku %}
+    <div class="sku">
+        <label style="display: inline-block; line-height: 1.6em;">{{ 'customer.order.details.sku' | t }}:</label>
+        <span class="variant_sku">{{ current_variant.sku }}</span>
+    </div>
+    <div class="clear"></div>
+{% endif %}
+
+{% if section.settings.show_quantity_selector %}
+    <div class="product-qty selector-wrapper">
+        <h5>{{ 'products.product.quantity' | t }}</h5>
+        <a class="downer quantity-control-down">-</a>
+        <input min="1" type="text" name="quantity" class="product-quantity" value="1" {% if current_variant.inventory_management == 'shopify' %} {% unless current_variant.inventory_policy == 'continue' %} max="{{ current_variant.inventory_quantity }}" {% endunless %} {% endif %}/>
+        <a class="up quantity-control-up">+</a>
+    </div>
+    <div class="clear"></div>
+{% endif %}
+<div class="tw-text-center tw-w-full tw-flex-1 tw-justify-center lg:tw-order-[-1]">
+  {% render 'product-price', variant: current_variant, product: product %}
+  {% render 'countdown-timer-product'  class: '' %}
+  
+</div>
+<div id="leading_time"  class="lg:tw-bg-[#eef5f1] lg:tw-font-bold tw-text-center lg:tw-px-2 lg:tw-py-1 lg:tw-text-sm lg:tw-my-3 lg:tw-mb-5 lg:tw-text-left" >
+  <span class="">{% if current_variant.metafields.global.leading-time %}
+    {{current_variant.metafields.global.leading-time}}
+{% else %}
+    Ships in 18-22 weeks
+{% endif %}</span>
+  
+</div>
+{% if current_variant.available %}
+    <div class="product-add">
+        <input id="AddToCart" type="submit" name="button" class="add{% if section.settings.show_payment_button and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}" value="{{ 'products.product.add_to_cart' | t }}"/>
+    </div>
+{% else %}
+    <div class="product-add">
+        <input id="AddToCart" type="submit" name="button" class="add{% if section.settings.show_payment_button and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}" value="{{ 'products.product.sold_out' | t }}"/>
+    </div>
+{% endif %}
+
+{% if section.settings.show_payment_button %}
+    {{ form | payment_button }}{% endif %}
+
+    {% if section.settings.back_in_stock %}
+        <div class="back_in_stock" {% if current_variant.available %} style="display: none" {% endif %}>
+            {{ section.settings.back_in_stock_text }}
+            {%- assign vnt = variant.title -%}
+            {% if product.available == false %}
+                <script>
+        $(".back_in_stock").click(function(){
+          event.stopPropagation();
+          $(".back-in-stock-snippet").toggle();
+        });
+        </script>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+{% endform %}
+
+{% if section.settings.back_in_stock %}
+    {% render 'back-in-stock-form', product: product %}
+{% endif %}

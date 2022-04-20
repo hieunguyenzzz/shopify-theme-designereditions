@@ -1,0 +1,125 @@
+{% assign style = 'style_1' %}
+{% if section.settings.style %}
+    {% assign style = section.settings.style %}
+{% endif %}
+{% case style %}
+    {% when 'style_1' %}
+        {% render '[section]hero-default'  class: '' %}
+    {% when 'style_2' %}
+        {% render '[section]hero'  class: '' %}
+    {% else %}
+{% endcase %}
+{% schema %}
+{
+    "name": "Banner",
+    "class": "index-section",
+    "tag": "section",
+    "settings": [
+
+        {
+            "type": "radio",
+            "id": "style",
+            "label": "Style",
+            "default": "style_1",
+            "options": [
+                {
+                    "value": "style_1",
+                    "label": "Style 1"
+                }, {
+                    "value": "style_2",
+                    "label": "Style 2"
+                }
+            ]
+        },  {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1200px x 800px recommended"
+        },{
+            "type": "select",
+            "id": "layout",
+            "label": "Position",
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Image on left"
+                }, {
+                    "value": "right",
+                    "label": "Image on right"
+                }
+            ]
+        }, {
+            "type": "color",
+            "id": "color",
+            "label": "Color"
+        },  {
+            "type": "select",
+            "id": "image_width",
+            "label": "Width",
+            "default": "50%",
+            "options": [
+                {
+                    "value": "33%",
+                    "label": "33%"
+                }, {
+                    "value": "50%",
+                    "label": "50%"
+                }, {
+                    "value": "60%",
+                    "label": "60%"
+                }, {
+                    "value": "66%",
+                    "label": "66%"
+                }
+            ]
+        }, {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                }, {
+                    "value": "center",
+                    "label": "Center"
+                }
+            ]
+        }, {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Image with text"
+        }, 
+        {
+            "type": "text",
+            "id": "subTitle",
+            "label": "Sub Title",
+            "default": "Sub Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+            }, {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            }, {
+                "type": "text",
+                "id": "button",
+                "label": "Button text"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Image row with text",
+                "category": "Image"
+            }
+        ]
+    }
+
+{% endschema %}

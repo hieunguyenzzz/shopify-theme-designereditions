@@ -1,0 +1,77 @@
+{%- assign collection = collections[section.settings.collection] -%}
+{% capture items %}
+    {% for i in (1..6) %}
+        <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+    {% endfor %}
+{% endcapture %}
+{% if section.settings.collection != blank %}
+    {% capture items %}
+        {% for product in collection.products limit: section.settings.limit %}
+            <div class="keen-slider__slide" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                <div class="tw-w-full tw-max-w-[292px] tw-min-h-full">
+                    {% render 'product-listing', product: product, hidelabel: section.settings.hidelabel, collection: collection %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endcapture %}
+{% endif %}
+
+<div id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+    <div class="{% render '[class]-container'  class: '' %} tw-flex tw-flex-col tw-gap-6 lg:tw-grid-cols-2">
+        <div class="tw-w-full tw-flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-4">
+            {% if section.settings.heading != blank %}
+                <div class="tw-text-left tw-flex tw-justify-between tw-items-baseline tw-w-full">
+                    <h2 class="tw-font-bold tw-mb-0">
+                        <a href="{{ collection.url }}">{{ section.settings.heading | escape }}</a>
+                    </h2>
+                    <a class="tw-uppercase tw-text-xs tw-font-normal" href="{{ collection.url }}">{{ 'strings.general.see_all' | t }}</a>
+                </div>
+            {% endif %}
+        </div>
+       
+        <div class="tw-w-full tw-block">
+            {% include '[carousel]' items:items %}
+        </div>
+    </div>
+</div>
+{% schema %}
+
+{
+    "name": "Featured collection",
+    "class": "index-section featured-collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Featured collection"
+        },
+       {
+           "type": "checkbox",
+           "id": "hidelabel",
+           "label": "Hide label",
+           "default": false
+       }
+        ,  {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+        }, {
+            "type": "range",
+            "id": "limit",
+            "min": 2,
+            "max": 30,
+            "step": 1,
+            "label": "Products shown",
+            "default": 8
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured collection",
+            "category": "Collection"
+        }
+    ]
+}
+
+{% endschema %}

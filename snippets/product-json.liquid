@@ -1,0 +1,95 @@
+<script class="product-json" type="application/json">
+  {
+      "id": {{ product.id | json }},
+      "title": {{ product.title | json }},
+      "handle": {{ product.handle | json }},
+      "description": {{ product.description | json }},
+      "published_at": {{ product.published_at | json }},
+      "created_at": {{ product.created_at | json }},
+      "vendor": {{ product.vendor | json }},
+      "type": {{ product.type | json }},
+      "tags": {{ product.tags | json }},
+      "price": {{ product.price | json }},
+      "price_min": {{ product.price_min | json }},
+      "price_max": {{ product.price_max | json }},
+      "available": {{ product.available | json }},
+      "price_varies": {{ product.price_varies | json }},
+      "compare_at_price": {{ product.compare_at_price | json }},
+      "compare_at_price_min": {{ product.compare_at_price_min | json }},
+      "compare_at_price_max": {{ product.compare_at_price_max | json }},
+      "compare_at_price_varies": {{ product.compare_at_price_varies | json }},
+      "variants": [{% for variant in product.variants %}
+        {
+          "id": {{ variant.id | json }},
+          "title": {{ variant.title | json }},
+          "option1": {{ variant.option1 | json }},
+          "option2": {{ variant.option2 | json }},
+          "option3": {{ variant.option3 | json }},
+          "sku": {{ variant.sku | json }},
+          "featured_image": {
+              "id": {{ variant.image.id | json }},
+              "product_id": {{ variant.image.id | json }},
+              "position": {{ variant.image.position | json }},
+              "created_at": {{ product.published_at | json }},
+              "updated_at": {{ product.created_at | json }},
+              "alt": {{ variant.image.alt | json }},
+              "width": {{ variant.image.width | json }},
+              "height": {{ variant.image.height | json }},
+              "src": {{ variant.image.src | json }}
+          },
+          "available": {{ variant.available | json }},
+          "options": {{ variant.options | json }},
+          "price": {{ variant.price | json }},
+          "unit_price_measurement": {
+            "measured_type": {{ variant.unit_price_measurement.measured_type | json }},
+            "quantity_unit": {{ variant.unit_price_measurement.quantity_unit | json }},
+            "quantity_value": {{ variant.unit_price_measurement.quantity_value	| json }},
+            "reference_unit": {{ variant.unit_price_measurement.reference_unit | json }},
+            "reference_value": {{ variant.unit_price_measurement.reference_value | json }}
+          },
+          "unit_price": {{ variant.unit_price | json }},
+          "weight": {{ variant.weight | json }},
+          "weight_unit": {{ variant.weight_unit | json }},
+          "weight_in_unit": {{ variant.weight_in_unit | json }},
+          "compare_at_price": {{ variant.compare_at_price | json }},
+          "inventory_management": {{ variant.inventory_management | json }},
+          "inventory_quantity": {{ variant.inventory_quantity | json }},
+          "inventory_policy": {{ variant.inventory_policy | json }},
+          "barcode": {{ variant.barcode | json }},
+          "featured_media": {
+            "alt": {{ variant.featured_media.alt | json }},
+            "id": {{ variant.featured_media.id | json }},
+            "position": {{ variant.featured_media.position | json }},
+            "preview_image": {
+              "aspect_ratio": {{ variant.featured_media.preview_image.aspect_ratio | json }},
+              "height": {{ variant.featured_media.preview_image.height | json }},
+              "width": {{ variant.featured_media.preview_image.width | json }}
+            }
+          }
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}],
+      "images": {{ product.images | json }},
+      "featured_image": {{ product.featured_image | json }},
+      "featured_media": {{ product.featured_media | json }},
+      "featured_media_id": {{ product.featured_media.id | json }},
+      "options": {{ product.options | json }},
+      "url": {{ product.url | json }},
+      "media": [{% for media in product.media %}
+        {
+          "alt": {{ media.alt | json }},
+          "id": {{ media.id | json }},
+          "position": {{ media.position | json }},
+          "preview_image": {
+            "aspect_ratio": {{ media.preview_image.aspect_ratio | json }},
+            "height": {{ media.preview_image.height | json }},
+            "width": {{ media.preview_image.width | json }}
+          },
+          "aspect_ratio": {{ media.aspect_ratio | json }},
+          "height": {{ media.height | json }},
+          "media_type": {{ media.media_type | json }},
+          "src": {{ media.src | json }},
+          "width": {{ media.width | json }}
+        }{% unless forloop.last %},{% endunless %}
+    {% endfor %}]
+  }
+</script>

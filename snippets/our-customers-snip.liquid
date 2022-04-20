@@ -1,0 +1,92 @@
+{% comment %}
+    Custom blocks from custom pages and collections in 1 single snippet to reduce repeating code for faster usage, fixes and editing
+{% endcomment %}
+{% if settings.breadcrumb %}
+  {% render 'breadcrumb' %}
+{% endif %}
+<div data-section-id="{{ section.id }}" data-section-type="custom-page-section">
+  <div class="custom-page-content" id="content">
+    <!-- start the custom content -->
+    <div class="page-sections {% render '[class]-container'   %} tw-grid tw-gap-6 tw-grid-cols-2">
+      {% for block in section.blocks %}
+        {% case block.type %}
+
+          {% when 'card' %}
+            <div class="pages-content-{{ block.id }} tw-col-span-full md:tw-col-span-1">
+              <a href="{{block.settings.url}}">
+                {% render '[image]' class:'!tw-p-0' cover:true image:block.settings.image image_box_ratio:'66.75%' %}
+              </a>
+              <div class="tw-mt-5">
+                <a href="{{block.settings.url}}">
+                  <h3 class=" hover:tw-underline">{{block.settings.heading}}</h3>
+                </a>
+                <p class="tw-text-sm">{{block.settings.subHeading}}</p>
+              </div>
+            </div>
+          {% when 'collection' %}
+          <div class="tw-col-span-full">
+            {%- assign collection = collections[block.settings.collection] -%}
+            {% capture items %}
+              {% for i in (1..6) %}
+                <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+              {% endfor %}
+            {% endcapture %}
+            {% if block.settings.collection != blank %}
+              {% capture items %}
+                {% for product in collection.products limit: block.settings.limit %}
+                  <div class="keen-slider__slide" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                    <div class="tw-w-full tw-max-w-[292px] tw-min-h-full">
+                      {% render 'product-listing', product: product, hidelabel: block.settings.hidelabel, collection: collection %}
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endcapture %}
+            {% endif %}
+
+            <div id="{{block.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+              <div class="tw-flex tw-flex-col tw-gap-6 lg:tw-grid-cols-2">
+                <div class="tw-w-full tw-flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-4">
+                  {% if block.settings.heading != blank %}
+                    <div class="tw-text-left tw-flex tw-justify-between tw-items-baseline tw-w-full">
+                      <h2 class="tw-font-bold tw-mb-0">
+                        <a href="{{ collection.url }}">{{ block.settings.heading | escape }}</a>
+                      </h2>
+                      <a class="tw-uppercase tw-text-xs tw-font-normal" href="{{ collection.url }}">{{ 'strings.general.see_all' | t }}</a>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="tw-w-full tw-block">
+                  {% render '[carousel]' items:items %}
+                </div>
+              </div>
+            </div></div>
+          {% when 'rich_text' %}
+            <section class="tw-col-span-full" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+              <div class="pages-content-{{ block.id }}">
+                <div class="section-title">
+                  <h1>{{ block.settings.rt_heading }}</h1>
+                </div>
+                {% if block.settings.rt_page != blank %}
+                  {%- assign feat_page = pages[block.settings.rt_page] -%}
+                  {{ feat_page.content }}
+                {% else %}
+                  <div class="rte">
+                    {{ block.settings.rt_text }}
+                  </div>
+                {% endif %}
+                {% if block.settings.rt_page == blank and block.settings.rt_text == blank %}
+                  <div class="content-onboard">
+                    <p>Use this section to tell customers about your store or add content from one of your pages which makes it easy to add images, video or any other content</p>
+                  </div>
+                {% endif %}
+              </div>
+
+            </section>
+        {% endcase %}
+      {% endfor %}
+      <div class="clear"></div>
+    </div>
+    <!-- end the custom content -->
+  </div>
+</div>

@@ -1,0 +1,75 @@
+{% capture cssvariable %}
+    --section-bg:{{section.settings.bgColor}}
+{% endcapture %}
+<div style="{{cssvariable}}" id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+    <div class="{% render '[class]-container'  class: '' %}  tw-flex tw-flex-col lg:tw-flex-row tw-gap-8 lg:tw-grid-cols-2">
+        <div class="tw-text-center lg:tw-text-left tw-flex-1 tw-self-center tw-space-y-8 tw-max-w-prose">
+            <h2 class="tw-text-2xl tw-font-bold">
+                {{section.settings.heading}}
+            </h2>
+            <div class="tw-max-w-sm">
+                {{section.settings.description}}
+            </div>
+            <div>
+                <a class="tw-font-bold tw-underline" href="{{section.settings.url}}">
+                    {{section.settings.urlText}}
+                    {% render 'icon-chevron-right' class:'!tw-text-[11px]'%}
+                </a>
+            </div>
+        </div>
+        {% if section.settings.image %}
+            <div class="tw-flex-1">
+                {% render 'basic-responsive-image', type: section.settings.image, data_widths: '[180, 360, 540, 720, 900]' %}
+                <noscript>
+                    <img loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt }}">
+                </noscript>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+
+{
+    "name": "Text with Image",
+    "settings": [
+        {
+            "type": "color",
+            "id": "bgColor",
+            "label": "Background Color",
+            "default": "#eef5f1"
+        }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Here We Are"
+        }, {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Our team love great furniture. Part of that passion means making it available to everyone at affordable prices. From developers to designers, or customer service reps to quality engineers, each branch of the Desiger Icons team is committed to producing the best furniture at incredible prices. Our global family takes in diverse skills and attitudes, but we all share a love of iconic furniture and the desire to make it accessible to all.</p>"
+                        }, {
+                            "type": "url",
+                            "id": "url",
+                            "label": "Url",
+                            "default": "/"
+                        }, {
+                            "type": "text",
+                            "id": "urlText",
+                            "label": "Button Text",
+                            "default": "Learn More"
+                        }
+                    ],
+                    "presets": [
+                        {
+                            "name": "Image with text",
+                            "category": "Text"
+                        }
+                    ]
+                }
+
+{% endschema %}

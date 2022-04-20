@@ -1,0 +1,20 @@
+<div class="tw-text-center" id="logo">
+    {% if section.settings.logo != blank %}
+        {%- assign image_size = '400x' -%}
+        <div class="first_logo tw-text-center">
+            <a href="{{ routes.root_url }}">
+                <img width="400" height="200" class="!tw-max-w-[180px] lg:tw-max-w-[240px]" src="{{ section.settings.logo | img_url: image_size }}" itemprop="logo">
+            </a>
+        </div>
+        {% if section.settings.logo_alt != blank %}
+            {%- assign image_size = '400x' -%}
+            <div class="second_logo">
+                <a href="{{ routes.root_url }}">
+                    <img width="400" height="200"  src="{{ section.settings.logo_alt | img_url: image_size }}" itemprop="logo">
+                </a>
+            </div>
+        {% endif %}
+    {% else %}
+        <a style="font-size:{{ section.settings.logosize }}px;" href="{{ routes.root_url }}">{{ section.settings.logoname }}</a>
+    {% endif %}
+</div>

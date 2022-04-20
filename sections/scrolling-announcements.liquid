@@ -1,0 +1,167 @@
+{% if section.blocks.size != 0 %}
+  {% unless template == 'index' and section.settings.hidden_on_homepage %}
+    <section
+    data-section-id="{{ section.id }}"
+    class="scrolling__announcements animation__fade-in"
+    data-section-type="scrolling-announcements">
+
+      {%- assign slider_speed = section.settings.slider_speed | times: 1000 -%}
+      {% capture slideshow_config %}{
+        "wrapAround":false,
+        "contain": true,
+        "dragThreshold":"15",
+        "pauseAutoPlayOnHover":false,
+        "autoPlay": {{ slider_speed }},
+        "pageDots":false,
+        "prevNextButtons": false
+      }{% endcapture %}
+
+      <div class="gridlock-fluid">
+        <div class="row">
+          <div class="scrolling__announcements--wrapper row">
+            <div class="scrolling__announcements--carousel flickity__section desktop-12 tablet-6 mobile-3" data-flickity='{{ slideshow_config }}'>
+              {% for block in section.blocks %}
+                <div class="scrolling__announcements--item" {{ block.shopify_attributes }} data-slider-index="{{ forloop.index0 }}">
+                  {{ block.settings.text }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% case section.settings.sa_grid %}
+      {% when 1 %}
+      {%- assign grid = 100 -%}
+      {% when 2 %}
+      {%- assign grid = 50 -%}
+      {% when 3 or 4 or 5 %}
+      {%- assign grid = 33.333 -%}
+      {% endcase %}
+      <style>
+        .scrolling__announcements--wrapper {
+          background: {{ section.settings.background }};
+          {% if section.settings.border_top %}border-top: 1px solid {{ settings.dotted_color }};{% endif %}
+          {% if section.settings.border_bottom %}border-bottom: 1px solid {{ settings.dotted_color }};{% endif %}
+        }
+        .scrolling__announcements--item {
+          width: {{ grid }}%;
+          padding: 0 10px 0;
+          height: calc({{ section.settings.height }}px + 30px) !important;
+        }
+        .scrolling__announcements--item,
+        .scrolling__announcements--item p,
+        .scrolling__announcements--item a {
+          color: {{ section.settings.text }};
+          font-size: {{ section.settings.text_size }}px;
+          margin-bottom: 0! important;
+        }
+        .scrolling__announcements--carousel.flickity__section .flickity-button,
+        .scrolling__announcements--carousel.flickity__section .flickity-button:hover {
+          color: {{ section.settings.text }};
+          background: transparent !important;
+        }
+        {% if section.settings.hidden_on_homepage %}
+          body.index .scrolling__announcements {
+            display: none;
+          }
+        {% endif %}
+      </style>
+    </section>
+  {% endunless %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Scrolling Announcements",
+	  "max_blocks": 5,
+    "settings": [
+    {
+     "type": "paragraph",
+     "content": "This section will not be shown beneath the header on the homepage if you have selected the float header over slideshow in the header section"
+    },
+    {
+      "type": "header",
+      "content": "Scrolling Announcements"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_homepage",
+      "label": "Hide on home page"
+    },
+    {
+      "type": "range",
+      "id": "sa_grid",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Items to show on desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "slider_speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slide speed (seconds)",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "text",
+      "label": "Text color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background color",
+      "default": "#ccc"
+    },
+    {
+      "type":"checkbox",
+      "id":"border_top",
+      "label":"Border top"
+    },
+    {
+      "type":"checkbox",
+      "id":"border_bottom",
+      "label":"Border bottom"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 30,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 60
+    }
+  ],
+ "blocks":[
+      {
+        "type": "text",
+        "name": "Text",
+        "settings":[
+            {
+              "id": "text",
+              "type": "richtext",
+              "label": "Text",
+              "default": "<p>Add content to a sliding text message bar</p>"
+            }
+          ]
+      }
+     ]
+  }
+{% endschema %}

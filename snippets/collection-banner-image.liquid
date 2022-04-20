@@ -1,0 +1,10 @@
+{% capture banner %}{{ collection.handle }}.jpg{% endcapture %}
+
+{% assign img_url = banner | file_img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+<div class="collection-banner box-ratio">
+  <img class="lazyload lazyload-fade"
+    data-src="{{ img_url }}"
+    data-sizes="auto"
+    alt="{{ collection.title | escape }}">
+</div>

@@ -1,0 +1,115 @@
+{% assign meganav = false %}
+{% assign submenu_with_image = false %}
+{% for block in section.blocks %}
+    {% if block.type == 'submenu_with_image' %}
+        {% if block.settings.menu_item == link.title %}
+            {% capture imagemenu %}
+                <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand" data-active-class="navigation__menuitem--active" role="none">
+                    <a class="navigation__menulink js-menu-link js-open-dropdown-on-key" href="{{ link.url }}">{{ link.title }}</a>
+                    <ul class="dropdown dropdown--withimage js-dropdown">
+                        {% if block.settings.nav_image != blank %}
+                            {% capture navimage %}
+                                {%- assign image_size = '300x' -%}
+                                <span class="dropdown__navimage dropdown__column">
+                                    <a href="{{ block.settings.link }} {{linkProps}}">
+                                        {% render 'basic-responsive-image', type: block.settings.nav_image, data_widths: '[180, 360, 540, 720]'%}
+                                        <noscript>
+                                            <img src="{{ block.settings.nav_image | img_url: '300x' }}" class="navigation-image">
+                                        </noscript>
+                                    </a>
+                                </span>
+                            {% endcapture %}
+                        {% endif %}
+                        {% if block.settings.nav_image_position == 'left' %}
+                            {{ navimage }}
+                        {% endif %}
+                        <span class="dropdown__navmenu dropdown__column">
+                            {% for sub_link in link.links %}
+                                {% if sub_link.links != blank %}
+                                    <li aria-expanded="false" aria-haspopup="true" class="dropdown__menuitem dropdown__menuitem--nested js-doubletap-to-go js-menuitem-with-nested-dropdown" data-active-class="dropdown__menuitem--active" role="none">
+                                        <a class="dropdown__menulink js-aria-expand js-menu-link" role="menuitem" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                                        <ul class="dropdown dropdown--nested js-dropdown-nested" role="menu">
+                                            {% for sub_sub_link in sub_link.links %}
+                                                <li class="dropdown__menuitem" role="none">
+                                                    <a class="dropdown__menulink js-menu-link-inside-dropdown" role="menuitem" href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li class="dropdown__menuitem" role="none">
+                                        <a class="dropdown__menulink js-menu-link" role="menuitem" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </span>
+                        {% if block.settings.nav_image_position == 'right' %}
+                            {{ navimage }}
+                        {% endif %}
+                    </ul>
+                </li>
+            {% endcapture %}
+            {% assign submenu_with_image = true %}
+        {% endif %}
+    {% elsif block.type == 'mega_menu' %}
+        {% assign meganav = true %}
+        {% capture megalink %}
+            <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{ link.title }}" data-active-class="navigation__menuitem--active" role="none">
+                <a class="navigation__menulink js-menu-link js-open-dropdown-on-key" href="{{ link.url }}" {{linkProps}}>{{ link.title }}</a>
+                <ul class="tw-bg-black tw-absolute tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw-mt-6 group-hover:tw-mt-0">
+                    <div class="{% render '[class]-container' class: '' %} tw-max-w-[980px]" style="max-width: 1280px;">
+                        {% if block.settings.nav_image != blank %}
+                            <span class="desktop-3 tablet-hide mm-image">
+                                {%- assign image_size = '300x' -%}
+                                <a href="{{ block.settings.link }}">
+                                    <div class="megamenu__imagecontainer">
+                                        <img src="{{ block.settings.nav_image | img_url: image_size }}">
+                                    </div>
+                                    <noscript>
+                                        <img src="{{ block.settings.nav_image | img_url: '800x' }}" class="navigation-image">
+                                    </noscript>
+                                </a>
+                            </span>
+                        {% endif %}
+                        <span class="flex">
+                            {% assign megamenu__header = link.title | downcase %}
+                            {% if link.url contains 'designers' %}
+                                <ul class="tw-columns-4 xl:tw-columns-5 tw-gap-6 tw-mx-auto tw-w-full">
+                                    {% render 'designer-listitems'  %}
+                                </ul>
+                            {% else %}
+                                {% for sub_link in link.links %}
+                                    <li class="megamenu__listcontainer contained desktop-fifth tablet-fourth">
+                                        <h4 class="megamenu__header">
+                                            <a class="megamenu__headerlink" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                                        </h4>
+                                        {% if sub_link.links != blank %}
+                                            <ul class="megamenu__list">
+                                                {% for sub_sub_link in sub_link.links %}
+                                                    <li class="megamenu__listitem">
+                                                        <a class="megamenu__listlink" href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </span>1
+                    </div>
+                </ul>
+            </li>
+        {% endcapture %}
+
+    {% endif %}
+{% endfor %}
+
+{% if link.links != blank %}
+    {{ megalink }}
+{% else %}
+    <li class="navigation__menuitem" role="none">
+        <a class="navigation__menulink js-menu-link" role="menuitem" href="{{ link.url }}" {{linkProps}}>{{ link.title }}</a>
+    </li>
+{% endif %}

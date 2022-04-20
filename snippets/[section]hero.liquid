@@ -1,0 +1,47 @@
+{% assign color = 'white'  %}
+{% assign forecolor = 'black'  %}
+<div  class="tw-w-full tw-relative">
+    <article class="tw-max-w-[1280px] tw-w-full tw-px-2 lg:tw-px-8 tw-mx-auto  tw-flex tw-items-center tw-justify-center tw-isolate tw-min-h-[500px] lg:tw-min-h-[640px] 2xl:tw-min-h-[1100px]">
+        <div class="tw-w-full tw-max-w-2xl tw-text-center">
+            <div class="flex tw-flex-col tw-items-center ">
+                {% if section.settings.title != blank %}
+                    <h3 style="color:{{color}}" class="tw-text-4xl md:tw-text-6xl tw-font-bold tw-leading-tight">
+                        {{ section.settings.title | escape }}
+                    </h3>
+                {% endif %}
+                {% if section.settings.subTitle != blank %}
+                    <div style="color:{{color}}" class="tw-font-bold tw-mb-5 tw-text-2xl md:tw-text-4xl">
+                        {{ section.settings.subTitle }}
+                    </div>
+                {% endif %}
+                {% if section.settings.text != blank %}
+                    <div style="color:{{color}}" class="rte tw-text-2xl md:tw-text-4xl">
+                        {{ section.settings.text }}
+                    </div>
+                {% endif %}
+                {% if section.settings.button != blank and section.settings.link != blank %}
+                    <div>
+                        <div class="cta">
+                            <a style="background: {{color}};color:{{forecolor}}"  href="{{ section.settings.link }}">
+                                {{ section.settings.button | escape }}
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div style=" background: {{ section.settings.color }}; " class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-overflow-hidden tw-z-[-1]">
+            {% if section.settings.image != blank %}
+                {% render '[image]-banner' image: section.settings.image %}
+                <noscript>
+                    <img src="{{ section.settings.image | img_url: '1660px' }}" alt="{{ section.settings.image.alt }}">
+                </noscript>
+            {% else %}
+                <div class="onboard">
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+            {% endif %}
+        </div>
+    </article>
+</div>
+

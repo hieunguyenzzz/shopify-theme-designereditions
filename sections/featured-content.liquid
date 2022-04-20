@@ -1,0 +1,1364 @@
+{% if section.blocks.size > 0 %}
+    <section data-section-id="{{ section.id }}" class="promotions" data-section-type="featured-content">
+        <div class="page-sections">
+            {% if section.settings.heading != blank %}
+                <div class="section-title">
+                    <h3>{{ section.settings.heading | escape }}</h3>
+                </div>
+            {% endif %}
+            {% for block in section.blocks %}
+                <div class="page-section" {{ block.shopify_attributes }}>
+                    {% case block.type %}
+                        {% when 'image_with_text' %}
+                            {% if block.settings.iwt_full_width %}
+                                <div class="gridlock-fluid">
+                                    <div class="row">
+                                    {% endif %}
+                                    <div class="row image-rows-{{ block.id }}" id="image-rows">
+                                        {% case block.settings.iwt_image_width %}
+                                            {% when '33%' %}
+                                                {%- assign image_size = '700x' -%}
+                                                {%- assign image_width = 'desktop-4 tablet-2 span-4' -%}
+                                                {%- assign image_offset = 'desktop-8 tablet-4 span-8' -%}
+                                            {% when '50%' %}
+                                                {%- assign image_size = '1000x' -%}
+                                                {%- assign image_width = 'desktop-6 tablet-3 span-6' -%}
+                                                {%- assign image_offset = 'desktop-6 tablet-3 span-6' -%}
+                                            {% when '66%' %}
+                                                {%- assign image_size = '1400x' -%}
+                                                {%- assign image_width = 'desktop-8 tablet-4 span-8' -%}
+                                                {%- assign image_offset = 'desktop-4 tablet-2 span-4' -%}
+                                        {% endcase %}
+                                        {% capture image_layout %}
+                                            <div class="{{ image_width }} mobile-3 text-with-image contained {% if section.settings.layout == 'right' %}image-right{% endif %}">
+                                                {% if block.settings.iwt_image != blank %}
+                                                    {% render 'basic-responsive-image', type: block.settings.iwt_image, data_widths: '[180, 360, 540, 720, 900]' %}
+                                                    <noscript>
+                                                        <img src="{{ block.settings.iwt_image | img_url: '800x' }}" alt="{{ section.settings.image.alt }}">
+                                                    </noscript>
+                                                {% else %}
+                                                    <div class="onboard">
+                                                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% endcapture %}
+                                        <div class="image-with-text-wrapper grid_wrapper">
+                                            {% if block.settings.iwt_layout == 'left' %}
+                                                {{ image_layout }}
+                                            {% else %}
+                                                <div class="mobile-image span-3">
+                                                    {{ image_layout }}
+                                                </div>
+                                            {% endif %}
+                                            <div class="{{ image_offset }} mobile-3 contained text-with-image text_section" data-aos="{{ settings.scroll_animation }}" data-aos-delay="300" data-aos-duration="1000">
+                                                {% if block.settings.iwt_title != blank %}
+                                                    <h3 class="text-title">
+                                                        {{ block.settings.iwt_title | escape }}
+                                                    </h3>
+                                                {% endif %}
+                                                {% if block.settings.iwt_text != blank %}
+                                                    <div class="rte">
+                                                        {{ block.settings.iwt_text }}
+                                                    </div>
+                                                {% endif %}
+                                                {% if block.settings.iwt_button != blank and block.settings.iwt_link != blank %}
+                                                    <div class="cta">
+                                                        <a href="{{ block.settings.iwt_link }}">
+                                                            {{ block.settings.iwt_button | escape }}
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            {% if block.settings.iwt_layout == 'right' %}
+                                                {{ image_layout }}
+                                            {% endif %}
+                                        </div>
+                                        <style>
+                 #image-rows .text_section,
+                 #image-rows .text_section p {
+                   text-align: {{ block.settings.iwt_text_align }};
+                 }
+                 #image-rows .text_section .cta {
+                   margin-right: 0;
+                 }
+              </style>
+                                    </div>
+                                    {% if block.settings.iwt_full_width %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% when 'image_text_overlay' %}
+                            {% assign img_url = block.settings.io_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                            <section class="parallax-{{ block.id }} parallax lazyload lazyload-fade{% if block.settings.io_full_width %} gridlock-fluid{% endif %}" data-bgset="{% render 'bgset', image: block.settings.io_image %}" data-sizes="auto" data-section-id="{{ block.id }}">
+                                <div class="image-overlay"></div>
+                                <article class="row">
+                                    <div class="parallax-content">
+                                        <div class="parallax-text">
+                                            {% unless block.settings.io_heading == blank %}
+                                                <h2>{{ block.settings.io_heading | escape }}</h2>
+                                            {% endunless %}
+                                            {% unless block.settings.io_subheading == blank %}
+                                                {{ block.settings.io_subheading }}
+                                            {% endunless %}
+                                            {% unless block.settings.io_button_link == blank %}
+                                                <div class="clear"></div>
+                                                <a class="button" href="{{ block.settings.io_button_link }}">
+                                                    {{ block.settings.io_button_text }}
+                                                </a>
+                                            {% endunless %}
+                                        </div>
+                                    </div>
+                                    {% if block.settings.io_image == blank %}
+                                        <div class="onboard plax-placehold">
+                                            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        </div>
+                                    {% endif %}
+                                </article>
+                                <style>
+                {% if block.settings.io_background_effect == 'fixed' %}
+                  .parallax-{{ block.id }} {
+                    background-attachment: fixed;
+                    background-size: cover;
+                    overflow: hidden;
+                    background-position: center center !important;
+                  }
+                {% elsif block.settings.io_background_effect == 'none' %}
+                  .parallax-{{ block.id }} {
+                    background-image: url('{{ block.settings.io_image | img_url: '1024x' }}');
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center center !important;
+                  }
+                {% endif %}
+
+                .no-js .parallax-{{ block.id }} {
+                  background-image: url('{{ block.settings.io_image | img_url: '1024x' }}');
+                  background-size: cover !important;
+                  background-repeat: no-repeat !important;
+                  background-position: center center !important;
+                }
+                .parallax-{{ block.id }} article {
+                  display: table;
+                  height: {{ block.settings.io_page_height }}px;
+                  min-height: {{ block.settings.io_page_height }}px;
+                }
+                .parallax-{{ block.id }} .image-overlay {
+                  position: absolute;
+                  z-index: 2;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  {% assign bg_color = '#000000' %}
+                  {% assign number = block.settings.overlay_opacity %}
+                  {% assign overlay_opacity = number | divided_by: 100.0 %}
+                  background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+                }
+                .parallax-{{ block.id }} .parallax-content {
+                  width: fit-content;
+                  position: absolute;
+                  z-index: 2;
+                  top: {{ block.settings.io_caption_vertical }}%;
+                  left: {{ block.settings.io_caption_horizontal }}%;
+                  -webkit-transform: translate(-{{ block.settings.io_caption_horizontal }}%, -{{ block.settings.io_caption_vertical }}%);
+                    -ms-transform: translate(-{{ block.settings.io_caption_horizontal }}%, -{{ block.settings.io_caption_vertical }}%);
+                      -moz-transform: translate(-{{ block.settings.io_caption_horizontal }}%, -{{ block.settings.io_caption_vertical }}%); -o-transform: translate(-{{ block.settings.io_caption_horizontal }}%, -{{ block.settings.io_caption_vertical }}%); transform: translate(-{{ block.settings.io_caption_horizontal }}%, -{{ block.settings.io_caption_vertical }}%);
+                }
+                .parallax-{{ block.id }} .parallax-text {
+                  text-align: {{ block.settings.io_text_align }};
+                }
+                .parallax-{{ block.id }} .parallax-text h2 {
+                  font-size: {{ block.settings.io_heading_font_size }}px;
+                  display: inline-block;
+                }
+                @media screen and (max-width: 500px) {
+                  .parallax-{{ block.id }} .parallax-text h2 {
+                    font-size: 16px;
+                  }
+                }
+                .parallax-{{ block.id }} .parallax-text h2,
+                .parallax-{{ block.id }} .parallax-text a h2,
+                .parallax-{{ block.id }} .parallax-text a:visited h2 {
+                  color: {{ block.settings.io_text_color }};
+                }
+                .parallax-{{ block.id }} .parallax-text a:hover h2 {
+                  opacity: 0.8;
+                }
+                .parallax-{{ block.id }} .parallax-text p {
+                  font-size: {{ block.settings.io_subheading_font_size }}px;
+                  color: {{ block.settings.io_text_color }};
+                  margin: auto;
+                }
+                @media screen and (max-width: 500px) {
+                  .parallax-{{ block.id }} .parallax-text p {
+                    font-size: 14px;
+                  }
+                }
+                .parallax-{{ block.id }} .parallax-text a.button,
+                .parallax-{{ block.id }} .parallax-text a.button:visited {
+                  background: {{ block.settings.io_button_color }};
+                  color: {{ block.settings.io_button_text_color }};
+                }
+                .parallax-text a.button:hover {
+                  opacity: 0.8;
+                }
+                @media screen and ( max-width: 740px ) {
+                  .parallax-{{ block.id }} article {
+                    height: initial;
+                    min-height: 200px;
+                  }
+                }
+                @media screen and ( max-width: 1024px ) {
+                  .parallax-{{ block.id }} {
+                    background-attachment: scroll !important;
+                    background-size: cover !important;
+                  }
+                }
+              </style>
+                            </section>
+                            <div class="clear"></div>
+                        {% when 'text_columns_with_images' %}
+                            {% if block.settings.ic_full_width %}
+                                <div class="gridlock-fluid">
+                                    <div class="row">
+                                    {% endif %}
+                                    <div id="image-columns" class="row image-col-{{ block.id }}" {{ block.shopify_attributes }}>
+                                        {% for n in (1..3) %}
+                                            {% assign column_link = "txt_link_" | append: n %}
+                                            {% assign column_link = block.settings[column_link] | default: false %}
+                                            {% assign column_image = "txt_image_" | append: n %}
+                                            {% assign column_image = block.settings[column_image] | default: false %}
+                                            {% assign column_heading = "txt_title_text_" | append: n %}
+                                            {% assign column_heading = block.settings[column_heading] | default: false %}
+                                            {% assign column_text = "txt_text_" | append: n %}
+                                            {% assign column_text = block.settings[column_text] | default: false %}
+                                            {% assign column_button_text = "button_text_" | append: n %}
+                                            {% assign column_button_text = block.settings[column_button_text] | default: false %}
+                                            <div class="image-column desktop-4 tablet-2 mobile-3 image-column-{{ block.id }}">
+                                                <div class="image-container">
+                                                    {% if column_image != blank %}
+                                                        {% if column_link != blank %}
+                                                            <a href="{{ column_link }}">
+                                                            {% endif %}
+                                                            {% render 'basic-responsive-image', type: column_image, data_widths: '[180, 360, 540, 720]' %}
+                                                            <noscript>
+                                                                <img src="{{ column_image | img_url: '800x' }}" alt="{{ column_image.alt }}">
+                                                            </noscript>
+                                                            {% if column_link != blank %}
+                                                            </a>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <div class="onboard">
+                                                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="text-container">
+                                                        <div class="text-content">
+                                                            {% if column_heading != blank %}
+                                                                <h3 class="text-title">
+                                                                    {{ column_heading | escape }}
+                                                                </h3>
+                                                            {% endif %}
+                                                            {% if column_text != blank %}
+                                                                <div class="rte">
+                                                                    {{ column_text }}
+                                                                </div>
+                                                            {% endif %}
+                                                            {% if column_button_text != blank and column_link != blank %}
+                                                                <span class="cta">
+                                                                    <a href="{{ column_link }}">{{ column_button_text | escape }}</a>
+                                                                </span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <style>
+                  /* IMAGE BLOCKS */
+                  .image-column-{{ block.id }} {
+                    text-align: {{ block.settings.text_align }};
+                  }
+                  .image-column-{{ block.id }} .text-content h3 {
+                    margin-top: 10px;
+                  }
+                  .image-column-{{ block.id }} .text-content p {
+                    margin-top: 10px;
+                  }
+                  .image-column-{{ block.id }} .text-content .cta {
+                    margin-top: 10px;
+                  }
+                </style>
+                                    </div>
+                                    {% if block.settings.ic_full_width %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% when 'featured_collection' %}
+                            {%- assign collection = collections[block.settings.fc_collection] -%}
+                            {% capture items %}
+                                {% for i in (1..6) %}
+                                    <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+                                {% endfor %}
+                            {% endcapture %}
+                            {% if section.settings.collection != blank %}
+                                {% capture items %}
+                                    {% for product in collection.products limit: section.settings.limit %}
+                                        <div class="keen-slider__slide" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                                            <div class="tw-w-full tw-max-w-[292px] tw-min-h-full">
+                                                {% render 'product-listing', product: product, collection: collection %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endcapture %}
+                            {% endif %}
+
+                            <div id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+                                <div class="{% render '[class]-container' class: '' %} tw-flex tw-flex-col tw-gap-6 lg:tw-grid-cols-2">
+                                    <div class="tw-w-full tw-flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-4">
+                                            <div class="tw-text-left tw-flex tw-justify-between tw-items-baseline tw-w-full">
+                                                <h2 class="tw-font-bold tw-mb-0">
+                                                    <a href="{{ collection.url }}">{{ collection.title | escape }}</a>
+                                                </h2>
+                                                <a class="tw-uppercase tw-text-xs tw-font-normal" href="{{ collection.url }}">{{ 'strings.general.see_all' | t }}</a>
+                                            </div>
+                                    </div>
+
+                                    <div class="tw-w-full tw-block">
+                                        {% render '[carousel]' items:items %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% when 'collection_list' %}
+                            {% if block.settings.cl_full_width %}
+                                <div class="gridlock-fluid">
+                                    <div class="row">
+                                    {% endif %}
+                                    <div class="product-loop row grid_wrapper col-loop-{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+                                        {%- case block.settings.cl_collections_per_row -%}
+                                            {%- when 2 -%}
+                                                {% assign column_width = 'desktop-6 tablet-6 mobile-half span-6' %}
+                                            {%- when 3 -%}
+                                                {% assign column_width = 'desktop-4 tablet-6 mobile-half span-4' %}
+                                            {%- when 4 -%}
+                                                {% assign column_width = 'desktop-3 tablet-6 mobile-half span-3' %}
+                                        {%- endcase -%}
+                                        {% for n in (1..4) %}
+                                            {% assign collection = "cl_collection_" | append: n %}
+                                            {% assign collection = collections[block.settings[collection]] | default: false %}
+                                            <div class="product-index {{ column_width }}" data-alpha="{{ collection.title }}">
+                                                {% if collection %}
+                                                    {% render 'collection-grid-item', collection: collection %}
+                                                {% else %}
+                                                    {% capture current %}
+                                                        {{ forloop.index }}
+                                                    {% endcapture %}
+                                                    {%- assign placeholder = 'collection-' | append: current -%}
+                                                    <div class="collection-image ci onboard">
+                                                        <a href="#">
+                                                            {{ placeholder | placeholder_svg_tag }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h3>
+                                                            <a href="#">Sample collection
+                                                                {{ forloop.index }}</a>
+                                                        </h3>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% if block.settings.cl_full_width %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% when 'image_gallery' %}
+                            {% if block.settings.ig_full_width %}
+                                <div class="gridlock-fluid">
+                                    <div class="row">
+                                    {% endif %}
+                                    <div class="row gal-{{ block.id }}" {{ block.shopify_attributes }}>
+                                        {% for n in (1..3) %}
+                                            {% assign c_link = "link_" | append: n %}
+                                            {% assign c_link = block.settings[c_link] | default: false %}
+                                            {% assign c_image = "image_" | append: n %}
+                                            {% assign c_image = block.settings[c_image] | default: false %}
+                                            {% assign c_heading = "heading_" | append: n %}
+                                            {% assign c_heading = block.settings[c_heading] | default: false %}
+                                            {% assign c_button = "button_" | append: n %}
+                                            {% assign c_button = block.settings[c_button] | default: false %}
+
+                                            <div class="pimg homepage-promo desktop-4 tablet-2 mobile-3 promo-{{ n }}">
+                                                <div class="promo-inner">
+                                                    {% if c_image != blank %}
+                                                        <a href="{{ c_link }}">
+                                                            {% render 'basic-responsive-image', type: c_image, data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+                                                            <noscript>
+                                                                <img src="{{ c_image | img_url: '800x' }}" alt="{{ c_image.alt }}">
+                                                            </noscript>
+                                                        </a>
+                                                    {% else %}
+                                                        <div class="onboard">
+                                                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="image-overlay"></div>
+                                                    <div class="caption">
+                                                        {% if c_heading != blank %}
+                                                            <div class="caption-content">
+                                                                {{ c_heading }}
+                                                                {% if c_button != blank %}
+                                                                    <span class="cta">
+                                                                        <a href="{{ c_link }}">{{ c_button | escape }}</a>
+                                                                    </span>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <style>
+                      {% assign text_options = "text_options_" | append: n %}
+                      {% assign text_options = block.settings[text_options] | default: false %}
+                      {% assign vertical_position = "vertical_position_" | append: n %}
+                      {% assign vertical_position = block.settings[vertical_position] | default: false %}
+                      {% assign horizontal_position = "horizontal_position_" | append: n %}
+                      {% assign horizontal_position = block.settings[horizontal_position] | default: false %}
+                      {% assign align_text = "align_text_" | append: n %}
+                      {% assign align_text = block.settings[align_text] | default: false %}
+                      {% assign button_color = "button_color_" | append: n %}
+                      {% assign button_color = block.settings[button_color] | default: false %}
+                      {% assign button_background = "button_background_" | append: n %}
+                      {% assign button_background = block.settings[button_background] | default: false %}
+                      {% assign color = "heading_color_" | append: n %}
+                      {% assign color = block.settings[color] | default: false %}
+                      {% assign size = "heading_size_" | append: n %}
+                      {% assign size = block.settings[size] | default: false %}
+                      {% assign overlay_opacity = "overlay_opacity_" | append: n %}
+                      {% assign overlay_opacity = block.settings[overlay_opacity] | default: false %}
+
+                      .homepage-promo.promo-{{ n }} .image-overlay {
+                        position: absolute;
+                        z-index: 1;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        {% assign bg_color = '#000000' %}
+                        {% assign number = overlay_opacity %}
+                        {% assign overlay_opacity = number | divided_by: 100.0 %}
+                        background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+                      }
+                      .homepage-promo.promo-{{ n }} .promo-inner .caption-content p {
+                        color: {{ color }};
+                        font-size: {{ size }}px;
+                        text-align: {{ align_text }};
+                        line-height: initial;
+                      }
+                      {% if text_options == 'on_image' %}
+                        .homepage-promo.promo-{{ n }} .promo-inner .caption-content {
+                          position: absolute;
+                          bottom: {{ vertical_position }}%;
+                          left: {{ horizontal_position }}%;
+                          {% if horizontal_position == 50 %}
+                          width: 100%;
+                          {% endif %}
+                          transform: translate(-{{ horizontal_position }}%, {{ vertical_position }}%);
+                          text-align: {{ align_text }};
+                        }
+                      {% endif %}
+                      .homepage-promo.promo-{{ n }} .promo-inner .cta a {
+                        color: {{ button_color }};
+                        background: {{ button_background }};
+                      }
+                      {% if text_options == 'on_image' %}
+                      .homepage-promo.promo-{{ n }} .promo-inner .caption {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        z-index: 2;
+                      }
+                      {% else %}
+                      .homepage-promo .promo-inner .caption {
+                        margin-top: 10px;
+                      }
+                      {% endif %}
+                    </style>
+                                            </div>
+                                        {% endfor %}
+                                        {% if section.blocks.size == 0 %}
+                                            {% render 'no-blocks' %}
+                                        {% endif %}
+                                    </div>
+                                    {% if block.settings.ig_full_width %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% when 'rich_text' %}
+                            <div class="row" {{ block.shopify_attributes }}>
+                                <div class="pages-content-{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+                                    {% if block.settings.rt_page != blank %}
+                                        {%- assign feat_page = pages[block.settings.rt_page] -%}
+                                        {{ feat_page.content }}
+                                    {% else %}
+                                        <div class="rte">
+                                            {{ block.settings.rt_text }}
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.rt_page == blank and block.settings.rt_text == blank %}
+                                        <div class="content-onboard">
+                                            <p>Use this section to tell customers about your store or add content from one of your pages which makes it easy to add images, video or any other content</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <style>
+                .pages-content-{{ block.id }},
+                .pages-content-{{ block.id }} .rte {
+                {% if block.settings.rt_alignment == 'center' %} text-align: center;  {% endif %}
+                  max-width: {{ block.settings.rt_text_width }}px;
+                  line-height: initial;
+                  margin-left: auto;
+                  margin-right: auto;
+                }
+                .pages-content-{{ block.id }} p,
+                .pages-content-{{ block.id }} span {
+                  font-size: {{ block.settings.rt_text_size }}px;
+                }
+              </style>
+                            </div>
+                    {% endcase %}
+                </div>
+            {% endfor %}
+            <div class="clear"></div>
+        </div>
+
+        <style>
+    .promotions {
+      background: {{ section.settings.background }};
+      padding: 30px 0 0 0;
+      {% if section.settings.border_top %}border-top: 1px solid {{ settings.dotted_color }};{% endif %}
+      {% if section.settings.border_bottom %}border-bottom: 1px solid {{ settings.dotted_color }};{% endif %}
+    }
+    .promotions .homepage-promo,
+    .promotions .image-column,
+    .promotions .cta,
+    .promotions .collection-carousel,
+    .promotions .product-loop {
+      margin-bottom: 0;
+    }
+    .promotions .section-title h3 {
+      color: {{ section.settings.color }};
+    }
+    .promotions .section-title:after {
+      background-color: {{ section.settings.color }};
+    }
+    {% if section.settings.no_margin == true %}
+      .promotions {
+        padding: 0;
+      }
+      .promotions .page-section {
+        margin-bottom: 0;
+      }
+    {% endif %}
+  </style>
+    </section>
+{% endif %}
+
+{% schema %}
+
+{
+    "name": "Featured content",
+    "max_blocks": 40,
+    "settings": [
+        {
+            "type": "paragraph",
+            "content": "Content show above the footer on all pages of the store excluding the home page"
+        }, {
+            "type": "header",
+            "content": "Featured content"
+        }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Featured Content"
+        }, {
+            "type": "color",
+            "id": "color",
+            "label": "Text color",
+            "default": "#1e1e1e"
+        }, {
+            "type": "color",
+            "id": "background",
+            "label": "Background color",
+            "default": "#f9f9f9"
+        }, {
+            "type": "checkbox",
+            "id": "border_top",
+            "label": "Border top"
+        }, {
+            "type": "checkbox",
+            "id": "border_bottom",
+            "label": "Border bottom"
+        }, {
+            "type": "checkbox",
+            "id": "no_margin",
+            "label": "No top and bottom space"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_gallery",
+            "name": "Image gallery",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "ig_full_width",
+                    "label": "Full width"
+                }, {
+                    "type": "header",
+                    "content": "Image One"
+                }, {
+                    "type": "image_picker",
+                    "id": "image_1",
+                    "label": "Image"
+                }, {
+                    "type": "range",
+                    "id": "overlay_opacity_1",
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "unit": "%",
+                    "label": "Image overlay opacity",
+                    "info": "Adding an overlay to your image can help with text contrast",
+                    "default": 15
+                }, {
+                    "type": "url",
+                    "id": "link_1",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "richtext",
+                    "id": "heading_1",
+                    "label": "Heading",
+                    "default": "<p>Our collections</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_1",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "color",
+                    "id": "heading_color_1",
+                    "label": "Heading color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_color_1",
+                    "label": "Button color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_background_1",
+                    "label": "Button background",
+                    "default": "#000"
+                }, {
+                    "type": "range",
+                    "id": "heading_size_1",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Heading size",
+                    "default": 24
+                }, {
+                    "type": "select",
+                    "id": "text_options_1",
+                    "default": "on_image",
+                    "options": [
+                        {
+                            "value": "on_image",
+                            "label": "Over image"
+                        }, {
+                            "value": "below_image",
+                            "label": "Below image"
+                        }
+                    ],
+                    "label": "Text position"
+                }, {
+                    "type": "range",
+                    "id": "vertical_position_1",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image vertical position",
+                    "default": 12
+                }, {
+                    "type": "range",
+                    "id": "horizontal_position_1",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image horizontal position",
+                    "default": 14
+                }, {
+                    "type": "select",
+                    "id": "align_text_1",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Centered"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }, {
+                    "type": "header",
+                    "content": "Image Two"
+                }, {
+                    "type": "image_picker",
+                    "id": "image_2",
+                    "label": "Image"
+                }, {
+                    "type": "range",
+                    "id": "overlay_opacity_2",
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "unit": "%",
+                    "label": "Image overlay opacity",
+                    "info": "Adding an overlay to your image can help with text contrast",
+                    "default": 15
+                }, {
+                    "type": "url",
+                    "id": "link_2",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "richtext",
+                    "id": "heading_2",
+                    "label": "Heading",
+                    "default": "<p>Our collections</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_2",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "color",
+                    "id": "heading_color_2",
+                    "label": "Heading color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_color_2",
+                    "label": "Button color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_background_2",
+                    "label": "Button background",
+                    "default": "#000"
+                }, {
+                    "type": "range",
+                    "id": "heading_size_2",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Heading size",
+                    "default": 24
+                }, {
+                    "type": "select",
+                    "id": "text_options_2",
+                    "default": "on_image",
+                    "options": [
+                        {
+                            "value": "on_image",
+                            "label": "Over image"
+                        }, {
+                            "value": "below_image",
+                            "label": "Below image"
+                        }
+                    ],
+                    "label": "Text position"
+                }, {
+                    "type": "range",
+                    "id": "vertical_position_2",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image vertical position",
+                    "default": 12
+                }, {
+                    "type": "range",
+                    "id": "horizontal_position_2",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image horizontal position",
+                    "default": 14
+                }, {
+                    "type": "select",
+                    "id": "align_text_2",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Centered"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }, {
+                    "type": "header",
+                    "content": "Image Three"
+                }, {
+                    "type": "image_picker",
+                    "id": "image_3",
+                    "label": "Image"
+                }, {
+                    "type": "range",
+                    "id": "overlay_opacity_3",
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "unit": "%",
+                    "label": "Image overlay opacity",
+                    "info": "Adding an overlay to your image can help with text contrast",
+                    "default": 15
+                }, {
+                    "type": "url",
+                    "id": "link_3",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "richtext",
+                    "id": "heading_3",
+                    "label": "Heading",
+                    "default": "<p>Our collections</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_3",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "color",
+                    "id": "heading_color_3",
+                    "label": "Heading color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_color_3",
+                    "label": "Button color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_background_3",
+                    "label": "Button background",
+                    "default": "#000"
+                }, {
+                    "type": "range",
+                    "id": "heading_size_3",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Heading size",
+                    "default": 24
+                }, {
+                    "type": "select",
+                    "id": "text_options_3",
+                    "default": "on_image",
+                    "options": [
+                        {
+                            "value": "on_image",
+                            "label": "Over image"
+                        }, {
+                            "value": "below_image",
+                            "label": "Below image"
+                        }
+                    ],
+                    "label": "Text position"
+                }, {
+                    "type": "range",
+                    "id": "vertical_position_3",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image vertical position",
+                    "default": 12
+                }, {
+                    "type": "range",
+                    "id": "horizontal_position_3",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image horizontal position",
+                    "default": 14
+                }, {
+                    "type": "select",
+                    "id": "align_text_3",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Centered"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "type": "image_text_overlay",
+            "name": "Image w/Text Overlay",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "io_image",
+                    "label": "Image"
+                }, {
+                    "type": "range",
+                    "id": "overlay_opacity",
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "unit": "%",
+                    "label": "Image overlay opacity",
+                    "info": "Adding an overlay to your image can help with text contrast",
+                    "default": 15
+                }, {
+                    "type": "select",
+                    "id": "io_background_effect",
+                    "label": "Image effect",
+                    "options": [
+                        {
+                            "value": "fixed",
+                            "label": "Fixed in place"
+                        }, {
+                            "value": "none",
+                            "label": "Scrolls with content"
+                        }
+                    ]
+                }, {
+                    "type": "range",
+                    "id": "io_page_height",
+                    "min": 200,
+                    "max": 1000,
+                    "step": 100,
+                    "label": "Image height",
+                    "default": 400
+                }, {
+                    "type": "header",
+                    "content": "Text content"
+                }, {
+                    "type": "select",
+                    "id": "io_text_align",
+                    "label": "Caption alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Center"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }, {
+                    "type": "range",
+                    "id": "io_caption_horizontal",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Caption horizontal position",
+                    "default": 50
+                }, {
+                    "type": "range",
+                    "id": "io_caption_vertical",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "label": "Caption vertical position",
+                    "default": 50
+                }, {
+                    "type": "text",
+                    "id": "io_heading",
+                    "label": "Heading",
+                    "default": "Image with text overlay"
+                }, {
+                    "type": "richtext",
+                    "id": "io_subheading",
+                    "label": "Text",
+                    "default": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
+                }, {
+                    "id": "io_button_text",
+                    "type": "text",
+                    "label": "Button text",
+                    "default": "Add a button",
+                    "info": "Visible only if a link is chosen"
+                }, {
+                    "type": "url",
+                    "id": "io_button_link",
+                    "label": "Button link"
+                }, {
+                    "type": "range",
+                    "id": "io_heading_font_size",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Heading size",
+                    "default": 26
+                }, {
+                    "type": "range",
+                    "id": "io_subheading_font_size",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Text size",
+                    "default": 16
+                }, {
+                    "type": "color",
+                    "id": "io_text_color",
+                    "label": "Heading",
+                    "default": "#000"
+                }, {
+                    "type": "color",
+                    "id": "io_button_text_color",
+                    "label": "Button text",
+                    "default": "#fff"
+                }, {
+                    "type": "color",
+                    "id": "io_button_color",
+                    "label": "Button background",
+                    "default": "#000"
+                }
+            ]
+        }, {
+            "type": "text_columns_with_images",
+            "name": "Text Columns with Images",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "ic_full_width",
+                    "label": "Full width"
+                }, {
+                    "type": "header",
+                    "content": "Column One"
+                }, {
+                    "type": "image_picker",
+                    "id": "txt_image_1",
+                    "label": "Image"
+                }, {
+                    "type": "url",
+                    "id": "txt_link_1",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "text",
+                    "id": "txt_title_text_1",
+                    "label": "Heading",
+                    "default": "Our collections"
+                }, {
+                    "type": "richtext",
+                    "id": "txt_text_1",
+                    "label": "Text",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_text_1",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "header",
+                    "content": "Column Two"
+                }, {
+                    "type": "image_picker",
+                    "id": "txt_image_2",
+                    "label": "Image"
+                }, {
+                    "type": "url",
+                    "id": "txt_link_2",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "text",
+                    "id": "txt_title_text_2",
+                    "label": "Heading",
+                    "default": "Our collections"
+                }, {
+                    "type": "richtext",
+                    "id": "txt_text_2",
+                    "label": "Text",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_text_2",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "header",
+                    "content": "Column Three"
+                }, {
+                    "type": "image_picker",
+                    "id": "txt_image_3",
+                    "label": "Image"
+                }, {
+                    "type": "url",
+                    "id": "txt_link_3",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "text",
+                    "id": "txt_title_text_3",
+                    "label": "Heading",
+                    "default": "Our collections"
+                }, {
+                    "type": "richtext",
+                    "id": "txt_text_3",
+                    "label": "Text",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                }, {
+                    "type": "text",
+                    "id": "button_text_3",
+                    "label": "Button text",
+                    "default": "Explore"
+                }
+            ]
+        }, {
+            "type": "image_with_text",
+            "name": "Image with Text",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "iwt_full_width",
+                    "label": "Full width"
+                }, {
+                    "type": "image_picker",
+                    "id": "iwt_image",
+                    "label": "Image"
+                }, {
+                    "type": "select",
+                    "id": "iwt_layout",
+                    "label": "Position",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Image on left"
+                        }, {
+                            "value": "right",
+                            "label": "Image on right"
+                        }
+                    ]
+                }, {
+                    "type": "select",
+                    "id": "iwt_image_width",
+                    "label": "Width",
+                    "default": "50%",
+                    "options": [
+                        {
+                            "value": "33%",
+                            "label": "33%"
+                        }, {
+                            "value": "50%",
+                            "label": "50%"
+                        }, {
+                            "value": "66%",
+                            "label": "66%"
+                        }
+                    ]
+                }, {
+                    "type": "select",
+                    "id": "iwt_text_align",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Center"
+                        }
+                    ]
+                }, {
+                    "type": "text",
+                    "id": "iwt_title",
+                    "label": "Heading",
+                    "default": "Image with text"
+                }, {
+                    "type": "richtext",
+                    "id": "iwt_text",
+                    "label": "Text",
+                    "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+                }, {
+                    "type": "url",
+                    "id": "iwt_link",
+                    "label": "Link"
+                }, {
+                    "type": "text",
+                    "id": "iwt_button",
+                    "label": "Button text"
+                }
+            ]
+        }, {
+            "type": "featured_collection",
+            "name": "Featured Collection",
+            "limit": 1,
+            "settings": [
+                {
+                    "id": "fc_collection",
+                    "type": "collection",
+                    "label": "Collection"
+                }, {
+                    "id": "fc_carousel",
+                    "type": "checkbox",
+                    "label": "Display in carousel"
+                }, {
+                    "type": "range",
+                    "id": "fc_grid",
+                    "min": 2,
+                    "max": 5,
+                    "step": 1,
+                    "label": "Products per row",
+                    "default": 4
+                }, {
+                    "type": "range",
+                    "id": "fc_limit",
+                    "min": 2,
+                    "max": 30,
+                    "step": 1,
+                    "label": "Products shown",
+                    "default": 8
+                }
+            ]
+        }, {
+            "type": "collection_list",
+            "name": "Collection List",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "cl_full_width",
+                    "label": "Full width"
+                }, {
+                    "type": "range",
+                    "id": "cl_collections_per_row",
+                    "min": 2,
+                    "max": 4,
+                    "step": 1,
+                    "label": "Collections per row",
+                    "default": 4
+                }, {
+                    "type": "header",
+                    "content": "Choose Collections"
+                }, {
+                    "label": "Collection 1",
+                    "id": "cl_collection_1",
+                    "type": "collection"
+                }, {
+                    "label": "Collection 2",
+                    "id": "cl_collection_2",
+                    "type": "collection"
+                }, {
+                    "label": "Collection 3",
+                    "id": "cl_collection_3",
+                    "type": "collection"
+                }, {
+                    "label": "Collection 4",
+                    "id": "cl_collection_4",
+                    "type": "collection"
+                }
+            ]
+        }, {
+            "type": "rich_text",
+            "name": "Rich Text",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "rt_text",
+                    "label": "Text",
+                    "info": "Use basic HTML to format text",
+                    "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+                }, {
+                    "type": "page",
+                    "id": "rt_page",
+                    "label": "Or Show content from a page"
+                }, {
+                    "type": "select",
+                    "id": "rt_alignment",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Center"
+                        }
+                    ]
+                }, {
+                    "type": "range",
+                    "id": "rt_text_width",
+                    "min": 500,
+                    "max": 1200,
+                    "step": 100,
+                    "unit": "px",
+                    "label": "Text box width size",
+                    "default": 600
+                }, {
+                    "type": "range",
+                    "id": "rt_text_size",
+                    "min": 12,
+                    "max": 36,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Text size",
+                    "default": 15
+                }
+            ]
+        }
+    ],
+    "default": {
+        "blocks": [
+            {
+                "type": "collection_list"
+            }
+        ]
+    }
+}
+
+{% endschema %}

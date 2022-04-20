@@ -1,0 +1,137 @@
+
+{% assign page_sliders = '' | split: ',' %}{% assign article_sliders = '' | split: ',' %}{% assign collection_sliders = '' | split: ',' %}{% assign embeded_sliders = '' | split: ',' %}{% if request.path contains '/pages/' %}
+
+{% capture current_page_slug %}{{ request.path | replace: '/pages/', '' }}{% endcapture %}
+
+
+
+
+
+{% for slider_alias in page_sliders %}
+{% capture current_page_with_string %}{{ '_' | append: current_page_slug }}{% endcapture %}
+{% capture current_page_with_string %}{{ current_page_with_string | append: '_' }}{% endcapture %}
+
+{% if slider_alias contains current_page_with_string %}
+{% capture snippet_name %}{{ slider_alias | replace: current_page_with_string, '' }}{% endcapture %}
+
+{% include snippet_name %}
+{% endif %}
+
+{% endfor %}
+
+
+
+{% elsif request.path contains '/blogs' %}
+
+{% assign article_url_path = article.url %}
+
+
+{% if article_url_path == null %}
+
+{% assign blog_url_path = blog.url %}
+
+
+
+{% capture current_blog_slug %}{{ blog_url_path | replace: '/blogs/', '' }}{% endcapture %}
+
+
+
+{% else %}
+
+{% capture current_article_slug %}{{ article_url_path | replace: blog.url, '' }}{% endcapture %}
+
+{% capture current_article_slug %}{{ current_article_slug | replace: '/', '' }}{% endcapture %}
+
+
+
+
+{% for slider_alias in article_sliders %}
+{% capture current_article_with_string %}{{ '_' | append: current_article_slug }}{% endcapture %}
+{% capture current_article_with_string %}{{ current_article_with_string | append: '_' }}{% endcapture %}
+
+{% if slider_alias contains current_article_with_string %}
+{% capture snippet_name %}{{ slider_alias | replace: current_article_with_string, '' }}{% endcapture %}
+
+{% include snippet_name %}
+{% endif %}
+
+{% endfor %}
+
+
+
+
+
+
+
+{% endif %}
+
+
+{% elsif request.path contains '/collections' %}
+
+
+
+{% if collection.url != null %}
+{% capture current_collection_slug %}{{ collection.url | replace: '/collections/', '' }}{% endcapture %}
+
+
+
+{% for slider_alias in article_sliders %}
+{% capture current_collection_with_string %}{{ '_' | append: current_collection_slug }}{% endcapture %}
+{% capture current_collection_with_string %}{{ current_article_with_string | append: '_' }}{% endcapture %}
+
+{% if slider_alias contains current_collection_with_string %}
+{% capture snippet_name %}{{ slider_alias | replace: current_collection_with_string, '' }}{% endcapture %}
+
+{% include snippet_name %}
+{% endif %}
+
+{% endfor %}
+
+
+
+{% endif %}
+
+
+{% elsif request.path == '/' %}
+
+
+
+{% else %}
+
+
+{% endif %}
+
+
+
+
+{% for slider_alias in embeded_sliders %}
+
+      {% capture snippet_name %}{{ slider_alias }}{% endcapture %}
+
+      {% include snippet_name %}
+
+    {% endfor %}
+
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        if (typeof jQuery == 'undefined') {
+            if (typeof jQuery == 'undefined') {
+                var page_selector = document.querySelector(".rev_slider_logo");
+                var home_selector = document.querySelector("rs-module-wrap");
+
+                if(home_selector != null){
+                    home_selector.innerHTML = '<img src="{{asset_url_rev}}jquery-missing.jpg">';
+                    home_selector.style.visibility = "visible";
+                }
+
+                if(page_selector != null){
+                    page_selector.src = "{{asset_url_rev}}jquery-missing.jpg";
+                    page_selector.style.display = "block";
+                }
+            }
+        }
+    });
+
+</script>

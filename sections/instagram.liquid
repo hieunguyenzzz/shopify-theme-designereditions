@@ -1,0 +1,167 @@
+{% capture cssvariable %}
+    --section-bg:{{section.settings.bgColor}}
+{% endcapture %}
+{% capture items %}
+    {% for i in (1..6) %}
+        <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+    {% endfor %}
+{% endcapture %}
+{% if section.blocks.size > 0 %}
+    {% capture items %}
+        {% for block in section.blocks %}
+            <a href="{{block.settings.url}}" class="keen-slider__slide tw-group">
+                {% render '[image]' cover: true image_box_ratio:'100%'  image: block.settings.image  data_widths: '[180, 360, 540, 720, 900]' %}
+                <div class="tw-pointer-events-none tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center">
+                    <svg fill="currentColor" height="1em" stroke-width="0" stroke="currentColor" viewbox="0 0 448 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                    </svg>
+                </div>
+            </a>
+        {% endfor %}
+    {% endcapture %}
+{% endif %}
+
+<div style="{{cssvariable}}" id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+    <div class="{% render '[class]-container' class: '' %} tw-flex tw-flex-col tw-gap-8 lg:tw-grid-cols-2">
+        <div class="flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-8">
+            <h2 class="tw-text-2xl tw-font-bold tw-mb-0">
+                {{section.settings.heading}}
+            </h2>
+            <div class="tw-max-w-prose tw-prose">
+                {{section.settings.description}}
+            </div>
+        </div>
+        {% include '[carousel]' items:items customscript:true %}
+        <div class="tw-flex tw-w-full tw-justify-center tw-text-center">
+            <div>
+                <div class="cta">
+                    <a href="/pages/gallery">
+                        {{ 'strings.general.see_all' | t }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let promohashtags =["#designericonsOnsale", "#designericoniconsPromo", "#designericonSale", "#designericonWeeklySale", "#designericonFlashSale", "#designericonGrandSale",]
+    fetch('{{ 'instagram-feed.json' | file_url }}').then(res=>res.json()).then(result=>{
+        // console.log({result})
+        document.querySelector('.keen-slider-{{section.id}}').innerHTML=''
+        const itemsFragments = document.createDocumentFragment()
+        let str = ''
+        result.data.user.edge_owner_to_timeline_media.edges.filter(
+            ({node})=>{
+                const text = node.edge_media_to_caption.edges[0].node.text
+                return !promohashtags.find((hashtag)=>text.includes(hashtag))
+            }
+        ).forEach(({node})=>{
+            let imageUrl = ` https://res.cloudinary.com/dfgbpib38/image/upload/w_400,f_auto/instagram/ngohoanglong/instagram-feed/main/out/images/instagram-feed-${node.id}.jpg`
+            str=str+`<a target="_blank" href="https://www.instagram.com/p/${node.shortcode}/"  class="keen-slider__slide tw-group">
+                <img class="lazyload-fade lazyautosizes lazyload" data-src="${imageUrl}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+                <div class="tw-pointer-events-none tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                </div>
+            </a>`
+        })
+        document.querySelector('.keen-slider-{{section.id}}').innerHTML=str
+
+        new KeenSlider("#keen-slider-{{id}}", {
+            slidesPerView: 2,
+            spacing: 15,
+            loop: true,
+            breakpoints: {
+            "(min-width: 768px)": {
+                slidesPerView: 3,
+                mode: "free-snap",
+            },
+            "(min-width: 900px)": {
+                slidesPerView: 4,
+                mode: "free-snap",
+            }
+            },
+            created: function (instance) {
+                document
+                .getElementById("keen-slider-{{id}}-arrow-left")
+                .addEventListener("click", function () {
+                    instance.prev()
+                })
+
+                document
+                .getElementById("keen-slider-{{id}}-arrow-right")
+                .addEventListener("click", function () {
+                    instance.next()
+                })
+                updateClasses(instance)
+            },
+            slideChanged(instance) {
+                updateClasses(instance)
+            },
+        })
+        function updateClasses(instance) {
+            var slide = instance.details().relativeSlide
+            var arrowLeft = document.getElementById("keen-slider-{{id}}-arrow-left")
+            var arrowRight = document.getElementById("keen-slider-{{id}}-arrow-right")
+            slide === 0
+                ? arrowLeft.classList.add("arrow--disabled")
+                : arrowLeft.classList.remove("arrow--disabled")
+            slide === instance.details().size - 1
+                ? arrowRight.classList.add("arrow--disabled")
+                : arrowRight.classList.remove("arrow--disabled")
+        }
+    
+    })
+</script>
+{% schema %}
+
+{
+    "name": "Instagram",
+    "settings": [
+        {
+            "type": "color",
+            "id": "bgColor",
+            "label": "Background Color",
+            "default": "#ffffff"
+        }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Shop Instagram"
+        }, {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Less than humble about your abode? Mention @interior_icons in your photos and we'll feature the best pics on our site.</p>"
+                    }
+                ],
+                "blocks": [
+                    {
+                        "type": "item",
+                        "name": "Feed Item",
+                        "settings": [
+                            {
+                                "type": "image_picker",
+                                "id": "image",
+                                "label": "Image"
+                            }, {
+                                "type": "url",
+                                "id": "url",
+                                "label": "Url",
+                                "default": "/"
+                            }
+                        ]
+                    }
+                ],
+                "presets": [
+                    {
+                        "name": "Instagram",
+                        "category": "Text"
+                    }
+                ]
+            }
+
+{% endschema %}

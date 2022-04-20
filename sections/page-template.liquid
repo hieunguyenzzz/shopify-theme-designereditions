@@ -1,0 +1,257 @@
+{% render 'breadcrumb' %}
+<div data-section-id="{{ section.id }}" data-section-type="page-section">
+
+    {% if section.settings.page_size == 'full_width' %}
+        <div class="gridlock-fluid">
+        {% endif %}
+
+        <div class="row grid_wrapper" id="content">
+
+
+            <div class="section-title span-12">
+                <h1>{{ page.title }}</h1>
+            </div>
+
+            {% capture sidebar %}
+                <div class="desktop-3 tablet-2 mobile-hide span-3" id="page_sidebar">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'collection' %}
+                            <div class="collection_side_block">
+                                {%- assign collection = collections[block.settings.collection] -%}
+                                {%- assign prod_limit = block.settings.limit -%}
+                                <h4>{{ collection.title }}</h4>
+                                {% for product in collection.products limit: prod_limit  %}
+                                    <div class="product-index" id="prod-{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                                        {% render 'product-listing', product: product, collection: collection %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% elsif block.type == 'menu' %}
+                            <h4>{{ block.settings.title }}</h4>
+                            <div class="sidebar_menu rte-accordion">
+                                {% for link in linklists[block.settings.side_nav].links %}
+                                    {% if link.links != blank %}
+                                        <div aria-expanded="false" aria-haspopup="true" class="extend has_sub_menu item">
+                                            <input class="trigger" id="item-{{ forloop.index }}" name="items" type="checkbox">
+                                            <label class="accordion-label" for="item-{{ forloop.index }}">
+                                                <span class="item-heading">
+                                                    <a href="{{ link.url }}">{{ link.title }}</a>
+                                                </span>
+                                            </label>
+                                            <div class="item-content">
+                                                {% for sub_link in link.links %}
+                                                    <span class="item-heading">
+                                                        <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                                                    </span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <span class="item-heading">{{ link.title | link_to: link.url }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        {% elsif block.type == 'image' %}
+                            {%- assign image_size = '450x' -%}
+                            <div class="image_container" {% if forloop.index == 1 %} style="margin-top:0;" {% endif %}>
+                                <a href="{{ block.settings.link }}">
+                                    {% if block.settings.image != blank %}
+                                        <img src="{{ block.settings.image | img_url: image_size }}" alt="{{ block.settings.image.alt }}">
+                                    {% else %}
+                                        {{ 'collection-3' | placeholder_svg_tag }}
+                                    {% endif %}
+                                </a>
+                            </div>
+                        {% elsif block.type == 'text_note' %}
+                            <div class="textnote_container">
+                                {% if block.settings.textbox_heading != blank %}
+                                    <h4>{{ block.settings.textbox_heading }}</h4>
+                                {% endif %}
+                                {% if block.settings.textbox_subheading != blank %}
+                                    <div class="subheading{% if block.settings.subheading_align == 'center' %} center{% endif %}">
+                                        {{ block.settings.textbox_subheading }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endcapture %}
+
+
+            {% case section.settings.sidebar_positon %}
+
+                {% when 'left' %}
+                    {% if section.settings.page_size == 'thin' %}
+                        {%- assign width = 'desktop-6 tablet-4 span-6' -%}
+                    {% endif %}
+                    {% if section.settings.page_size == 'full_page' or section.settings.page_size == 'full_width' %}
+                        {%- assign width = 'desktop-9 tablet-4 span-9' -%}
+                    {% endif %}
+
+                {% when 'right' %}
+                    {% if section.settings.page_size == 'thin' %}
+                        {%- assign width = 'desktop-6 desktop-push-3 tablet-4 span-6 push-3' -%}
+                    {% endif %}
+                    {% if section.settings.page_size == 'full_page' or section.settings.page_size == 'full_width' %}
+                        {%- assign width = 'desktop-9 tablet-4 span-9' -%}
+                    {% endif %}
+
+                {% when 'none' %}
+                    {% if section.settings.page_size == 'thin' %}
+                        {%- assign width = 'desktop-8 desktop-push-2 tablet-4 tablet-push-1 span-8 push-2' -%}
+                    {% endif %}
+                    {% if section.settings.page_size == 'full_page' or section.settings.page_size == 'full_width' %}
+                        {%- assign width = 'desktop-12 tablet-6 span-12' -%}
+                    {% endif %}
+
+            {% endcase %}
+
+            {% if section.settings.sidebar_positon == 'left' %}
+                {{ sidebar }}
+            {% endif %}
+
+            <div id="page_content" class="{{ width }} mobile-3">
+                <div class="rte">
+                    {{ page.content }}
+                </div>
+            </div>
+
+            {% if section.settings.sidebar_positon == 'right' %}
+                {{ sidebar }}
+            {% endif %}
+
+        </div>
+
+        {% if section.settings.page_size == 'full_width' %}
+        </div>
+    {% endif %}
+
+</div>
+
+
+{% schema %}
+
+{
+    "name": "Page",
+    "max_blocks": 8,
+    "settings": [
+        {
+            "type": "select",
+            "id": "page_size",
+            "label": "Page size",
+            "options": [
+                {
+                    "value": "thin",
+                    "label": "Thin"
+                }, {
+                    "value": "full_page",
+                    "label": "Full size"
+                }, {
+                    "value": "full_width",
+                    "label": "Full browser width"
+                }
+            ]
+        }, {
+            "type": "select",
+            "id": "sidebar_positon",
+            "label": "Sidebar position",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "No sidebar"
+                }, {
+                    "value": "left",
+                    "label": "Left"
+                }, {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "menu",
+            "name": "Menu",
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "side_nav",
+                    "label": "Sidebar menu",
+                    "info": "This menu has limited support for dropdown items"
+                }, {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Menu title",
+                    "default": "Explore"
+                }
+            ]
+        }, {
+            "type": "collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection"
+                }, {
+                    "type": "range",
+                    "id": "limit",
+                    "min": 1,
+                    "max": 10,
+                    "step": 1,
+                    "label": "Number of products",
+                    "default": 4
+                }
+            ]
+        }, {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                }, {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link",
+                    "info": "Optional"
+                }
+            ]
+        }, {
+            "type": "text_note",
+            "name": "Text",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "textbox_heading",
+                    "label": "Heading",
+                    "default": "Heading"
+                }, {
+                    "type": "richtext",
+                    "id": "textbox_subheading",
+                    "label": "Subheading",
+                    "default": "<p>Subheading</p>"
+                }, {
+                    "type": "select",
+                    "id": "subheading_align",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Center"
+                        }
+                    ],
+                    "label": "Subheading alignment"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}

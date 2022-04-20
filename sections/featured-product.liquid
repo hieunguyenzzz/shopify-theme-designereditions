@@ -1,0 +1,451 @@
+{%- assign product = all_products[section.settings.featured_product] -%}
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+{% if product == empty %}
+  {%- assign section_onboarding = true -%}
+{% endif %}
+
+<section
+  id="product-{{ product.id }}"
+  class="product-page product-template prod-{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-section"
+  data-aos="{{ settings.scroll_animation }}">
+
+  {% if section_onboarding %}
+   {% render 'onboard-single-product' %}
+  {% else %}
+   <div class="section-title">
+     <h2>
+       <a href="{{ product.url }}">
+         {{ section.settings.heading }}
+       </a>
+     </h2>
+   </div>
+   <div class="row grid_wrapper">
+
+     <meta itemprop="name" content="{{ product.title }}">
+     <meta itemprop="url" content="{{ routes.root_url }}{{ product.url }}">
+     <meta itemprop="image" content="{{ product.featured_media.media | img_url: '1024x1024' }}">
+     {% render 'product-json', product: product %}
+     {% case section.settings.image_section_size %}
+     {% when 'small' %}
+       {%- assign image_width = 'desktop-5 desktop-push-1 tablet-3 mobile-3 span-5 push-1' -%}
+       {%- assign descr_width = 'desktop-5 tablet-3 mobile-3 span-5' -%}
+     {% when 'medium' %}
+       {%- assign image_width = 'desktop-6 tablet-3 mobile-3 span-6' -%}
+       {%- assign descr_width = 'desktop-6 tablet-3 mobile-3 span-6' -%}
+     {% when 'large' %}
+       {%- assign image_width = 'desktop-8 tablet-3 mobile-3 span-8' -%}
+       {%- assign descr_width = 'desktop-4 tablet-3 mobile-3 span-4' -%}
+     {% when 'ultra' %}
+       {%- assign image_width = 'desktop-9 tablet-3 mobile-3 span-9' -%}
+       {%- assign descr_width = 'desktop-3 tablet-3 mobile-3 span-3' -%}
+     {% endcase %}
+
+     {% assign thumbnail_position = section.settings.thumbnail_position %}
+     {% assign click_to_enlarge = section.settings.click_to_enlarge %}
+     {% assign enable_video_looping = section.settings.enable_video_looping %}
+     {% capture product_gallery_config %}{
+       "thumbPosition": {{ section.settings.thumbnail_position | json }},
+       "thumbsShown": {{ section.settings.thumbs_to_show | json }},
+       "enableVideoLooping": {{ section.settings.enable_video_looping | json }},
+       "navStyle": {{ section.settings.slide_controls | json }},
+       "mainSlider": {% if product.media.size <= 1 %}false{% else %}true{% endif %},
+       "thumbSlider": {% if product.media.size >= 4 %}true{% else %}false{% endif %},
+       "productId": {{ product.id | json }},
+       "isQuick": false
+     }{% endcapture %}
+
+
+    {% if section.settings.image_options == 'static' %}
+      {% assign gallery_data = 'data-static-gallery' %}
+      {% assign gallery_type = 'static' %}
+    {% else %}
+      {% assign gallery_data = 'data-scroll-gallery' %}
+      {% assign gallery_type = 'scroll' %}
+    {% endif %}
+
+    <div id="product-photos" class="product-photos product-{{ product.id }} {{ image_width }}"
+      data-product-single-media-group data-gallery-config='{{ product_gallery_config }}'
+       {{ gallery_data }} >
+
+       {% if product.featured_media and gallery_type == 'static' %}
+          {% render 'product-static-gallery',
+            product: product,
+            thumbnail_position: thumbnail_position,
+            click_to_enlarge: click_to_enlarge,
+            enable_video_looping: enable_video_looping,
+            thumbs_to_show: section.settings.thumbs_to_show
+            %}
+       {% elsif product.featured_media and gallery_type == 'scroll' %}
+      	  {% render 'product-scroll-gallery',
+            product: product,
+            thumbnail_position: thumbnail_position,
+            click_to_enlarge: click_to_enlarge,
+            enable_video_looping: enable_video_looping %}
+       {% else %}
+         {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+         {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+       {% endif %}
+     </div>
+
+    <div id="product-content" class="product-right {{ descr_width }}">
+      <div id="sticky-item" class="product-description is_sticky">
+
+        <div>
+          <h3>
+            <a href="{{ product.url }}">
+              {{ product.title | escape }}
+            </a>
+          </h3>
+        </div>
+
+        {% if section.settings.show_vendor %}
+          <h3>{{ 'products.product.designer' | t }}: {{ product.vendor }}</h3>
+          <div class="clear"></div>
+        {% endif %}
+
+        {% unless product.template_suffix == 'not-for-sale' %}
+        {% capture product_form_config %}
+          { "money_format": {{ shop.money_format | json }},
+            "enable_history": true,
+            "sold_out": {{ "products.product.sold_out" | t | json }},
+            "button": {{ 'products.product.add_to_cart' | t | json }},
+            "unavailable": {{ 'products.product.unavailable' | t | json }},
+            "quickview": false
+          }
+        {% endcapture %}
+
+         <div class="product-form">
+          {% render 'product-form',
+            product: product,
+            current_variant: current_variant,
+            product_form_config: product_form_config %}
+         </div>
+         {% endunless %}
+
+         <div class="clear"></div>
+         <div class="rte">
+           {% if product.description contains '[#' %}
+           {% if shop.locale == "ia" %}{{ product.description | split: '[#' | first | truncatewords: 10000 }}{% else %}{{ product.description | split: '[#' | first | truncatewords: 50 }}{% endif %}
+           {% else %}
+           {% if shop.locale == "ia" %}{{ product.description | split: '<!-- split -->' | first | truncatewords: 10000 }}{% else %}{{ product.description | split: '<!-- split -->' | first | truncatewords: 50 }}{% endif %}
+           {% endif %}
+
+           <a href="{{ product.url }}">{{ 'products.product.readmore' | t }}</a>
+         </div>
+         <div class="clear"></div>
+     </div>
+    </div>
+   </div>
+  {% endif %}
+  {%- if section.settings.show_social_share -%}
+  {% render 'social' with product %}
+  {%- endif -%}
+</section>
+
+<div class="clear">
+<!-- **BEGIN** Hextom USB Integration // Home Featured Product Include - DO NOT MODIFY -->
+    {% render 'hextom_usb_home_featured_prod', product: product %}
+    <!-- **END** Hextom USB Integration // Home Featured Product Include - DO NOT MODIFY -->
+</div>
+
+<style>
+  section.product-page.prod-{{ section.id }} h2,
+  section.product-page.prod-{{ section.id }} h2 a {
+    color: {{ section.settings.heading_color }} !important;
+    {% if settings.section_titles != 'text_only' %}
+    border-color: {{ section.settings.heading_color }} !important;
+    {% endif %}
+  }
+
+  section.product-page.prod-{{ section.id }} .featured-product-gallery.right {
+    float: right !important;
+  }
+  section.product-page.prod-{{ section.id }} h3 {
+    font-size: 16px;
+  }
+
+  {% if section.settings.product_variants == 'swatches' %}
+    section.product-page.prod-{{ section.id }} .selector-wrapper {
+      display: none;
+    }
+    section.product-page.prod-{{ section.id }} .single-option-selector {
+      opacity: 0;
+      display: none;
+    }
+  {% endif %}
+
+  {% if section.settings.show_quantity_selector %}
+    section.product-page.prod-{{ section.id }} .product-qty.selector-wrapper {
+      display: block;
+    }
+  {% endif %}
+  {% unless section.settings.show_sku %}
+      section.product-page.prod-{{ section.id }} .variant-sku { display: none; }
+  {% endunless %}
+
+
+  {% if section.settings.image_options == 'static' %}
+    {% case section.settings.thumbnail_position %}
+      {% when 'below' %}
+        section.product-page.prod-{{ section.id }} .product-thumbnails a.slick-prev.slick-arrow {
+            position: absolute;
+            left: -20px;
+            top: 40%;
+        }
+        section.product-page.prod-{{ section.id }} .product-thumbnails a.slick-next.slick-arrow {
+            top: 40%;
+            position: absolute;
+            right: -20px;
+        }
+        section.product-page.prod-{{ section.id }} .product-thumbnails {
+          margin-top: 10px;
+          padding: 0 30px;
+        }
+        section.product-page.prod-{{ section.id }} .product-thumbnail {
+          padding: 10px;
+        }
+      {% else %}
+        section.product-page.prod-{{ section.id }} .slick-vertical ul.slick-dots {
+          position: initial;
+        }
+    {% endcase %}
+  {% endif %}
+  {% if section.settings.product_description_position != 'below' %}
+    section.product-page.prod-{{ section.id }} .product-description form {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+    section.product-page.prod-{{ section.id }} .add {
+      margin-bottom: 8px! important;
+    }
+    {% endif %}
+    section.product-page.prod-{{ section.id }} .product-description {
+      background: {{ section.settings.description_background }};
+    }
+    section.product-page.prod-{{ section.id }} .product-description {
+      background: {{ section.settings.description_background }};
+    }
+    .section.product-page.prod-{{ section.id }} .share-icons a {
+      display: inline-block;
+    }
+</style>
+{% unless product == empty %}
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+{% schema %}
+{
+ "name": "Featured product",
+ "class": "index-section",
+ "settings": [
+   {
+     "type": "product",
+     "id": "featured_product",
+     "label": "Product"
+   },
+   {
+     "type": "text",
+     "id": "heading",
+     "label": "Heading",
+     "default": "Featured Product"
+   },
+   {
+     "type": "color",
+     "id": "heading_color",
+     "label": "Heading color",
+     "default": "#000"
+   },
+   {
+     "type":"header",
+     "content":"Media"
+   },
+   {
+     "type": "checkbox",
+     "id": "click_to_enlarge",
+     "label": "Enable click to enlarge",
+     "default": true
+   },
+   {
+     "type": "select",
+     "id": "image_section_size",
+     "label": "Gallery size",
+     "options": [
+       {
+         "value": "small",
+         "label": "Small"
+       },
+       {
+         "value": "medium",
+         "label": "Medium"
+       },
+       {
+         "value": "large",
+         "label": "Large"
+       },
+       {
+         "value": "ultra",
+         "label": "Ultra"
+       }
+     ],
+     "default":"medium"
+   },
+   {
+     "type": "select",
+     "id": "image_options",
+     "label": "Gallery type",
+     "options": [
+       {
+         "value": "static",
+         "label": "Slideshow with thumbnails"
+       },
+       {
+         "value": "scroll",
+         "label": "Scroll gallery"
+       }
+     ]
+   },
+   {
+     "type": "select",
+     "id": "thumbnail_position",
+     "label": "Thumbnail position when gallery w/thumbnails",
+     "options": [
+       {
+         "value": "right",
+         "label": "Right"
+       },
+       {
+         "value": "left",
+         "label": "Left"
+       },
+       {
+         "value": "bottom",
+         "label": "Bottom"
+       }
+     ]
+   },
+   {
+     "type": "range",
+     "id": "thumbs_to_show",
+     "min": 0,
+     "max": 6,
+     "step": 1,
+     "label": "Thumbnail images to show",
+     "default": 3,
+     "info":"Set to 0 to show a slideshow without thumbnails"
+   },
+   {
+     "type": "select",
+     "id": "slide_controls",
+     "label": "Slider control style",
+     "default": "arrows",
+     "options": [
+       {
+         "value": "arrows",
+         "label": "Arrows"
+       },
+       {
+         "value": "dots",
+         "label": "Dots"
+       }
+     ]
+   },
+   {
+     "type": "checkbox",
+     "id": "enable_video_looping",
+     "label": "Enable video looping",
+     "default": false
+   },
+   {
+     "type": "paragraph",
+     "content": "Learn more about [Media types](https:\/\/help.shopify.com/en\/manual\/products\/product-media\)"
+   },
+   {
+     "type":"header",
+     "content":"Form options"
+   },
+   {
+   "type": "color",
+   "id":"description_background",
+   "label":"Form background color"
+   },
+   {
+     "type": "checkbox",
+     "id": "show_vendor",
+     "label": "Show vendor"
+   },
+   {
+     "type": "checkbox",
+     "id": "show_sku",
+     "label": "Show variant SKU",
+     "default": true
+   },
+   {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show quantity selector",
+      "default": true
+    },
+    {
+       "type": "select",
+       "id": "product_variants",
+       "label": "Product variant display",
+       "options": [
+        {
+          "value": "swatches",
+          "label": "Swatches"
+        },
+        {
+          "value": "drop-downs",
+          "label": "Drop-downs"
+        }
+       ],
+       "default": "swatches"
+     },
+     {
+       "type": "select",
+       "id": "color_swatch_options",
+       "label": "Color swatch style",
+       "options": [
+         {
+           "value": "default-color",
+           "label": "Default color"
+         },
+         {
+          "value": "custom-image",
+          "label": "Custom uploaded images"
+         },
+         {
+          "value": "variant-image",
+          "label": "Zoomed in variant images"
+         }
+       ],
+       "default": "default-color",
+       "info": "Learn more about [color swatch styles](https:\/\/support.weareunderground.com\/article\/259-mr-parker-theme-color-swatch-styles)"
+     },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show dynamic checkout button",
+      "info": "Lets customers check out directly using a familiar payment method. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_share",
+      "label": "Show social share icons",
+      "default": true
+    }
+   ],
+   "presets": [
+   {
+     "name": "Featured product",
+     "category": "Product"
+   }
+ ]
+}
+{% endschema %}

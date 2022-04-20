@@ -1,0 +1,79 @@
+{% style %}
+{%- assign main_font = settings.main_font -%}
+{%- assign nav_font = settings.nav_font -%}
+{%- assign heading_font = settings.heading_font -%}
+  :root {
+    --main-family: BrandonText;
+    --main-weight: {{ main_font.weight }};
+    --nav-family: {{ nav_font.family }};
+    --nav-weight: {{ nav_font.weight }};
+    --heading-family: {{ heading_font.family }};
+    --heading-weight: {{ heading_font.weight }};
+
+    --font-size: {{ settings.font_size }};
+    --h1-size: {{ settings.h1_size }};
+    --h2-size: {{ settings.h2_size }};
+    --h3-size: {{ settings.h3_size }};
+    --h4-size: {{ settings.h4_size }};
+    --h5-size: {{ settings.h5_size }};
+    --nav-size: {{ settings.nav_size }};
+
+    --announcement-bar-background: {{ settings.announcement_bar_background }};
+    --announcement-bar-text-color: {{ settings.announcement_bar_text_color }};
+    --homepage-pre-scroll-color: {{ settings.homepage_pre_scroll_color }};
+    --homepage-pre-scroll-background: {{ settings.homepage_pre_scroll_background }};
+    --homepage-scroll-color: {{ settings.homepage_scroll_color }};
+    --homepage-scroll-background: {{ settings.homepage_scroll_background }};
+    --pre-scroll-color: {{ settings.pre_scroll_color }};
+    --pre-scroll-background: {{ settings.pre_scroll_background}};
+    --scroll-color: {{ settings.scroll_color }};
+    --scroll-background: {{ settings.scroll_background }};
+    --submenu-color: {{ settings.submenu_color }};
+    --dropdown-background: {{ settings.dropdown_background }};
+    --nav-border-color: {{ settings.nav_border_color }};
+    --secondary-color: {{ settings.secondary_color }};
+    --background: {{ settings.background }};
+    --header-color: {{ settings.header_color }};
+    --text-color: {{ settings.text_color }};
+    --link-color: {{ settings.link_color }};
+    --sale-color: {{ settings.sale_color }};
+    --dotted-color: {{ settings.dotted_color }};
+    --button-color: {{ settings.button_color }};
+    --button-hover: {{ settings.button_hover }};
+    --button-text: {{ settings.button_text }};
+    --secondary-button-color: {{ settings.secondary_button_color }};
+    --secondary-button-hover: {{ settings.secondary_button_hover }};
+    --secondary-button-text: {{ settings.secondary_button_text }};
+    --new-background: {{ settings.new_background }};
+    --new-color: {{ settings.new_color }};
+    --sale-icon-background: {{ settings.sale_icon_background }};
+    --sale-icon-color: {{ settings.sale_icon_color }};
+    --so-background: {{ settings.so_background }};
+    --so-color: {{ settings.so_color }};
+    --fb-share: {{ settings.fb_share }};
+    --tw-share: {{ settings.tw_share }};
+    --pin-share: {{ settings.pin_share }};
+    --direction-color: {{ settings.direction_color }};
+    --direction-background: {{ settings.direction_background }};
+    --direction-hover: {{ settings.direction_hover }};
+    --accordion-header_bg: {{ settings.accordion_header_bg }};
+    --accordion-header_text: {{ settings.accordion_header_text }};
+    --accordion-content_background: {{ settings.accordion_content_background }};
+    --accordion-content_text: {{ settings.accordion_content_text }};
+    --swatch-color: {{ settings.swatch_color }};
+    --swatch-background: {{ settings.swatch_background }};
+    --swatch-border: {{ settings.swatch_border }};
+    --swatch-selected_color: {{ settings.swatch_selected_color }};
+    --swatch-selected_background: {{ settings.swatch_selected_background }};
+    --swatch-selected_border: {{ settings.swatch_selected_border }};
+    --footer-border: {{ settings.footer_border }};
+    --footer-background: {{ settings.footer_background }};
+    --footer-text: {{ settings.footer_text }};
+    --footer-icons-color: {{ settings.footer_icons_color }};
+    --footer-icons-hover: {{ settings.footer_icons_hover }};
+    --footer-input: {{ settings.footer_input }};
+    --footer-input-text: {{ settings.footer_input_text }};
+    --footer-button: {{ settings.footer_button }};
+    --footer-button-text: {{ settings.footer_button_text }};
+  }
+{% endstyle %}

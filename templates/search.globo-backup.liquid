@@ -1,0 +1,78 @@
+{% paginate search.results by 24 %}
+
+<div class="section-title desktop-12 mobile-3">
+  <h1>{{ 'general.search.title' | t }}</h1>
+</div>
+
+<div id="page" class="desktop-12 tablet-6 mobile-3">
+
+  <div id="search-bar">
+    <form action="{{ routes.search_url }}" method="get">
+      <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}"/>
+      <input type="hidden" name="type" value="product">
+      <input value="{{ 'general.search.submit' | t }}" name="submit" id="search_button" class="button" type="submit">
+      {% if search.performed %}
+        {% if search.results_count == 0 %}
+          <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+        {% else %}
+          <p>{{ 'general.search.results_for_html' | t: terms: search.terms }}</p>
+        {% endif %}
+      {% endif %}
+
+    </form>
+  </div>
+</div>
+
+
+{% if search.performed %}
+
+<div class="desktop-12 tablet-6 mobile-3" id="four-per-row">
+  <div class="grid_wrapper product-loop">
+    {% for item in search.results %}
+      <div class="tw-col-span-1" id="prod-{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+<!-- Article -->{% if item.object_type == 'article' %}
+              <div class="collection-image ci">
+                <!--'item' is an article All article object properties can be accessed. -->
+                {% if item.image %}
+                  <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                    {%- render 'basic-responsive-image', type: item.image, data_widths: '[180, 360, 540, 720]'  -%}
+                    <noscript>
+                      <img src="{{ item.image | img_url: '800x' }}" alt="{{ item.image.alt }}">
+                    </noscript>
+                  </a>
+                {% else %}
+                  <div class="search-content prod-image">
+                    {{ item.content | strip_html | trancate: 200 }}
+                  </div>
+                {% endif %}
+              </div>
+<!-- PAGE -->{% elsif item.object_type == 'page' %}
+              <div class="collection-image ci">
+              <!--'item' is a page. All page object properties can be accessed. -->
+
+                {% if item.content contains "img" %}
+                  {% assign feat_image = item.content | split: 'src="' %}
+                  {% assign feat_image = feat_image[1] | split: '"' | first | replace: '//cdn', 'http://cdn' | replace: 'http:http://', 'http://' | remove: 'https:'  %}
+                  <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                    <img src="{{ feat_image }}" alt="{{ item.title }}">
+                  </a>
+                {% else %}
+                  <div class="search-content prod-image">
+                    {{ item.content | strip_html | trancate: 200 }}
+                  </div>
+                {% endif %}
+              </div>
+<!-- Product -->{% else %}
+            <!-- 'item' is a product. All product object properties can be accessed.-->
+            {% render 'product-listing', product: item, collection: collection %}
+          {% endif %}
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% render 'pagination', paginate: paginate %}
+
+{% endif %}
+
+{% endpaginate %}

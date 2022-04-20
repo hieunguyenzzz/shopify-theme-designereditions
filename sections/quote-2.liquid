@@ -1,0 +1,281 @@
+{% capture config %}
+    slidesPerView: 1,
+        spacing: 15,
+        loop: true,
+        breakpoints: {
+          "(min-width: 768px)": {
+            slidesPerView: 2,
+            mode: "free-snap",
+          },
+          "(min-width: 900px)": {
+            slidesPerView: 3,
+            mode: "free-snap",
+          },
+          "(min-width: 1024px)": {
+            slidesPerView: 4,
+            mode: "free-snap",
+          }
+        },
+{% endcapture %}
+
+{% capture cssvariable %}
+    --section-bg:{{section.settings.bgColor}}
+{% endcapture %}
+{% capture items %}
+    {% for i in (1..6) %}
+        <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+    {% endfor %}
+{% endcapture %}
+{% if section.blocks.size > 0 %}
+    {% capture items %}
+        {% for block in section.blocks %}
+            <div class="keen-slider__slide tw-min-h-full">
+                    <blockquote class="tw-space-y-6 tw-min-h-full tw-p-[10%] lg:tw-border-solid lg:tw-border tw-border-gray-200">
+                        {% if block.settings.image %}
+                            <span class="tw-block tw-w-12 tw-h-12 tw-rounded-full tw-overflow-hidden tw-relative">
+                                <img class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover lazyloaded" src="{{ block.settings.image | img_url: '200x' }}">
+                            </span>
+                        {% endif %}
+                        <h5 class="tw-text-lg text-[#ff6f61] tw-p-0">
+                            {{ block.settings.title1 }}
+                        </h5>
+                        {% if block.settings.quote != blank %}
+                            <div class="rte-setting rte tw-p-0">{{ block.settings.quote }}</div>
+                        {% endif %}
+                        {% if block.settings.author != blank %}
+                            <cite>{{ block.settings.author | escape }}</cite>
+                        {% endif %}
+                    </blockquote>
+            </div>
+        {% endfor %}
+    {% endcapture %}
+{% endif %}
+
+<div style="{{cssvariable}}" id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center">
+    <div class="{% render '[class]-container'  class: '' %} flex tw-flex-col lg:tw-grid-cols-2">
+        <div class="flex tw-flex-col tw-items-center tw-text-center tw-flex-1 tw-space-y-8">
+            <div>
+                <h2 class="tw-text-2xl tw-font-bold tw-mb-0">
+                    {{section.settings.heading}}
+                </h2>
+                <p class="tw-pt-2">{{ section.settings.subheading | escape }}</p>
+            </div>
+
+            <div class="tw-max-w-prose ">
+                {{section.settings.description}}
+            </div>
+        </div>
+        {% include '[carousel]' items:items config:config %}
+        <div class="text-center tw-underline tw-mt-6">
+            <a class="text-link tw-font-bold" target="_blank" href="{{section.settings.link}}" title="see all reviews">{{ 'strings.general.all_reviews' | t }}
+                <i class="icon icon-chevron-right !tw-text-[11px] tw-font-bold tw-ml-1"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% schema %}
+
+{
+    "name": "Featured quotes",
+    "class": "index-section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full width"
+        }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Featured collection"
+        }, {
+            "type": "text",
+            "id": "subheading",
+            "label": "Sub Heading"
+        }, {
+            "type": "url",
+            "id": "link",
+            "label": "link"
+        }, {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "#000"
+        }, {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#fff"
+        }, {
+            "id": "carousel",
+            "type": "checkbox",
+            "label": "Display in carousel"
+        }, {
+            "type": "range",
+            "id": "grid",
+            "min": 2,
+            "max": 5,
+            "step": 1,
+            "label": "Products per row",
+            "default": 4
+        }, {
+            "type": "range",
+            "id": "limit",
+            "min": 2,
+            "max": 30,
+            "step": 1,
+            "label": "Products shown",
+            "default": 8
+        }
+    ],
+    "blocks": [
+        {
+            "type": "quote",
+            "name": {
+                "cs": "Ohlas",
+                "da": "Udtalelse",
+                "de": "Testimonial",
+                "en": "Testimonial",
+                "es": "Testimonio",
+                "fi": "Suositukset",
+                "fr": "Témoignages",
+                "hi": "प्रमाणपत्र",
+                "it": "Testimonial",
+                "ja": "お客様の声",
+                "ko": "추천",
+                "nb": "Anbefaling",
+                "nl": "Testimonial",
+                "pl": "Referencja",
+                "pt-BR": "Depoimento",
+                "pt-PT": "Testemunho",
+                "sv": "Kundberättelser",
+                "th": "เสียงชื่นชมจากลูกค้า",
+                "tr": "Kullanıcı görüşü",
+                "vi": "Chứng thực",
+                "zh-CN": "感言",
+                "zh-TW": "推薦文"
+            },
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "quote",
+                    "label": {
+                        "cs": "Text",
+                        "da": "Tekst",
+                        "de": "Text",
+                        "en": "Text",
+                        "es": "Texto",
+                        "fi": "Teksti",
+                        "fr": "Texte",
+                        "hi": "टेक्स्ट",
+                        "it": "Testo",
+                        "ja": "テキスト",
+                        "ko": "텍스트",
+                        "nb": "Tekst",
+                        "nl": "Tekst",
+                        "pl": "Tekst",
+                        "pt-BR": "Texto",
+                        "pt-PT": "Texto",
+                        "sv": "Text",
+                        "th": "ข้อความ",
+                        "tr": "Metin",
+                        "vi": "Văn bản",
+                        "zh-CN": "文本",
+                        "zh-TW": "文字"
+                    },
+                    "default": {
+                        "cs": "<p>Přidejte recenze a ohlasy zákazníků, které vyjadřují jejich spokojenost s vaším obchodem.</p>",
+                                                                "da": "<p>Tilføj kundeanmeldelser og udtalelser for at fremhæve din butiks tilfredse kunder.</p>",
+                                                                "de": "<p>Kunden-Reviews und Testimonials, die Kundenzufriedenheit beweisen.</p>",
+                                                                "en": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+                                                                "es": "<p>Agrega las reseñas y los testimonios de los clientes para mostrar a los clientes satisfechos de tu tienda.</p>",
+                                                                "fi": "<p>Lisää asiakasarviointeja ja suositteluja esimerkeiksi myymäläsi tyytyväisistä asiakkaista.</p>",
+                                                                "fr": "<p>Ajoutez des avis et témoignages pour mettre en avant vos clients satisfaits.</p>",
+                                                                "hi": "<p>अपने स्टोर के खुश ग्राहकों को दिखाने के लिए ग्राहक समीक्षा और प्रशंसापत्र जोड़ें.</p>",
+                                                                "it": "<p>Aggiungi recensioni e testimonianze sul tuo negozio per dimostrare che i clienti sono soddisfatti.</p>",
+                                                                "ja": "<p>あなたのストアの幸せなお客様を紹介するために、カスタマーレビューとお客様の声を追加してください。</p>",
+                                                                "ko": "<p>고객 리뷰 및 추천을 추가하여 스토어에 만족한 고객을 보여주십시오.</p>",
+                                                                "nb": "<p>Legg til kundeomtaler og anbefalinger for å vise frem butikkens glade kunder.</p>",
+                                                                "nl": "<p>Voeg beoordelingen van klanten en testimonials toe om te laten zien dat je klanten tevreden zijn.</p>",
+                                                                "pl": "<p>Dodaj opinie i referencje od klientów, aby pokazać zadowolenie klientów Twojego sklepu.</p>",
+                                                                "pt-BR": "<p>Adicione comentários e depoimentos para dar destaque aos clientes satisfeitos com a sua loja.</p>",
+                                                                "pt-PT": "<p>Adicione análises e testemunhos para mostrar os clientes felizes da sua loja.</p>",
+                                                                "sv": "<p>Lägg till kundrecensioner och berättelser för att visa upp din butiks nöjda kunder.</p>",
+                                                                "th": "<p>เพิ่มรีวิวและเสียงชื่นชมจากลูกค้าเพื่อนำเสนอลูกค้าที่ได้รับความพึงพอใจจากร้านค้า</p>",
+                                                                "tr": "<p>Müşteri değerlendirmeleri ve kullanıcı görüşleri ekleyerek mağazanızdan memnun kalan müşterileri gösterin.</p>",
+                                                                "vi": "<p>Thêm đánh giá và chứng thực từ khách hàng để chứng minh khách hàng hài lòng với cửa hàng.</p>",
+                                                                "zh-CN": "<p>添加客户评论和感言，以展示对您的商店满意的客户。</p>",
+                                                                "zh-TW": "<p>新增顧客評論和推薦文，展示對您商店滿意之顧客。</p>"
+                                                            }
+                                                        }, {
+                                                            "id": "title1",
+                                                            "type": "text",
+                                                            "label": "Text"
+                                                        }, {
+                                                            "type": "image_picker",
+                                                            "id": "image",
+                                                            "label": "image"
+                                                        }, {
+                                                            "type": "text",
+                                                            "id": "author",
+                                                            "label": {
+                                                                "cs": "Autor",
+                                                                "da": "Forfatter",
+                                                                "de": "Autor",
+                                                                "en": "Author",
+                                                                "es": "Autor",
+                                                                "fi": "Kirjoittaja",
+                                                                "fr": "Auteur",
+                                                                "hi": "लेखक",
+                                                                "it": "Autore",
+                                                                "ja": "執筆者",
+                                                                "ko": "작성자",
+                                                                "nb": "Forfatter",
+                                                                "nl": "Auteur",
+                                                                "pl": "Autor",
+                                                                "pt-BR": "Autoria",
+                                                                "pt-PT": "Autoria",
+                                                                "sv": "Upphovsman",
+                                                                "th": "ผู้เขียน",
+                                                                "tr": "Yazar",
+                                                                "vi": "Tác giả",
+                                                                "zh-CN": "作者",
+                                                                "zh-TW": "作者"
+                                                            },
+                                                            "default": {
+                                                                "cs": "Jméno autora",
+                                                                "da": "Forfatterens navn",
+                                                                "de": "Name des Autors",
+                                                                "en": "Author's name",
+                                                                "es": "Nombre del autor",
+                                                                "fi": "Kirjoittajan nimi",
+                                                                "fr": "Nom de l'auteur",
+                                                                "hi": "लेखक का नाम",
+                                                                "it": "Nome dell'autore",
+                                                                "ja": "筆者の名前",
+                                                                "ko": "작성자 이름",
+                                                                "nb": "Forfatterens navn",
+                                                                "nl": "Naam auteur",
+                                                                "pl": "Nazwisko autora",
+                                                                "pt-BR": "Nome do autor",
+                                                                "pt-PT": "Nome do autor",
+                                                                "sv": "Författarens namn",
+                                                                "th": "ชื่อผู้เขียน",
+                                                                "tr": "Yazar adı",
+                                                                "vi": "Tên tác giả",
+                                                                "zh-CN": "作者姓名",
+                                                                "zh-TW": "作者名稱"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "presets": [
+                                                {
+                                                    "name": "Featured quotes",
+                                                    "category": "Collection"
+                                                }
+                                            ]
+                                        }
+
+{% endschema %}

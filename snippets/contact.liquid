@@ -1,0 +1,65 @@
+{% form 'contact' %}
+  <div id="contactFormWrapper">
+    {% if form.errors %}
+      <div class="notice error">
+        <p>{{ 'general.forms.post_error' | t }}</p>
+        <ul class="disc">
+          {% for field in form.errors %}
+            {% if field == 'form' %}
+              <li>
+                {{ form.errors.messages[field] }}
+              </li>
+            {% else %}
+              <li>
+                <strong>{{ field | replace: 'body', 'Message' }}</strong> {{ form.errors.messages[field] }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+
+    {% if form.posted_successfully? %}
+      <div class="successForm feedback">
+        <p>{{ 'contact.form.post_success' | t }}</p>
+      </div>
+    {% endif %}
+
+
+    <div class="desktop-12 tablet-6 mobile-3">
+      <p>
+        <input type="text" id="contactFormName" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}" />
+      </p>
+    </div>
+    <div class="desktop-12 tablet-6 mobile-3">
+      <p>
+        <input type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" />
+      </p>
+    </div>
+    <div class="desktop-12 tablet-6 mobile-3">
+      <p>
+        <input type="text" id="contactFormTelephone" name="contact[phone]" placeholder="{{ 'contact.form.phone' | t }}" />
+      </p>
+    </div>
+    <div class="desktop-12 mobile-3">
+      <p>
+        <textarea rows="15" cols="90" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}"></textarea>
+      </p>
+      <p>
+        <input type="submit" id="contactFormSubmit" class="secondary button" value="{{ 'contact.form.send' | t }}" />
+      </p>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  {% if form.posted_successfully? %}
+    <div class="successForm feedback">
+      <p>{{ 'contact.form.post_success' | t }}</p>
+    </div>
+  {% endif %}
+
+{% endform %}
+
+<div class="clear"></div>

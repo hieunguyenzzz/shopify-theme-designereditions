@@ -1,0 +1,128 @@
+{%- assign collection = collections[section.settings.collection] -%}
+{% capture items %}
+  {% for i in (1..6) %}
+    <div class="keen-slider__slide tw-bg-gray-100 tw-relative tw-h-72 tw-flex tw-justify-center tw-items-center"></div>
+  {% endfor %}
+{% endcapture %}
+{% if section.blocks != blank %}
+  {% capture items %}
+    {% for block in section.blocks limit: section.blocks.size %}
+      {%- assign collection = collections[block.settings.collection] -%}
+      <div class="keen-slider__slide">
+        <div class="tw-w-full tw-relative " data-alpha="{{ collection.title }}" {{ block.shopify_attributes }}>
+          {% if block.settings.collection == blank %}
+            <div class="tw-relative" style="padding-bottom: 100%;">
+              <div class="tw-absolute tw-w-full tw-h-full tw-inset-0 hover:tw-brightness-50">
+                <a href="#" title="{{ collection_title }}">
+                  <div class="tw-w-full">
+                    {% render "[image]-holder" %}
+                  </div>
+                </a>
+              </div>
+              <div class="tw-absolute tw-top-1/2 tw-right-0 tw-max-w-full" style="transform: translateY(-50%);">
+                <h3 class="tw-m-0 tw-font-bold tw-text-xs sm:tw-text-base tw-px-3 tw-py-2 tw-bg-black tw-bg-opacity-50">
+                  <a class="!tw-text-white " href="#" title="collection_title">sample</a>
+                </h3>
+              </div>
+            </div>
+          {% else %}
+            {% render 'collection-grid-item', image:block.settings.image collection: collection %}
+          {% endif %}
+        </div>
+      </div>
+
+    {% endfor %}
+  {% endcapture %}
+{% endif %}
+
+<div id="{{section.id}}" class="tw-py-16 tw-bg-[color:var(--section-bg)] tw-items-center tw-overflow-hidden">
+  <div class="{% render '[class]-container' class: '' %} tw-flex tw-flex-col tw-gap-6 lg:tw-grid-cols-2">
+    <div class=" tw-flex tw-flex-col tw-items-center lg:tw-items-start tw-text-center lg:tw-text-left tw-flex-1 tw-space-y-4">
+      {% if section.settings.heading != blank %}
+        <div class="tw-text-left tw-flex tw-justify-between tw-items-baseline tw-w-full">
+          <h2 class="tw-font-bold tw-mb-0" style="padding-left: 0;">
+            <a href="{{ collection.url }}">{{ section.settings.heading | escape }}</a>
+          </h2>
+        </div>
+      {% endif %}
+    </div>
+    <div>
+      {% include '[carousel]' items:items %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Collection list",
+  "class": "index-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width"
+    }, {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Collection list"
+    }, {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000"
+    }, {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#fff"
+    }, {
+      "type": "range",
+      "id": "grid",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Collections per row",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }, {
+          "label": "Collection",
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "category": "Collection",
+      "settings": {
+        "grid": 3
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        }, {
+          "type": "featured_collection"
+        }, {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}

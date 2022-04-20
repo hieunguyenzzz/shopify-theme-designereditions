@@ -1,0 +1,26 @@
+<div class="collection-block">
+  <div class="collection-carousel">
+    {% if block.settings.collection == blank %}
+      {% for i in (1..6) %}
+        {% capture current %}{{ forloop.index }}{% endcapture %}
+        {%- assign placeholder = 'collection-' | append: current -%}
+        <div class="lazyOwl product" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+          <div class="collection-image ci onboard">
+            <a href="#">
+              {{ placeholder | placeholder_svg_tag }}
+            </a>
+          </div>
+          <div class="product-details">
+            <h3><a href="#">Sample product {{ forloop.index }}</a></h3>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for product in collection.products %}
+        <div class="lazyOwl product" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+          {% render 'product-listing', product: product, collection: collection %}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

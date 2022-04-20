@@ -1,0 +1,140 @@
+{% comment %} Login Template {% endcomment %}
+<section class="user-login">
+  <div class="row">
+    <div class="{% if shop.checkout.guest_login %}desktop-12{% else %}desktop-push-4 desktop-4{% endif %}">
+      <h1 class="section-heading">
+        {{ 'customer.login.title' | t }}
+      </h1>
+    </div>
+
+    {% if shop.checkout.guest_login %}
+      <div class="desktop-3 mobile-3">
+        <div class="guest-user-login">
+          <h2 class="section-heading">
+            {{ 'customer.login.guest_title' | t }}
+          </h2>
+
+          {% form 'guest_login' %}
+            <input class="button btn-secondary" type="submit" value="{{ 'customer.login.guest_continue' | t }}" />
+          {% endform %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="{% if shop.checkout.guest_login %}desktop-6{% else %}desktop-push-4 desktop-4{% endif %} auto relative overflow-hidden">
+      <div class="login-info {% if shop.checkout.guest_login %}alternate{% endif %}">
+        <div id="customer-login">
+          {% form 'customer_login', novalidate: novalidate %}
+            <div class="customer-login form wrapper rg5">
+              <div class="desktop-12 tablet-6 mobile-3">
+                {% if form.errors %}
+                  <div class="errors note note-error mb3 inline-block">
+                    <p class="sm-caps inline-block v-center mb0">{{ form.errors | default_errors | strip_html }}</p>
+                  </div>
+                {% endif %}
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="customer-email">{{ 'customer.login.email' | t }}</label>
+                <input type="email" id="customer-email" value="" name="customer[email]" size="30" />
+              </div>
+
+              {% if form.password_needed %}
+                <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                  <label class="left" for="customer-password">{{ 'customer.login.password' | t }}</label>
+                  <a class="right" data-src="#recover-password" data-fancybox href="javascript:;">{{ 'customer.login.forgot_password' | t }}</a>
+                  <input id="customer-password" type="password" value="" name="customer[password]" size="16" />
+                </div>
+              {% endif %}
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <input class="button btn-secondary" type="submit" value="{{ 'customer.login.sign_in' | t }}" />
+                <hr class="hr-or" data-content="or"></hr>
+                <a class="button secondary-button create-customer" data-src="#create-customer" data-fancybox href="javascript:;">{{ 'customer.register.title' | t }}</a>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+        <div id="recover-password" style="display:none;">
+          <h2 class="section-heading">
+            {{ 'customer.recover_password.title' | t }}
+          </h2>
+          <p class="mb3">{{ 'customer.recover_password.subtext' | t }}</p>
+          {% form 'recover_customer_password', novalidate: novalidate %}
+            <div class="form wrapper rg5">
+              {% if form.errors %}
+                <div class="errors note note-error mb3 inline-block">
+                  <p class="sm-caps inline-block v-center mb0">{{ form.errors | default_errors | strip_html }}</p>
+                </div>
+              {% endif %}
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="email">{{ 'customer.recover_password.email' | t }}</label>
+                <input id="email" type="email" value="" size="30" name="email" />
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <input class="button btn-secondary" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
+              </div>
+            </div>
+          {% endform %}
+        </div>
+        <div id="create-customer"style="display:none;">
+          <h2 class="section-heading">
+            {{ 'customer.register.title' | t }}
+          </h2>
+
+          {% form 'create_customer' %}
+            <div class="form wrapper rg5">
+              {% if form.errors %}
+                <div class="errors note note-error mb3 inline-block">
+                  <p class="sm-caps inline-block v-center mb0">{{ form.errors | default_errors | strip_html }}</p>
+                </div>
+              {% endif %}
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="first-name">{{ 'customer.register.first_name' | t }}</label>
+                <input id="first-name" type="text" value="" name="customer[first_name]" size="30" />
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="last-name">{{ 'customer.register.last_name' | t }}</label>
+                <input id="last-name" type="text" value="" name="customer[last_name]" size="30" />
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="email">{{ 'customer.register.email' | t }}</label>
+                <input id="email" type="email" value="" name="customer[email]" size="30" />
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <label for="password">{{ 'customer.register.password' | t }}</label>
+                <input id="password" type="password" value="" name="customer[password]" size="30" />
+              </div>
+
+              <div class="desktop-12 tablet-6 mobile-3 a-left relative">
+                <input class="button btn-secondary" type="submit" value="{{ 'customer.register.submit' | t }}"/>
+              </div>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    if (window.location.hash == '#recover') { Toggle('recover-password', 'customer-login'); }
+
+    function Toggle(show, hide) {
+      var show = document.getElementById(show);
+      show.classList.remove("hide");
+      show.classList.add("show");
+      show.style.display = 'block';
+
+      var hide = document.getElementById(hide);
+      hide.classList.remove("show");
+      hide.classList.add("hide");
+      hide.style.display='none';
+    }
+  </script>
+</section>

@@ -1,0 +1,321 @@
+{% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+{% if section.settings.background_effect == 'parallax' %}
+  {% assign background_effect = 'data-section-type="iwto-section"' %}
+  {% assign scale = section.settings.scale %}
+{% endif %}
+
+<section
+  class="parallax-{{ section.id }} parallax lazyload lazyload-fade"
+  {{ background_effect }}
+  data-scale="1.{{ scale }}"
+  {% if section.settings.background_effect == 'fixed' %}
+  data-bgset="{% render 'bgset', image: section.settings.image %}"
+  {% endif %}
+  data-section-id="{{ section.id }}">
+
+  <article class="row">
+    {% if section.settings.background_effect == 'parallax' and section.settings.image != blank %}
+     {% render 'basic-responsive-image', type:  section.settings.image, data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+    {% endif %}
+
+    <div class="image-overlay"></div>
+    <div class="parallax-content">
+      <div class="parallax-text">
+        {% unless section.settings.heading == blank %}
+          <h2>{{ section.settings.heading | escape }}</h2>
+        {% endunless %}
+        {%- unless section.settings.subheading == blank -%}
+          {{ section.settings.subheading }}
+        {%- endunless -%}
+        {% unless section.settings.button_link == blank %}
+          <div class="clear"></div>
+          <a class="button" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text }}
+          </a>
+        {% endunless %}
+      </div>
+    </div>
+    {% if section.settings.image == blank %}
+      <div class="onboard plax-placehold">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {% endif %}
+  </article>
+
+</section>
+
+<div class="clear"></div>
+<style>
+  {% if section.settings.background_effect == 'fixed' %}
+    .parallax-{{ section.id }} {
+      background-attachment: fixed;
+      background-size: cover;
+      overflow: hidden;
+      background-position: center center !important;
+    }
+  {% endif %}
+  .no-js .parallax-{{ section.id }} {
+    background-image: url('{{ section.settings.image | img_url: '1600x' }}');
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+  .parallax-{{ section.id }} article {
+    height: {{ section.settings.page_height }}px;
+    min-height: {{ section.settings.page_height }}px;
+  }
+  .parallax-{{ section.id }} .parallax-content {
+    width: fit-content;
+    position: absolute;
+    z-index: 2;
+    top: {{ section.settings.caption_vertical }}%;
+    left: {{ section.settings.caption_horizontal }}%;
+    -webkit-transform: translate(-{{ section.settings.caption_horizontal }}%, -{{ section.settings.caption_vertical }}%);
+      -ms-transform: translate(-{{ section.settings.caption_horizontal }}%, -{{ section.settings.caption_vertical }}%);
+        -moz-transform: translate(-{{ section.settings.caption_horizontal }}%, -{{ section.settings.caption_vertical }}%); -o-transform: translate(-{{ section.settings.caption_horizontal }}%, -{{ section.settings.caption_vertical }}%); transform: translate(-{{ section.settings.caption_horizontal }}%, -{{ section.settings.caption_vertical }}%);
+  }
+  .parallax-{{ section.id }} .parallax-text {
+    padding: 20px;
+    text-align: {{ section.settings.text_align }};
+    background: {{ section.settings.background }};
+  }
+  .parallax-{{ section.id }} .parallax-text h2 {
+    font-size: {{ section.settings.heading_font_size }}px;
+    display: inline-block;
+  }
+  @media screen and (max-width: 500px) {
+    .parallax-{{ section.id }} .parallax-text h2 {
+      font-size: 16px;
+    }
+  }
+  .parallax-{{ section.id }} .parallax-text h2,
+  .parallax-{{ section.id }} .parallax-text a h2,
+  .parallax-{{ section.id }} .parallax-text a:visited h2 {
+    color: {{ section.settings.text_color }};
+  }
+  .parallax-{{ section.id }} .parallax-text a:hover h2 {
+    opacity: 0.8;
+  }
+  .parallax-{{ section.id }} .parallax-text p {
+    font-size: {{ section.settings.subheading_font_size }}px;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 500px) {
+    .parallax-{{ section.id }} .parallax-text p {
+      font-size: 14px;
+    }
+  }
+  .parallax-{{ section.id }} .parallax-text a.button,
+  .parallax-{{ section.id }} .parallax-text a.button:visited {
+    background: {{ section.settings.button_color }};
+    color: {{ section.settings.button_text_color }};
+    margin-bottom: 5px;
+  }
+  .parallax-text a.button:hover {
+    opacity: 0.8;
+  }
+  .parallax-{{ section.id }} .image-overlay {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    {% assign bg_color = '#000000' %}
+    {% assign number = section.settings.overlay_opacity %}
+    {% assign overlay_opacity = number | divided_by: 100.0 %}
+    background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+  }
+  @media screen and ( max-width: 740px ) {
+    .parallax-{{ section.id }} article {
+      height: initial;
+      min-height: 200px;
+    }
+  }
+  @media screen and ( max-width: 1024px ) {
+    .parallax-{{ section.id }} {
+      background-attachment: scroll !important;
+      background-size: cover !important;
+    }
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Image with text overlay",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info" : "1800px x 800px recommended"
+      },
+      {
+        "type": "select",
+        "id": "background_effect",
+        "label": "Image effect",
+        "options": [
+          {
+            "value": "fixed",
+            "label": "Fixed in place"
+          },
+          {
+            "value": "parallax",
+            "label": "Parallax scrolling"
+          }
+        ]
+      },
+      {
+        "type":      "range",
+        "id":        "scale",
+        "min":       0,
+        "max":       5,
+        "step":      1,
+        "label":     "Image scale",
+        "default":   2,
+        "info":"The higher the scale the greater the effect, 0 removes parallax scrolling"
+      },
+      {
+        "type":      "range",
+        "id":        "overlay_opacity",
+        "min":       0,
+        "max":       100,
+        "step":      5,
+        "unit":      "%",
+        "label":     "Image overlay opacity",
+        "info":      "Adding an overlay to your image can help with text contrast",
+        "default":   0
+      },
+      {
+        "type": "range",
+        "id": "page_height",
+        "min": 200,
+        "max": 800,
+        "step": 100,
+        "label": "Image height",
+        "default": 400
+      },
+      {
+        "type": "header",
+        "content": "Text content"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "label": "Caption alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "caption_horizontal",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Caption horizontal position",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "caption_vertical",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Caption vertical position",
+        "default": 50
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Image with text overlay"
+      },
+      {
+        "type": "richtext",
+        "id": "subheading",
+        "label": "Text",
+        "default": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
+      },
+      {
+       "id": "button_text",
+       "type": "text",
+       "label": "Button text",
+  	   "default": "Add a button",
+  	   "info": "Visible only if a link is chosen"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "range",
+        "id": "heading_font_size",
+        "min": 12,
+        "max": 36,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading size",
+        "default": 26
+      },
+      {
+        "type": "range",
+        "id": "subheading_font_size",
+        "min": 12,
+        "max": 36,
+        "step": 1,
+        "unit": "px",
+        "label": "Text size",
+        "default": 16
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Heading",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button background",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Caption background",
+        "default": "#fff"
+      }
+	],
+  "presets": [
+      {
+        "name": "Image with text overlay",
+        "category": "Image"
+      }
+    ]
+}
+{% endschema %}

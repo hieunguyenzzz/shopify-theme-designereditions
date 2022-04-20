@@ -1,0 +1,203 @@
+<div data-section-id="{{ section.id }}" class="collection-list-template cl-{{ section.id }}">
+
+  {% case section.settings.grid %}
+  {% when 2 %}
+    {%- assign grid_item_width = 'desktop-6 tablet-3 mobile-half span-6' -%}
+  {% when 3 %}
+    {%- assign grid_item_width = 'desktop-4 tablet-2 mobile-half span-4' -%}
+  {% when 4 %}
+    {%- assign grid_item_width = 'desktop-3 tablet-2 mobile-half span-3' -%}
+  {% when 5 %}
+    {%- assign grid_item_width = 'desktop-fifth tablet-2 mobile-half span-one-fifth' -%}
+    <style>
+    @media screen and ( min-width: 981px ) {
+      @supports (display: grid) {
+        .cl-{{ section.id }} .product-loop.grid_wrapper {
+            grid-template-columns: repeat(5, 1fr);
+        }
+      }
+    }
+    @media screen and ( min-width: 741px ) and ( max-width: 980px ) {
+      @supports (display: grid) {
+        .cl-{{ section.id }} .product-loop.grid_wrapper {
+            grid-template-columns: repeat(3, 1fr);
+        }
+      }
+   }
+    @media screen and ( max-width: 740px ) {
+      @supports (display: grid) {
+        .cl-{{ section.id }} .product-loop.grid_wrapper {
+            grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+    </style>
+    {% when 6 %}
+      {%- assign grid_item_width = 'desktop-2 tablet-2 mobile-half span-2' -%}
+  {% endcase %}
+  {% assign lim = section.settings.grid %}
+
+{% if section.settings.image != blank %}
+  <div class="collection-banner">
+    {% render 'basic-responsive-image', type: section.settings.image,  data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+    <noscript>
+      <img src="{{ section.settings.image | img_url: '1024x' }}" alt="{{ section.settings.image.alt }}">
+    </noscript>
+  </div>
+{% endif %}
+
+{% if section.settings.full_width %}<div class="gridlock-fluid">{% endif %}
+    <div id="content" class="row">
+
+      <div class="grid_wrapper">
+        <div class="section-title desktop-12 mobile-3 span-12">
+          {% render 'breadcrumb' %}
+        </div>
+        <div class="section-title desktop-12 mobile-3 span-12">
+          <h1>{{ 'collections.general.all_collections' | t }}</h1>
+        </div>
+
+        {% if section.settings.text != blank %}
+          <div id="collection-description" class="desktop-12 tablet-6 mobile-3 span-12" style="text-align: {{ section.settings.text_align }}">
+            <div class="rte">
+              {{ section.settings.text }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.collection-display == 'sample' %}
+        {% for collection in collections %}
+        <div class="product-loop collection-listing desktop-12 tablet-6 mobile-3 grid_wrapper">
+          <div class="section-title {% if section.settings.grid == 5 %}span-5{% else %}span-12{% endif %}">
+            <h2><a href="{{ collection.url }}" title="{{ collection_title }}">{{ collection.title }}</a></h2>
+          </div>
+          {% for product in collection.products limit: lim %}
+            <div class="product-index {{ grid_item_width }}" id="prod-{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}" data-aos="{{ settings.scroll_animation }}">
+              {% render 'product-listing', collection: collection, product: product %}
+            </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+        {% elsif section.settings.collection-display == 'collections' %}
+        <div class="product-loop grid_wrapper">
+          {% for collection in collections %}
+            <div class="{{ grid_item_width }}" data-alpha="{{ collection.title }}" data-aos="{{ settings.scroll_animation }}">
+                {% render 'collection-grid-item', collection: collection %}
+            </div>
+        {% endfor %}
+        </div>
+        {% elsif section.settings.collection-display == 'selected' %}
+        <div class="product-loop grid_wrapper">
+          {% for block in section.blocks limit: section.blocks.size %}
+            {%- assign collection = collections[block.settings.collection] -%}
+            <div class="{{ grid_item_width }}" data-alpha="{{ collection.title }}" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+              {% if block.settings.collection == blank %}
+                <div class="collection-image ci onboard">
+                  <a href="#">
+                    {{ 'collection-1' | placeholder_svg_tag }}
+                  </a>
+                </div>
+                <div class="product-details">
+                  <h3><a href="#">Sample collection {{ forloop.index }}</a></h3>
+                </div>
+              {% else %}
+                {% render 'collection-grid-item', collection: collection %}
+              {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+
+
+    <div class="clear"></div>
+
+
+  </div>
+  {% if section.settings.full_width %}</div>{% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "max_blocks": 30,
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "full_width",
+    "label": "Full width"
+  },
+  {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Banner image",
+    "info" : "1800px x 400px recommended"
+  },
+  {
+    "id": "text",
+    "type": "richtext",
+    "label": "Text",
+    "default": "<p>Add some descriptive text to your all collections page.</p>"
+  },
+  {
+    "type": "select",
+    "id": "text_align",
+    "label": "Align text",
+    "options":[
+      {
+        "value":"left",
+        "label":"Left"
+      },
+      {
+        "value":"center",
+        "label":"Center"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "collection-display",
+    "label": "Display",
+    "info" : "Choosing selected collections allows you to control which collections are shown, You can add those collections below",
+    "options": [
+      {
+        "value": "sample",
+        "label": "Featured products"
+      },
+      {
+        "value": "collections",
+        "label": "All collections"
+      },
+      {
+        "value": "selected",
+        "label": "Selected collections"
+      }
+    ]
+  },
+  {
+    "type": "range",
+    "id": "grid",
+    "min": 2,
+    "max": 6,
+    "step": 1,
+    "label": "Collections per row",
+    "default": 4
+  }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "label": "Collection",
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

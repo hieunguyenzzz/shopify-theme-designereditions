@@ -1,0 +1,433 @@
+<div class="collection-page-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="collection-section">
+  {% assign number = section.settings.products_per_page %}
+  {% paginate collection.products by number %}
+  {% assign sidebar = false %}
+
+  {% if collection.description contains '[banner]' %}
+    <div class="collection-banner">
+      {% render 'collection-banner-image', collection: collection %}
+    </div>
+  {% endif %}
+
+    {% if section.settings.full_width %}<div class="gridlock-fluid">{% endif %}
+      <div id="content" class="row">
+        <div id="main-content" class="grid_wrapper">
+          {% render 'breadcrumb' %}
+
+          <div class="section-title desktop-12 mobile-3 span-12">
+            <h1>
+              {% if collection.handle == 'all' %}
+                {{ 'collections.general.all_products' | t }}
+              {% else %}
+                {{ collection.title }}
+              {% endif %}
+            </h1>
+          </div>
+
+          {% if section.settings.filter_position == 'left_sidebar' %}
+            <div class="desktop-sidebar desktop-3 tablet-6 mobile-3 span-3">
+              {% render 'collection-sidebar', collection: collection %}
+            </div>
+          {% endif %}
+
+          <div class="{% if section.settings.filter_position == 'left_sidebar' %}desktop-9 span-9{% else %}desktop-12 span-12{% endif %} tablet-6 mobile-3">
+            {% if section.settings.description_position == 'top_description' and collection.description != blank %}
+              <div id="collection-description">
+                <div class="rte">
+                  {{ collection.description | remove: "[banner]" }}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.blocks.size != 0 %}
+              <div id="full-width-filter" class="{% if section.settings.filter_position == 'left_sidebar' %}desktop-hide{% endif %} {% if section.settings.is_sticky and section.settings.filter_position != 'left_sidebar' %} is_sticky{% endif %} mobile-hide">
+                {% for block in section.blocks %}
+                  {% if block.type == 'vendor_list' %}
+                    {% if collection.handle == "all" %}
+                      <div class="filter {% cycle '', 'right-filter' %}" {{ block.shopify_attributes }}>
+                        <button class="filter-menu">
+                          <h4>{{ block.settings.shop_by_designer_title }}</h4>
+                        </button>
+                        <ul class="filter-list" style="display: none;">
+                          {% for product_vendor in shop.vendors %}
+                          <li>{{ product_vendor | link_to_vendor  }}</li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    {% else %}
+                      <div class="filter {% cycle '', 'right-filter' %}" {{ block.shopify_attributes }}>
+                        <button class="filter-menu">
+                          <h4>{{ block.settings.shop_by_designer_title }}</h4>
+                        </button>
+                        <ul class="filter-list">
+                          {% for product_vendor in collection.all_vendors %}
+                          <li class="{{ product_vendor | handelize }}">{{ product_vendor | link_to_vendor }}</li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                  {% elsif block.type == 'menu' %}
+                    <div class="filter {% cycle '', 'right-filter' %}" {{ block.shopify_attributes }}>
+                      <button class="filter-menu">
+                        <h4>{{ block.settings.title }}</h4>
+                      </button>
+                      <ul class="filter-list sidebar-menu" style="display: none;">
+                        {% for link in linklists[block.settings.side_nav].links %}
+                        {% if link.links != blank %}
+                        <li class="extend has_sub_menu" aria-haspopup="true" aria-expanded="false"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        <ul class="extended-submenu">
+                          {% for sub_link in link.links %}
+                          <li><a href="{{ sub_link.url }}">{{ sub_link.title }}</a></li>
+                          {% endfor %}
+                        </ul>
+                        {% else %}
+                        <li>{{ link.title | link_to: link.url }}</li>
+                        {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+
+                  {% render 'filters', collection: collection block: block, forloop: forloop %}
+                {% endfor %}
+              </div>
+              <div class="clear"></div>
+
+              <a id="filtersButton" class="button desktop-hide" href="#">{{ 'collections.filter.refine' | t }}</a>
+              <div id="collection-filters" class="mobile-or-full desktop-hide">
+                <h2>{{ 'collections.filter.refine' | t }}</h2>
+                {% render 'collection-sidebar', collection: collection %}
+              </div>
+              <div class="clear"></div>
+
+              <div id="current-filters" class="desktop-12 tablet-6 mobile-3 span-12" style="display: none;">
+                <h5>{{ 'collections.filter.filtering_by' | t }}</h5>
+              </div>
+            {% endif %}
+
+            <div class="clear"></div>
+
+            {% case section.settings.grid %}
+            {% when 2 %}
+              {%- assign grid_item_width = 'desktop-6 tablet-3 mobile-half span-6' -%}
+            {% when 3 %}
+              {%- assign grid_item_width = 'desktop-4 tablet-2 mobile-half span-4' -%}
+            {% when 4 %}
+              {%- assign grid_item_width = 'desktop-3 tablet-2 mobile-half span-3' -%}
+            {% when 5 %}
+              {%- assign grid_item_width = 'desktop-fifth tablet-2 mobile-half span-one-fifth' -%}
+              <style>
+                @media screen and ( min-width: 981px ) {
+                  @supports (display: grid) {
+                    .collection-page-{{ section.id }} .product-loop.grid_wrapper {
+                        grid-template-columns: repeat(5, 1fr);
+                    }
+                  }
+                }
+                @media screen and ( min-width: 741px ) and ( max-width: 980px ) {
+                  @supports (display: grid) {
+                    .collection-page-{{ section.id }} .product-loop.grid_wrapper {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                  }
+                }
+                @media screen and ( max-width: 740px ) {
+                @supports (display: grid) {
+                  .collection-page-{{ section.id }} .product-loop.grid_wrapper {
+                      grid-template-columns: repeat(2, 1fr);
+                  }
+                }
+              }
+              </style>
+            {% when 6 %}
+              {%- assign grid_item_width = 'desktop-2 tablet-2 mobile-half span-2' -%}
+            {% endcase %}
+
+            <div class="grid_wrapper product-loop{% if section.settings.infinite_scroll %} is_infinite{% endif %}">
+              {% for product in collection.products %}
+                <div class="{{ grid_item_width }} product-index" id="prod-{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}" data-aos="{{ settings.scroll_animation }}" data-product-id="{{ product.id }}">
+                  {% render 'product-listing', collection: collection, product: product %}
+                </div>
+              {% endfor %}
+              <style media="screen">
+              {% if section.settings.grid == 2 %}
+                .collection-page-{{ section.id }} .product-index:nth-child(2n + 1) {
+                  clear:left;
+                }
+              {% elsif section.settings.grid == 3 %}
+                .collection-page-{{ section.id }} .product-index:nth-child(3n + 1) {
+                  clear:left;
+                }
+              {% elsif section.settings.grid == 4 %}
+                .collection-page-{{ section.id }} .product-index:nth-child(4n + 1) {
+                  clear:left;
+                }
+              {% elsif section.settings.grid == 5 %}
+                .collection-page-{{ section.id }} .product-index:nth-child(5n + 1) {
+                  clear:left;
+                }
+              {% elsif section.settings.grid == 6 %}
+                .collection-page-{{ section.id }} .product-index:nth-child(6n + 1) {
+                  clear:left;
+                }
+              {% endif %}
+              </style>
+            </div>
+
+            <div class="clear"></div>
+
+            {% if section.settings.description_position == 'bottom_description' and collection.description != blank %}
+              <div id="collection-description">
+                <div class="rte">
+                  {{ collection.description | remove: "[banner]" }}
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
+
+          <div class="clear"></div>
+
+          {% render 'pagination', paginate: paginate %}
+        </div>
+      </div>
+    {% if section.settings.full_width %}</div>{% endif %}
+  {% endpaginate %}
+
+  <style media="screen">
+    #full-width-filter .filter,
+    #collection-page-template .show-filter,
+    #sidebar .filter {
+      color: {{ section.settings.filter_text_color }};
+      border: 1px solid {{ section.settings.filter_border_color }};
+      background-color: {{ section.settings.filter_bg_color }};
+    }
+    ul.filter-list {
+      color: {{ section.settings.filter_text_color }};
+      background-color: {{ section.settings.filter_bg_color }};
+    }
+    #full-width-filter button.filter-menu:after, #sidebar .filter h4:after {
+      background-color: transparent;
+      color: {{ section.settings.filter_text_color }};
+    }
+    ul.filter-list li a {
+      color: {{ section.settings.filter_text_color }};
+    }
+    #sidebar .filter h4, .filter-menu h4 {
+      border-color: {{ section.settings.filter_border_color }};
+      color: {{ section.settings.filter_text_color }};
+    }
+    #collection-filters {
+      background: {{ section.settings.filter_bg_color }};
+      color: {{ section.settings.filter_text_color }};
+      padding: 20px;
+      margin: 0;
+    }
+    #collection-filters h2 {
+      color: {{ section.settings.filter_text_color }};
+    }
+  </style>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Page",
+	"max_blocks":12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Products per row",
+      "default":4
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "label": "Products per page",
+      "default":30
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite scroll products",
+      "info": "Pagination will not show, products will continuously load as you scroll down the page"
+    },
+    {
+      "type": "select",
+      "id": "description_position",
+      "options": [
+        { "value": "top_description", "label": "Top of Page"},
+        { "value": "bottom_description", "label": "Bottom of Page"}
+      ],
+      "label": "Description position",
+      "default": "bottom_description"
+    },
+    {
+      "type": "select",
+      "id": "filter_position",
+      "options": [
+        { "value": "left_sidebar", "label": "Left Sidebar"},
+        { "value": "top_filters", "label": "Top of Page"}
+      ],
+      "label": "Filters position",
+      "default": "top_filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_sticky",
+      "label": "Make sidebar sticky",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Filter Styles"
+    },
+    {
+      "type": "color",
+      "id": "filter_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "filter_border_color",
+      "label": "Border color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "filter_text_color",
+      "label": "Text color",
+      "default": "#333333"
+    }
+  ],
+  "blocks":[
+  {
+   "type":"menu",
+   "name":"Menu",
+   "settings":[
+     {
+       "type": "link_list",
+       "id": "side_nav",
+       "label": "Sidebar menu",
+       "info":"This menu has limited support for dropdown items"
+     },
+     {
+       "type": "text",
+       "id": "title",
+       "label": "Menu title",
+       "default": "Explore"
+     }
+   ]
+  },
+  {
+   "type":"vendor_list",
+   "name":"Vendor list",
+   "limit": 1,
+   "settings":[
+     {
+       "type": "text",
+       "id": "shop_by_designer_title",
+       "label": "Vendor list title",
+       "default": "Shop by Designer"
+     }
+   ]
+  },
+  {
+   "type":"sort_by",
+   "name":"Sort by",
+   "limit": 1,
+   "settings":[
+     {
+       "type": "text",
+       "id": "sort_by_title",
+       "label": "Sort by title",
+       "default": "Sort"
+     }
+   ]
+  },
+  {
+   "type":"filter",
+   "name":"Tag Filter",
+   "limit": 3,
+   "settings":[
+     {
+       "type": "text",
+       "id": "filter_by_title",
+       "label": "Filter by title",
+       "default": "Filter by"
+     },
+     {
+       "type": "textarea",
+       "id": "filter_by",
+       "label": "Tag filter"
+     }
+   ]
+  },
+  {
+   "type":"image",
+   "name":"Image",
+   "settings":[
+     {
+       "type":"paragraph",
+       "content":"For sidebar position on desktop only"
+     },
+     {
+       "type":"image_picker",
+       "id":"image",
+       "label":"Image",
+       "info" : "1800px x 400px recommended"
+     },
+     {
+       "type":"url",
+       "id":"link",
+       "label":"Link",
+       "info":"Optional"
+     }
+   ]
+  },
+  {
+   "type":"text_note",
+   "name":"Text",
+   "settings":[
+     {
+       "type":"paragraph",
+       "content":"For sidebar position on desktop only"
+     },
+     {
+       "type":"text",
+       "id":"textbox_heading",
+       "label":"Heading",
+       "default": "Heading"
+     },
+     {
+       "type":"richtext",
+       "id":"textbox_subheading",
+       "label":"Subheading",
+       "default": "<p>Subheading</p>"
+     },
+     {
+        "type": "select",
+        "id": "subheading_align",
+        "options": [
+           { "value": "left", "label": "Left"},
+           { "value": "center", "label": "Center"}
+        ],
+        "label": "Subheading alignment"
+     }
+   ]
+  }
+ ]
+}
+{% endschema %}

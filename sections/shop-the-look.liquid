@@ -1,0 +1,422 @@
+<section id="page" class="lookbook" data-section-id="{{ section.id }}" data-aos="{{ settings.scroll_animation }}">
+  {% if section.settings.heading != blank %}
+    <div class="section-title row">
+      <h2>
+        {{ section.settings.heading | escape }}
+      </h2>
+    </div>
+  {% endif %}
+  {% if section.settings.full_width %}<div class="gridlock-fluid"><div class="row">{% endif %}
+  <div class="row">
+  {%- assign image_size = '1200x' -%}
+  {% for block in section.blocks %}
+    {% case block.settings.image_width %}
+    {% when '25%' %}
+    {%- assign image_width = 'desktop-3 tablet-fourth' -%}
+    {% when '33%' %}
+    {%- assign image_width = 'desktop-4 tablet-2' -%}
+    {% when '50%' %}
+    {%- assign image_width = 'desktop-6 tablet-3' -%}
+    {% when '66%' %}
+    {%- assign image_width = 'desktop-8 tablet-4' -%}
+    {% when '75%' %}
+    {%- assign image_width = 'desktop-9 tablet-three-fourths' -%}
+    {% when '100%' %}
+    {%- assign image_width = 'desktop-12 tablet-6' -%}
+    {% endcase %}
+
+    {% case block.type %}
+    {% when 'image' %}
+      {%- assign img_url = block.settings.image | img_url: image_size -%}
+      <div class="lookbook-image-{{ block.id }} homepage-promo {{ image_width }} mobile-3 promo-{{ block.id }}" {{ block.shopify_attributes }}>
+        <div class="image-inner">
+          {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+          {% if block.settings.image != blank %}
+          <img src="{{ img_url }}">
+          {% else %}
+          <div class="onboard">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+          {% endif %}
+          {% if block.settings.link != blank %}</a>{% endif %}
+        </div>
+
+        {% for n in (1..5) %}
+          {% assign product = "lookbook_product_" | append: n %}
+          {% assign product = all_products[block.settings[product]] | default: false %}
+          {% assign hotspot_horizontal =  'hotspot_horizontal_' | append: n %}
+          {% assign hotspot_horizontal = block.settings[hotspot_horizontal] | default: false %}
+          {% assign hotspot_vertical =  'hotspot_vertical_' | append: n %}
+          {% assign hotspot_vertical = block.settings[hotspot_vertical] | default: false %}
+
+          {% if product != false %}
+            <div class="product-{{ block.id }} hotspot-{{ n }}">
+              <div class="product-container">
+                <div class="hover-{{ n }} product-{{ product.id }}">
+                  <a href="{{ product.url}}">
+                  <div class="prod-image">
+                    {%- assign preview_image = product.featured_media.preview_image -%}
+                    <a href="{{ product.url }}" title="{{ product.title | escape }}">
+                      <div class="reveal">
+                        <img src="{{ preview_image | img_url: '500x' }}" alt="{{ preview_image.alt | escape }}" data-original="{{ preview_image | product_img_url: '500x' }}" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="product-details">
+                    <h4 class="product-title !tw-block">{{ product.title }}</h4>
+                    <div class="product-price">
+                      {% if product.price < product.compare_at_price %}
+                      <div class="onsale">{{ product.price | money }}</div>
+                      <div class="was">{{ product.compare_at_price | money }}</div>
+                      {% else %}
+                      <div class="prod-price">{% if product.price_varies %} {{ 'products.general.from' | t }} {{ product.price_min | money }} - {{ product.price_max | money }} {% else %}{{ product.price | money }}{% endif %}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  </a>
+                  <style>
+                  .product-container { position: relative;}
+                  .product-{{ block.id }} .hover-{{ n }} {
+                    position: absolute;
+                    width: 180px;
+                    background: white;
+                    border: 1px solid #eee;
+                    top: 17px;
+                    left: -81px;
+                    display: none;
+                    z-index: 2;
+                    padding: 10px;
+                  }
+                  .product-{{ block.id }}.hotspot-{{ n }} {
+                    position: absolute;
+                    left: {{ hotspot_horizontal }}%;
+                    top: {{ hotspot_vertical }}%;
+                    cursor: pointer;
+                  }
+                    {% assign color = 'hotspot_color_' | append: n %}
+                    {% assign color = block.settings[color] %}
+                  .product-{{ block.id }}.hotspot-{{ n }}:after {
+                    content: "";
+                    background-color: {{ color }};
+                    width: 25px;
+                    height: 25px;
+                    border: 3px solid white;
+                    border-radius: 50%;
+                    opacity: 0.6;
+                    display: block;
+                  }
+                  .lookbook-image-{{ block.id }}:hover .product-{{ block.id }}.hotspot-{{ n }}:after {
+                    border: 3px solid white;
+                    transform: scale(1.2);
+                    animation: pulse 1s infinite;
+                    animation-timing-function: linear;
+                  }
+                  @keyframes pulse {
+                    0% { transform: scale(1.2); }
+                    50% { transform: scale(1.5);
+                    00% { transform: scale(1.2); }
+                    }
+                  }
+                  .product-{{ block.id }}.hotspot-{{ n }}:hover .hover-{{ n }} {
+                    display: block;
+                  }
+                </style>
+                </div>
+              </div>
+        	</div>
+
+          {% endif %}
+       {% endfor %}
+      </div>
+    {% when 'section_clear' %}
+        <div class="clear"></div>
+    {% endcase %}
+
+    <style>
+    .index #page {
+      margin-bottom: 0;
+    }
+    .lookbook .image-inner img { width: 100%; }
+      {% if block.settings.image == blank %}
+      .promo-{{ block.id }} .promo-inner { float: none; }
+      {% endif %}
+      .lookbook-image-{{ block.id }} {
+        position: relative;
+        margin-bottom: 2.082%;
+      }
+    </style>
+    {% if section.blocks.size == 0 %}
+    	{% render 'no-blocks' %}
+    {% endif %}
+
+  {% endfor %}
+
+  </div>
+  {% if section.settings.full_width %}</div></div>{% endif %}
+</section>
+<div class="clear"></div>
+
+
+{% schema %}
+{
+  "name": "Shop the Look",
+  "max_blocks": 40,
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop the Look"
+    }
+	],
+  "blocks": [
+  {
+    "type": "image",
+    "name": "Image",
+    "settings": [
+    {
+      "type": "select",
+      "id": "image_width",
+      "label": "Image width",
+      "default": "33%",
+      "options": [
+        {
+          "value":"25%",
+          "label":"25%"
+        },
+        {
+          "value":"33%",
+          "label":"33%"
+        },
+        {
+          "value":"50%",
+          "label":"50%"
+        },
+        {
+          "value":"66%",
+          "label":"66%"
+        },
+        {
+          "value":"75%",
+          "label":"75%"
+        },
+        {
+          "value":"100%",
+          "label":"100%"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info" : "800px x 600px recommended if 3 per row"
+    },
+    {
+      "type": "header",
+      "content": "Product #1"
+    },
+    {
+      "type": "product",
+      "id": "lookbook_product_1",
+      "label": "Product"
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_horizontal_1",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Horizontal Position",
+      "default":   40
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_vertical_1",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Vertical Position",
+      "default":   40
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color_1",
+      "label": "Hotspot Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Product #2"
+    },
+      {
+      "type": "product",
+      "id": "lookbook_product_2",
+      "label": "Product"
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_horizontal_2",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Horizontal Position",
+      "default":   40
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_vertical_2",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Vertical Position",
+      "default":   40
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color_2",
+      "label": "Hotspot Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Product #3"
+    },
+    {
+      "type": "product",
+      "id": "lookbook_product_3",
+      "label": "Product"
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_horizontal_3",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Horizontal Position",
+      "default":   40
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_vertical_3",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Vertical Position",
+      "default":   40
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color_3",
+      "label": "Hotspot Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Product #4"
+    },
+    {
+      "type": "product",
+      "id": "lookbook_product_4",
+      "label": "Product"
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_horizontal_4",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Horizontal Position",
+      "default":   40
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_vertical_4",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Vertical Position",
+      "default":   40
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color_4",
+      "label": "Hotspot Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Product #5"
+    },
+    {
+      "type": "product",
+      "id": "lookbook_product_5",
+      "label": "Product"
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_horizontal_5",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Horizontal Position",
+      "default":   40
+    },
+    {
+      "type":      "range",
+      "id":        "hotspot_vertical_5",
+      "min":       1,
+      "max":        100,
+      "step":       1,
+      "unit":       "%",
+      "label":     "Hotspot Vertical Position",
+      "default":   40
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color_5",
+      "label": "Hotspot Color",
+      "default": "#000"
+    }
+  ]
+  },
+  {
+    "type": "section_clear",
+    "name": "Section Clear",
+    "settings": []
+  }
+  ],
+  "presets": [
+    {
+      "name": "Shop the Look",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

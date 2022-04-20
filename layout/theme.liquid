@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+    <head><meta content="R8yd7Y_lyaqnX0CW7OMyPM5pxpuLKiiQTNx9x2qdYcU" name="google-site-verification"/>
+    <meta name="google-site-verification" content="B5gWPJYz-I0Jz1TqWYtYUDOk_bM1iiMIpcDQzE8yZDw" />
+    {% render 'pagefly-head' %}<meta content="SSbXQhBz3svbld1NEBYPzxgATU15UVLF9MZYkbe5Ox4" name="google-site-verification"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+     <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W89LG9R');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DX6ESQQVQ0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DX6ESQQVQ0');
+</script>
+    <!-- Establish early connection to external domains -->
+    <!-- <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" rel="stylesheet"> -->
+
+    <link crossorigin href="https://cdn.shopify.com" rel="preconnect">
+    <link crossorigin href="https://fonts.shopify.com" rel="preconnect">
+    <link href="https://monorail-edge.shopifysvc.com" rel="preconnect">
+    <link crossorigin href="//ajax.googleapis.com" rel="preconnect"/>
+
+
+    {%- assign main_font = settings.main_font -%}
+    {%- assign heading_font = settings.heading_font -%}
+    {%- assign nav_font = settings.nav_font -%}
+    {%- assign main_font_bold = main_font | font_modify: 'weight', 'bolder' -%}
+    {%- assign main_font_italic = main_font | font_modify: 'style', 'italic' -%}
+    {%- assign main_font_bold_italic = main_font_bold | font_modify: 'style', 'italic' -%}
+
+    <!-- Preload onDomain stylesheets and script libraries -->
+    <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'stylesheet.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'queries.css' | asset_url }}" as="style">
+    <!-- <link rel="preload" as="font" href="{{ main_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ nav_font | font_url }}" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="{{ heading_font | font_url }}" type="font/woff2" crossorigin> -->
+    <link rel="preload" href="{{ 'eventemitter3.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'option_selection.js' | shopify_asset_url }}" as="script">
+    <link rel="preload" href="{{ 'ls.rias.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'ls.bgset.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'lazysizes.min.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'jquery.fancybox.js' | asset_url }}" as="script">
+
+    {% if settings.favicon %}
+        <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png"/>
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}"/>
+
+    <title>
+        {% if template == 'index' %}
+            {% if page_title contains 'Welcome' %}
+                {{ shop.name }}
+                &ndash; Welcome
+            {% else %}
+                {{ page_title }}
+            {% endif %}
+            {% elsif template == '404' %}Page Not Found
+        {% elsif page_title contains shop.name %}
+            {{ page_title }}
+        {% else %}
+            {{ page_title }}
+            &ndash;
+            {{ shop.name }}
+        {% endif %}
+    </title>
+    {% if page_description %}
+        <meta name="description" content="{{ page_description }}"/>
+    {% endif %}
+
+    {% render 'social-media-meta-tags' %}
+    {% render 'structured-data' %}
+    {% render 'css-variables' %}
+
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'stylesheet.css' | asset_url }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'queries.css' | asset_url }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}" type="text/css">
+
+    <style>
+    {
+        {
+        main_font | font_face: font_display: 'swap'
+      }
+    }
+
+      {
+        {
+        nav_font | font_face: font_display: 'swap'
+      }
+    }
+
+      {
+        {
+        heading_font | font_face: font_display: 'swap'
+      }
+    }
+
+      {
+        {
+        main_font_bold | font_face: font_display: 'swap'
+      }
+    }
+
+      {
+        {
+        main_font_italic | font_face: font_display: 'swap'
+      }
+    }
+
+      {
+        {
+        main_font_bold_italic | font_face: font_display: 'swap'
+      }
+    }
+  </style>
+
+    {% if template contains 'customers' %}
+        {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+        {{ "customer_area.js" | shopify_asset_url | script_tag }}
+    {% endif %}
+    {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
+{%- render 'bold-common' -%}
+    {{ 'theme-style.css' | asset_url | stylesheet_tag }}
+
+                        {% include 'otRegion' %}            
+                        
+  <!-- REAMAZE INTEGRATION START - DO NOT REMOVE -->
+{% render 'reamaze-config' %}
+{% render 'reamaze-sso' %}
+<!-- REAMAZE INTEGRATION END - DO NOT REMOVE -->
+
+{% include 'wiser' %}{% include 'wiser_popup' %}
+  {% render 'shogun-head' %}
+{% include 'add_header_assets' %}</head>
+
+    <body class="gridlock shifter-left {{ template | handleize }} js-slideout-toggle-wrapper ">
+      <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W89LG9R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+      
+ <div class="js-slideout-overlay site-overlay"></div>
+{% if settings.ajax_cart_method == 'drawer' %}
+    {% render 'timber-cart' %}
+{% endif %}
+
+<aside class="slideout slideout__drawer-right" data-wau-slideout="mobile-navigation" id="slideout-mobile-navigation">
+    {% section 'mobile-navigation' %}
+</aside>
+{% section 'header' %}
+<main class="site-wrap tw-overflow-hidden {% if settings.ajax_cart_method == 'drawer' %} is-moved-by-drawer{% endif %}" role="main">
+
+
+    <div class="page-wrap">
+        {% if settings.scrolling_bar_position == 'header' %}
+            {% section 'scrolling-announcements' %}
+        {% endif %}
+
+        {% if template == 'index' or template contains 'blog' or template contains 'collection' or template contains
+      'page' or template contains 'product' %}
+            {{ content_for_layout }}
+        {% else %}
+            {% render 'breadcrumb' %}
+            <div class="row" id="content">
+
+                {{ content_for_layout }}
+            </div>
+        {% endif %}
+    </div>
+
+
+    {% if settings.scrolling_bar_position == 'above_footer' %}
+        {% section 'scrolling-announcements' %}
+    {% endif %}
+    {% section 'newsletter' %}
+    {% section 'footer' %}
+
+    {% if settings.scrolling_bar_position == 'below_footer' %}
+        {% section 'scrolling-announcements' %}
+    {% endif %}
+
+</main>
+
+<script src="{{'//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' }}"></script>
+<script src="{{ 'eventemitter3.min.js' | asset_url }}"></script>
+<script src="{{ 'theme.js' | asset_url }}"></script>
+<script src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
+
+<a class="scrollup" href="#">
+    <i aria-hidden="true" class="la la-chevron-up"></i>
+    TOP</a>
+{% if settings.popup %}
+    {% render 'popup' %}
+{% endif %}
+<div class="fancybox-wrapper"></div>
+<div class="clear"></div>
+
+<!-- Ajax Cart -->
+{{ 'handlebars.min.js' | asset_url | script_tag }}
+{% render 'ajax-cart-template' %}
+
+{% if settings.ajax_cart_method == 'drawer' %}
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <script>
+    jQuery(function ($) {
+      ajaxCart.init({
+        formSelector: '[data-product-form]',
+        cartContainer: '#CartContainer',
+        addToCartSelector: '#AddToCart',
+        cartCountSelector: '.CartCount',
+        cartCostSelector: '.CartCost',
+        moneyFormat: {{ shop.money_format | json }}
+        });
+        });
+    {% if settings.ajax_cart_method == 'drawer' %}
+    jQuery('body').on('ajaxCart.afterCartLoad', function (evt, cart) {
+      // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+      timber.RightDrawer.open();
+    });
+    {% endif %}
+    {% if settings.show_multiple_currencies %}
+    jQuery('body').on('ajaxCart.afterCartLoad', function (evt, cart) {
+      // Convert currency when ajaxcart opens
+      Currency.convertAll(shopCurrency, Currency.currentCurrency);
+    });
+    {% endif %}
+  </script>
+{% else %}
+    {% render 'ajaxify-cart' %}
+{% endif %}
+
+<!-- No JS -->
+<script>
+    function loadJS(u) {
+      var r = document.getElementsByTagName("script")[0],
+        s = document.createElement("script");
+      s.src = u;
+      r.parentNode.insertBefore(s, r);
+    }
+  </script>
+<script>
+    document.documentElement.className =
+      document.documentElement.className.replace("no-js", "js");
+  </script>
+
+<script src="{{ 'ls.rias.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'ls.bgset.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer"></script>
+
+<script>
+    if (!window.HTMLPictureElement) {
+      loadJS("https://afarkas.github.io/lazysizes/plugins/respimg/ls.respimg.min.js");
+    }
+  </script>
+
+<!-- JS Variable Helpers -->
+
+<script src="{{ 'jquery.fancybox.js' | asset_url }}" defer="defer"></script>
+<script>
+  window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
+      };
+</script>
+<script>
+    AOS.init();
+  </script>
+  {% render '[predictive-search]' class: '' %}
+  <!-- **BEGIN** Hextom USB Integration // Main Include - DO NOT MODIFY -->
+  {% render 'hextom_usb_main', product: product, customer: customer %}
+  <!-- **END** Hextom USB Integration // Main Include - DO NOT MODIFY -->
+{%- render 'bold-currency-converter' -%}
+{{'tiny-img-link-preloader.js' | asset_url | script_tag }}
+
+<!-- **BEGIN** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
+    {% render 'hextom_fsb_main', product: product, customer: customer %}
+    <!-- **END** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
+
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WVJMtJ"></script>
+  {% include 'add_footer_assets' %}</body>
+</html>

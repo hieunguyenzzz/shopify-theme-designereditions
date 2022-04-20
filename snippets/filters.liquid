@@ -1,0 +1,45 @@
+{% if block.type == 'sort_by' %}
+  <div class="filter {% cycle '', 'right-filter' %}" {{ block.shopify_attributes }}>
+    <button class="filter-menu">
+      <h4>{{ block.settings.sort_by_title }}</h4>
+    </button>
+    <ul class="filter-list" id="sort-by" style="display: none;">
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=manual">{{ 'collections.sorting.featured' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=price-ascending">{{ 'collections.sorting.price_ascending' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=price-descending">{{ 'collections.sorting.price_descending' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=title-ascending">{{ 'collections.sorting.az' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=title-descending">{{ 'collections.sorting.za' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=created-ascending">{{ 'collections.sorting.date_ascending' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=created-descending">{{ 'collections.sorting.date_descending' | t }}</a></li>
+        <li><a href="{{ collection.url | append: share_permalink }}?sort_by=best-selling">{{ 'collections.sorting.best_selling' | t }}</a></li>
+       </ul>
+  </div>
+{% endif %}
+
+{% if block.type == 'filter' %}
+  <div class="filter {% cycle '', 'right-filter' %}" {{ block.shopify_attributes }}>
+    <button class="filter-menu">
+      <h4>{{ block.settings.filter_by_title }}</h4>
+    </button>
+    <ul class="filter-list{% if block.settings.filter_by_title contains "Color" or block.settings.filter_by_title contains "Colour" %} color-filter{% endif %}" style="display: none;">
+      {% assign tags = block.settings.filter_by  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}
+      {% for tag in tags %}
+      {% assign is_color = false %}
+      {% capture color_filter %}{{ block.settings.filter_by_title | downcase }}{% endcapture %}
+
+      {% if color_filter contains 'color' or color_filter contains 'colour' %}
+      {% assign swatch_image_url = tag | handle | append: '.png' | file_url %}
+      {% assign css_color = tag | split: ' ' | last | handle %}
+      {% assign is_color = true %}
+      {% endif %}
+
+      {% if current_tags contains tag %}
+      <li data-variant-image="{{ variant_image_url }}" class="current">{% if is_color %}<span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>{% endif %}{{ tag | link_to_remove_tag: tag }}</li>
+      {% elsif collection.all_tags contains tag %}
+      <li data-variant-image="{{ variant_image_url }}">{% if is_color %}<span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>{% endif %}{{ tag | link_to_add_tag: tag }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endif %}

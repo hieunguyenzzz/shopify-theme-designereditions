@@ -1,0 +1,446 @@
+<section class="homepage-gallery-{{ section.id }}" data-section-id="{{ section.id }}" data-aos="{{ settings.scroll_animation }}">
+    {% if section.settings.heading != blank %}
+        <div class="section-title row">
+            <h2>
+                <a href="{{ collection.url }}">
+                    {{ section.settings.heading | escape }}
+                </a>
+            </h2>
+        </div>
+    {% endif %}
+
+    {% if section.settings.full_width %}
+        <div class="gridlock-fluid">
+            <div class="row">
+            {% endif %}
+            <article class="row" id="promo-images">
+                {% assign is_odd = false %}
+                {% if section.blocks.size == 1 or section.blocks.size == 3 or section.blocks.size == 5 or section.blocks.size == 7 %}
+                    {% assign is_odd = true %}
+                {% endif %}
+
+                {% for block in section.blocks %}
+                    {% case block.settings.image_width %}
+                        {% when '25%' %}
+                            {%- assign image_width = 'desktop-3 tablet-fourth' -%}
+                        {% when '33%' %}
+                            {%- assign image_width = 'desktop-4 tablet-2' -%}
+                        {% when '50%' %}
+                            {%- assign image_width = 'desktop-6 tablet-3' -%}
+                        {% when '66%' %}
+                            {%- assign image_width = 'desktop-8 tablet-4' -%}
+                        {% when '75%' %}
+                            {%- assign image_width = 'desktop-9 tablet-three-fourths' -%}
+                        {% when '100%' %}
+                            {%- assign image_width = 'desktop-12 tablet-6' -%}
+                    {% endcase %}
+                    <div class="tw-relative pimg homepage-promo {{ image_width }} {% if is_odd and forloop.first %}mobile-3{% else %}mobile-half{% endif %} promo-{{ block.id }}" {{ block.shopify_attributes }}>
+                        {% if block.settings.link != blank and block.settings.button == blank %}
+                            <a href="{{ block.settings.link }}">
+                            {% endif %}
+                            <div class="promo-inner" style="
+                                        text-align: center;
+                                    ">
+                                {% if block.settings.image != blank %}
+                                    <img class="tw-inline" src="{{ block.settings.image | img_url: '50x' }}" alt="{{ block.settings.image.alt }}">
+                                    <noscript>
+                                        <img class="tw-inline" src="{{ block.settings.image | img_url: '50x' }}" alt="{{ block.settings.image.alt }}">
+                                    </noscript>
+                                {% else %}
+                                    <div class="onboard">
+                                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                    </div>
+                                {% endif %}
+                                <div class="image-overlay"></div>
+                                {% capture promo-caption %}
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            {% if block.settings.heading != blank %}
+                                                {{ block.settings.heading }}
+                                            {% endif %}
+
+                                            {% if block.settings.pop_heading != blank %}
+                                                <div class="infoo tw-group">
+                                                    <div class="btn-container">
+                                                        <p id="click-to-show{{ block.id }}" tabindex="-1">
+                                                            <span style="text-decoration:underline">{{ 'strings.general.learn_more' | t }}</span>
+                                                        </p>
+                                                    </div>
+
+                                                    <div tabindex="-1" class="tw-transition-all tw-invisible tw-opacity-0 tw-absolute tw-p-6 tw-bg-[#f9f9f9] tw-shadow tw-duration-700 group-focus-within:tw-visible group-focus-within:tw-mt-6 group-focus-within:tw-opacity-100 tw-left-0 tw-w-full tw-top-full tw-mt-12" >
+                                                        <div class="tw-absolute tw-top-6 tw-right-6 tw-text-lg tw-text-black"><i class="icon close-icon "></i></div>
+
+                                                        <h4>{{ block.settings.pop_heading }}</h4>
+                                                        <p>{{ block.settings.pop_text }}</p>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                {% endcapture %}
+                                {% if block.settings.text_options == 'on_image' %}
+                                    {{ promo-caption  }}
+                                {% endif %}
+                            </div>
+                            {% if block.settings.text_options == 'below_image' %}
+                                {{ promo-caption  }}
+                            {% endif %}
+                            {% if block.settings.link != blank and block.settings.button == blank %}
+                            </a>
+                        {% endif %}
+                        <style>
+          .homepage-promo.promo-{{ block.id }} .image-overlay {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            {% assign bg_color = '#000000' %}
+            {% assign number = block.settings.overlay_opacity %}
+            {% assign overlay_opacity = number | divided_by: 100.0 %}
+            background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+          }
+          .homepage-promo.promo-{{ block.id }} .caption p {
+            color: {{ block.settings.heading_color }};
+          }
+          .homepage-promo .cta a {
+            font-size: {{ section.settings.promo_button_size }}px;
+          }
+          {% if block.settings.text_options == 'on_image' %}
+          .homepage-promo.promo-{{ block.id }} .promo-inner .caption-content {
+            position: absolute;
+            bottom: {{ block.settings.vertical_position }}%;
+            left: {{ block.settings.horizontal_position }}%;
+            {% if block.settings.horizontal_position == 50 %}
+            width: 100%;
+            {% endif %}
+            transform: translate(-{{ block.settings.horizontal_position }}%, {{ block.settings.vertical_position }}%);
+            text-align: {{ block.settings.align_text }};
+            width: fit-content;
+          }
+          {% endif %}
+          .homepage-promo.promo-{{ block.id }} .caption-content  p {
+            line-height: initial;
+          }
+          .homepage-promo.promo-{{ block.id }} .cta a {
+            color: {{ block.settings.button_color }};
+            background: {{ block.settings.button_background }};
+          }
+          {% if block.settings.text_options == 'on_image' %}
+          .homepage-promo.promo-{{ block.id }} .promo-inner .caption {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: 2;
+          }
+          {% else %}
+          .homepage-promo.promo-{{ block.id }} .caption {
+            margin-top: 10px;
+            text-align: {{ block.settings.align_text }};
+          }
+          {% endif %}
+
+
+          /* IMAGE BLOCKS */
+          section.homepage-gallery-{{ section.id }} {
+            background-color: {{ section.settings.promo_background_color }};
+          }
+
+          section.homepage-gallery-{{ section.id }},
+          section.homepage-gallery-{{ section.id }} .caption p {
+            font-size: {{ section.settings.text_size }}px;
+          }
+        </style>
+                    </div>
+                {% endfor %}
+                {% if section.blocks.size == 0 %}
+                    {% render 'no-blocks' %}
+                {% endif %}
+            </article>
+            {% if section.settings.full_width %}
+            </div>
+        </div>
+    {% endif %}
+</section>
+
+
+{% schema %}
+
+{
+    "name": "Gallery icon",
+    "max_blocks": 3,
+    "class": "index-section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full width"
+        }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Gallery"
+        }, {
+            "type": "header",
+            "content": "Image Headings"
+        }, {
+            "type": "color",
+            "id": "promo_background_color",
+            "label": "Background color",
+            "default": "#fff"
+        }, {
+            "type": "range",
+            "id": "text_size",
+            "min": 12,
+            "max": 36,
+            "step": 1,
+            "unit": "px",
+            "label": "Text size",
+            "default": 24
+        }, {
+            "type": "range",
+            "id": "promo_button_size",
+            "min": 12,
+            "max": 36,
+            "step": 1,
+            "unit": "px",
+            "label": "Button text size",
+            "default": 14
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image",
+                    "info": "800px x 600px recommended if 3 per row"
+                }, {
+                    "type": "select",
+                    "id": "image_width",
+                    "label": "Container width",
+                    "default": "33%",
+                    "options": [
+                        {
+                            "value": "25%",
+                            "label": "25%"
+                        }, {
+                            "value": "33%",
+                            "label": "33%"
+                        }, {
+                            "value": "50%",
+                            "label": "50%"
+                        }, {
+                            "value": "66%",
+                            "label": "66%"
+                        }, {
+                            "value": "75%",
+                            "label": "75%"
+                        }, {
+                            "value": "100%",
+                            "label": "100%"
+                        }
+                    ]
+                }, {
+                    "type": "range",
+                    "id": "overlay_opacity",
+                    "min": 0,
+                    "max": 100,
+                    "step": 5,
+                    "unit": "%",
+                    "label": "Image overlay opacity",
+                    "info": "Adding an overlay to your image can help with text contrast",
+                    "default": 0
+                }, {
+                    "type": "richtext",
+                    "id": "heading",
+                    "label": "Text",
+                    "default": "<p>Our collections</p>"
+                }, {
+                    "type": "text",
+                    "id": "popup",
+                    "label": "Open Popup text",
+                    "default": "Learn More"
+                }, {
+                    "type": "richtext",
+                    "id": "pop_heading",
+                    "label": "Popup Heading",
+                    "default": "<p>Shipping Info</p>"
+                }, {
+                    "type": "richtext",
+                    "id": "pop_text",
+                    "label": "popeup Text",
+                    "default": "<p>We offer shipping to the lower 48 states. Shipping cost is 10% of the product price. All deliveries are contactless.</p>"
+                }, {
+                    "type": "color",
+                    "id": "heading_color",
+                    "label": "Heading color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_color",
+                    "label": "Button color",
+                    "default": "#ffffff"
+                }, {
+                    "type": "color",
+                    "id": "button_background",
+                    "label": "Button background",
+                    "default": "#000"
+                }, {
+                    "type": "select",
+                    "id": "text_options",
+                    "default": "on_image",
+                    "options": [
+                        {
+                            "value": "on_image",
+                            "label": "Over image"
+                        }, {
+                            "value": "below_image",
+                            "label": "Below image"
+                        }
+                    ],
+                    "label": "Text position"
+                }, {
+                    "type": "range",
+                    "id": "vertical_position",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image vertical position",
+                    "default": 12
+                }, {
+                    "type": "range",
+                    "id": "horizontal_position",
+                    "min": 0,
+                    "max": 100,
+                    "step": 2,
+                    "unit": "%",
+                    "label": "Text over image horizontal position",
+                    "default": 14
+                }, {
+                    "type": "select",
+                    "id": "align_text",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Centered"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Gallery icon",
+            "category": "Image",
+            "blocks": [
+                {
+                    "type": "image"
+                }, {
+                    "type": "image"
+                }, {
+                    "type": "image"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}
+<style>
+  @media (min-width: 767px) {
+  section.homepage-gallery-product-three-section {
+    height: 300px;
+}
+  }
+  .infoo h4 {
+    text-align: left;
+}
+  .infoo p {
+    text-align: left;
+}
+  .btn-container p {
+    text-align: center;
+}
+section.homepage-gallery-product-three-section {
+    background: #fafbfa;
+    padding: 65px 0;
+}
+.promo-dd1658c2-dd54-4686-912e-1a30f8a1de2d .caption p {
+    cursor: pointer;
+}
+#div-to-toggledd1658c2-dd54-4686-912e-1a30f8a1de2d {
+                border: 1px solid #e0e0e0;
+                padding: 15px 15px 15px 15px;
+                margin: 20px auto;
+                background: #f9f9f9;
+                position: relative;
+            }
+            #close-btndd1658c2-dd54-4686-912e-1a30f8a1de2d {
+                position: absolute;
+                color: #000;
+                height:25px;
+                width:25px;
+                padding: 1px;
+                top: 0px;
+                right: 0px;
+                cursor: pointer;
+            }
+  
+  .promo-6e281097-1f48-4b35-8b25-3cbfb40e7085 .caption p {
+    cursor: pointer;
+}
+  #div-to-toggle6e281097-1f48-4b35-8b25-3cbfb40e7085 {
+                border: 1px solid #e0e0e0;
+                padding: 15px 15px 15px 15px;
+                margin: 20px auto;
+                background: #f9f9f9;
+                position: relative;
+            }
+            #close-btn6e281097-1f48-4b35-8b25-3cbfb40e7085{
+                position: absolute;
+                color: #000;
+                height:25px;
+                width:25px;
+                padding: 1px;
+                top: 0px;
+                right: 0px;
+                cursor: pointer;
+            }
+  .promo-fe1bdd83-57be-4473-9b52-91c9b0f32168 .caption p {
+    cursor: pointer;
+}
+  #div-to-togglefe1bdd83-57be-4473-9b52-91c9b0f32168 {
+                border: 1px solid #e0e0e0;
+                padding: 15px 15px 15px 15px;
+                margin: 20px auto;
+                background: #f9f9f9;
+                position: relative;
+            }
+            #close-btnfe1bdd83-57be-4473-9b52-91c9b0f32168 {
+                position: absolute;
+                color: #000;
+                height:25px;
+                width:25px;
+                padding: 1px;
+                top: 0px;
+                right: 0px;
+                cursor: pointer;
+            }
+</style>

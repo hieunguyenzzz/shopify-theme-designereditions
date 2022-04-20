@@ -1,0 +1,363 @@
+<section class="homepage-gallery-{{ section.id }}"
+data-section-id="{{ section.id }}"
+data-aos="{{ settings.scroll_animation }}">
+  {% if section.settings.heading != blank %}
+  <div class="section-title row">
+    <h2>
+      <a href="{{ collection.url }}">
+        {{ section.settings.heading | escape }}
+      </a>
+    </h2>
+  </div>
+  {% endif %}
+
+  {% if section.settings.full_width %}<div class="gridlock-fluid"><div class="row">{% endif %}
+  <article id="promo-images" class="row">
+    {% assign is_odd = false %}
+    {% if section.blocks.size == 1 or section.blocks.size == 3 or section.blocks.size == 5 or section.blocks.size == 7 %}
+    {% assign is_odd = true %}
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% case block.settings.image_width %}
+      {% when '25%' %}
+        {%- assign image_width = 'desktop-3 tablet-fourth' -%}
+      {% when '33%' %}
+        {%- assign image_width = 'desktop-4 tablet-2' -%}
+      {% when '50%' %}
+        {%- assign image_width = 'desktop-6 tablet-3' -%}
+      {% when '66%' %}
+        {%- assign image_width = 'desktop-8 tablet-4' -%}
+      {% when '75%' %}
+        {%- assign image_width = 'desktop-9 tablet-three-fourths' -%}
+      {% when '100%' %}
+        {%- assign image_width = 'desktop-12 tablet-6' -%}
+      {% endcase %}
+      <div class="pimg homepage-promo {{ image_width }} {% if is_odd and forloop.first %}mobile-3{% else %}mobile-half{% endif %} promo-{{ block.id }}" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank and block.settings.button == blank %}<a href="{{ block.settings.link }}">{% endif %}
+          <div class="promo-inner">
+            {% if block.settings.image != blank %}
+              {% render 'basic-responsive-image', type: block.settings.image, data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+              <noscript>
+                <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.image.alt }}">
+              </noscript>
+            {% else %}
+              <div class="onboard">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+            <div class="image-overlay"></div>
+	    {% capture promo-caption %}
+            <div class="caption">
+              <div class="caption-content">
+                {% if block.settings.heading != blank %}
+                    {{ block.settings.heading }}
+                {% endif %}
+                {% if block.settings.link != blank and block.settings.button != blank %}
+                  <span class="cta">
+                    <a href="{{ block.settings.link }}">{{ block.settings.button | escape }}</a>
+                  </span>
+                {% endif %}
+               </div>
+            </div>
+	    {% endcapture %}
+	    {% if block.settings.text_options == 'on_image' %}
+	    	{{ promo-caption  }}
+	    {% endif %}
+          </div>
+    	{% if block.settings.text_options == 'below_image' %}
+    		{{ promo-caption  }}
+    	{% endif %}
+        {% if block.settings.link != blank and block.settings.button == blank %}</a>{% endif %}
+        <style>
+          .homepage-promo.promo-{{ block.id }} .image-overlay {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            {% assign bg_color = '#000000' %}
+            {% assign number = block.settings.overlay_opacity %}
+            {% assign overlay_opacity = number | divided_by: 100.0 %}
+            background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+          }
+          .homepage-promo.promo-{{ block.id }} .caption p {
+            color: {{ block.settings.heading_color }};
+          }
+          .homepage-promo .cta a {
+            font-size: {{ section.settings.promo_button_size }}px;
+          }
+          {% if block.settings.text_options == 'on_image' %}
+          .homepage-promo.promo-{{ block.id }} .promo-inner .caption-content {
+            position: absolute;
+            bottom: {{ block.settings.vertical_position }}%;
+            left: {{ block.settings.horizontal_position }}%;
+            {% if block.settings.horizontal_position == 50 %}
+            width: 100%;
+            {% endif %}
+            transform: translate(-{{ block.settings.horizontal_position }}%, {{ block.settings.vertical_position }}%);
+            text-align: {{ block.settings.align_text }};
+            width: fit-content;
+          }
+          {% endif %}
+          .homepage-promo.promo-{{ block.id }} .caption-content  p {
+            line-height: initial;
+          }
+          .homepage-promo.promo-{{ block.id }} .cta a {
+            color: {{ block.settings.button_color }};
+            background: {{ block.settings.button_background }};
+          }
+          {% if block.settings.text_options == 'on_image' %}
+          .homepage-promo.promo-{{ block.id }} .promo-inner .caption {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: 2;
+          }
+          {% else %}
+          .homepage-promo.promo-{{ block.id }} .caption {
+            margin-top: 10px;
+            text-align: {{ block.settings.align_text }};
+          }
+          {% endif %}
+
+
+          /* IMAGE BLOCKS */
+          section.homepage-gallery-{{ section.id }} {
+            background-color: {{ section.settings.promo_background_color }};
+          }
+
+          section.homepage-gallery-{{ section.id }},
+          section.homepage-gallery-{{ section.id }} .caption p {
+            font-size: {{ section.settings.text_size }}px;
+          }
+        </style>
+      </div>
+    {% endfor %}
+    {% if section.blocks.size == 0 %}
+      {% render 'no-blocks' %}
+    {% endif %}
+  </article>
+  {% if section.settings.full_width %}</div></div>{% endif %}
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Gallery",
+  "max_blocks": 4,
+  "class": "index-section",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Gallery"
+      },
+      {
+        "type": "header",
+        "content": "Image Headings"
+      },
+      {
+      "type": "color",
+      "id": "promo_background_color",
+      "label": "Background color",
+      "default": "#fff"
+      },
+      {
+        "type": "range",
+        "id": "text_size",
+        "min": 12,
+        "max": 36,
+        "step": 1,
+        "unit": "px",
+        "label": "Text size",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "promo_button_size",
+        "min": 12,
+        "max": 36,
+        "step": 1,
+        "unit": "px",
+        "label": "Button text size",
+        "default": 14
+      }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info" : "800px x 600px recommended if 3 per row"
+        },
+        {
+          "type": "select",
+          "id": "image_width",
+          "label": "Container width",
+          "default": "33%",
+          "options": [
+			      {
+               "value":"25%",
+               "label":"25%"
+            },
+            {
+               "value":"33%",
+               "label":"33%"
+            },
+            {
+               "value":"50%",
+               "label":"50%"
+            },
+            {
+               "value":"66%",
+               "label":"66%"
+            },
+            {
+               "value":"75%",
+               "label":"75%"
+            },
+            {
+               "value":"100%",
+               "label":"100%"
+            }
+          ]
+        },
+        {
+          "type":      "range",
+          "id":        "overlay_opacity",
+          "min":       0,
+          "max":       100,
+          "step":      5,
+          "unit":      "%",
+          "label":     "Image overlay opacity",
+          "info":      "Adding an overlay to your image can help with text contrast",
+          "default":   0
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional"
+        },
+       {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Text",
+        "default": "<p>Our collections</p>"
+       },
+       {
+        "type": "text",
+        "id": "button",
+        "label": "Button text",
+        "default": "Explore"
+       },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "button_background",
+        "label": "Button background",
+        "default": "#000"
+      },
+      {
+         "type": "select",
+         "id": "text_options",
+         "default": "on_image",
+         "options": [
+            {
+             "value": "on_image",
+             "label": "Over image"
+            },
+           {
+             "value": "below_image",
+             "label": "Below image"
+           }
+         ],
+         "label": "Text position"
+      },
+      {
+        "type":      "range",
+        "id":        "vertical_position",
+        "min":       0,
+        "max":        100,
+        "step":       2,
+        "unit":       "%",
+        "label":     "Text over image vertical position",
+        "default":   12
+      },
+      {
+        "type":      "range",
+        "id":        "horizontal_position",
+        "min":       0,
+        "max":        100,
+        "step":       2,
+        "unit":       "%",
+        "label":     "Text over image horizontal position",
+        "default":   14
+      },
+      {
+        "type":"select",
+        "id":"align_text",
+        "label":"Text alignment",
+        "default":"left",
+        "options":[
+          {
+            "value":"left",
+            "label":"Left"
+          },
+          {
+            "value":"center",
+            "label":"Centered"
+          },
+          {
+            "value":"right",
+            "label":"Right"
+          }
+        ]
+      }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,210 @@
+<section class="homepage-image-column-{{ section.id }} tw-space-y-8"
+data-section-id="{{ section.id }}">
+  <div class="{% render '[class]-container'  class: '' %}">
+    <h2 class="desktop-12 tablet-6 tw-text-2xl tw-font-bold tw-mb-0 tw-w-full">
+      {{section.settings.heading}}
+    </h2> 
+  </div>
+  <div class="{% render '[class]-container'  class: '' %}">
+    <article id="image-columns" class="tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2">
+      {% for block in section.blocks %}
+        <div class="image-column-{{ block.id }}" {{ block.shopify_attributes }}>
+          <div class="image-container">
+              {% if block.settings.image != blank %}
+              <a href="{{ block.settings.link }}">
+                {% render 'basic-responsive-image', type: block.settings.image, data_widths: '[180, 360, 540, 720, 900]' %}
+                <noscript>
+                  <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.image.alt }}">
+                </noscript>
+              </a>
+              {% else %}
+                <div class="onboard">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+              <div class="text-container">
+                {% if block.settings.heading != blank %}
+                <div class="text-content">
+                  <h3 class="text-title">
+                    <a href="{{ block.settings.link }}">
+                      {{ block.settings.heading | escape }}
+                    </a>
+                  </h3>
+                    {{ block.settings.rich_text }}
+                    {% if block.settings.button != blank %}
+                    <span class="cta">
+                      <a href="{{ block.settings.link }}">{{ block.settings.button | escape }}</a>
+                    </span>
+                {% endif %}
+                </div>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <style>
+          /* IMAGE BLOCKS */
+          .homepage-image-column-{{ section.id }} {
+            background-color: {{ section.settings.promo_background_color }};
+          }
+          .image-column-{{ block.id }} {
+            text-align: {{ block.settings.text_align }};
+          }
+          .image-column-{{ block.id }} .text-content h3 {
+            font-size: {{ section.settings.heading_size }}px;
+            color: {{ section.settings.text_color }};
+            margin-top: 20px;
+            margin-bottom: 0.5rem
+          }
+          .image-column-{{ block.id }} .text-content p {
+            color: {{ section.settings.text_color }};
+            /* margin-top: 10px; */
+          }
+          .image-column-{{ block.id }} .text-content .cta {
+            margin-top: 10px;
+          }
+
+        </style>
+      {% endfor %}
+      {% if section.blocks.size == 0 %}
+        {% render 'no-blocks' %}
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+
+
+{% schema %}
+
+{
+    "name": "Image column with text",
+    "max_blocks": 4,
+    "class": "index-section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Our customers"
+        }, {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full width"
+        }, {
+            "type": "color",
+            "id": "promo_background_color",
+            "label": "Background color",
+            "default": "#fff"
+        }, {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text color",
+            "default": "#000000"
+        }, {
+            "type": "range",
+            "id": "heading_size",
+            "min": 12,
+            "max": 36,
+            "step": 1,
+            "unit": "px",
+            "label": "Heading size",
+            "default": 24
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image",
+                    "info": "800px x 600px recommended if 3 per row"
+                }, {
+                    "type": "select",
+                    "id": "image_width",
+                    "label": "Container width",
+                    "default": "33%",
+                    "options": [
+                        {
+                            "value": "25%",
+                            "label": "25%"
+                        }, {
+                            "value": "33%",
+                            "label": "33%"
+                        }, {
+                            "value": "50%",
+                            "label": "50%"
+                        }, {
+                            "value": "66%",
+                            "label": "66%"
+                        }, {
+                            "value": "75%",
+                            "label": "75%"
+                        }, {
+                            "value": "100%",
+                            "label": "100%"
+                        }
+                    ]
+                }, {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link",
+                    "info": "Optional"
+                }, {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading",
+                    "default": "Our collections"
+                }, {
+                    "type": "richtext",
+                    "id": "rich_text",
+                    "label": "Text",
+                    "default": "<p>Enter text to accompany your image.</p>"
+                }, {
+                    "type": "text",
+                    "id": "button",
+                    "label": "Button text",
+                    "default": "Explore"
+                }, {
+                    "type": "select",
+                    "id": "text_align",
+                    "label": "Text alignment",
+                    "default": "left",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        }, {
+                            "value": "center",
+                            "label": "Center"
+                        }, {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image column with text",
+            "category": "Image",
+            "blocks": [
+                {
+                    "type": "image"
+                }, {
+                    "type": "image"
+                }, {
+                    "type": "image"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}

@@ -1,0 +1,109 @@
+{% assign description = instructions.description  %}
+{% assign description_tag = instructions.description_tag %}
+{% assign heading-1 = instructions.heading-1 %}
+{% assign short-description-1 = instructions.short-description-1 %}
+{% assign description-image-1 = instructions.description-image-1 %}
+{% assign description-image-2 = instructions.description-image-2 %}
+{% assign heading-2 = instructions.heading-2 %}
+{% assign short-description-2 = instructions.short-description-2 %}
+{% assign side-image= instructions.dimension-photo %}
+{% assign product-information = instructions.product-information  %}
+{% assign inspired-by  = 'Designer Icons'  %}
+{% if instructions.inspired-of %}
+    {% assign inspired-by  = instructions.inspired-of  %}
+{% elsif product.metafields.global.inspired-of %}
+    {% assign inspired-by  = product.metafields.global.inspired-of  %}
+{% endif %}
+
+
+<div class="row ">
+    <div class="tw-w-full">
+        <div class="lifestyle__text center half">
+            <h2>{{'strings.general.contemporary-inspiration' | t}}</h2>
+            <p>
+                {{ description_tag }}
+            </p>
+        </div>
+    </div>
+    <div class="desktop-12">
+        <div class="desktop-6">
+            <div class="lifestyle__text1">
+                <h3>
+                    <strong>
+                        {{ heading-1 }}
+                    </strong>
+                </h3>
+                <p>
+                    {{ short-description-1 | strip_html }}
+                </p>
+            </div>
+        </div>
+        <div class="desktop-6">
+            {{ description-image-1 }}
+        </div>
+    </div>
+    <div class="desktop-12 mobile-first">
+        <div class="desktop-6 one-one">
+            {{ description-image-2 }}
+        </div>
+        <div class="desktop-6 two-two">
+            <div class="lifestyle__text1">
+                <h3>
+                    <strong>
+                        {{ heading-2 }}
+                    </strong>
+                </h3>
+                <p>
+                    {{ short-description-2 | strip_html }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="background" style=" background: #fafbfa;margin-top: 75px;">
+    <div class="product-info1 row desktop-12" style="padding: 71px 0;">
+        <h2 class="section-title row desktop-12">{{'strings.general.the-finer-details' | t}}
+        </h2>
+        <div class="tw-flex tw-gap-6 tw-flex-col md:tw-flex-row tw-w-full md:tw-items-center">
+            <div class="tw-flex-1 tw-flex tw-justify-center tw-items-center">
+                {%- if side-image != blank -%}
+                    <img class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]" src="{{ side-image }}">
+                {%- else -%}
+                    <img class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]" src="{{ 'bg.png' | asset_url }}">
+                {%- endif -%}
+            </div>
+            <div class="tw-flex-1 main-desc">
+                <!-- <h3>Product Details</h3> -->
+                {{ description }}
+                <!-- <h3>Product Information</h3> -->
+                {{ product-information }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="{% render '[class]-container' class: '' %} tw-py-12 tw-mx-auto tw-flex tw-gap-6 lg:tw-gap-12" id="inspiree">
+    {% assign product_collection = product.collections %}
+    <div class="tw-flex-1">
+        <h5>{{ 'strings.general.inspired_by' | t }}</h5>
+        <h1>{{ inspired-by }}</h1>
+        {% assign inspired = collections['designer-icons'] %}
+        {% assign handlizeInspired = inspired-by | handleize %}
+        {% assign inspired-by-url  = '/collections/' | append: handlizeInspired  %}
+        {% for collection in product.collections %}
+            {% if collection.handle == handlizeInspired %}
+                {% assign inspired = collection %}
+            {% endif %}
+        {% endfor %}
+
+        {{ inspired.description | strip_html  }}
+    </div>
+    {% for collection in product_collection %}
+        {% if collection.title == inspired-by %}
+            {% if collection.image != blank %}
+                <div class="inner-uimage desktop-3 empty:tw-hidden tw-w-1/3 ">
+                    <img class="lifestyle__img lazyloaded" src="{{ collection.image | img_url: 'Grande'}}"/>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>

@@ -1,0 +1,434 @@
+
+{% assign bg_image = section.settings.background_image | default: false %}
+{% assign address = section.settings.map_address | default: false %}
+{% assign api_key = section.settings.api_key | default: false %}
+
+{% capture state %}
+  {% if api_key and address %}
+    display-map
+  {% elsif bg_image %}
+    display-bg-image
+  {% else %}
+    onboarding
+  {% endif %}
+{% endcapture %}
+
+{% assign state = state | strip %}
+
+<section id="MapSection--{{ section.id }}"
+  class="map-section map-section--{{ state }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="map"
+  data-aos="{{ settings.scroll_animation }}">
+
+  <script data-map-config type="application/json">
+    {
+      "api_key": {{ api_key | json }},
+      "address": {{ address | json }},
+      "zoom": 12,
+      "styles": [
+         {
+            "featureType":"water",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color": "#e9e9e9"
+               },
+               {
+                  "lightness":17
+               }
+            ]
+         },
+         {
+            "featureType":"landscape",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#f5f5f5"
+               },
+               {
+                  "lightness":20
+               }
+            ]
+         },
+         {
+            "featureType":"road.highway",
+            "elementType":"geometry.fill",
+            "stylers":[
+               {
+                  "color":"#ffffff"
+               },
+               {
+                  "lightness":17
+               }
+            ]
+         },
+         {
+            "featureType":"road.highway",
+            "elementType":"geometry.stroke",
+            "stylers":[
+               {
+                  "color":"#ffffff"
+               },
+               {
+                  "lightness":29
+               },
+               {
+                  "weight":0.2
+               }
+            ]
+         },
+         {
+            "featureType":"road.arterial",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#ffffff"
+               },
+               {
+                  "lightness":18
+               }
+            ]
+         },
+         {
+            "featureType":"road.local",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#ffffff"
+               },
+               {
+                  "lightness":16
+               }
+            ]
+         },
+         {
+            "featureType":"poi",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#f5f5f5"
+               },
+               {
+                  "lightness":21
+               }
+            ]
+         },
+         {
+            "featureType":"poi.park",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#dedede"
+               },
+               {
+                  "lightness":21
+               }
+            ]
+         },
+         {
+            "elementType":"labels.text.stroke",
+            "stylers":[
+               {
+                  "visibility":"on"
+               },
+               {
+                  "color":"#ffffff"
+               },
+               {
+                  "lightness":16
+               }
+            ]
+         },
+         {
+            "elementType":"labels.text.fill",
+            "stylers":[
+               {
+                  "saturation":36
+               },
+               {
+                  "color":"#333333"
+               },
+               {
+                  "lightness":40
+               }
+            ]
+         },
+         {
+            "elementType":"labels.icon",
+            "stylers":[
+               {
+                  "visibility":"off"
+               }
+            ]
+         },
+         {
+            "featureType":"transit",
+            "elementType":"geometry",
+            "stylers":[
+               {
+                  "color":"#f2f2f2"
+               },
+               {
+                  "lightness":19
+               }
+            ]
+         },
+         {
+            "featureType":"administrative",
+            "elementType":"geometry.fill",
+            "stylers":[
+               {
+                  "color":"#fefefe"
+               },
+               {
+                  "lightness":20
+               }
+            ]
+         },
+         {
+            "featureType":"administrative",
+            "elementType":"geometry.stroke",
+            "stylers":[
+               {
+                  "color":"#fefefe"
+               },
+               {
+                  "lightness":17
+               },
+               {
+                  "weight":1.2
+               }
+            ]
+         }
+      ]
+    }
+  </script>
+
+  {% if section.settings.heading != blank %}
+    <div class="map-section-title">
+      <div class="section-title row">
+        <h2>{{ section.settings.heading | escape }}</h2>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="map-section-wrapper gridlock-fluid">
+    <div class="row">
+      <div class="row {{ section.settings.text_position }}">
+        <div class="map-section-content-wrapper desktop-3 tablet-2 mobile-3">
+          <div class="map-section-content">
+            {% if section.settings.hours_heading != blank %}
+              <h2>{{ section.settings.hours_heading }}</h2>
+            {% endif %}
+
+            {% if section.settings.hours != blank %}
+              <p>{{ section.settings.hours }}</p>
+            {% endif %}
+
+            {% if section.settings.address_heading != blank %}
+              <h2>{{ section.settings.address_heading }}</h2>
+            {% endif %}
+
+            {% if section.settings.map_address != blank %}
+              <p>{{ section.settings.map_address }}</p>
+
+              {% if section.settings.button_text != blank %}
+                <div class="cta">
+                  <a href="https://maps.google.com?daddr={{ section.settings.map_address | escape }}"
+                     class="button"
+                     target="_blank">
+                    <span>{{ section.settings.button_text | escape }}</span>
+                  </a>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="map-section-background-wrapper contained desktop-9 tablet-4 mobile-3">
+          {%- if bg_image -%}
+            <div class="map-section-image lazyload lazyload-fade"
+              data-bgset="{% render 'bgset', image: bg_image %}"
+              data-sizes="auto"
+              data-parent-fit="cover"
+              data-bg-image
+              style="background-image: url('{{ bg_image | img_url: '300x300' }});">
+            </div>
+            <noscript>
+              <div class="map-section-image" style="background-image: url({{ bg_image | img_url: 'x800', crop: 'top' }});"></div>
+            </noscript>
+          {%- endif -%}
+
+          <div class="placeholder-background">
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+
+          <div class="map-section-container" data-map></div>
+
+          <div class="map-section-overlay" data-map-overlay></div>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+#MapSection--{{ section.id }} .map-section-wrapper {
+  background-color: {{ section.settings.background_color }} !important;
+}
+#MapSection--{{ section.id }} h2.section-title {
+  color: {{ section.settings.heading_color }} !important;
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Map",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text"
+      },
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Visit Us"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color",
+        "default": "#000"
+      },
+      {
+        "id": "hours_heading",
+        "type": "text",
+        "label": "Hours Heading",
+        "default": "Our Hours"
+      },
+      {
+        "id": "hours",
+        "type": "richtext",
+        "label": "Hours",
+        "default": "<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>"
+      },
+      {
+        "id": "address_heading",
+        "type": "text",
+        "label": "Address Heading",
+        "default": "Our Location"
+      },
+      {
+        "id": "map_address",
+        "type": "text",
+        "label": "Map address",
+        "info": "Google Maps will find the exact location"
+      },
+      {
+        "id": "button_text",
+        "type": "text",
+        "label": "Map link label",
+        "default": "Get directions"
+      },
+      {
+        "type": "header",
+        "content": "Text Position"
+      },
+      {
+         "type": "select",
+         "id": "text_position",
+         "label": "Choose Text Position",
+         "options": [
+           {
+             "value": "text_left",
+             "label": "Left"
+           },
+           {
+             "value": "text_right",
+             "label": "Right"
+           }
+         ],
+         "default": "text_right"
+      },
+      {
+        "type": "header",
+        "content": "Text Background"
+      },
+      {
+        "id": "background_color",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "header",
+        "content": "Map or Image Background"
+      },
+      {
+        "id": "api_key",
+        "type": "text",
+        "label": "Google Maps API Key",
+        "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) and paste it here to display the map in the background"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image",
+        "info": "Displayed as a fallback if the map isn’t loaded"
+      },
+      {
+        "type": "select",
+        "id": "background_image_position",
+        "label": "Image position",
+        "default": "center center",
+        "options": [
+          {
+            "label": "Top left",
+            "value": "top left"
+          },
+          {
+            "label": "Top center",
+            "value": "top center"
+          },
+          {
+            "label": "Top right",
+            "value": "top right"
+          },
+          {
+            "label": "Middle left",
+            "value": "center left"
+          },
+          {
+            "label": "Middle center",
+            "value": "center center"
+          },
+          {
+            "label": "Middle right",
+            "value": "center right"
+          },
+          {
+            "label": "Bottom left",
+            "value": "bottom left"
+          },
+          {
+            "label": "Bottom center",
+            "value": "bottom center"
+          },
+          {
+            "label": "Bottom right",
+            "value": "bottom right"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Map",
+        "category": "Store information"
+      }
+    ]
+  }
+{% endschema %}

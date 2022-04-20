@@ -1,0 +1,29 @@
+<div class="back-in-stock-snippet" style="display: none">
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+    <style>
+    .back-in-stock-snippet { display: block! important; }
+    </style>
+      <p class="back_in_stock_success">{{ products.product.back_in_stock_confirm | t }}</p>
+    {% elsif form.errors %}
+    <style>
+    .back-in-stock-snippet { display: block! important; }
+    </style>
+      <p class="back_in_stock_error">{{ general.forms.post_error | t }}</p>
+    {% else %}
+        <label for="contact[email]">{{ products.product.back_in_stock | t }}</label>
+        {% if customer %}
+          <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+        {% else %}
+          <input required type="email" name="contact[email]" id="contact[email]" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"/>
+        {% endif %}
+        <input type="hidden" name="contact[product]" value="{{product.title}}">
+        {% if product.variants.size > 1 %}
+        <input type="hidden" id="hidden_variant" name="contact[variant sku]" value="">
+        <input type="hidden" id="hidden_title" name="contact[variant title]" value="">
+        {% endif %}
+        <input type="hidden" id="message_body" name="contact[body]" value="Please let me know when {{ product.title | remove: '"' }} is available for purchase." />
+        <input class="submit" type="submit" value="{{ 'contact.form.send' | t }}" />
+    {% endif %}
+  {% endform %}
+</div>

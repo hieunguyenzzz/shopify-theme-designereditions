@@ -1,0 +1,196 @@
+<div id="newsletter" >
+  <section id="newsletters" class="homepage-newsletter gridlock" >
+    <div class="{% render '[class]-container'  class: '' %} tw-flex tw-flex-col tw-items-center lg:tw-flex-row tw-gap-6 tw-justify-between">
+      <div class="section-header tw-max-w-sm">
+        {% if section.settings.heading != blank %}
+          <div class="section-title">
+            <h2>{{ section.settings.heading | escape }}</h2>
+          </div>
+        {% endif %}
+        {%- if section.settings.newsletter_subheading != blank -%}
+          {{ section.settings.newsletter_subheading }}
+        {%- endif -%}
+      </div>
+      <div class="klaviyo_wrap">
+      {%comment%}
+      <div class="section-newsletter tw-flex-1 tw-max-w-sm tw-w-full">
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
+            <div class="input-group password__input-group tw-w-full">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email"
+                name="contact[email]"
+                id="Email"
+                class="input-group__field newsletter__input tw-w-full" 
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                autocorrect="off"
+                autocapitalize="off"
+                >
+                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                </button>
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+      {% endcomment%}
+        
+        <!-- NL -->
+      	<div class="klaviyo-form-TEjnHc"></div>
+         
+	  <!--  Swiss -->
+      	<div class="klaviyo-form-V8tuRy"></div>
+      
+      <!-- Germany  -->
+		<div class="klaviyo-form-UYCujs"></div>
+      
+      <!-- Spain  -->
+		<div class="klaviyo-form-VD536K"></div>
+            
+	  <!-- Belgium  -->
+		<div class="klaviyo-form-SbFwJx"></div>
+      
+      <!-- Norway -->
+      	<div class="klaviyo-form-TFHD6t"></div>
+      
+	  <!-- Sweden -->
+      	<div class="klaviyo-form-UiKbC4"></div>
+        
+      <!-- France -->
+		<div class="klaviyo-form-TmyRFh"></div>
+
+      <!-- UK -->
+      	<div class="klaviyo-form-V4LKUr"></div>
+      
+	<!--       Denmark -->
+      <div class="klaviyo-form-Y3qLwb"></div>
+      
+      <!-- EU Other countries  -->
+      	<div class="klaviyo-form-VuuFVC"></div>
+        
+		<!--         Other Countries  -->
+        <div class="klaviyo-form-WhZH8W"></div>
+        
+      </div>
+    </div>
+  </section>
+</div>
+<style>section.homepage-newsletter .section-title {
+    padding-bottom: 5px !important;
+   
+}
+ div#shopify-section-newsletter {
+    background: #eef5f1;
+}
+#newsletters {
+    width: 1600px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+  #shopify-section-{{ section.id }} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  section.homepage-newsletter h2 {
+    color: {{ section.settings.text_color }} !important;
+    {% if settings.section_titles != 'text_only' %}
+    border-color: {{ section.settings.text_color }} !important;
+    {% endif %}
+  }
+
+  section.homepage-newsletter p {
+    color: {{ section.settings.text_color }} !important;
+    margin: 0 auto !important;
+    line-height: 30px;
+    padding-bottom: 20px !important;
+  }
+  @media screen and (max-width: 500px) {
+    section.homepage-newsletter p {
+      max-width: 100%;
+    }
+  }
+  section.homepage-newsletter ul#social-icons li a:hover {
+    opacity: 0.8;
+  }
+  section.homepage-newsletter .newsletter__input#Email {
+  color: {{ section.settings.text_color }};
+  }
+
+  section.homepage-newsletter .newsletter__input#Email::-webkit-input-placeholder { /* WebKit browsers */
+  color: {{ section.settings.text_color }};
+  }
+
+  section.homepage-newsletter .newsletter__input#Email:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: {{ section.settings.text_color }};
+  }
+
+  section.homepage-newsletter .newsletter__input#Email::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: {{ section.settings.text_color }};
+  }
+
+  section.homepage-newsletter .newsletter__input#Email:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: {{ section.settings.text_color }};
+  }
+  section.homepage-newsletter ul#social-icons li a,
+  section.homepage-newsletter ul#social-icons li a:visited {
+    color: {{ section.settings.text_color }};
+  }
+  
+  
+  @media screen and (min-width: 700px) {
+  
+  section.homepage-newsletter .section-title {
+    margin-bottom: 0;
+    text-align: left;
+}section.homepage-newsletter .section-header p {
+    margin: 0 !important;
+    padding: 0;
+    text-align: left;
+}
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Subscribe to our newsletter"
+      },
+      {
+        "type": "richtext",
+        "id": "newsletter_subheading",
+        "label": "Subheading",
+        "default": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      }
+    ],
+    "presets": [{
+      "name": "Newsletter",
+      "category": "Promotional"
+    }]
+  }
+{% endschema %}

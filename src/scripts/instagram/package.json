@@ -1,0 +1,22 @@
+{
+  "name": "instagram",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "keywords": [
+    "instagram"
+  ],
+  "author": "meraki",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "instagram-web-api": "^2.2.2",
+    "lodash.get": "^4.4.2",
+    "node-fetch": "^3.1.0"
+  }
+}

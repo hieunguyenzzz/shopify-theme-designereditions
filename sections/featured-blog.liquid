@@ -1,0 +1,157 @@
+<section class="homepage-blog-{{ section.id }} blog-template"
+data-aos="{{ settings.scroll_animation }}"
+ data-section-id="{{ section.id }}">
+
+
+  {%- assign blog = blogs[section.settings.blog] -%}
+  {% if section.settings.heading != blank %}
+    <div class="section-title row">
+      <h2><a href="{{ blog.url }}">{{ section.settings.heading | escape }}</a></h2>
+    </div>
+  {% endif %}
+
+  {%- assign post_limit = section.settings.post_limit -%}
+  <div class="row articles">
+    {% if blog == blank %}
+      {% render 'onboard-blog' %}
+    {% else %}
+      {% for article in blog.articles limit: post_limit %}
+      {% capture articleCycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+        {% render 'article-loop', article: article, blog: blog, forloop: forloop, articleCycle: articleCycle %}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+
+</section>
+<div class="clear"></div>
+
+<style>
+  section.homepage-blog-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    padding-bottom: 0;
+  }
+  section.homepage-blog-{{ section.id }} h2, section.homepage-blog-{{ section.id }} h2 a {
+    color: {{ section.settings.heading_color }} !important;
+    {% if settings.section_titles != 'text_only' %}
+    border-color: {{ section.settings.heading_color }} !important;
+    {% endif %}
+  }
+  {% if section.settings.blog_layout_grid %}
+  .articles {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 25px;
+      row-gap: 30px;
+  }
+  .articles .single-article {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .articles .article-image {
+      width: 100%;
+      margin: 0 0 20px 0;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      display: block !important;
+  }
+  .articles .single-article.even .article-image {
+      margin-left: 0 !important;
+  }
+  .article-image img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
+  .articles .article-body {
+      padding: 0 !important;
+      text-align: center;
+      position: unset !important;
+      width: 100%;
+      margin: 0 !important;
+  }
+  .articles .single-article .posted {
+      text-align: center !important;
+      float: none !important;
+  }
+  @media screen and (max-width: 740px) {
+    .articles {
+      grid-template-columns: 1fr;
+    }
+    .articles .article-image {
+      height: 250px;
+    }
+  }
+  {% endif %}
+</style>
+
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "index-section",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Posts shown",
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_layout_grid",
+      "label": "Layout as a grid",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "post_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show post author",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": 2
+      }
+    }
+  ]
+}
+{% endschema %}

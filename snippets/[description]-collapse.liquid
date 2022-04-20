@@ -1,0 +1,45 @@
+{% assign maxwords = maxwords | default:30 %}
+{% assign id = id | default:'tw-collapse' %}
+{% if description.size > maxwords %}
+                                    <div class="rte">
+                                        <style>
+                                            #{{id}}>*{
+                                                padding: 0;
+                                               
+                                            }
+                                            #{{id}}:checked+*{
+                                                display: none;
+                                            }
+                                            #{{id}}:not(
+                                                :checked
+                                            ) ~ .tw-collapse-content {
+                                                padding-top: 0;
+                                                padding-bottom: 0;
+                                            }
+                                            #{{id}}:checked ~ .tw-collapse-content {
+                                                background-color: #f9f9f9;
+                                            }
+                                            #{{id}}:checked ~ .tw-collapse-content .tw-collapse-toggle-icon{
+                                                transform:  rotate(180deg);
+                                            }
+                                            
+                                        </style>
+                                        <div style=" --bc: 0 0% 100%;" class="tw-collapse tw-relative tw-rounded-lg lg:tw-collapse-open tw-group">
+                                            <input class="!tw-hidden" id="{{id}}" type="checkbox"> 
+                                            <label for="{{id}}" class="lg:tw-hidden group-open:tw-hidden tw-p-0 tw-pb-3">
+                                                {{ description | remove: "[banner]" | strip_html |  truncatewords: 30, '...' }}
+                                            </label> 
+                                            <div class="tw-collapse-content tw-bg-base-100  tw-py-3 lg:!tw-bg-transparent tw-overflow-hidden"> 
+                                              <p>{{ description | remove: "[banner]"  | strip_html }}
+                                                <label for="{{id}}" class="tw-p-3 tw-rounded-tl-[20px] tw-text-3xl tw-shadow-white tw-bg-transparent tw-bg-gradient-to-br tw-from-transparent tw-via-white tw-to-white tw-text-black tw-shadow-2xl tw-border-none tw-absolute tw-bottom-0 tw-right-0 lg:tw-hidden !tw-m-0 ">
+                                                    <svg class="tw-collapse-toggle-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
+                                                </label>
+                                              </p>
+                                            </div>
+                                          </div> 
+                                    </div>
+                                    {% else %}
+                                    <div class="rte">
+                                        {{ description | remove: "[banner]"  | strip_html }}
+                                    </div>
+                                {% endif %}

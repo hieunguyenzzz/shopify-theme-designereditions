@@ -1,0 +1,73 @@
+<div class="newsletter__popup-overlay"></div>
+<div class="newsletter__popup-container " style="display:none">
+    <a class="newsletter__popup-container-close" href=""></a>
+    <div id="newsletter__popup-content">
+        {% if settings.email_image != blank and settings.popup_image == 'content' %}
+            <div class="newsletter__popup-image"></div>
+        {% endif %}
+        <div class="newsletter__popup-contentWrapper">
+            <div class="newsletter__popup-text">
+                {% if settings.mail_popup_title %}
+                    <h3>{{ settings.mail_popup_title }}</h3>
+                {% endif %}
+                {% if settings.mail_popup_text %}
+                    <p>{{ settings.mail_popup_text }}</p>
+                {% endif %}
+            </div>
+            <div class="newsletter__popup-form">
+                {% form 'customer' %}
+                    <input name="contact[tags]" type="hidden" value="prospect, newsletter">
+                    <input type="email" name="contact[email]" id="mce-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                    <input type="submit" id="mc-embedded-subscribe" value="{{ settings.mail_button_text }}">
+                    {% if settings.mail_gdpr_text %}
+                        <p class="gdpr-text before-signup">
+                            <em>{{ settings.mail_gdpr_text }}</em>
+                        </p>
+                    {% endif %}
+                {% endform %}
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    if (viewportWidth > 740) {
+        var lastFocus;
+        function onPopupOpen() {}
+        function onPopupClose() {
+            lastFocus.focus();
+        }
+        function displayPopup() {
+            document
+                .querySelector(".newsletter__popup-overlay")
+                .classList
+                .add("is-visible");
+            document
+                .querySelector(".newsletter__popup-container")
+                .style
+                .display = "block";
+            Cookies.set("popupShown", "yes", {expires: 5});
+            document.querySelector(".newsletter__popup-container-close").addEventListener("click", (e) => {
+                document
+                    .querySelector(".newsletter__popup-container")
+                    .style
+                    .display = "none";
+                document
+                    .querySelector(".newsletter__popup-overlay")
+                    .classList
+                    .remove("is-visible");
+                event.preventDefault();
+            });
+        }
+        setTimeout(function () {
+            {% if settings.test_mode == false %}
+                var popupShown = Cookies.get("popupShown");
+                if (popupShown) {} else {
+                {% endif %}lastFocus = document.activeElement;
+                displayPopup();{% if settings.test_mode == false %}
+                }
+            {% endif %}
+        }, 5000);
+    };
+</script>

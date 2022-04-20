@@ -1,0 +1,693 @@
+{
+  "strings": {
+    "general": {
+      "show_express_delivery_options": "Show Express Delivery Options",
+      "learn_more": "Learn More",
+      "verified_reviews": "VERIFIED REVIEWS",
+      "privacy_policy": "Privacy Policy",
+      "terms_conditions": "Terms & Conditions",
+      "view_all": "VIEW ALL",
+      "all_reviews": "All Reviews",
+      "shop_instagram": "Shop Instagram",
+      "see_all": "SEE ALL",
+      "best_seller": "BEST SELLER",
+      "new_product": "NEW PRODUCT",
+      "inspired_by": "Inspired By",
+      "more-filters": "More filers",
+      "filter-products": "Filter products",
+      "clear-all": "Clear all",
+      "percentage_off": "{{number}} OFF",
+      "verified-reviews": "VERIFIED REVIEWS",
+      "from": "From",
+      "to": "To",
+      "max": "Max",
+      "apply": "Apply",
+      "the-finer-details": "THE FINER DETAILS",
+      "contemporary-inspiration": "CONTEMPORARY INSPIRATION",
+      "language_label": "Language",
+      "change-shipping-country-and-language": "Change shipping country and language",
+      "designers": "Designers",
+      "availabilityfilter": "Express Delivery",
+      "sale_ends_in": "SALE ENDS IN",
+      "days": "Days",
+      "day": "Day",
+      "delivery-label-image": "Free-Delivery-Product-Page-en.png"
+    },
+    "product_options": {
+      "choose-colours": "Choose Colours:",
+      "choose-colour": "Choose Colour",
+      "choose-finish": "Choose. Finish",
+      "color": "Color",
+      "choose-material": "Choose. Material",
+      "upholstery": "Upholstery",
+      "finish": "Finish",
+      "choose-materials": "Choose. Materials",
+      "woods-finishes": "Woods \/ Finishes",
+      "material-size": "Material \/ Size",
+      "material": "Material",
+      "fabric": "Fabric",
+      "wood-options": "Wood Options",
+      "fabric-choice": "Fabric Choice :",
+      "diameter": "Diameter",
+      "piping-option": "Piping Option",
+      "fibreglass": "Fibreglass:",
+      "size": "Size",
+      "position-of-chaise": "Position Of Chaise",
+      "chrome": "Chrome",
+      "amber": "Amber",
+      "dark-blue": "Dark Blue",
+      "violet": "Violet",
+      "yellow": "Yellow",
+      "turquoise": "Turquoise",
+      "bell-gray-gray": "Bell GrayGray",
+      "charcoal-grey-alcantara": "Charcoal Grey Alcantara",
+      "creamy-alcantara": "Creamy Alcantara",
+      "light-grey-alcantara": "Light Grey Alcantara",
+      "bottle-green-velvet": "Bottle Green Velvet",
+      "dark-grey-velvet": "Dark Grey Velvet",
+      "dark-red-velvet": "Dark Red Velvet",
+      "creamy-boucle": "Creamy Boucle",
+      "velvet": "Velvet",
+      "alcantara": "Alcantara",
+      "boucle": "Boucle",
+      "deep-red": "Deep Red",
+      "bottle-green": "Bottle Green",
+      "dark-aqua-velvet": "Dark Aqua Velvet",
+      "pink-velvet": "Pink Velvet",
+      "charcoal-grey-velvet": "Charcoal Grey Velvet",
+      "bright-grey-velvet": "Bright Grey Velvet",
+      "pebble-green-velvet": "Pebble Green Velvet",
+      "antique-brown": "Antique Brown",
+      "black": "Black",
+      "gold": "Gold",
+      "dark-grey": "Dark Grey",
+      "light-grey": "Light Grey",
+      "burgundy": "Burgundy",
+      "coronation": "Coronation",
+      "dusty-pink": "Dusty Pink",
+      "mocha": "Mocha",
+      "petrol-blue": "Petrol Blue",
+      "white": "White",
+      "red": "Red",
+      "wihte": "Wihte",
+      "dark-tan": "Dark Tan",
+      "light-pebble-grey": "Light Pebble Grey",
+      "charcoal-grey": "Charcoal Grey",
+      "morocan-blue": "Morocan Blue",
+      "orange": "Orange",
+      "purple": "Purple",
+      "light-green": "Light Green",
+      "grey": "Grey",
+      "cognac": "Cognac",
+      "moroccan-blue": "Moroccan Blue",
+      "blue": "Blue",
+      "green": "Green",
+      "deep-purple": "Deep Purple",
+      "plywood": "Plywood",
+      "walnut": "Walnut",
+      "light-blue": "Light Blue",
+      "walnut-veneer": "Walnut Veneer",
+      "pink": "Pink",
+      "brown-velvet": "Brown Velvet",
+      "blue-velvet": "Blue Velvet",
+      "grey-velvet": "Grey Velvet",
+      "solid-ash": "Solid Ash",
+      "sheepskin": "Sheepskin",
+      "marble": "Marble",
+      "white-marble": "White Marble",
+      "white-quartz-120": "White Quartz 120",
+      "white-quartz-160": "White Quartz 160",
+      "black-nero-marquina-marble": "Black Nero Marquina Marble",
+      "90-cm": "90 CM",
+      "120-cm": "120 CM",
+      "aqua-blue": "Aqua Blue",
+      "beige": "Beige",
+      "tan": "Tan",
+      "red-leather": "Red Leather",
+      "ash": "Ash",
+      "natural": "Natural",
+      "solid-oak": "Solid Oak",
+      "wool": "Wool",
+      "premium-leather": "Premium Leather",
+      "oak": "Oak",
+      "beech": "Beech",
+      "cream": "Cream",
+      "italian-leather": "Italian Leather",
+      "rosewood": "Rosewood",
+      "dusty-rose": "Dusty Rose",
+      "mustard": "Mustard",
+      "solid-american-ashwood": "Solid American Ashwood",
+      "nord-dark-pebble": "Nord Dark Pebble",
+      "nord-red": "Nord Red",
+      "nord-grey": "Nord Grey",
+      "nord-dark-aqua": "Nord Dark Aqua",
+      "nord-light-sage": "Nord Light Sage",
+      "camel": "Camel",
+      "smoked-transparent": "Smoked Transparent",
+      "clear": "Clear",
+      "patchwork": "Patchwork",
+      "brushed-brass": "Brushed Brass",
+      "medium": "Medium",
+      "large": "Large",
+      "black-cowhide": "Black Cowhide",
+      "brown-cowhide": "Brown Cowhide",
+      "black-laquered": "Black Laquered",
+      "black-gold": "Black \/ Gold",
+      "white-gold": "White \/ Gold",
+      "gold-gold": "Gold \/ Gold",
+      "rattan": "Rattan",
+      "maple": "Maple",
+      "brass": "Brass",
+      "without-throw": "Without throw",
+      "with-throw": "With throw",
+      "small": "Small",
+      "ash-wood": "Ash Wood",
+      "silver": "Silver",
+      "olive": "Olive",
+      "multi-color": "Multi Color",
+      "dark-wood": "Dark Wood",
+      "light-wood": "Light Wood",
+      "soaped-oak": "Soaped - Oak",
+      "black-lacquered": "Black Lacquered",
+      "black-painted-ash": "Black Painted Ash",
+      "walnut-oak": "Walnut \/ Oak",
+      "smoke-gray": "Smoke Gray",
+      "coffee": "Coffee",
+      "transparent": "Transparent",
+      "30-cm": "30 CM",
+      "rose-gold": "Rose Gold",
+      "pearl-black": "Pearl Black",
+      "45-cm": "45 CM",
+      "60-cm": "60 CM",
+      "80-cm": "80 CM",
+      "melt-red-copper": "Melt Red Copper",
+      "melt-chrome": "Melt Chrome",
+      "melt-gold": "Melt Gold",
+      "bliss-coffee": "Bliss Coffee",
+      "matt-black": "Matt Black",
+      "matt-gray": "Matt Gray",
+      "matt-coffee": "Matt Coffee",
+      "multicolor": "Multicolor",
+      "antique-blue": "Antique Blue",
+      "dark-brown": "Dark Brown",
+      "x-large": "X Large",
+      "basalt": "Basalt",
+      "mauve": "Mauve",
+      "moss-grey": "Moss Grey",
+      "teal": "Teal",
+      "grey-transparent": "Grey Transparent",
+      "105-cm": "105 CM",
+      "multitone": "Multitone",
+      "black-maple": "Black \/ Maple",
+      "blue-multitone": "Blue Multitone",
+      "green-multitone": "Green Multitone",
+      "red-multitone": "Red  Multitone",
+      "polished-ss": "Polished SS",
+      "bordeaux": "Bordeaux",
+      "citrus": "Citrus",
+      "dark-green": "Dark Green",
+      "lacquered": "Lacquered",
+      "false": "false",
+      "terracota": "Terracota",
+      "brown-white-black": "Brown + White + Black",
+      "black-white": "Black + White",
+      "oak-veneer": "Oak Veneer",
+      "caramel-aniline": "Caramel Aniline",
+      "32-cm": "32 CM",
+      "without-piping": "Without piping",
+      "with-piping": "With piping",
+      "aluminium": "Aluminium",
+      "lime": "Lime",
+      "oak-soap-finish": "Oak Soap Finish",
+      "walnut-stain": "Walnut Stain",
+      "special-edition": "Special Edition",
+      "oak-oiled": "Oak - Oiled",
+      "petrol-green": "Petrol Green",
+      "red-berry": "Red Berry",
+      "steel-blue": "Steel Blue",
+      "old-pink": "Old Pink",
+      "dark-pebble-grey": "Dark Pebble Grey",
+      "ph-yellow": "PH Yellow",
+      "ph-red": "PH Red",
+      "ph-white": "PH White",
+      "ph-green": "PH Green",
+      "bliss-black-gray": "Bliss Black Gray",
+      "bliss-black-green": "Bliss Black Green",
+      "bliss-brass-gray": "Bliss Brass Gray",
+      "bliss-brass-green": "Bliss Brass Green",
+      "bliss-copper-gray": "Bliss Copper Gray",
+      "bliss-gray-green": "Bliss Gray Green",
+      "copper": "Copper",
+      "48-cm": "48 CM",
+      "72-cm": "72 CM",
+      "84-cm": "84 CM",
+      "white-glass-opaque": "White Glass - Opaque",
+      "white-n-brass": "White N Brass",
+      "shades-of-blue": "Shades Of Blue",
+      "shades-of-red": "Shades Of Red",
+      "shades-of-grey": "Shades of Grey",
+      "shades-of-green": "Shades Of Green",
+      "shades-of-white": "Shades Of White",
+      "13-cm": "13 CM",
+      "23-cm": "23 CM",
+      "31-cm": "31 CM",
+      "47-cm": "47 CM",
+      "copper-bronze": "Copper Bronze",
+      "left-chaise": "LEFT CHAISE",
+      "right-chaise": "RIGHT CHAISE",
+      "buck-brown": "Buck Brown",
+      "dark-burgundy-waxy": "Dark Burgundy Waxy",
+      "american-walnut": "American Walnut",
+      "96-cm": "96 CM",
+      "102-cm": "102 CM",
+      "yellow-lacquered": "Yellow Lacquered",
+      "black-marble": "Black Marble"
+    }
+  },
+  "password": {
+    "general": {
+      "thanks": "Thank you for joining our list",
+      "enter_store": "Login with Password:",
+      "password": "Password",
+      "enter": "Enter",
+      "email_address": "Email Address",
+      "submit": "Submit",
+      "powered": "This Store will be powered by"
+    }
+  },
+  "general": {
+    "404": {
+      "title": "Oops - We couldn't find that one",
+      "subtext": "This page does not exist. Try searching for what you would like to find:"
+    },
+    "pagination": {
+      "showing_items": "Showing items",
+      "of": "of"
+    },
+    "forms": {
+      "post_error": "Sorry, looks like something went wrong. Please correct the following and submit again:"
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "newsletter_form": {
+      "newsletter_email": "Join our mailing list",
+      "thanks": "Thank you for joining",
+      "popup_thanks": "Thank you for joining, here is your coupon code:",
+      "email_placeholder": "Email address",
+      "confirmation": "Thanks for joining!",
+      "submit": "Join"
+    },
+    "search": {
+      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
+      "results_for_html": "Your search for \"{{ terms }}\" revealed the following:",
+      "title": "Search",
+      "placeholder": "Search",
+      "submit": "Search"
+    },
+    "currency": {
+      "dropdown_label": "Currency"
+    },
+    "language": {
+      "dropdown_label": "Language"
+    },
+    "accessibility": {
+      "unit_price_separator": "per"
+    }
+  },
+  "blogs": {
+    "article": {
+      "posted_on_date_html": "Posted on <time datetime=\"{{ date }}\">{{ date }}<\/time>",
+      "tags": "Tags",
+      "tagged": "Tagged",
+      "comments": "Comments",
+      "read_more": "Read More"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "moderated": "All blog comments are checked prior to publishing",
+      "post": "Post comment",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "sidebar": {
+      "social_title": "Connect with us",
+      "twitter_title": "On Twitter",
+      "facebook_title": "Like us on Facebook",
+      "recent_posts": "Recent Posts",
+      "tags": "Filter Article Tags"
+    }
+  },
+  "store_availability": {
+    "general": {
+      "view_store_info": "View store information",
+      "check_other_stores": "Check availability at other stores",
+      "pick_up_available": "Pickup available",
+      "pick_up_currently_unavailable": "Pickup currently unavailable",
+      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}<\/strong>",
+      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}<\/strong>"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "My Cart",
+      "summary": "Cart Summary",
+      "close_cart": "Close",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "at_checkout": "Calculated at checkout",
+      "empty": "Your cart is currently empty.",
+      "product": "Product",
+      "price": "Price",
+      "qty": "Qty",
+      "remove": "Remove",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "continue": "Continue Shopping",
+      "update": "Update Cart",
+      "checkout": "Check Out",
+      "note": "Order Special Instructions",
+      "recently_viewed": "You also Viewed",
+      "cart_discount": "Discount Code (Applied at Checkout)",
+      "free_shipping_before": "You are only",
+      "free_shipping_after": "away from Free Domestic Shipping!",
+      "free_shipping_qualified": "Your order qualifies for Free Domestic Shipping!",
+      "free_shipping_exclusions": "(Excludes International)",
+      "discounts": "Discounts",
+      "savings": "Total Savings",
+      "discount_applied": "Discount Applied!",
+      "items": "Item(s)"
+    }
+  },
+  "collections": {
+    "general": {
+      "all_collections": "Collections",
+      "all_products": "All Products",
+      "no_matches": "There are no items in this collection",
+      "shop_by_designer": "Shop by Designer"
+    },
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    },
+    "filter": {
+      "filtering_by": "Filtering By:",
+      "refine": "Refine"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "subject": "Subject",
+      "companyname": "Company",
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "websiteurl": "Website URL",
+      "acceptsmarketing": "Subscribe to stay updated with new products and offers!",
+      "send": "Send",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Account",
+      "logout": "Logout",
+      "link": "Back to Account",
+      "signup": "Login or create an account",
+      "details": "Account Details",
+      "view_addresses": "View Addresses",
+      "returns_content": "Return\/Exchange",
+      "return": "Return to Account Details"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Your Addresses",
+      "default": "Primary Address",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "cancel": "Return to Store",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "orders": {
+      "title": "Order History",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order",
+      "date": "Placed on",
+      "cancelled": "Order Cancelled on",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "order_details": "Order Details",
+      "details": {
+        "product": "Product",
+        "sku": "SKU",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "fulfilled_at": "Fulfilled {{ date }}",
+        "subtotal": "Subtotal"
+      }
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    }
+  },
+  "layout": {
+    "footer": {
+      "copyright": "Copyright",
+      "theme_title": "by"
+    },
+    "homepage": {
+      "mailing_list_join": "Hello You!",
+      "mailing_list_text": "Join our mailing list",
+      "onboarding": {
+        "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+      }
+    },
+    "mobile_nav": {
+      "account": "Account",
+      "login": "Log In\/Create Account",
+      "logout": "Logout"
+    }
+  },
+  "products": {
+    "general": {
+      "new": "NEW",
+      "sale": "SALE",
+      "sold": "SOLD OUT",
+      "quick_view": "Quick View",
+      "from": "From",
+      "view_full": "View Full Details",
+      "view_all": "View All",
+      "related": "More in this Collection",
+      "sale_price": "Sale",
+      "regular_price": "Regular"
+    },
+    "product": {
+      "designer": "Designer",
+      "sold_out": "Sold Out",
+      "from_lowest_price_html": "{{ lowest_price }}",
+      "unavailable": "Unavailable",
+      "compare_at": "Compare at",
+      "add_to_cart": "Add to Cart",
+      "quantity": "Quantity",
+      "select_options": "View options",
+      "details": "Details",
+      "sizing": "Sizing",
+      "video": "Video",
+      "model": "Product Care",
+      "back_to": "Back To",
+      "adding": "Adding...",
+      "thank_you": "Thank You!",
+      "added": "Added to Cart",
+      "view_cart": "View Cart",
+      "or": "or",
+      "continue": "Continue Shopping",
+      "qty_error_first": "Only",
+      "qty_error_last": "of this item is available",
+      "qty_sold_out": "This item is sold out",
+      "back_in_stock": "Please send me an email when this is available",
+      "back_in_stock_confirm": "Thanks, we will contact you when this is available",
+      "readmore": "Read More",
+      "view_in_space": "View in your space",
+      "view_in_space_label": "View in your space, loads item in augmented reality window",
+      "unit_price_label": "Unit Price"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print",
+      "email": "Email"
+    }
+  },
+  "social": {
+    "icons": {
+      "facebook": "Share on Facebook",
+      "twitter": "Share on Twitter",
+      "pinterest": "Share on Pinterest"
+    },
+    "product_share": {
+      "share": "Share"
+    }
+  },
+  "shopify": {
+    "links": {
+      "powered_by_shopify": " "
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  },
+  "templates": {
+    "search": {
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
+      "page": "Page",
+      "products": "Products",
+      "results_with_count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} result found for “{{ terms }}”",
+        "other": "{{ count }} results found for “{{ terms }}”"
+      },
+      "title": "Search results",
+      "search_for": "Search for “{{ terms }}”",
+      "collections": "Collections",
+      "suggestions": "Suggestions"
+    }
+  },
+  "accessibility": {
+    "vendor": "TODO"
+  }
+}

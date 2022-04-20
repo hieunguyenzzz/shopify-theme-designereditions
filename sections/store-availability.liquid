@@ -1,0 +1,96 @@
+{%- assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+{%- assign pick_up_available = false -%}
+{%- if pick_up_availabilities.size > 0 -%}
+  {%- assign pick_up_available = true -%}
+{%- endif -%}
+<div class="store-availability-container animated fadeIn"
+  data-pick-up-available="{{ pick_up_available }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="store-availability"
+>
+  {%- if pick_up_available -%}
+    <div class="store-availability-information">
+      {%- assign closest_location = pick_up_availabilities.first -%}
+        <div class="store-availability-information-container">
+          {%- if closest_location.available -%}
+            <p class="store-availability-information__title">
+              <i class="la la-check"></i> {{ 'store_availability.general.pick_up_available_at_html' | t: location_name: closest_location.location.name }}
+            </p>
+            <p class="store-availability-information__stock">
+              {{ closest_location.pick_up_time }}
+            </p>
+            <div class="slideout__trigger--open store-availability-information__stores">
+              <button class="slideout__trigger-store-availability js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="store-availability" aria-label="Toggle slideout" tabindex="0" type="button" name="button">
+                {%- if pick_up_availabilities.size == 1 -%}
+                  {{ 'store_availability.general.view_store_info' | t }}
+                {%- else -%}
+                  {{ 'store_availability.general.check_other_stores' | t }}
+                {%- endif -%}
+              </button>
+            </div>
+          {%- else -%}
+            <p class="store-availability-information__title">
+              <i class="la la-times"></i> {{ 'store_availability.general.pick_up_unavailable_at_html' | t: location_name: closest_location.location.name }}
+            </p>
+            <div class="slideout__trigger--open store-availability-information__stores">
+              <button class="slideout__trigger-store-availability js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="store-availability" aria-label="Toggle slideout" tabindex="0" type="button" name="button">
+                {%- if pick_up_availabilities.size == 1 -%}
+                  {{ 'store_availability.general.view_store_info' | t }}
+                {%- else -%}
+                  {{ 'store_availability.general.check_other_stores' | t }}
+                {%- endif -%}
+              </button>
+            </div>
+        {%- endif -%}
+        </div>
+    </div>
+    <div class="store-availabilities-modal modal" id="StoreAvailabilityModal">
+      <div class="slideout__trigger--close">
+        <button class="slideout__trigger-store-availability js-slideout-close" data-slideout-direction="right" aria-label="Close navigation" tabindex="0" type="button" name="button">
+          <div class="icn-close"></div>
+        </button>
+      </div>
+      <div class="store-availabilities-modal__header">
+        <span class="store-availabilities-modal__product-information">
+          <h2 class="store-availabilities-modal__product-title" data-store-availability-modal-product-title>
+          </h2>
+          <p class="store-availabilities-modal__variant-title store-availability-small-text">
+            {{ product_variant.title }}
+          </p>
+        </span>
+      </div>
+      <div class="store-availabilities-list">
+        {%- for availability in pick_up_availabilities -%}
+            <div class="store-availability-list__item">
+              <div class="store-availability-list__location">
+                <strong>
+                  {{availability.location.name}}
+                </strong>
+              </div>
+              <div class="store-availability-list__stock store-availability-small-text">
+                {%- if availability.available -%}
+                  <i class="la la-check"></i> {{ 'store_availability.general.pick_up_available' | t }}, {{ availability.pick_up_time | downcase }}
+                {%- else -%}
+                  <i class="la la-times"></i> {{ 'store_availability.general.pick_up_currently_unavailable' | t }}
+                {%- endif -%}
+              </div>
+              {%- assign address = availability.location.address -%}
+              {{ address | format_address }}
+              {%- if address.phone.size > 0 -%}
+                <p class="store-availability-list__phone">
+                  {{ address.phone }}<br>
+                </p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+      </div>
+  	</div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": {},
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,308 @@
+{%- assign currency_selector = false -%}
+
+{%- if  shop.enabled_currencies.size > 1 -%}
+    {%- assign currency_selector = true -%}
+{%- endif -%}
+{% assign animationcount = 0 %}
+<nav style="--delay-unit:1000ms;--couter-name:animateCount" class="mobile-menu" role="navigation" data-section-id="{{ section.id }}" data-section-type="mobile-navigation">
+  <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms"  class="slideout__trigger--close animation-delay tw-flex tw-justify-between tw-items-center tw-pr-[20px]" >
+    <button  class="slideout__trigger-mobile-menu js-slideout-close !tw-w-auto" data-slideout-direction="right" aria-label="Close navigation" tabindex="0" type="button" name="button" aria-expanded="false">
+      <div class="icn-close"></div>
+    </button>
+    {% render '[location]-opener'  class: '' %}
+  </div>
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'search_box' %}
+        <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="mobile-menu__block mobile-menu__search animation-delay" {{ block.shopify_attributes }}>
+          <form action="/search" method="get">
+            <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
+            {% if settings.search_products %}
+              <input type="hidden" name="type" value="product">
+            {% endif %}
+          </form>
+        </div>
+      {% when 'navigation' %}
+        <ul  class="mobile-menu__block mobile-menu__accordion accordion " id="accordion" {{ block.shopify_attributes }}>
+          {% assign menu = linklists[block.settings.main_nav] %}
+          {% for link in menu.links %}
+            {% if link.links != blank %}
+              <li style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="mobile-menu__item accordion__toggle animation-delay" aria-haspopup="true" aria-expanded="false">
+                <a href="{{ link.url }}">{% if shop.locale == "ia" %}{{ link.title | escape | truncatewords: 10000 }}{% else %}{{ link.title | escape | truncatewords: 6 }}{% endif %}</a>
+              </li>
+              <li style="--delay-animation: {{animationcount | times:75  }}ms" class="accordion__content animation-delay">
+                                {% if link.url contains 'designers' %}
+                                    <ul class="accordion__submenu-1">
+                                        {% render 'designer-listitems'  class: 'mobile-menu__item' %}
+                                    </ul>
+                                {% else %}
+                <ul class="accordion__submenu-1">
+                  {% for sub_link in link.links %}
+                  {% if sub_link.links != blank %}
+                  <li class="accordion__toggle-2" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ sub_link.url }}">{% if shop.locale == "ia" %}{{ sub_link.title | escape | truncatewords: 10000 }}{% else %}{{ sub_link.title | escape | truncatewords: 6 }}{% endif %}</a>
+                  </li>
+                  <li class="accordion__content-2">
+                    <ul class="accordion__submenu-2">
+                      {% for sub_sub_link in sub_link.links %}
+                      <li class="mobile-menu__item"><a href="{{ sub_sub_link.url }}">{% if shop.locale == "ia" %}{{ sub_sub_link.title | truncatewords: 10000 }}{% else %}{{ sub_sub_link.title | truncatewords: 6 }}{% endif %}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li class="mobile-menu__item">
+                    <a href="{{ sub_link.url }}">{% if shop.locale == "ia" %}{{ sub_link.title | escape | truncatewords: 10000 }}{% else %}{{ sub_link.title | escape | truncatewords: 6 }}{% endif %}</a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+            {% else %}
+              <li style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="mobile-menu__item animation-delay"><a href="{{ link.url }}">{% if shop.locale == "ia" %}{{ link.title | escape | truncatewords: 10000 }}{% else %}{{ link.title | escape | truncatewords: 6 }}{% endif %}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if shop.customer_accounts_enabled and block.settings.customer_account_links %}
+            {% if customer  %}
+              <li style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="mobile-menu__item animation-delay">
+                <a href="{{ routes.account_url }}">
+                  <i class="la la-user" aria-hidden="true"></i>&nbsp;&nbsp;{{ 'layout.mobile_nav.account' | t }}
+                </a>&nbsp;&nbsp;<i class="la la-user-times" aria-hidden="true"></i>&nbsp;&nbsp;{{ 'layout.mobile_nav.logout' | t }}
+              </li>
+            {% else %}
+              <li style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="mobile-menu__item animation-delay"><i class="la la-user" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{ routes.account_login_url }}">{{ 'layout.mobile_nav.login' | t }}</a></li>
+            {% endif %}
+          {% endif %}
+        </ul>
+      {% when 'social_icons' %}
+        <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms"  class="text-center mobile-menu__block mobile-menu__social animation-delay" {{ block.shopify_attributes }}>
+          {% render 'social-icons' %}
+          <style>
+            .mobile-menu__social i {
+              color: {{ block.settings.icon_color }};
+            }
+            .mobile-menu__social i:hover {
+              color: {{ block.settings.icon_hover_color }};
+            }
+          </style>
+        </div>
+      {% when 'featured_image' %}
+        <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class=" animation-delay mobile-menu__block mobile-menu__featured-image{% if block.settings.full_featured_image %} mobile-menu__featured-image--full-width{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.featured_image_link %}<a href="{{ block.settings.featured_image_link }}">{% endif %}
+            {% render 'basic-responsive-image' type: block.settings.featured_image %}
+            <noscript>
+              <img src="{{ block.settings.featured_image | img_url: '300x' }}" alt="block.settings.featured_image.alt">
+            </noscript>
+          {% if block.settings.featured_image_link %}</a>{% endif %}
+        </div>
+      {% when 'featured_text' %}
+        <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class="text-center animation-delay mobile-menu__block mobile-menu__featured-text" {{ block.shopify_attributes }}>
+          {{ block.settings.featured_text }}
+        </div>
+      {% when 'cart_status' %}
+        <div style="{% assign animationcount = animationcount | plus :1 %}--delay-animation: {{animationcount | times:75  }}ms" class=" animation-delay mobile-menu__block mobile-menu__cart-status" {{ block.shopify_attributes }}>
+          <a class="mobile-menu__cart-icon" href="{{ routes.cart_url }}">
+            {{ 'cart.general.title' | t }}
+            <span class="mobile-menu__cart-count CartCount tw-badge">{{ cart.item_count }}</span>
+              <i class="la la-shopping-cart" aria-hidden="true"></i>
+          </a>
+        </div>
+    {% endcase %}
+  {% endfor %}
+  <style>
+    .mobile-menu {
+      background: {{ section.settings.background_color }};
+      height: 100vh;
+    }
+    .slideout__drawer-left,
+    .mobile-menu__search input {
+      background: {{ section.settings.background_color }};
+    }
+    .mobile-menu .mobile-menu__item,
+    .mobile-menu .accordion__toggle,
+    .mobile-menu .accordion__toggle-2 {
+      border-bottom: 1px solid {{ section.settings.border_color }};
+    }
+    .mobile-menu__search form input,
+    .mobile-menu__cart-icon,
+    .mobile-menu__accordion > .mobile-menu__item:first-child {
+      border-color: {{ section.settings.border_color }};
+    }
+    .mobile-menu__accordion > .mobile-menu__item:first-child {
+      border-top: none;
+    }
+    .mobile-menu .mobile-menu__item a,
+    .mobile-menu .accordion__toggle a,
+    .mobile-menu .accordion__toggle-2 a,
+    .mobile-menu .accordion__submenu-2 a,
+    .mobile-menu .accordion__submenu-1 a,
+    .mobile-menu__cart-status a,
+    .accordion__toggle-2:after,
+    .accordion__toggle:after,
+    .mobile-menu .mobile-menu__item i,
+    .mobile-menu__featured-text p,
+    .mobile-menu__search input,
+    .mobile-menu__search input:focus {
+      color: {{ section.settings.link_color }};
+    }
+    .mobile-menu__search ::-webkit-input-placeholder { /* WebKit browsers */
+      color: {{ section.settings.link_color }};
+    }
+    .mobile-menu__search :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: {{ section.settings.link_color }};
+    }
+    .mobile-menu__search ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: {{ section.settings.link_color }};
+    }
+    .mobile-menu__search :-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: {{ section.settings.link_color }};
+    }
+    .mobile-menu .accordion__toggle-2 a,
+    .mobile-menu .accordion__submenu-2 a,
+    .mobile-menu .accordion__submenu-1 a,
+    .accordion__toggle-2:after {
+     opacity: 0.9;
+    }
+    .mobile-menu .slideout__trigger-mobile-menu .icn-close:after,
+    .mobile-menu .slideout__trigger-mobile-menu .icn-close:before {
+      border-color: {{ section.settings.link_color }} !important;
+    }
+    .accordion__toggle:after,
+    .accordion__toggle-2:after { border-left: 1px solid {{ section.settings.border_color }}; }
+    .animation-delay{
+      opacity: 0;
+      -webkit-animation-duration: 500ms;
+      animation-duration: 500ms;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-delay:var(--delay-animation);
+      animation-delay: var(--delay-animation);
+    }
+    .slideout--active .animation-delay{
+      -webkit-animation-name: fadeInUp;
+      animation-name: fadeInUp;
+    }
+  </style>
+
+</nav>
+
+{% schema %}
+
+{
+    "name": "Mobile navigation",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#ffffff"
+        }, {
+            "type": "color",
+            "id": "link_color",
+            "label": "Link color",
+            "default": "#000000"
+        }, {
+            "type": "color",
+            "id": "border_color",
+            "label": "Border color",
+            "default": "#000000"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "search_box",
+            "name": "Search Box",
+            "settings": [],
+            "limit": 1
+        }, {
+            "type": "navigation",
+            "name": "Navigation",
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "main_nav",
+                    "label": "Choose main menu",
+                    "default": "main-menu"
+                }, {
+                    "type": "checkbox",
+                    "id": "customer_account_links",
+                    "label": "Show customer account links",
+                    "info": "Customer accounts must be enabled to see."
+                }
+            ],
+            "limit": 1
+        }, {
+            "type": "featured_image",
+            "name": "Featured Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "featured_image",
+                    "label": "Choose featured image",
+                    "info": "400px x 300px recommended"
+                }, {
+                    "type": "url",
+                    "id": "featured_image_link",
+                    "label": "Featured image link"
+                }, {
+                    "type": "checkbox",
+                    "id": "full_featured_image",
+                    "label": "Enable full-width image",
+                    "default": false
+                }
+            ],
+            "limit": 1
+        }, {
+            "type": "social_icons",
+            "name": "Social Icons",
+            "settings": [
+                {
+                    "type": "color",
+                    "id": "icon_color",
+                    "label": "Icon color"
+                }, {
+                    "type": "color",
+                    "id": "icon_hover_color",
+                    "label": "Icon hover color"
+                }
+            ],
+            "limit": 1
+        }, {
+            "type": "featured_text",
+            "name": "Featured Text",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "featured_text",
+                    "label": "Featured Text",
+                    "default": "<p><b>Featured Text</b></p><p><em>A great place to share about a sale!</em></p>"
+                }
+            ],
+            "limit": 1
+        }, {
+            "type": "cart_status",
+            "name": "Cart Link",
+            "limit": 1
+        }
+    ],
+    "default": {
+        "blocks": [
+            {
+                "type": "featured_image"
+            }, {
+                "type": "cart_status"
+            }, {
+                "type": "navigation"
+            }, {
+                "type": "featured_text"
+            }, {
+                "type": "search_box"
+            }, {
+                "type": "social_icons"
+            }
+        ]
+    }
+}
+
+{% endschema %}

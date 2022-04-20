@@ -1,0 +1,19 @@
+<img class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover"
+        srcset="{%- if image.width >= 375 -%}{{ image | img_url: '375x' }} 375w,{%- endif -%}
+          {%- if image.width >= 750 -%}{{ image | img_url: '750x' }} 750w,{%- endif -%}
+          {%- if image.width >= 1100 -%}{{ image | img_url: '1100x' }} 1100w,{%- endif -%}
+          {%- if image.width >= 1500 -%}{{ image | img_url: '1500x' }} 1500w,{%- endif -%}
+          {%- if image.width >= 1780 -%}{{ image | img_url: '1780x' }} 1780w,{%- endif -%}
+          {%- if image.width >= 2000 -%}{{ image | img_url: '2000x' }} 2000w,{%- endif -%}
+          {%- if image.width >= 3000 -%}{{ image | img_url: '3000x' }} 3000w,{%- endif -%}
+          {%- if image.width >= 3840 -%}{{ image | img_url: '3840x' }} 3840w,{%- endif -%}
+          {{ image | img_url: 'master' }} {{ image.width }}w"
+        sizes="100vw"
+        src="{{ image | img_url: '1500x' }}"
+        loading="lazy"
+        alt="{{ image.alt | escape }}"
+        width="{{ image.width }}"
+        height="{{ image.width | divided_by: image.aspect_ratio }}"
+        {% if image_2 != blank %}class="banner__media-image-half"{% endif %}
+      >
+    </div>

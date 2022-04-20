@@ -1,0 +1,84 @@
+<div id="sidebar" class="sidebar">
+  <div class="sidebar__inner{% if section.settings.is_sticky %} is_sticky{% endif %}">
+
+        {% if collection.image %}
+          {% render 'basic-responsive-image', type: collection.image, data_widths: '[180, 360, 540]' %}
+          <noscript>
+            <img src="{{ collection.image | img_url: '300x' }}" alt="{{ collection.image.alt }}">
+          </noscript>
+        {% endif %}
+
+          {% comment %}
+          Include block settings for collection template to add sidebar menus
+          {% endcomment %}
+
+        {% for block in section.blocks %}
+          {% render 'filters', collection: collection block: block, forloop: forloop %}
+          {% if block.type == 'vendor_list' %}
+            {% if collection.handle == "all" %}
+              <div class="filter" {{ block.shopify_attributes }}>
+                <button class="filter-menu">
+                  <h4>{{ block.settings.shop_by_designer_title }}</h4>
+                </button>
+                <ul class="filter-list">
+                  {% for product_vendor in shop.vendors %}
+                  <li>{{ product_vendor | link_to_vendor  }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% else %}
+              <div class="filter" {{ block.shopify_attributes }}>
+                <button class="filter-menu">
+                  <h4>{{ block.settings.shop_by_designer_title }}</h4>
+                </button>
+                <ul class="filter-list">
+                  {% for product_vendor in collection.all_vendors %}
+                  <li class="{{ product_vendor | handelize }}">{{ product_vendor | link_to_vendor }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          {% elsif block.type == 'menu' %}
+            <div class="filter" {{ block.shopify_attributes }}>
+              <button class="filter-menu">
+                <h4>{{ block.settings.title }}</h4>
+              </button>
+              <ul class="filter-list sidebar-menu">
+                {% for link in linklists[block.settings.side_nav].links %}
+                {% if link.links != blank %}
+                <li class="extend has_sub_menu" aria-haspopup="true" aria-expanded="false"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                <ul class="extended-submenu">
+                  {% for sub_link in link.links %}
+                  <li><a href="{{ sub_link.url }}">{{ sub_link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+                {% else %}
+                <li>{{ link.title | link_to: link.url }}</li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% elsif block.type == 'image' %}
+            {%- assign image_size = '450x' -%}
+            <div class="image_container" {% if forloop.index == 1 %}style="margin-top:0;"{% endif %}>
+              <a href="{{ block.settings.link }}">
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | img_url: image_size }}" alt="{{ block.settings.image.alt }}">
+                {% else %}
+                  {{ 'collection-3' | placeholder_svg_tag }}
+                {% endif %}
+              </a>
+            </div>
+          {% elsif block.type == 'text_note' %}
+            <div class="textnote_container">
+              {% if block.settings.textbox_heading != blank %}<h4>{{ block.settings.textbox_heading }}</h4>{% endif %}
+              {% if block.settings.textbox_subheading != blank %}
+                <div class="subheading{% if block.settings.subheading_align == 'center' %} center{% endif %}">
+                  {{ block.settings.textbox_subheading }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+</div>

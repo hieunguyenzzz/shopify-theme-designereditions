@@ -1,0 +1,4 @@
+svg:not(:root), symbol, image, marker, pattern, foreignObject {
+  overflow-x: unset;
+  overflow-y: unset;
+  }

@@ -1,0 +1,5 @@
+<label aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel" aria-expanded="false" class="tw-btn tw-btn-outline !tw-font-normal !tw-mb-0 tw-rounded-none tw-btn-xs tw-items-center tw-gap-1" for="footercountryformmodal" tabindex="0" type="button">
+    {%- assign iconPath =  localization.country.iso_code | downcase | append:'-flag' | append: '.svg' %}
+    <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                      {{ localization.language.iso_code | append: '/' | append: localization.country.iso_code | downcase | split: '/' | uniq | join: '/'}}
+  </label>

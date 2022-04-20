@@ -1,0 +1,131 @@
+<script src="https://cdn.jsdelivr.net/npm/keen-slider@5.5.0/keen-slider.min.js"></script>
+
+{% if id %}
+    {% else %}
+        {% assign id = section.id %}
+{% endif %}
+<div class="tw-relative tw-w-full">
+    <div class="tw-flex keen-slider  md:tw-w-full keen-slider-{{id}} tw-items-stretch" id="keen-slider-{{id}}">
+        {{items}}
+    </div>
+    <div class="tw-pointer-events-none tw-flex tw-items-center tw-justify-between tw-absolute tw-h-full tw-top-0 tw-left-0 tw-right-0 lg:tw--left-8 lg:tw--right-8">
+        <button class="tw-ml-[-12px] tw-bg-white tw-bg-opacity-80 tw-shadow-lg lg:tw-shadow-none  lg:tw-ml-0 tw-m-0 hover:tw-shadow-lg tw-pointer-events-auto !tw-text-xl tw-text-black tw-w-10 tw-h-10 tw-rounded-full tw-flex tw-justify-center tw-items-center hover:tw-bg-gray-100" id="keen-slider-{{id}}-arrow-left">
+            <svg fill="black" height="1em" stroke="balck" viewbox="0 0 100 100" width="1em">
+                <path d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" fill="black" stroke="balck"></path>
+            </svg>
+        </button>
+        <div class="tw-flex-1"></div>
+        <button class="tw-mr-[-12px] tw-bg-white tw-bg-opacity-80 tw-shadow-lg lg:tw-shadow-none  lg:tw-mr-0 tw-m-0 hover:tw-shadow-lg tw-pointer-events-auto  !tw-text-xl tw-text-black tw-w-10 tw-h-10 tw-rounded-full tw-flex tw-justify-center tw-items-center hover:tw-bg-gray-100" id="keen-slider-{{id}}-arrow-right">
+            <svg fill="black" height="1em" stroke="balck" viewbox="0 0 100 100" width="1em">
+                <path d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" fill="black" stroke="balck" transform="translate(100, 100) rotate(180) "></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<style>
+    .keen-slider-{{id}} {
+        display: flex;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .keen-slider-{{id}},
+    .keen-slider-{{id}}>* {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .keen-slider-{{id}}>* {
+        width: 100%;
+        min-height: 100%;
+        flex-shrink: 0;
+    }
+
+    .keen-slider-{{id}}[data-keen-slider-v] {
+        flex-wrap: wrap;
+    }
+
+    .keen-slider-{{id}}[data-keen-slider-v]>* {
+        width: 100%;
+v    }
+
+    .keen-slider-{{id}}[data-keen-slider-moves] * {
+        pointer-events: none;
+    }
+
+    .keen-slider-{{id}}>* {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        font-weight: 500;
+        max-height: 100vh;
+    }
+</style>
+{% unless customscript %}
+    <script>
+        var slider = new KeenSlider("#keen-slider-{{id}}", {
+            slidesPerView: 2,
+            spacing: 15,
+            loop: true,
+            breakpoints: {
+            "(min-width: 768px)": {
+                slidesPerView: 3,
+                mode: "free-snap",
+            },
+            "(min-width: 900px)": {
+                slidesPerView: 4,
+                mode: "free-snap",
+            }
+            },
+            created: function (instance) {
+                document
+                .getElementById("keen-slider-{{id}}-arrow-left")
+                .addEventListener("click", function () {
+                    instance.prev()
+                })
+
+                document
+                .getElementById("keen-slider-{{id}}-arrow-right")
+                .addEventListener("click", function () {
+                    instance.next()
+                })
+                var dots_wrapper = document.getElementById("dots")
+                if(dots_wrapper){
+                    var slides = document.querySelectorAll(".keen-slider-{{id}} .keen-slider__slide")
+                    slides.forEach(function (t, idx) {
+                        var dot = document.createElement("button")
+                        dot.classList.add("dot")
+                        dots_wrapper.appendChild(dot)
+                        dot.addEventListener("click", function () {
+                            instance.moveToSlide(idx)
+                        })
+                    })
+                }
+                
+                updateClasses(instance)
+            },
+            slideChanged(instance) {
+                updateClasses(instance)
+            },
+            {{config}}
+        })
+        function updateClasses(instance) {
+            var slide = instance.details().relativeSlide
+            var arrowLeft = document.getElementById("keen-slider-{{id}}-arrow-left")
+            var arrowRight = document.getElementById("keen-slider-{{id}}-arrow-right")
+            slide === 0
+                ? arrowLeft.classList.add("arrow--disabled")
+                : arrowLeft.classList.remove("arrow--disabled")
+            slide === instance.details().size - 1
+                ? arrowRight.classList.add("arrow--disabled")
+                : arrowRight.classList.remove("arrow--disabled")
+        }
+    </script>
+{% endunless %}

@@ -1,0 +1,8 @@
+{%- if type.size > 0 -%}
+    {% assign image_box_ratio = type.height | append: ".0" | times: 1 | divided_by: type.width | times: 100 | append: "%" %}
+    {% assign img_url = type | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+    <div class="tw-w-full tw-relative" style="padding-bottom: {{ image_box_ratio }};">
+        <img class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-transparent tw-object-contain lazyload lazyload-fade {{ is_first }}" id="{{ type.id }}" data-src="{{ img_url }}" data-sizes="auto" width="{{ type.image.width }}" height="{{ type.image.height }}" data-original="{{ type | img_url: '500x' }}" {%- if data_widths != blank -%} data-widths="{{ data_widths }}" {%- endif -%} alt="{{ type.alt | escape }}" {{image_props}}>
+    </div>
+{%- endif -%}

@@ -1,0 +1,250 @@
+{% layout none %}
+
+<div class="product-quick-view product-{{ product.id }} row grid_wrapper"
+data-product-id="{{ product.id }}"
+data-section-id="quickview">
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<div id="product-{{ product.id }}"
+  class="product-page product-template prod-{{ section.id }}">
+
+  {% render 'product-json', product: product %}
+
+  <div id="product-content" class="row grid_wrapper">
+    {% assign thumbnail_position = settings.thumbnail_position %}
+    {% assign enable_video_looping = settings.enable_video_looping %}
+    {% assign descr_width =  'desktop-5 tablet-3 mobile-3 span-5' %}
+    {% capture product_gallery_config %}{
+    "thumbPosition": {{ settings.thumbnail_position | json }},
+    "thumbsShown": {{ settings.thumbs_to_show | json }},
+    "enableVideoLooping": {{ settings.enable_video_looping | json }},
+    "navStyle": {{ settings.slide_controls | json }},
+    "mainSlider": {% if product.media.size <= 1 %}false{% else %}true{% endif %},
+    "thumbSlider": {% if product.media.size >= 4 %}true{% else %}false{% endif %},
+    "productId": {{ product.id | json }},
+    "isQuick": true
+    }{% endcapture %}
+
+    <div id="product-photos" class="quickview-gallery product-photos product-{{ product.id }} desktop-7 tablet-3 mobile-3 span-7"
+         data-product-single-media-group data-gallery-config='{{ product_gallery_config }}'
+         data-static-gallery>
+         {% render 'product-static-gallery',
+            product: product,
+            thumbnail_position: settings.thumbnail_position,
+            enable_video_looping: settings.enable_video_looping,
+            thumbs_to_show: 3 %}
+    </div>
+
+    <div class="product-right {{ descr_width }}">
+      <div class="product-description">
+        <div class="section-title">
+          <h1>{{ product.title }}</h1>
+        </div>
+        {% if settings.quickview_show_vendor %}
+          <h3>{{ 'products.product.designer' | t }}: {{ product.vendor }}</h3>
+          <div class="clear"></div>
+        {% endif %}
+
+        {% unless product.template_suffix == 'not-for-sale' %}
+          {% capture product_form_config %}
+           { "money_format": {{ shop.money_format | json }},
+             "enable_history": true,
+             "sold_out": {{ "products.product.sold_out" | t | json }},
+             "button": {{ 'products.product.add_to_cart' | t | json }},
+             "unavailable": {{ 'products.product.unavailable' | t | json }},
+             "quickview": {% if template == 'product.quick' %}true{% else %}false{% endif %}
+           }
+           {% endcapture %}
+
+          <div class="product-form">
+            {% form 'product', product,
+              id: "AddToCartForm",
+              class: "product_form",
+              data-product-form:product_form_config,
+              data-product-id: product.id %}
+
+               {% render 'product-price', variant: current_variant, product: product %}
+
+              {% if product.options.size > 1 %}
+               <div class="select" {% if product.variants.size == 1 or settings.quickview_product_variants == 'swatches' %}style="display: none;"{% endif %}>
+                 <select id="qv-product-select-{{ product.id }}" name='id'>
+                   {% for variant in product.variants %}
+                     <option value="{{ variant.id }}" {% if variant == current_variant %}selected="selected"{% endif %}>
+                       {{ variant.title }} - {{ variant.price | money }}
+                     </option>
+                   {% endfor %}
+                 </select>
+               </div>
+                {% if settings.quickview_product_variants == 'swatches' %}
+                  {% for option in product.options_with_values %}
+                    {% render "swatch", index:forloop.index product: product, option: option, current_variant: current_variant %}
+                  {% endfor %}
+                {% endif %}
+              {% elsif product.options.size == 1 and product.variants.size > 1 %}
+                <div class="select" {% if product.variants.size == 1 or settings.quickview_product_variants == 'swatches' %}style="display: none;"{% endif %}>
+                   <label>{{ product.options[0] }}</label>
+                   <select id="qv-product-select-{{ product.id }}" name='id'>
+                     {% for variant in product.variants %}
+                       <option data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% if variant == current_variant %}selected="selected"{% endif %}>
+                         {{ variant.title }} - {{ variant.price | money }}
+                       </option>
+                     {% endfor %}
+                   </select>
+                 </div>
+                 {% if settings.quickview_product_variants == 'swatches' %}
+                   {% for option in product.options_with_values %}
+                     {% render "swatch", index:forloop.index product: product, option: option, current_variant: current_variant %}
+                   {% endfor %}
+                 {% endif %}
+                {% else %}
+                 <div class="what-is-it">
+                   {% if product.options.first != 'Title' %}
+                     <label>{{ product.options.first }}:</label>
+                     {% for variant in product.variants %}
+                       <span class="it-is">{{ variant.option1 | escape }}</span>
+                     {% endfor %}
+                   {% endif %}
+                 </div>
+                 <div class="product-variants"></div><!-- product variants -->
+                 <input  type="hidden" id="{{ variant.id }}" name="id" data-sku="{{ variant.sku }}" value="{{ product.variants[0].id }}" />
+                {% endif %}
+
+                {% if show_sku %}
+                  <div class="sku">
+                    <label style="display: inline-block; line-height: 1.6em;">{{ 'customer.order.details.sku' | t }}:</label> <span class="variant_sku">{{ current_variant.sku }}</span>
+                  </div><div class="clear"></div>
+                {% endif %}
+
+                {% if settings.quickview_show_quantity_selector %}
+                 <div class="product-qty selector-wrapper">
+                    <h5>{{ 'products.product.quantity' | t }}</h5>
+                    <a class="downer quantity-control-down">-</a>
+                    <input min="1" type="text" name="quantity" class="product-quantity" value="1" {% if current_variant.inventory_management == 'shopify' %}{% unless current_variant.inventory_policy == 'continue' %} max="{{ current_variant.inventory_quantity }}" {% endunless %}{% endif %} />
+                    <a class="up quantity-control-up">+</a>
+                 </div>
+                 <div class="clear"></div>
+               {% endif %}
+
+                {% if current_variant.available %}
+                  <div class="product-add">
+                    <input id="AddToCart" type="submit" name="button" class="add{% if settings.quick_show_payment_button %} secondary-button{% endif %}" value="{{ 'products.product.add_to_cart' | t }}" />
+                  </div>
+                {% else %}
+                  <div class="product-add">
+                    <input id="AddToCart" type="submit" name="button" class="add{% if settings.quick_show_payment_button %} secondary-button{% endif %}" value="{{ 'products.product.sold_out' | t }}" />
+                  </div>
+                {% endif %}
+
+                {% if settings.quick_show_payment_button %}
+                  {{ form | payment_button }}
+                {% endif %}
+            {% endform %}
+          </div>
+        {% endunless %}
+
+        <div class="rte">
+          <a href="{{ product.url }}">{{ 'products.product.details' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- Close the wrapper / container allowing full width layout for lower  container -->
+
+  {% render 'social' with product %}
+</div>
+
+  <style>
+    .product-page { position: relative; }
+
+    {% if settings.quickview_product_variants == 'swatches' %}
+      .product-quick-view.product-{{ product.id }} .selector-wrapper {
+        display: none;
+      }
+      .product-quick-view.product-{{ product.id }} .single-option-selector {
+        opacity: 0;
+        display: none;
+      }
+    {% endif %}
+    {% if settings.quickview_show_quantity_selector %}
+      .product-quick-view.product-{{ product.id }} .product-qty.selector-wrapper {
+        display: block;
+      }
+    {% endif %}
+    {% unless settings.quickview_show_sku %}
+      .product-quick-view.product-{{ product.id }} .variant-sku { display: none; }
+    {% endunless %}
+
+    .product-quick-view.product-{{ product.id }} .product-photos .vertical-carousel .carousel-nav {
+      max-height: calc(133px * 3) !important;
+    }
+
+    .product-quick-view.product-{{ product.id }} .thumb-slider-slides {
+      transition: left 0.5s ease-in-out;
+    }
+    .product-quick-view.product-{{ product.id }} .product-thumbnails {
+      margin-top: 10px;
+      padding: 0 30px;
+    }
+    .product-quick-view.product-{{ product.id }} .product-thumbnail {
+      padding: 10px;
+    }
+    .product-quick-view.product-{{ product.id }} .thumb-slider-slides {
+      transition: top 0.5s ease-in-out;
+    }
+    .product-quick-view.product-{{ product.id }} .product-description form {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+    .product-quick-view.product-{{ product.id }} .add {
+      margin-bottom: 8px! important;
+    }
+    @media screen and (max-width: 740px) {
+    .product-quick-view.product-{{ product.id }} .share-icons {
+        display: inline-block;
+        width: 100%;
+      }
+    }
+    .product-quick-view.product-{{ product.id }} #thumb-slider-wrapper .product-single__thumbnails-item img {
+      width: 110px !important;
+      height: 110px !important;
+    }
+    .product-quick-view.product-{{ product.id }} .product-photos .vertical-carousel .carousel-nav {
+      max-height: 290px !important;
+      height: 290px !important;
+    }
+  </style>
+  <script type="application/json" id="ModelJson-quickview">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+</div>
+<script>
+  {% if settings.quick_show_payment_button %}
+    Shopify.PaymentButton.init()
+  {% endif %}
+</script>
+
+{% if settings.ajax_cart_method == 'drawer' %}
+  {{ 'handlebars.min.js' | asset_url | script_tag }}
+  {% render 'ajax-cart-template' %}
+  {{ 'ajax-cart.js' | asset_url | script_tag }}
+{% else %}
+  {% render 'ajaxify-cart' %}
+{% endif %}
+<script>
+{% if settings.ajax_cart_method == 'drawer' %}
+  jQuery(function($) {
+    ajaxCart.init({
+      formSelector: '[data-product-form]',
+      cartContainer: '#CartContainer',
+      addToCartSelector: '#AddToCart',
+      cartCountSelector: '.CartCount',
+      cartCostSelector: '.CartCost',
+      moneyFormat: {{ shop.money_format | json }}
+    });
+    });
+    jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+      // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+      $.fancybox.close()
+      timber.RightDrawer.open();
+    });
+  {% endif %}
+</script>

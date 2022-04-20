@@ -1,0 +1,12 @@
+{% form 'currency' %}
+<select class="currency-picker" name="currency">
+  {% for currency in shop.enabled_currencies %}
+    {% if currency == cart.currency %}
+      <option selected="true">{{ currency.iso_code }}</option>
+      {% else %}
+      <option>{{ currency.iso_code }}</option>
+    {% endif %}
+  {% endfor %}
+</select>
+  <i class="la la-angle-down"></i>
+{% endform %}

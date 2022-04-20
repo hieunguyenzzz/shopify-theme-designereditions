@@ -1,0 +1,1014 @@
+{% comment %}
+Custom blocks from custom pages and collections in 1 single snippet to reduce repeating code for faster usage, fixes and editing
+{% endcomment %}
+
+<div data-section-id="{{ section.id }}" data-section-type="custom-page-section">
+  <div id="content" class="custom-page-content">
+
+ 
+
+      <!-- start the custom content -->
+      <div class="page-sections">
+        {% for block in section.blocks %}
+          {% if block.type != 'page_title' %}<div class="page-section" {{ block.shopify_attributes }}>{% endif %}
+
+          {% case block.type %}
+            {% when 'page_title' %}
+              <div class="row" data-aos="{{ settings.scroll_animation }}">
+                 <div class="section-title">
+                   <h1>{{ page.title | escape }}</h1>
+                 </div>
+              </div>
+            {% when 'page_content' %}
+              <section id="page-section-{{ block.id }}" class="shopify-section page-content" data-section-id="{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+               <div class="rte row" style="text-align: {{ block.settings.pc_align }}; max-width: {{ block.settings.pc_max_width}}px; margin: 0 auto;">
+                 {{ page.content }}
+               </div>
+              </section>
+            {% when 'page_contact_form' %}
+              <section id="page-section-{{ block.id }}" class="shopify-section page-contact-form" data-section-id="{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+                <div class="row">
+                  <div class="section-title">
+                    <h1>{{ block.settings.cf_heading }}</h1>
+                  </div>
+                  <div style="max-width:{{ block.settings.cf_max_width }}px; margin: 0 auto;" >
+                    {% render 'custom-contact' type: block %}
+                  </div>
+                </div>
+              </section>
+            {% when 'image_with_text' %}
+              <section id="image-rows" class="row image-rows-{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+               {% case block.settings.iwt_image_width %}
+               {% when '33%' %}
+                 {%- assign image_size = '700x' -%}
+                 {%- assign image_width = 'desktop-4 tablet-2 span-4' -%}
+                 {%- assign image_offset = 'desktop-8 tablet-4 span-8' -%}
+               {% when '50%' %}
+                 {%- assign image_size = '1000x' -%}
+                 {%- assign image_width = 'desktop-6 tablet-3 span-6' -%}
+                 {%- assign image_offset = 'desktop-6 tablet-3 span-6' -%}
+               {% when '66%' %}
+                 {%- assign image_size = '1400x' -%}
+                 {%- assign image_width = 'desktop-8 tablet-4 span-8' -%}
+                 {%- assign image_offset = 'desktop-4 tablet-2 span-4' -%}
+               {% endcase %}
+               {% capture image_layout %}
+                 <div class="{{ image_width }} mobile-3 text-with-image contained {% if section.settings.layout == 'right' %}image-right mobile-hide{% endif %}">
+                   {% if block.settings.iwt_image != blank %}
+                     {% render 'basic-responsive-image', type: block.settings.iwt_image, data_widths: '[180, 360, 540, 720, 900]' %}
+                     <noscript>
+                       <img src="{{ block.settings.iwt_image | img_url: '800x' }}" alt="{{ section.settings.image.alt }}">
+                     </noscript>
+                   {% else %}
+                     <div class="onboard">
+                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                     </div>
+                   {% endif %}
+                 </div>
+               {% endcapture %}
+               <div class="image-with-text-wrapper grid_wrapper">
+                  {% if block.settings.iwt_layout == 'left' %}
+                   {{ image_layout }}
+                 {% else %}
+                 <div class="mobile-image span-3">
+                   {{ image_layout }}
+                 </div>
+                 {% endif %}
+                 <div class="{{ image_offset }} mobile-3 contained text-with-image text_section">
+                   {% if block.settings.iwt_title != blank %}
+                     <h1 class="text-title">
+                       {{ block.settings.iwt_title | escape }}
+                     </h1>
+                   {% endif %}
+                   {% if block.settings.iwt_text != blank %}
+                     <div class="rte">
+                       {{ block.settings.iwt_text }}
+                     </div>
+                   {% endif %}
+                   {% if block.settings.iwt_button != blank and block.settings.iwt_link != blank %}
+                     <div class="cta">
+                       <a href="{{ block.settings.iwt_link }}">
+                         {{ block.settings.iwt_button | escape }}
+                       </a>
+                     </div>
+                   {% endif %}
+                 </div>
+                 {% if block.settings.iwt_layout == 'right' %}
+                   {{ image_layout }}
+                 {% endif %}
+               </div>
+               <style>
+                 /* hide desktop image on mobile when on right */
+                  @media (max-width: 740px) {
+                    .image-with-text-wrapper .text-with-image.text_section ~ .text-with-image {
+                        display: none;
+                    }
+                  }
+                  .image-rows-{{ block.id }} .text_section h3,
+                  .image-rows-{{ block.id }} .text_section .rte {
+                    text-align: {{ block.settings.iwt_text_align }};
+                  }
+                  .image-rows-{{ block.id }} .text_section .cta {
+                    display: block;
+                    text-align: {{ block.settings.iwt_text_align }};
+                  }
+               </style>
+              </section>
+            {% when 'text_columns_with_images' %}
+              <section id="image-columns" class="row image-col-{{ block.id }}" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+               {% for n in (1..3) %}
+               {% assign column_link = "txt_link_" | append: n %}
+               {% assign column_link = block.settings[column_link] | default: false %}
+               {% assign column_image = "txt_image_" | append: n %}
+               {% assign column_image = block.settings[column_image] | default: false %}
+               {% assign column_heading = "txt_title_text_" | append: n %}
+               {% assign column_heading = block.settings[column_heading] | default: false %}
+               {% assign column_text = "txt_text_" | append: n %}
+               {% assign column_text = block.settings[column_text] | default: false %}
+               {% assign column_button_text = "button_text_" | append: n %}
+               {% assign column_button_text = block.settings[column_button_text] | default: false %}
+               <div class="image-column desktop-4 tablet-2 mobile-3 image-column-{{ block.id }}">
+                 <div class="image-container">
+                     {% if column_image != blank %}
+                     {% if column_link != blank %}<a href="{{ column_link }}">{% endif %}
+                       {% render 'basic-responsive-image', type: column_image, data_widths: '[180, 360, 540, 720]' %}
+                       <noscript>
+                         <img src="{{ column_image | img_url: '800x' }}" alt="{{ column_image.alt }}">
+                       </noscript>
+                     {% if column_link != blank %}</a>{% endif %}
+                     {% else %}
+                       <div class="onboard">
+                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                       </div>
+                     {% endif %}
+                     <div class="text-container">
+                       <div class="text-content">
+                         {% if column_heading != blank %}
+                         <h3 class="text-title">
+                           {{ column_heading | escape }}
+                         </h3>
+                         {% endif %}
+                           <div class="rte">
+                             {{ column_text }}
+                           </div>
+                           {% if column_button_text != blank and column_link != blank %}
+                           <span class="cta">
+                             <a href="{{ column_link }}">{{ column_button_text | escape }}</a>
+                           </span>
+                           {% endif %}
+                        </div>
+                     </div>
+                 </div>
+               </div>
+               {% endfor %}
+                 <style>
+                   /* IMAGE BLOCKS */
+                   .image-column-{{ block.id }} {
+                     text-align: {{ block.settings.text_align }};
+                   }
+                   .image-column-{{ block.id }} .text-content h3 {
+                     margin-top: 10px;
+                   }
+                   .image-column-{{ block.id }} .text-content p {
+                     margin-top: 10px;
+                   }
+                   .image-column-{{ block.id }} .text-content .cta {
+                     margin-top: 10px;
+                   }
+                 </style>
+              </section>
+            {% when 'featured_collection' %}
+
+            {% assign coll = collections[block.settings.fc_collection] %}
+            {% if block.settings.fc_carousel %}{%- assign is_carousel = true -%}{%- endif -%}
+            {%- assign prod_limit = block.settings.fc_limit -%}
+            {%- assign grid = block.settings.fc_grid -%}
+            {% capture slideshow_config %}{
+              "wrapAround":true,
+              "cellAlign": "left",
+              "dragThreshold":"15",
+              "pauseAutoPlayOnHover":false,
+              "prevNextButtons":true,
+              "pageDots": false
+            }{% endcapture %}
+
+                <section class="row featured__collection--{{ block.id }}" data-section-id="{{ block.id }}" data-aos="{{ settings.scroll_animation }}" data-section-type="carousel-section" {{ block.shopify_attributes }}>
+               <h5 class="text-title">
+                      {{ block.settings.sellers }}
+                     </h5>
+                  
+                  <div class="featured__collection{% if is_carousel %}-carousel flickity__section js-carousel{% endif %} product-loop"{% if is_carousel %} data-flickity='{{ slideshow_config }}'{% endif %}>
+                    {% if block.settings.fc_collection == blank %}
+                    {% render 'onboard-product', prod_limit: prod_limit, grid: grid %}
+                    {% else %}
+                    {% for product in coll.products limit: prod_limit  %}
+                      <div class="featured__collection-product product-index" id="product-listing-{{ product.id }}" data-product-id="{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                        {% render 'product-listing', collection: coll, product: product %}
+                      </div>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                  {% case block.settings.fc_grid %}
+                  {% when 2 %}
+                  {%- assign prod_grid = 50 -%}
+                  {% when 3 %}
+                  {%- assign prod_grid = 33.333 -%}
+                  {% when 4 %}
+                  {%- assign prod_grid = 25 -%}
+                  {% when 5 %}
+                  {%- assign prod_grid = 20 -%}
+                  {% endcase %}
+                  <style>
+                    .featured__collection--{{ block.id }} {
+                      padding-bottom: 30px;
+                      margin-bottom: 30px;
+                    }
+                    {% if is_carousel %}
+                      section.featured__collection--{{ block.id }} .featured__collection-carousel .featured__collection-product {
+                        width: {{ prod_grid }}%;
+                      }
+                      .featured__collection-carousel .flickity-button {
+                        color: {{ settings.direction_color }};
+                        background-color: {{ settings.direction_background }};
+                        width: 45px;
+                        height: 45px;
+                        margin: 0;
+                      }
+                      .featured__collection-carousel .flickity-button:hover {
+                        background-color: {{ settings.direction_hover }};
+                      }
+                    {% else %}
+                      section.featured__collection--{{ block.id }} .featured__collection {
+                        display: grid;
+                        grid-template-columns: repeat({{ grid }}, {{ prod_grid }}%);
+                      }
+                  {% endif %}
+                  </style>
+                </section>
+
+            {% when 'image_text_overlay' %}
+              {% assign img_url = block.settings.pio_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <section
+                class="parallax-{{ block.id }} parallax lazyload lazyload-fade"
+                data-bgset="{% render 'bgset', image: block.settings.pio_image %}"
+                data-sizes="auto"
+                data-section-id="{{ block.id }}"
+                data-aos="{{ settings.scroll_animation }}">
+                <div class="image-overlay"></div>
+                <article class="row">
+                  <div class="parallax-content">
+                    <div class="parallax-text">
+                      {% unless block.settings.pio_heading == blank %}
+                        <h2>{{ block.settings.pio_heading | escape }}</h2>
+                      {% endunless %}
+                      {% unless block.settings.pio_subheading == blank %}
+                        <p>{{ block.settings.pio_subheading }}</p>
+                      {% endunless %}
+                      {% unless block.settings.pio_button_link == blank %}
+                        <div class="clear"></div>
+                        <a class="button" href="{{ block.settings.pio_button_link }}">
+                          {{ block.settings.pio_button_text }}
+                        </a>
+                      {% endunless %}
+                    </div>
+                  </div>
+                  {% if block.settings.pio_image == blank %}
+                    <div class="onboard plax-placehold">
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {% endif %}
+                </article>
+                <style>
+                  {% if block.settings.pio_background_effect == 'fixed' %}
+                    .parallax-{{ block.id }} {
+                      background-attachment: fixed;
+                      background-size: cover;
+                      overflow: hidden;
+                      background-position: center center !important;
+                    }
+                  {% elsif block.settings.pio_background_effect == 'none' %}
+                    .parallax-{{ block.id }} {
+                      background-image: url('{{ block.settings.pio_image | img_url: '1024x' }}');
+                      background-size: cover !important;
+                      background-repeat: no-repeat !important;
+                      background-position: center center !important;
+                    }
+                  {% endif %}
+
+                  .no-js .parallax-{{ block.id }} {
+                    background-image: url('{{ block.settings.pio_image | img_url: '1024x' }}');
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center center !important;
+                  }
+                  .parallax-{{ block.id }} article {
+                    height: {{ block.settings.pio_page_height }}px;
+                    min-height: {{ block.settings.pio_page_height }}px;
+                  }
+                  .parallax-{{ block.id }} .parallax-content {
+                    width: fit-content;
+                    position: absolute;
+                    z-index: 2;
+                    top: {{ block.settings.pio_caption_vertical }}%;
+                    left: {{ block.settings.pio_caption_horizontal }}%;
+                    -webkit-transform: translate(-{{ block.settings.pio_caption_horizontal }}%, -{{ block.settings.pio_caption_vertical }}%);
+                      -ms-transform: translate(-{{ block.settings.pio_caption_horizontal }}%, -{{ block.settings.pio_caption_vertical }}%);
+                        -moz-transform: translate(-{{ block.settings.pio_caption_horizontal }}%, -{{ block.settings.pio_caption_vertical }}%); -o-transform: translate(-{{ block.settings.pio_caption_horizontal }}%, -{{ block.settings.pio_caption_vertical }}%); transform: translate(-{{ block.settings.pio_caption_horizontal }}%, -{{ block.settings.pio_caption_vertical }}%);
+                  }
+                  .parallax-{{ block.id }} .parallax-text {
+                    padding: 20px;
+                    text-align: {{ block.settings.pio_text_align }};
+                    background: {{ block.settings.pio_background }};
+                  }
+                  .parallax-{{ block.id }} .parallax-text h2 {
+                    font-size: {{ block.settings.pio_heading_font_size }}px;
+                    display: inline-block;
+                  }
+                  .parallax-{{ block.id }} .image-overlay {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    {% assign bg_color = '#000000' %}
+                    {% assign number = block.settings.overlay_opacity %}
+                    {% assign overlay_opacity = number | divided_by: 100.0 %}
+                    background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+                  }
+                  @media screen and (max-width: 500px) {
+                    .parallax-{{ block.id }} .parallax-text h2 {
+                      font-size: 16px;
+                    }
+                  }
+                  .parallax-{{ block.id }} .parallax-text h2,
+                  .parallax-{{ block.id }} .parallax-text a h2,
+                  .parallax-{{ block.id }} .parallax-text a:visited h2 {
+                    color: {{ block.settings.pio_text_color }};
+                  }
+                  .parallax-{{ block.id }} .parallax-text a:hover h2 {
+                    opacity: 0.8;
+                  }
+                  .parallax-{{ block.id }} .parallax-text p {
+                    font-size: {{ block.settings.pio_subheading_font_size }}px;
+                    color: {{ block.settings.pio_text_color }};
+                    margin-bottom: 10px;
+                  }
+                  @media screen and (max-width: 500px) {
+                    .parallax-{{ block.id }} .parallax-text p {
+                      font-size: 14px;
+                    }
+                  }
+                  .parallax-{{ block.id }} .parallax-text a.button,
+                  .parallax-{{ block.id }} .parallax-text a.button:visited {
+                    background: {{ block.settings.pio_button_color }};
+                    color: {{ block.settings.pio_button_text_color }};
+                    margin-bottom: 5px;
+                  }
+                  .parallax-text a.button:hover {
+                    opacity: 0.8;
+                  }
+                  @media screen and ( max-width: 740px ) {
+                    .parallax-{{ block.id }} article {
+                      height: initial;
+                      min-height: 200px;
+                    }
+                  }
+                  @media screen and ( max-width: 1024px ) {
+                    .parallax-{{ block.id }} {
+                      background-attachment: scroll !important;
+                      background-size: cover !important;
+                    }
+                  }
+                </style>
+              </section>
+              <div class="clear"></div>
+            {% when 'collection_list' %}
+               <section class="row grid_wrapper product-loop col-loop-{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+                 {%- case block.settings.cl_collections_per_row -%}
+                 {%- when 2 -%}
+                 {% assign column_width = 'desktop-6 tablet-6 mobile-half span-6' %}
+                 {%- when 3 -%}
+                 {% assign column_width = 'desktop-4 tablet-6 mobile-half span-4' %}
+                 {%- when 4 -%}
+                 {% assign column_width = 'desktop-3 tablet-6 mobile-half span-3' %}
+                 {%- endcase -%}
+
+                 {% for n in (1..4) %}
+                 {% assign collection = "cl_collection_" | append: n %}
+                 {% assign collection = collections[block.settings[collection]] | default: false %}
+                 <div class="product-index {{ column_width }}" data-alpha="{{ collection.title }}">
+                 {% if collection %}
+                   {% render 'collection-grid-item', collection: collection %}
+                 {% else %}
+                   {% capture current %}{{ forloop.index }}{% endcapture %}
+                   {%- assign placeholder = 'collection-' | append: current -%}
+                   <div class="collection-image ci onboard">
+                     <a href="#">
+                       {{ placeholder | placeholder_svg_tag }}
+                     </a>
+                   </div>
+                   <div class="product-details">
+                     <h3><a href="#">Sample collection {{ forloop.index }}</a></h3>
+                   </div>
+                 {% endif %}
+                 </div>
+                 {% endfor %}
+             </section>
+
+             {% when 'accordion' %}
+             <section id="page-section-{{ block.id }}" class="section-accordion-{{ block.id }}{% if block.settings.ac_no_bottom_margin %} nbm{% endif %}" data-block-id="{{ block.id }}" data-aos="{{ settings.scroll_animation }}">
+               {% if block.settings.ac_section_heading != blank %}
+                 <div class="row">
+                   <div class="section-title">
+                     <h3>{{ block.settings.ac_section_heading }}</h3>
+                   </div>
+                 </div>
+               {% endif %}
+
+               <div class="rte-accordion row" style="max-width: 900px;">
+                 {% for n in (1..10) %}
+                   {% assign heading = "ac_heading_" | append: n %}
+                   {% assign heading = block.settings[heading] | default: false %}
+
+                   {% assign content = "ac_content_" | append: n %}
+                   {% assign content = block.settings[content] | default: false %}
+
+                   {% if heading %}
+                     <div class="item">
+                       <input class="trigger" id="{{ block.id }}-item-{{ n }}" type="checkbox" name="items" />
+                       <label class="accordion-label" for="{{ block.id }}-item-{{ n }}"><span class="item-heading">{{ heading }}</span></label>
+                       <div class="item-content">
+                         {{ content }}
+                       </div>
+                     </div>
+                   {% endif %}
+                 {% endfor %}
+               </div>
+             </section>
+            {% when 'image_blocks' %}
+             <section class="row gal-{{ block.id }}" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+                   {% for n in (1..3) %}
+                   {% assign c_link = "link_" | append: n %}
+                   {% assign c_link = block.settings[c_link] | default: false %}
+                   {% assign c_image = "image_" | append: n %}
+                   {% assign c_image = block.settings[c_image] | default: false %}
+                   {% assign c_heading = "heading_" | append: n %}
+                   {% assign c_heading = block.settings[c_heading] | default: false %}
+                   {% assign c_button = "button_" | append: n %}
+                   {% assign c_button = block.settings[c_button] | default: false %}
+                   {% assign text_options = "text_options_" | append: n %}
+                   {% assign text_options = block.settings[text_options] | default: false %}
+
+                   <div class="pimg homepage-promo desktop-4 tablet-2 mobile-3 promo-{{ n }}">
+                     <div class="promo-inner">
+                         {% if c_image != blank %}
+                         {% if c_link != blank %}<a href="{{ c_link }}">{% endif %}
+                           {% render 'basic-responsive-image', type: c_image, data_widths: '[180, 360, 540, 720, 900, 1080, 1296, 1512]' %}
+                           <noscript>
+                             <img src="{{ c_image | img_url: '800x' }}" alt="{{ c_image.alt }}">
+                           </noscript>
+                         {% if c_link != blank %}</a>{% endif %}
+                         {% else %}
+                           <div class="onboard">
+                             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                           </div>
+                         {% endif %}
+                         <div class="image-overlay"></div>
+                           {% capture promo-caption %}
+                           <div class="caption">
+                            {% if c_heading != blank or c_button != blank  %}
+                              <div class="caption-content">
+                                {% if c_heading != blank %}
+                                {{ c_heading }}
+                                {% endif %}
+                                {% if c_button != blank and c_link != blank %}
+                                <span class="cta">
+                                  <a href="{{ c_link }}">{{ c_button | escape }}</a>
+                                </span>
+                                {% endif %}
+                             </div>
+                            {% endif %}
+                          </div>
+                          {% endcapture %}
+                        {% if text_options == 'on_image' %}
+                  	    	{{ promo-caption  }}
+                  	    {% endif %}
+                            </div>
+                      	{% if text_options == 'below_image' %}
+                      		{{ promo-caption  }}
+                      	{% endif %}
+                   </div>
+                   <style>
+
+                   {% assign vertical_position = "vertical_position_" | append: n %}
+                   {% assign vertical_position = block.settings[vertical_position] | default: false %}
+                   {% assign horizontal_position = "horizontal_position_" | append: n %}
+                   {% assign horizontal_position = block.settings[horizontal_position] | default: false %}
+                   {% assign align_text = "align_text_" | append: n %}
+                   {% assign align_text = block.settings[align_text] | default: false %}
+                   {% assign button_color = "button_color_" | append: n %}
+                   {% assign button_color = block.settings[button_color] | default: false %}
+                   {% assign button_background = "button_background_" | append: n %}
+                   {% assign button_background = block.settings[button_background] | default: false %}
+                   {% assign color = "heading_color_" | append: n %}
+                   {% assign color = block.settings[color] | default: false %}
+                   {% assign size = "size_" | append: n %}
+                   {% assign size = block.settings[size] | default: false %}
+                   {% assign overlay_opacity = "overlay_opacity_" | append: n %}
+                   {% assign overlay_opacity = block.settings[overlay_opacity] | default: false %}
+
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .image-overlay {
+                       position: absolute;
+                       z-index: 1;
+                       top: 0;
+                       left: 0;
+                       width: 100%;
+                       height: 100%;
+                       {% assign bg_color = '#000000' %}
+                       {% assign number = overlay_opacity %}
+                       {% assign overlay_opacity = number | divided_by: 100.0 %}
+                       background: {{ bg_color | color_modify: 'alpha', overlay_opacity }};
+                     }
+
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .caption-content p {
+                       color: {{ color }};
+                       font-size: {{ size }}px;
+                       line-height: initial;
+                     }
+                     {% if text_options == 'on_image' %}
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .promo-inner .caption-content {
+                       position: absolute;
+                       bottom: {{ vertical_position }}%;
+                       left: {{horizontal_position }}%;
+                     }
+                     {% endif %}
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .caption-content {
+                       text-align: {{ align_text }};
+                     }
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .cta a {
+                       color: {{ button_color }};
+                       background: {{ button_background }};
+                     }
+                     {% if text_options == 'on_image' %}
+                     .gal-{{ block.id }} .homepage-promo.promo-{{ n }} .promo-inner .caption {
+                       position: absolute;
+                       width: 100%;
+                       height: 100%;
+                       top: 0;
+                       z-index: 2;
+                     }
+                     {% else %}
+                     .gal-{{ block.id }} .homepage-promo .caption {
+                       margin-top: 10px;
+                     }
+                     {% endif %}
+                   </style>
+                 {% endfor %}
+                 {% if section.blocks.size == 0 %}
+                   {% render 'no-blocks' %}
+                 {% endif %}
+             </section>
+            {% when 'featured_video' %}
+              <section id="page-section-{{ block.id }}" class="section-featured-video-{{ block.id }}" data-aos="{{ settings.scroll_animation }}" data-block-id="{{ block.id }}">
+                  {% if block.settings.fv_display_wide %}
+                    <div class="gridlock-fluid">
+                      <div class="row">
+                  {% endif %}
+                  <div class="row">
+                    {% if block.settings.fv_heading != blank %}
+                    <div class="section-title">
+                      <h3>{{ block.settings.fv_heading | escape }}</h3>
+                    </div>
+                    {% endif %}
+                    <div class="videoWrapper">
+                      {% if block.settings.fv_video_url == blank %}
+                        <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                      {% else %}
+                        {% if block.settings.fv_video_url.type == "youtube" %}
+                          <iframe src="//www.youtube.com/embed/{{ block.settings.fv_video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                        {% if block.settings.fv_video_url.type == "vimeo" %}
+                          <iframe src="//player.vimeo.com/video/{{ block.settings.fv_video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% if block.settings.fv_display_wide %}
+                  </div>
+                  </div>
+                  {% endif %}
+                </section>
+            {% when 'newsletter_subscribe' %}
+              <section id="newsletter" class="section-newsletter-{{ block.id }} gridlock-fluid" data-aos="{{ settings.scroll_animation }}" data-block-id="{{ block.id }}">
+                  <div class="row">
+                    <div class="section-header row">
+                      {% if block.settings.ns_heading != blank %}
+                        <div class="section-title">
+                          <h3>{{ block.settings.ns_heading | escape }}</h3>
+                        </div>
+                      {% endif %}
+                      {% if block.settings.ns_newsletter_subheading != blank %}
+                        <p>{{ block.settings.ns_newsletter_subheading }}</p>
+                      {% endif %}
+                    </div>
+                    <div class="section-newsletter desktop-8 desktop-push-2 tablet-4 tablet-push-1 mobile-3">
+                      {% form 'customer' %}
+                        {{ form.errors | default_errors }}
+                        {% if form.posted_successfully? %}
+                          <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                        {% else %}
+                          <div class="input-group password__input-group">
+                            <input type="hidden" name="contact[tags]" value="newsletter">
+                            <input type="email"
+                              name="contact[email]"
+                              id="Email"
+                              class="input-group__field newsletter__input"
+                              value="{% if customer %}{{ customer.email }}{% endif %}"
+                              placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                              autocorrect="off"
+                              autocapitalize="off">
+                              <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                                <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                              </button>
+                          </div>
+                        {% endif %}
+                      {% endform %}
+                      <div class="section-icons text-center">
+                        {% render "social-icons" %}
+                      </div>
+                    </div>
+                  </div>
+                  </section>
+                  <style>
+                    section.section-newsletter-{{ block.id }} {
+                      padding: 0;
+                      margin: 0;
+                    }
+                    section.section-newsletter-{{ block.id }} {
+                        background: {{ block.settings.ns_background_color }};
+                    }
+                    section.section-newsletter-{{ block.id }} h3 {
+                      color: {{ block.settings.ns_subheading_color }} !important;
+                    }
+                    section.section-newsletter-{{ block.id }} p {
+                      color: {{ block.settings.ns_subheading_color }} !important;
+                      font-size: {{ block.settings.ns_subheading_font_size }}px !important;
+                      max-width: 60%;
+                      margin: 0 auto !important;
+                      line-height: 30px;
+                      padding-bottom: 20px !important;
+                      text-align: center;
+                    }
+                    .section-newsletter-{{ block.id }} p a {
+                      color: {{ block.settings.ns_subheading_color }} !important;
+                      opacity: 0.9;
+                    }
+                    .section-newsletter-{{ block.id }} p a:hover {
+                      text-decoration: underline;
+                    }
+                    @media screen and (max-width: 500px) {
+                      section.section-newsletter-{{ block.id }} p {
+                        max-width: 100%;
+                      }
+                    }
+                    section.section-newsletter-{{ block.id }} ul#social-icons li a:hover {
+                      opacity: 0.8;
+                    }
+                    section.section-newsletter-{{ block.id }} input#Email { /* WebKit browsers */
+                      color: {{ block.settings.ns_subheading_color }} !important;
+                    }
+                    section.section-newsletter-{{ block.id }} input#Email::-webkit-input-placeholder { /* WebKit browsers */
+                      color: {{ block.settings.ns_subheading_color }};
+                    }
+                    section.section-newsletter-{{ block.id }} input#Email:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                      color: {{ block.settings.ns_subheading_color }};
+                    }
+                    section.section-newsletter-{{ block.id }} input#Email::-moz-placeholder { /* Mozilla Firefox 19+ */
+                      color: {{ block.settings.ns_subheading_color }};
+                    }
+                    section.section-newsletter-{{ block.id }} input#Email:-ms-input-placeholder { /* Internet Explorer 10+ */
+                      color: {{ block.settings.ns_subheading_color }};
+                    }
+                  </style>
+        
+        
+          {% when 'html_ti' %}
+         <section style="
+    padding: 0;
+    margin: 0;
+    width: 100%;
+" class="row" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+                <div class="pages-content-{{ block.id }}">
+                
+                     {{ block.settings.code }}
+                 
+           </div></section>
+        
+            {% when 'rich_text' %}
+              <section class="row" data-aos="{{ settings.scroll_animation }}" {{ block.shopify_attributes }}>
+                <div class="pages-content-{{ block.id }}">
+                  <div class="section-title">
+                    <h1>{{ block.settings.rt_heading }}</h1>
+                  </div>
+                  {% if block.settings.rt_page != blank %}
+                    {%- assign feat_page = pages[block.settings.rt_page] -%}
+                    {{ feat_page.content }}
+                  {% else %}
+                    <div class="rte">
+                      {{ block.settings.rt_text }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.rt_page == blank and block.settings.rt_text == blank %}
+                    <div class="content-onboard">
+                      <p>Use this section to tell customers about your store or add content from one of your pages which makes it easy to add images, video or any other content</p>
+                    </div>
+                  {% endif %}
+                </div>
+                 <style>
+                   .pages-content-{{ block.id }},
+                   .pages-content-{{ block.id }} .rte {
+                   {% if block.settings.rt_alignment == 'center' %} text-align: center;  {% endif %}
+                     max-width: {{ block.settings.rt_text_width }}px;
+                     line-height: initial;
+                     margin-left: auto;
+                     margin-right: auto;
+                   }
+                   .pages-content-{{ block.id }} p,
+                   .pages-content-{{ block.id }} span {
+                     font-size: {{ block.settings.rt_text_size }}px;
+                   }
+                 </style>
+              </section>
+            {% when 'page_map' %}
+               {% assign bg_image = block.settings.ms_background_image | default: false %}
+               {% assign address = block.settings.ms_map_address | default: false %}
+               {% assign api_key = block.settings.ms_api_key | default: false %}
+               {% capture state %}
+               {% if api_key and address %}
+                 display-map
+               {% elsif bg_image %}
+                 display-bg-image
+               {% else %}
+                 onboarding
+               {% endif %}
+               {% endcapture %}
+               {% assign state = state | strip %}
+               <section id="MapSection--{{ block.id }}"
+               class="map-section map-section--{{ state }}"
+               data-block-id="{{ block.id }}"
+               data-section-type="map"
+               data-aos="{{ settings.scroll_animation }}">
+                 <script data-map-config type="application/json">
+                   {
+                     "api_key": {{ api_key | json }},
+                     "address": {{ address | json }},
+                     "zoom": 12,
+                     "styles": [
+                        {
+                           "featureType":"water",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color": "#e9e9e9"
+                              },
+                              {
+                                 "lightness":17
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"landscape",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#f5f5f5"
+                              },
+                              {
+                                 "lightness":20
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"road.highway",
+                           "elementType":"geometry.fill",
+                           "stylers":[
+                              {
+                                 "color":"#ffffff"
+                              },
+                              {
+                                 "lightness":17
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"road.highway",
+                           "elementType":"geometry.stroke",
+                           "stylers":[
+                              {
+                                 "color":"#ffffff"
+                              },
+                              {
+                                 "lightness":29
+                              },
+                              {
+                                 "":0.2
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"road.arterial",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#ffffff"
+                              },
+                              {
+                                 "lightness":18
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"road.local",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#ffffff"
+                              },
+                              {
+                                 "lightness":16
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"poi",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#f5f5f5"
+                              },
+                              {
+                                 "lightness":21
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"poi.park",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#dedede"
+                              },
+                              {
+                                 "lightness":21
+                              }
+                           ]
+                        },
+                        {
+                           "elementType":"labels.text.stroke",
+                           "stylers":[
+                              {
+                                 "visibility":"on"
+                              },
+                              {
+                                 "color":"#ffffff"
+                              },
+                              {
+                                 "lightness":16
+                              }
+                           ]
+                        },
+                        {
+                           "elementType":"labels.text.fill",
+                           "stylers":[
+                              {
+                                 "saturation":36
+                              },
+                              {
+                                 "color":"#333333"
+                              },
+                              {
+                                 "lightness":40
+                              }
+                           ]
+                        },
+                        {
+                           "elementType":"labels.icon",
+                           "stylers":[
+                              {
+                                 "visibility":"off"
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"transit",
+                           "elementType":"geometry",
+                           "stylers":[
+                              {
+                                 "color":"#f2f2f2"
+                              },
+                              {
+                                 "lightness":19
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"administrative",
+                           "elementType":"geometry.fill",
+                           "stylers":[
+                              {
+                                 "color":"#fefefe"
+                              },
+                              {
+                                 "lightness":20
+                              }
+                           ]
+                        },
+                        {
+                           "featureType":"administrative",
+                           "elementType":"geometry.stroke",
+                           "stylers":[
+                              {
+                                 "color":"#fefefe"
+                              },
+                              {
+                                 "lightness":17
+                              },
+                              {
+                                 "weight":1.2
+                              }
+                           ]
+                        }
+                     ]
+                   }
+                 </script>
+                 {% if block.settings.ms_heading != blank %}
+                   <div class="section-title">
+                     <h3>{{ block.settings.ms_heading | escape }}</h3>
+                   </div>
+                 {% endif %}
+                  <div class="map-section-wrapper gridlock-fluid">
+                    <div class="row">
+                      <div class="row {{ block.settings.ms_text_position }}">
+                        <div class="map-section-content-wrapper desktop-3 tablet-2 mobile-3">
+                          <div class="map-section-content">
+                          {% if block.settings.ms_hours_heading != blank %}
+                          <h3>{{ block.settings.ms_hours_heading }}</h3>
+                          {% endif %}
+                          {% if block.settings.ms_hours != blank %}
+                          <p>{{ block.settings.ms_hours }}</p>
+                          {% endif %}
+                          {% if block.settings.ms_address_heading != blank %}
+                          <h3>{{ block.settings.ms_address_heading }}</h3>
+                          {% endif %}
+                          {% if block.settings.ms_map_address != blank %}
+                          <p>{{ block.settings.ms_map_address }}</p>
+                          {% if block.settings.ms_button_text != blank %}
+                           <div class="cta">
+                             <a href="https://maps.google.com?daddr={{ block.settings.ms_map_address | escape }}"
+                                class="button"
+                                target="_blank">
+                               <span>{{ block.settings.ms_button_text | escape }}</span>
+                             </a>
+                           </div>
+                          {% endif %}
+                          {% endif %}
+                          </div>
+                        </div>
+                        <div class="map-section-background-wrapper contained desktop-9 tablet-4 mobile-3">
+                        {% if bg_image %}
+                          <div class="map-section-image lazyload lazyload-fade"
+                          data-bgset="{% render 'bgset', image: bg_image %}"
+                          data-sizes="auto"
+                          data-parent-fit="cover"
+                          data-bg-image
+                          style="background-image: url('{{ bg_image | img_url: '300x300' }});">
+                          </div>
+                          <noscript>
+                          <div class="map-section-image" style="background-image: url({{ bg_image | img_url: 'x800', crop: 'top' }});"></div>
+                          </noscript>
+                        {% endif %}
+                          <div class="placeholder-background">
+                          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                          </div>
+                          <div class="map-section-container" data-map></div>
+                          <div class="map-section-overlay" data-map-overlay></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               </section>
+               <style>
+                 #MapSection--{{ block.id }} .map-section-wrapper {
+                   background-color: {{ block.settings.ms_background_color }} !important;
+                 }
+               </style>
+          {% endcase %}
+
+          {% if block.type != 'page_title' %}</div>{% endif %}
+        {% endfor %}
+        <div class="clear"></div>
+      </div>
+      <!-- end the custom content -->
+  </div>
+</div>

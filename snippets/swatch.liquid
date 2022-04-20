@@ -1,0 +1,147 @@
+{% assign option_name = option.name | downcase %}
+{% assign color_swatch_name = "choose colours:, woods - finishes, color, colour, fabric, choose color, choose colour, finish, wood options, choose
+upholstery, upholstery, choose upholstery, upholstery, upholstery*, choose wood options, choose. finish, upholstery,
+choose colours" %}
+{% assign color_swatch_options = color_swatch_name | split: ", " %}
+{% assign material_swatch_options = "choose. material" | split: ", " %}
+
+{% assign current_option = "option" | append: option.position %}
+
+{% assign other_options = "option1 option2 option3" | remove: current_option | strip | split: " " %}
+{% assign handlizedOption = option_name | handleize %}
+{% assign optionstring = 'strings.product_options.' | append: handlizedOption | t %}
+{% if optionstring contains 'translation missing' %}
+  {% assign optionstring = option_name %}
+{% endif %}
+<div data-handlizedOption="{{handlizedOption}}" data-option-name="{{option_name}}" class="clearfix swatch" data-option-index="{{ option.position }}" data-other-options='{{ other_options | json }}'>
+  <h5>{{ optionstring  }}</h5>
+  {% if material_swatch_options contains option_name %}
+    <div class="tw-grid tw-grid-cols-2 tw-gap-2">
+  {% else %}
+    <div class="tw-flex tw-flex-wrap">
+  {% endif %}
+  
+  {% for value in option.values %}
+
+  <!-- {% assign image_url = value | handle | append: '.png' | file_url %} -->
+  {% assign handleValue = value | handle %}
+  {% assign image_url = 'https://res.cloudinary.com/dfgbpib38/image/upload/v1638254701/swatchs/' | append: product.handle | append: '/' | append: handleValue | append: '.png'  %}
+
+  {% assign css_color = value | split: ' ' | last | handle %}
+
+  {% capture id %}{{ section.id }}-swatch-{{ option.position }}-{{ value | handle }}{% endcapture %}
+
+  {% assign available = false %}
+
+  {%- comment -%}
+  <!-- Checking Availability -->
+  {%- endcomment -%}
+  {% for variant in product.variants %}
+  {% unless variant.available %}
+  {% continue %}
+  {% endunless %}
+
+  {% unless variant[current_option] == value %}
+  {% continue %}
+  {% endunless %}
+
+  {% unless variant[other_options[0]] == current_variant[other_options[0]] %}
+  {% continue %}
+  {% endunless %}
+
+  {% unless variant[other_options[1]] == current_variant[other_options[1]] %}
+  {% continue %}
+  {% endunless %}
+
+  {% assign available = true %}
+  {% endfor %}
+{%- comment -%}
+<!-- Building Variant Image -->
+{%- endcomment -%}
+  {% for variant in product.variants %}
+  {% unless variant[current_option] == value %}
+  {% continue %}
+  {% endunless %}
+
+  {% unless variant[other_options[0]] == current_variant[other_options[0]] %}
+  {% continue %}
+  {% endunless %}
+
+  {% unless variant[other_options[1]] == current_variant[other_options[1]] %}
+  {% continue %}
+  {% endunless %}
+
+  {% assign variant_image_url = blank %}
+
+  {% if variant.image %}
+  {% assign variant_image_url = variant.image | img_url: '1000x' %}
+  {% endif %}
+  {% assign inventory_quantity = variantinventory_quantity %}
+  {% endfor %}
+
+  {% assign checked = "" %}
+
+  {% if current_variant[current_option] == value %}
+  {% assign checked = 'checked="checked"' %}
+  {% endif %}
+  {% assign valuestring = 'strings.product_options.' | append: handleValue | t %}
+  {% if valuestring contains 'translation missing' %}
+    {% assign valuestring = value %}
+  {% endif %}
+  {% capture radio_button %}
+  <input type="radio" id="{% if template == 'product.quick' %}qv-{% endif %}{{ id }}" name="{{ option_name }}"
+    data-value="{{ handleValue }}" value="{{ value | escape }}" data-position="{{ option.position }}" {{ checked
+    }} />
+  {% endcapture %}
+
+  {% capture sold_out_image %}
+  <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+  {% endcapture %}
+  {% if color_swatch_options contains option_name  %}
+  
+  <div class="swatch-element color tw-leading-none {% unless available %} soldout  {% endunless %}">
+    <div class="tooltip">
+      {{ valuestring }}
+    </div>
+
+    {{ radio_button }}
+
+    <label for="{% if template == 'product.quick' %}qv-{% endif %}{{ id }}">
+      {{ sold_out_image }}
+      {% if template contains 'collection' %}
+      {% assign swatch_type = settings.color_swatch_options %}
+      {% elsif template contains 'product' or template contains 'index' %}
+      {% assign swatch_type = section.settings.color_swatch_options %}
+      {% endif %}
+
+      {% if swatch_type == 'variant-image' and variant_image_url != blank %}
+      <img class="variant-image" src="{{ variant_image_url }}" alt="{{ valuestring }}">
+      {% elsif section.settings.color_swatch_options == 'custom-image' %}
+      <div class="custom-image css-color"
+        style="width: 40px; height: 40px; background-color: {{ css_color }}; background-image: url({{ image_url }});background-size: 270%;background-position: center;">
+      </div>
+      {% else %}
+      <div class="css-color" style="width: 40px; height: 40px; background-color: {{ css_color }};"></div>
+      {% endif %}
+    </label>
+  </div>
+  {% elsif material_swatch_options contains option_name %}
+    <div class="swatch-element tw-w-full  !tw-m-0 {% unless available %} soldout {% endunless %}">
+      {{ radio_button }}
+      <label class="tw-w-full tw-bg-gray-100 tw-text-center" for="{% if template == 'product.quick' %}qv-{% endif %}{{ id }}">
+        {{ valuestring }}
+        {{ sold_out_image }}
+      </label>
+    </div>
+  {% else %}
+  <div class="swatch-element {% unless available %} soldout {% endunless %}">
+    {{ radio_button }}
+    <label for="{% if template == 'product.quick' %}qv-{% endif %}{{ id }}">
+      {{valuestring}}
+      {{ sold_out_image }}
+    </label>
+  </div>
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
