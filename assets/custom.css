@@ -181,11 +181,11 @@
 .homepage-newsletter .klaviyo_wrap > div{width:100%;}
 .homepage-newsletter .klaviyo_wrap form > .needsclick > .needsclick > .needsclick:nth-child(1){max-width:75% !important;width:100% !important;}
 .homepage-newsletter .klaviyo_wrap form > .needsclick > .needsclick > .needsclick:nth-child(2){max-width:25% !important;width:100% !important;}
-.homepage-newsletter .klaviyo_wrap form > .needsclick > .needsclick > .needsclick:nth-child(1) input{box-shadow: none !important;font-size: 15px !important;color:#000000 !important;border-color: #fff !important;font-family:'BrandonText' !important;font-size:15px !important;line-height:1.2 !important;}
+.homepage-newsletter .klaviyo_wrap form > .needsclick > .needsclick > .needsclick:nth-child(1) input{box-shadow: none !important;font-size: 15px !important;color:#000000 !important;border-color: #fff !important;font-family:'DIN Next LT Arabic Regular' !important;font-size:15px !important;line-height:1.2 !important;}
 .homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input:hover{border-color:#fff !important;}
-.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input::-webkit-input-placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'BrandonText' !important;}
-.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input:-ms-input-placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'BrandonText' !important;}
-.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input::placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'BrandonText' !important;}
+.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input::-webkit-input-placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'DIN Next LT Arabic Regular' !important;}
+.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input:-ms-input-placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'DIN Next LT Arabic Regular' !important;}
+.homepage-newsletter .klaviyo_wrap form>.needsclick>.needsclick>.needsclick:nth-child(1) input::placeholder{font-size: 15px !important;line-height:1.2 !important;font-family:'DIN Next LT Arabic Regular' !important;}
 .homepage-newsletter .klaviyo_wrap form > .needsclick > .needsclick > .needsclick:nth-child(2) button{width:100% !important;text-align:center !important;}
 
 
