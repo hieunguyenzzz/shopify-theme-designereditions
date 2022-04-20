@@ -8,6 +8,29 @@
     "theme_support_url": "http:\/\/designer-editions-shop.myshopify.com\/"
   },
   {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Address",
+        "default": "71 – 75 Shelton Street, London, WC2H9JQ"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Address",
+        "default": "020 3290 7690"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Address",
+        "default": "customersupport@designereditions.com"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {

@@ -57,7 +57,7 @@
         {% capture megalink %}
             <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{ link.title }}" data-active-class="navigation__menuitem--active" role="none">
                 <a class="navigation__menulink js-menu-link js-open-dropdown-on-key" href="{{ link.url }}" {{linkProps}}>{{ link.title }}</a>
-                <ul class="tw-bg-black tw-absolute tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw-mt-6 group-hover:tw-mt-0">
+                <ul class="tw-bg-white tw-absolute tw-shadow tw-left-0 tw-z-[-1]  tw-right-0 tw-opacity-0 group-hover:tw-opacity-100  tw-border-y tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
                     <div class="{% render '[class]-container' class: '' %} tw-max-w-[980px]" style="max-width: 1280px;">
                         {% if block.settings.nav_image != blank %}
                             <span class="desktop-3 tablet-hide mm-image">
@@ -82,13 +82,13 @@
                                 {% for sub_link in link.links %}
                                     <li class="megamenu__listcontainer contained desktop-fifth tablet-fourth">
                                         <h4 class="megamenu__header">
-                                            <a class="megamenu__headerlink" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                                            <a class="megamenu__headerlink " href="{{ sub_link.url }}">{{ sub_link.title }}</a>
                                         </h4>
                                         {% if sub_link.links != blank %}
                                             <ul class="megamenu__list">
                                                 {% for sub_sub_link in sub_link.links %}
                                                     <li class="megamenu__listitem">
-                                                        <a class="megamenu__listlink" href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                                                        <a class="megamenu__listlink " href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
