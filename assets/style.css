@@ -510,9 +510,17 @@ html {
   .tw-container {
     max-width: 640px;
   }
+
+  .tw-container {
+    max-width: 640px;
+  }
 }
 
 @media (min-width: 768px) {
+  .tw-container {
+    max-width: 768px;
+  }
+
   .tw-container {
     max-width: 768px;
   }
@@ -538,6 +546,10 @@ html {
   .tw-container {
     max-width: 1024px;
   }
+
+  .tw-container {
+    max-width: 1024px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -552,9 +564,17 @@ html {
   .tw-container {
     max-width: 1280px;
   }
+
+  .tw-container {
+    max-width: 1280px;
+  }
 }
 
 @media (min-width: 1536px) {
+  .tw-container {
+    max-width: 1536px;
+  }
+
   .tw-container {
     max-width: 1536px;
   }
@@ -4355,6 +4375,10 @@ html {
   height: 43px;
 }
 
+.tw-h-\[32px\] {
+  height: 32px;
+}
+
 .tw-max-h-\[calc\(100vh-180px\)\] {
   max-height: calc(100vh - 180px);
 }
@@ -4650,6 +4674,21 @@ html {
   gap: 1px;
 }
 
+.tw-gap-x-\[4\%\] {
+  -moz-column-gap: 4%;
+       column-gap: 4%;
+}
+
+.tw-gap-x-\[42\] {
+  -moz-column-gap: 42;
+       column-gap: 42;
+}
+
+.tw-gap-x-\[2\%\] {
+  -moz-column-gap: 2%;
+       column-gap: 2%;
+}
+
 .tw-space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -4742,6 +4781,10 @@ html {
 
 .tw-border-t {
   border-top-width: 1px;
+}
+
+.tw-border-b {
+  border-bottom-width: 1px;
 }
 
 .tw-border-solid {
@@ -5073,6 +5116,22 @@ html {
   padding-bottom: 100%;
 }
 
+.tw-pl-6 {
+  padding-left: 1.5rem;
+}
+
+.tw-pr-6 {
+  padding-right: 1.5rem;
+}
+
+.tw-pl-2 {
+  padding-left: 0.5rem;
+}
+
+.tw-pl-1 {
+  padding-left: 0.25rem;
+}
+
 .tw-text-left {
   text-align: left;
 }
@@ -5240,6 +5299,14 @@ html {
   line-height: 48px;
 }
 
+.tw-leading-\[40px\] {
+  line-height: 40px;
+}
+
+.tw-leading-\[36px\] {
+  line-height: 36px;
+}
+
 .tw-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -5275,12 +5342,21 @@ html {
   color: hsla(var(--bc) / var(--tw-text-opacity));
 }
 
+.tw-text-\[\#f2f2f2\] {
+  --tw-text-opacity: 1;
+  color: rgb(242 242 242 / var(--tw-text-opacity));
+}
+
 .tw-text-opacity-30 {
   --tw-text-opacity: 0.3;
 }
 
 .tw-text-opacity-70 {
   --tw-text-opacity: 0.7;
+}
+
+.tw-text-opacity-50 {
+  --tw-text-opacity: 0.5;
 }
 
 .tw-underline {
@@ -5826,6 +5902,10 @@ html {
   }
 
   .lg\:tw-flex {
+    display: flex;
+  }
+
+  .tw-flex {
     display: flex;
   }
 

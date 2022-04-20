@@ -6,13 +6,7 @@
     {% render 'navigation', link: link ,linkProps:linkProps %}
 {% endfor %}
 
-<li class="seeks">
-    <search-trigger>
-        <a href="#" id="search_trigger">
-            <i aria-hidden="true" class="icon icon-search"></i>
-        </a>
-    </search-trigger>
-</li>
+
 {% if shop.customer_accounts_enabled %}
     {% if customer  %}
         <li class="cust tw-group tw-relative">
@@ -99,10 +93,10 @@
     </li>
 {%- endif -%}
 <li>
-    <a href="{{ routes.cart_url }}" {% if settings.ajax_cart_method == 'drawer' %} class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" {% endif %}>
+    <a href="{{ routes.cart_url }}" {% if settings.ajax_cart_method == 'drawer' %} class="site-header__cart-toggle !tw-flex tw-items-center js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" {% endif %}>
         <span class="cart-words"></span>
         &nbsp;<i aria-hidden="true" class="icon icon-cart"></i>
-        <span class="CartCount tw-badge tw-badge-sm empty:tw-hidden">{% if cart.item_count >0  %}
+        <span class="CartCount tw-badge tw-badge-sm empty:tw-hidden">{%- if cart.item_count > 0  -%}
             {{ cart.item_count }}
         {% endif %}</span>
         &nbsp;<span class="CartCost tw-hidden">{{ cart.total_price | money }}</span>
