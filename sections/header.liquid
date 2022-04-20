@@ -44,8 +44,47 @@
     <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
         <div class="{% render '[class]-container'  class: '' %}  tw-flex tw-items-center">
             <div class="tw-flex tw-w-full tw-gap-6 tw-relative tw-justify-center"><!-- start nav container -->
-                <search-trigger class="lg:tw-flex tw-flex-1 tw-hidden tw-items-center ">
-                        <a href="#" id="search_trigger" class=" tw-text-[#f2f2f2] tw-text-opacity-50 min-w-[140px] tw-leading-[32px] tw-pr-6 tw-pl-1 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline">
+                <search-trigger class="lg:tw-flex tw-flex-1 tw-hidden tw-items-center tw-relative">
+                    <div class="js-search-reveal tw-z-20 searchreveal focus-within:block" id="search_reveal">
+                        <div class="tw-w-full tw-animate__animated tw-animate__fadeIn tw-bg-white tw-shadow-lg z-[-1]">
+                            <predictive-search class="tw-max-w-xl tw-block tw-relative tw-mx-auto">
+                                <form class="tw-relative tw-mx-auto tw-flex tw-items-center tw-gap-6 " action="{{ routes.search_url }}" method="get">
+                                    <input name="type" type="hidden" value="product">
+                                    <input  class="tw-flex-1 tw-px-6 focus:tw-outline-none !tw-text-[16px] !tw-indent-0 !tw-m-0 !tw-h-[62px] !tw-leading-[62px]" type="search" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}"
+                                        value="{{ search.terms | escape }}" 
+                                        role="combobox"
+                                        aria-expanded="false"
+                                        aria-owns="predictive-search-results-list"
+                                        aria-controls="predictive-search-results-list"
+                                        aria-haspopup="listbox"
+                                        aria-autocomplete="list"
+                                        autocorrect="off"
+                                        autocomplete="off"
+                                        autocapitalize="off"
+                                        spellcheck="false"/>
+                                    <div class="tw-flex tw-max-w-[100px] tw-absolute tw-top-3 tw-bottom-3 tw-w-[100px] tw-right-6">
+                                        <input value="{{ 'general.search.submit' | t }}" name="submit" id="search_button" class="button !tw-h-[38px] !tw-leading-[38px]" type="submit">
+                                    </div>
+                                    <div class="predictive-search predictive-search--header tw-absolute tw-top-full tw-left-0 tw-w-full tw-bg-white tw-shadow-lg" tabindex="-1" data-predictive-search>
+                                        <div class="predictive-search__loading-state">
+                                          <svg class="tw-w-5 tw-h-5 tw-mr-3 tw--ml-1 tw-text-white tw-animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="tw-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="tw-opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        </div>
+                                      </div>
+                                      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true">
+                                        
+                                          
+                                      </span>
+                                </form>
+                                
+                            </predictive-search>
+                            
+                        </div>
+                        
+                    </div>
+                        <a href="#" id="search_trigger" class=" tw-opacity-50 tw-text-opacity-50 min-w-[140px] tw-leading-[32px] tw-pr-6 tw-pl-1 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline">
                             <i aria-hidden="true" class="icon icon-search tw-h-[32px] !tw-flex tw-items-center"></i>
                             <span class="tw-leading-[36px]">Search entire store here...</span>
                         </a>
@@ -65,62 +104,28 @@
                 </ul>
                 <div class="tw-flex-1 lg:tw-hidden tw-flex tw-justify-end ">
                   {% render 'mobile-cart', cart: cart %}
-                </div>
+            </div>
                 
             </div><!-- end nav container -->
         </div>
     </div>
-    <div class="tw-flex tw-w-full tw-justify-center tw-border-b">
-        <nav aria-label="Primary Navigation" class="tw-container tw-hidden lg:tw-block">
-            <ul aria-label="Primary Navigation" class="navigation__menu tw-flex tw-justify-center tw-gap-x-[2%]" id="main-nav" role="menubar">
+    <div class="tw-flex tw-w-full tw-justify-center ">
+        <nav aria-label="Primary Navigation" class="tw-container tw-hidden lg:tw-block tw-isolate ">
+            <ul aria-label="Primary Navigation" class="navigation__menu  tw-bg-white tw-border-b tw-flex tw-justify-center tw-gap-x-[2%]" id="main-nav" role="menubar">
                 {% for link in linklists[section.settings.main_nav].links %}
                     {% render 'navigation', link: link %}
                 {% endfor %}
+								{% for block in section.blocks %}
+                    {% render '[navigation]-with-images',component:block link:block.settings.link heading: block.settings.menu_heading menu_items:block.settings.menu_item %}
+                {% endfor %}
             </ul>
         </nav>
+        
     </div>
 
     <div class="clear"></div>
    
-    <div class="js-search-reveal searchreveal focus-within:block" id="search_reveal">
-        <div class="tw-w-full tw-animate__animated tw-animate__fadeInUp tw-bg-white tw-shadow-lg z-[-1]">
-            <predictive-search class="tw-max-w-xl tw-block tw-relative tw-mx-auto">
-                <form class="tw-relative tw-mx-auto tw-flex tw-items-center tw-gap-6 " action="{{ routes.search_url }}" method="get">
-                    <input name="type" type="hidden" value="product">
-                    <input  class="tw-flex-1 tw-px-6 focus:tw-outline-none !tw-text-[16px] !tw-indent-0 !tw-m-0 !tw-h-[80px] !tw-leading-[80px]" type="search" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}"
-                        value="{{ search.terms | escape }}" 
-                        role="combobox"
-                        aria-expanded="false"
-                        aria-owns="predictive-search-results-list"
-                        aria-controls="predictive-search-results-list"
-                        aria-haspopup="listbox"
-                        aria-autocomplete="list"
-                        autocorrect="off"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        spellcheck="false"/>
-                    <div class=" tw-max-w-[100px] tw-absolute tw-top-3 tw-bottom-3 tw-w-[100px] tw-right-6">
-                        <input value="{{ 'general.search.submit' | t }}" name="submit" id="search_button" class="button" type="submit">
-                    </div>
-                    <div class="predictive-search predictive-search--header tw-absolute tw-top-full tw-left-0 tw-w-full tw-bg-white tw-shadow-lg" tabindex="-1" data-predictive-search>
-                        <div class="predictive-search__loading-state">
-                          <svg class="tw-w-5 tw-h-5 tw-mr-3 tw--ml-1 tw-text-white tw-animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="tw-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="tw-opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        </div>
-                      </div>
-                      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true">
-                        
-                          
-                      </span>
-                </form>
-                
-            </predictive-search>
-            
-        </div>
-        
-    </div>
+    
 </header>
 <div class="phantom js-phantom {% if section.settings.header_cover and template == 'index' %}ignore-this{% endif %}" id="phantom"></div>
 <div class="clear"></div>
@@ -306,6 +311,10 @@
       "settings": [
         {
           "type": "text",
+          "id": "menu_heading",
+          "label": "Heading"
+        }, {
+          "type": "text",
           "id": "menu_item",
           "label": "Menu item",
           "info": "Enter menu item to add image to submenu (case-sensitive)"
@@ -314,9 +323,14 @@
           "id": "nav_image",
           "label": "Image"
         }, {
+          "type": "image_picker",
+          "id": "nav_image_secound",
+          "label": "Image"
+        }, {
           "type": "select",
           "id": "nav_image_position",
           "label": "Image position",
+          "default": "right",
           "options": [
             {
               "value": "left",
@@ -327,9 +341,10 @@
             }
           ]
         }, {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Click here"
         }
       ]
     }, {
