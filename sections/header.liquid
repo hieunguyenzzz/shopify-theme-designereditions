@@ -42,31 +42,44 @@
         </div>
     {% endunless %}
     <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
-        <div class="{% render '[class]-container'  class: '' %} whi tw-flex tw-items-center">
-            <div class="tw-flex tw-w-full"><!-- start nav container -->
-                      <!-- Mobile menu trigger -->
-              
-                <nav aria-label="Primary Navigation" class="tw-flex-1 tw-hidden lg:tw-block">
-                    <ul aria-label="Primary Navigation" class="navigation__menu " id="main-nav" role="menubar">
-                        {% for link in linklists[section.settings.main_nav].links %}
-                            {% render 'navigation', link: link %}
-                        {% endfor %}
-                    </ul>
-                </nav>
+        <div class="{% render '[class]-container'  class: '' %}  tw-flex tw-items-center">
+            <div class="tw-flex tw-w-full tw-gap-6 tw-relative tw-justify-center"><!-- start nav container -->
+                <search-trigger class="lg:tw-flex tw-flex-1 tw-hidden tw-items-center ">
+                        <a href="#" id="search_trigger" class=" tw-text-[#f2f2f2] tw-text-opacity-50 min-w-[140px] tw-leading-[32px] tw-pr-6 tw-pl-1 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline">
+                            <i aria-hidden="true" class="icon icon-search tw-h-[32px] !tw-flex tw-items-center"></i>
+                            <span class="tw-leading-[36px]">Search entire store here...</span>
+                        </a>
+                </search-trigger>
+                <div class="tw-flex-1 lg:tw-hidden">
+                    <button aria-label="Open navigation" class="text-left tw-m-0 tw-px-0 tw-text-black slideout__trigger-mobile-menu js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="mobile-navigation" name="button" tabindex="0" type="button">
+                        <i aria-hidden="true" class="la la-bars"></i>
+                    </button>
+                </div>
+                
                 {% render 'logo' %}
-                <ul class="tw-flex-1 tw-justify-end tw-hidden lg:tw-block" id="cart">
+                <ul class="tw-flex-1 tw-justify-end tw-hidden lg:tw-block " id="cart">
                   {% render 'shopping-cart-links', cart: cart, hd_locale_selector: hd_locale_selector, hd_currency_selector: hd_currency_selector %}
                   <div class="tw-h-full tw-inline-flex tw-align-middle tw-items-center">
                     {% render '[location]-dropdown'  class: '' %}
                   </div>
                 </ul>
-                <div class="tw-flex-1 lg:tw-hidden tw-flex tw-justify-end">
+                <div class="tw-flex-1 lg:tw-hidden tw-flex tw-justify-end ">
                   {% render 'mobile-cart', cart: cart %}
                 </div>
                 
             </div><!-- end nav container -->
         </div>
     </div>
+    <div class="tw-flex tw-w-full tw-justify-center tw-border-b">
+        <nav aria-label="Primary Navigation" class="tw-container tw-hidden lg:tw-block">
+            <ul aria-label="Primary Navigation" class="navigation__menu tw-flex tw-justify-center tw-gap-x-[2%]" id="main-nav" role="menubar">
+                {% for link in linklists[section.settings.main_nav].links %}
+                    {% render 'navigation', link: link %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+
     <div class="clear"></div>
    
     <div class="js-search-reveal searchreveal focus-within:block" id="search_reveal">
@@ -116,230 +129,230 @@
 {% schema %}
 
 {
-    "name": "Header",
-    "settings": [
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_header",
+      "label": "Full width header"
+    }, {
+      "type": "checkbox",
+      "id": "enable_sticky_header",
+      "label": "Enable sticky header",
+      "default": true
+    }, {
+      "type": "checkbox",
+      "id": "header_cover",
+      "label": "Float header over slideshow"
+    }, {
+      "type": "checkbox",
+      "id": "header_border",
+      "label": "Add bottom border"
+    }, {
+      "type": "header",
+      "content": "Announcement Bar"
+    }, {
+      "type": "text",
+      "id": "announcement_bar_verified_reviews_number",
+      "label": "Verified reviews number",
+      "default": "100'S"
+    }, {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    }, {
+      "type": "richtext",
+      "id": "announcement_text",
+      "label": "Text",
+      "default": "<p>Share a shop announcement or message</p>"
+    }, {
+      "type": "richtext",
+      "id": "announcement_text1",
+      "label": "Text right",
+      "default": "<p>Share a shop announcement or message</p>"
+    }, {
+      "type": "range",
+      "id": "announcement_text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 13
+    }, {
+      "type": "link_list",
+      "id": "top_nav",
+      "label": "Add additional links with a menu"
+    }, {
+      "type": "header",
+      "content": "Cart Icon"
+    }, {
+      "type": "select",
+      "id": "cart_position",
+      "label": "Cart icon position",
+      "options": [
         {
-            "type": "checkbox",
-            "id": "full_width_header",
-            "label": "Full width header"
+          "value": "announcement-bar",
+          "label": "Announcement Bar"
         }, {
-            "type": "checkbox",
-            "id": "enable_sticky_header",
-            "label": "Enable sticky header",
-            "default": true
-        }, {
-            "type": "checkbox",
-            "id": "header_cover",
-            "label": "Float header over slideshow"
-        }, {
-            "type": "checkbox",
-            "id": "header_border",
-            "label": "Add bottom border"
-        }, {
-            "type": "header",
-            "content": "Announcement Bar"
-        }, {
-            "type": "text",
-            "id": "announcement_bar_verified_reviews_number",
-            "label": "Verified reviews number",
-            "default": "100'S"
-        }, {
-            "type": "checkbox",
-            "id": "show_announcement",
-            "label": "Show announcement",
-            "default": true
-        }, {
-            "type": "richtext",
-            "id": "announcement_text",
-            "label": "Text",
-            "default": "<p>Share a shop announcement or message</p>"
-        }, {
-            "type": "richtext",
-            "id": "announcement_text1",
-            "label": "Text right",
-            "default": "<p>Share a shop announcement or message</p>"
-        }, {
-            "type": "range",
-            "id": "announcement_text_size",
-            "min": 12,
-            "max": 24,
-            "step": 1,
-            "unit": "px",
-            "label": "Text size",
-            "default": 13
-        }, {
-            "type": "link_list",
-            "id": "top_nav",
-            "label": "Add additional links with a menu"
-        }, {
-            "type": "header",
-            "content": "Cart Icon"
-        }, {
-            "type": "select",
-            "id": "cart_position",
-            "label": "Cart icon position",
-            "options": [
-                {
-                    "value": "announcement-bar",
-                    "label": "Announcement Bar"
-                }, {
-                    "value": "header",
-                    "label": "Header"
-                }
-            ]
-        }, {
-            "type": "header",
-            "content": "Language Selector",
-            "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
-        }, {
-            "type": "checkbox",
-            "id": "show_locale_selector",
-            "label": "Show language selector",
-            "default": false
-        }, {
-            "type": "header",
-            "content": "Currency Selector",
-            "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
-        }, {
-            "type": "checkbox",
-            "id": "show_currency_selector",
-            "label": "Show currency selector",
-            "default": false
-        }, {
-            "type": "header",
-            "content": "Header Logo"
-        }, {
-            "type": "image_picker",
-            "id": "logo",
-            "label": "Logo image",
-            "info": "250px x 80px recommended"
-        }, {
-            "type": "image_picker",
-            "id": "logo_alt",
-            "label": "Alternative logo image",
-            "info": "You can switch to an alternative logo when scrolling."
-        }, {
-            "id": "logoname",
-            "type": "text",
-            "label": "Logo Text"
-        }, {
-            "type": "range",
-            "id": "logosize",
-            "min": 10,
-            "max": 65,
-            "step": 1,
-            "unit": "px",
-            "label": "Logo Size text",
-            "default": 20
-        }, {
-            "type": "range",
-            "id": "logo_max_width",
-            "min": 100,
-            "max": 250,
-            "step": 5,
-            "unit": "px",
-            "label": "Custom logo width",
-            "default": 200
-        }, {
-            "type": "select",
-            "id": "logo_position",
-            "label": "Logo position",
-            "options": [
-                {
-                    "value": "above",
-                    "label": "Above navigation"
-                }, {
-                    "value": "inline",
-                    "label": "Inline with navigation"
-                }
-            ]
-        }, {
-            "type": "select",
-            "id": "logo_align",
-            "label": "Logo alignment",
-            "options": [
-                {
-                    "value": "left",
-                    "label": "Left"
-                }, {
-                    "value": "center",
-                    "label": "Center"
-                }
-            ]
-        }, {
-            "type": "header",
-            "content": "Navigation"
-        }, {
-            "type": "link_list",
-            "id": "main_nav",
-            "label": "Choose navigation menu",
-            "default": "main-menu"
-        }, {
-            "type": "link_list",
-            "id": "main_nav1",
-            "label": "Choose navigation menu",
-            "default": "main-menu"
-        }, {
-            "type": "checkbox",
-            "id": "product_menu",
-            "label": "Show products in drop downs",
-            "info": "When your main nav item links to a collection, products from that are shown in any drop down menus"
+          "value": "header",
+          "label": "Header"
         }
-    ],
-    "blocks": [
+      ]
+    }, {
+      "type": "header",
+      "content": "Language Selector",
+      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+    }, {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": "Show language selector",
+      "default": false
+    }, {
+      "type": "header",
+      "content": "Currency Selector",
+      "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
+    }, {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": "Show currency selector",
+      "default": false
+    }, {
+      "type": "header",
+      "content": "Header Logo"
+    }, {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "250px x 80px recommended"
+    }, {
+      "type": "image_picker",
+      "id": "logo_alt",
+      "label": "Alternative logo image",
+      "info": "You can switch to an alternative logo when scrolling."
+    }, {
+      "id": "logoname",
+      "type": "text",
+      "label": "Logo Text"
+    }, {
+      "type": "range",
+      "id": "logosize",
+      "min": 10,
+      "max": 65,
+      "step": 1,
+      "unit": "px",
+      "label": "Logo Size text",
+      "default": 20
+    }, {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 100,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "label": "Custom logo width",
+      "default": 200
+    }, {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Logo position",
+      "options": [
         {
-            "type": "submenu_with_image",
-            "name": "Submenu with image",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "menu_item",
-                    "label": "Menu item",
-                    "info": "Enter menu item to add image to submenu (case-sensitive)"
-                }, {
-                    "type": "image_picker",
-                    "id": "nav_image",
-                    "label": "Image"
-                }, {
-                    "type": "select",
-                    "id": "nav_image_position",
-                    "label": "Image position",
-                    "options": [
-                        {
-                            "value": "left",
-                            "label": "Left"
-                        }, {
-                            "value": "right",
-                            "label": "Right"
-                        }
-                    ]
-                }, {
-                    "type": "url",
-                    "id": "link",
-                    "label": "Link"
-                }
-            ]
+          "value": "above",
+          "label": "Above navigation"
         }, {
-            "type": "mega_menu",
-            "name": "Mega menu",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "menu_item",
-                    "label": "Menu item",
-                    "info": "Enter menu item to apply a mega menu"
-                }, {
-                    "type": "image_picker",
-                    "id": "nav_image",
-                    "label": "Featured image"
-                }, {
-                    "type": "url",
-                    "id": "link",
-                    "label": "Slide link"
-                }
-            ]
+          "value": "inline",
+          "label": "Inline with navigation"
         }
-    ]
+      ]
+    }, {
+      "type": "select",
+      "id": "logo_align",
+      "label": "Logo alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        }, {
+          "value": "center",
+          "label": "Center"
+        }
+      ]
+    }, {
+      "type": "header",
+      "content": "Navigation"
+    }, {
+      "type": "link_list",
+      "id": "main_nav",
+      "label": "Choose navigation menu",
+      "default": "main-menu"
+    }, {
+      "type": "link_list",
+      "id": "main_nav1",
+      "label": "Choose navigation menu",
+      "default": "main-menu"
+    }, {
+      "type": "checkbox",
+      "id": "product_menu",
+      "label": "Show products in drop downs",
+      "info": "When your main nav item links to a collection, products from that are shown in any drop down menus"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "submenu_with_image",
+      "name": "Submenu with image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to add image to submenu (case-sensitive)"
+        }, {
+          "type": "image_picker",
+          "id": "nav_image",
+          "label": "Image"
+        }, {
+          "type": "select",
+          "id": "nav_image_position",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            }, {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }, {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }, {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu"
+        }, {
+          "type": "image_picker",
+          "id": "nav_image",
+          "label": "Featured image"
+        }, {
+          "type": "url",
+          "id": "link",
+          "label": "Slide link"
+        }
+      ]
+    }
+  ]
 }
 
 {% endschema %}
