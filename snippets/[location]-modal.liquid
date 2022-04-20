@@ -63,7 +63,7 @@ ES es /es-es' %}
                                     ({{lang.name | capitalize}})
                                 {% endif %}
                                 {%- assign iconPath =  country.iso_code | downcase | append:'-flag' | append: '.svg' %}
-                                <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                                <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | asset_url}}"/>
                             </a>
                         {%- endfor -%}
                     </div>

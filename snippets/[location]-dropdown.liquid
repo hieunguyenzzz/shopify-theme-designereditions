@@ -18,7 +18,7 @@ ES es /es-es' %}
 <div class="tw-dropdown tw-flex tw-dropdown-end tw-dropdown-hover">
     <div tabindex="0" class="tw-btn tw-btn-ghost !tw-font-normal !tw-mb-0 tw-rounded-none tw-btn-xs tw-items-center tw-gap-1">
             {%- assign iconPath =  localization.country.iso_code | downcase | append:'-flag' | append: '.svg' %}
-            <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+            <img width="16" height="16" class="tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | asset_url}}"/>
                               {{ localization.language.iso_code | append: '/' | append: localization.country.iso_code | downcase | split: '/' | uniq | join: '/'}}
     </div> 
     <div tabindex="0" class="p-2 tw-top-full tw-py-4 tw-flex tw-flex-col tw-shadow tw-dropdown-content tw-bg-base-100 tw-rounded tw-w-[240px] tw-truncate">
@@ -41,7 +41,7 @@ ES es /es-es' %}
                         ({{lang.name | capitalize}})
                     {% endif %}
                     {%- assign iconPath =  country.iso_code | downcase | append:'-flag' | append: '.svg' %}
-                    <img width="16" height="16" class="!tw-pl-0 tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | file_url}}"/>
+                    <img width="16" height="16" class="!tw-pl-0 tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | asset_url}}"/>
                 </a>
             
         {%- endfor -%}
