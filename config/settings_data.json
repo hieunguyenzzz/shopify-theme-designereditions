@@ -4325,15 +4325,15 @@
           "top_nav": "footer",
           "cart_position": "header",
           "show_locale_selector": false,
-          "show_currency_selector": false,
-          "logo": "shopify:\/\/shop_images\/Text-Logo-For-web-1000_163fb4cf-5e59-40ce-b248-00858dc29246_x320-1.png",
+          "show_currency_selector": true,
+          "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
           "logoname": "DESIGNER ICONS",
           "logosize": 20,
           "logo_max_width": 165,
           "logo_position": "inline",
           "logo_align": "center",
           "main_nav": "main-menu",
-          "main_nav1": "home-right",
+          "main_nav1": "",
           "product_menu": false
         }
       },
@@ -4350,14 +4350,14 @@
           "1561574551095": {
             "type": "menu",
             "settings": {
-              "footer_nav": "information",
+              "footer_nav": "",
               "title": "Orders"
             }
           },
           "b0848732-b51c-4e16-889e-3f5e2194069b": {
             "type": "menu",
             "settings": {
-              "footer_nav": "help",
+              "footer_nav": "",
               "title": "Help"
             }
           },
@@ -4366,10 +4366,8 @@
             "settings": {
               "title": "Designer Icons",
               "footer_text": "<p>Address:  <a href=\"https:\/\/www.google.com\/maps\/place\/71-75+Shelton+St,+London+WC2H+9JQ,+V%C6%B0%C6%A1ng+Qu%E1%BB%91c+Anh\/@51.5149056,-0.1257351,17z\/data=!3m1!4b1!4m5!3m4!1s0x487604ccaaa0b0b7:0xbe144a0754857ae1!8m2!3d51.5149056!4d-0.1235464\" target=\"_blank\" title=\"https:\/\/www.google.com\/maps\/place\/71-75+Shelton+St,+London+WC2H+9JQ,+V%C6%B0%C6%A1ng+Qu%E1%BB%91c+Anh\/@51.5149056,-0.1257351,17z\/data=!3m1!4b1!4m5!3m4!1s0x487604ccaaa0b0b7:0xbe144a0754857ae1!8m2!3d51.5149056!4d-0.1235464\">71 – 75 Shelton Street, London, WC2H9JQ<\/a><\/p><p>Contact us: <a href=\"tel:+44 (0) 2038074049\" target=\"_blank\" title=\"tel:+44 (0) 2038074049\">+44 (0) 2038074049<\/a><\/p><p><\/p>",
-              "image": "shopify:\/\/shop_images\/Google_Reviews.jpg",
               "imageUrl": "\/",
               "imageUrl1": "\/",
-              "image2": "shopify:\/\/shop_images\/Screenshot_24.png",
               "imageUrl2": "https:\/\/uk.trustpilot.com\/review\/designer-icons.com",
               "imageUrl3": "\/"
             }
@@ -5023,7 +5021,6 @@
         "disabled": true,
         "settings": {
           "style": "style_1",
-          "image": "shopify:\/\/shop_images\/Designer_Editions_Home_Banner.png",
           "layout": "right",
           "color": "#f9f9f9",
           "image_width": "66%",
@@ -5319,7 +5316,6 @@
             "settings": {
               "quote": "<p>I am so happy for the lamp I ordered from Designer Icons! The quality and service was perfect! I will tell all my friends about Designer Icons, and tell them how pleased I am! Thank you<\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>I love Designer Icons",
-              "image": "shopify:\/\/shop_images\/73x73.png",
               "author": ""
             }
           },
@@ -5328,7 +5324,6 @@
             "settings": {
               "quote": "<p>I ordered the Wishbone chairs and they look exactly as on the pictures on the website. Pretty fast delivery (2 weeks to Belgium). Received phone call upfront to confirm my availability for the delivery. <\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>Exactly as per photos",
-              "image": "shopify:\/\/shop_images\/73x73_1.png",
               "author": ""
             }
           },
@@ -5337,7 +5332,6 @@
             "settings": {
               "quote": "<p>Excellent product and service. Received in the UK 6 days after stock arrived at Designer Icons even though there are world wide problems with freight due to brexit and covid. <\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ☆<\/div>designer-quality furniture",
-              "image": "shopify:\/\/shop_images\/73x73_2.png",
               "author": ""
             }
           },
@@ -5346,7 +5340,6 @@
             "settings": {
               "quote": "<p>I ordered a lamp and would get it within 5-6 weeks. I was kept constantly informed about what happened in the process and to my surprise the lamp was delivered after only 3 weeks. Perfect quality, I will be back! <\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>Perfect Artichoke Pendant",
-              "image": "shopify:\/\/shop_images\/73x73_3.png",
               "author": ""
             }
           },
@@ -5355,7 +5348,6 @@
             "settings": {
               "quote": "<p>This Noguchi table is fabulous. We ordered the large and it is perfect. Great quality at an amazing price. Delighted with it.<\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>Fabulous Noguchi",
-              "image": "shopify:\/\/shop_images\/73x73_4.png",
               "author": ""
             }
           }
@@ -5386,7 +5378,6 @@
           "162159895992baa653-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Wishbone-Table_e7879689-0916-47ae-81f3-6a43a55810aa.jpg",
               "image_width": "50%",
               "link": "shopify:\/\/pages\/our-customers",
               "heading": "Annick Bast, Belgium",
@@ -5398,7 +5389,6 @@
           "162159895992baa653-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/PK20-Chairs.png",
               "image_width": "50%",
               "link": "shopify:\/\/pages\/our-customers",
               "heading": "La Datcha, Chalet, Megeve",
@@ -5834,7 +5824,6 @@
         "disabled": true,
         "settings": {
           "bgColor": "#eef5f1",
-          "image": "shopify:\/\/shop_images\/Team.png",
           "heading": "Here We Are",
           "description": "<p>Our team love great furniture. Part of that passion means making it available to everyone at affordable prices. From developers to designers, or customer service reps to quality engineers, each branch of the Desiger Icons team is committed to producing the best furniture at incredible prices. Our global family takes in diverse skills and attitudes, but we all share a love of iconic furniture and the desire to make it accessible to all.<\/p>",
           "url": "\/",
@@ -5847,35 +5836,30 @@
           "55b64e72-226e-400d-9ac8-24969f755896": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/PK20-Chairs_2a6e074a-2090-4096-b79d-50972a72fc7c.png",
               "url": "\/"
             }
           },
           "649a2270-c345-4c3f-ba73-48f83fc5b273": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Wishbone-Table_e7879689-0916-47ae-81f3-6a43a55810aa.jpg",
               "url": "\/"
             }
           },
           "6ed701a1-4247-48a4-9c0e-c4938d02ce2c": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Wishbone-Table.jpg",
               "url": "\/"
             }
           },
           "a4ea7b7d-1eaf-4a26-a479-bd9a38bea129": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Wishbone_Y_Chair_-_CH24_-_Walnut_-_Black_Cord.jpg",
               "url": "\/"
             }
           },
           "baad3290-fc08-4880-ad37-cc98e4ac9998": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/master-banner.jpg",
               "url": "\/"
             }
           }
@@ -5957,14 +5941,6 @@
       "1635419372bc88c051",
       "161890494913acaf20",
       "162159895992baa653"
-    ],
-    "blocks": {
-      "15323590465973626552": {
-        "type": "shopify:\/\/apps\/translate-currency-langshop\/blocks\/langshop\/84899e01-2b29-42af-99d6-46d16daa2111",
-        "disabled": false,
-        "settings": {
-        }
-      }
-    }
+    ]
   }
 }
