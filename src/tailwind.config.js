@@ -11,7 +11,10 @@ module.exports = {
   theme: {
     namedGroups: ['one', 'two'],
     extend: {
-    
+      fontFamily: {
+        'body': ['var(--main-family)'],
+        'heading': ['var(--heading-family)'],
+      },
     },
   },
   plugins: [

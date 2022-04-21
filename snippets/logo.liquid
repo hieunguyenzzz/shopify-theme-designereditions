@@ -3,14 +3,14 @@
         {%- assign image_size = '400x' -%}
         <div class="first_logo tw-text-center">
             <a href="{{ routes.root_url }}">
-                <img width="400" height="200" class="!tw-max-w-[220px] lg:tw-max-w-[260px]" src="{{ section.settings.logo | img_url: image_size }}" itemprop="logo">
+                <img width="400" height="200" class="tw-w-[220px] md:tw-w-[302px]" src="{{ section.settings.logo | img_url: image_size }}" itemprop="logo">
             </a>
         </div>
         {% if section.settings.logo_alt != blank %}
             {%- assign image_size = '400x' -%}
             <div class="second_logo">
                 <a href="{{ routes.root_url }}">
-                    <img width="400" height="200"  src="{{ section.settings.logo_alt | img_url: image_size }}" itemprop="logo">
+                    <img width="400" height="200" class="tw-w-[220px] md:tw-w-[302px]"   src="{{ section.settings.logo_alt | img_url: image_size }}" itemprop="logo">
                 </a>
             </div>
         {% endif %}
