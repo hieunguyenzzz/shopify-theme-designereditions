@@ -9,9 +9,9 @@ const changeDom = (data, page, id) => {
     let res = regexScriptTag(data.html);
     data.html.startsWith("linkHref=")
         ? (addMetaRedirect(data.html.slice(
-              data.html.indexOf("=") + 1,
-              data.html.length
-          )))
+            data.html.indexOf("=") + 1,
+            data.html.length
+        )))
         : otInitialElement(res);
     if (page == "home") {
         localStorage.setItem("otRegionDomBlockIP", data.html);
@@ -140,14 +140,10 @@ const regionInit = async () => {
                 null
             );
     }
-
-    fetch(
-        `${otRegionRootLink}/region.php?action=installThemeLiquid&shop=${otRegionShop}`
-    );
 };
 
 const otRegionMain = () => {
-    if (otRegionCheckAdminUpdate !== null) {
+    if (otAdminUpdate) {
         regionInit();
     } else {
         let otRegionIpcandidate = localStorage.getItem("otRegionIpcandidate");
@@ -157,13 +153,13 @@ const otRegionMain = () => {
                 if (otRegionDomBlockIP === "") {
                     checkCollectionInBlock(__st.rid, otRegionDomBlockCollection)
                         ? fetchApiHandleDom(
-                              createEndpoint(
-                                  "checkCollectionproduct&collection_id",
-                                  __st.rid
-                              ),
-                              "collection",
-                              __st.rid
-                          )
+                            createEndpoint(
+                                "checkCollectionproduct&collection_id",
+                                __st.rid
+                            ),
+                            "collection",
+                            __st.rid
+                        )
                         : handleDomCache(otRegioncollectionCache);
                 }
             }
@@ -218,7 +214,7 @@ function handleIpCandidateDynamic(data) {
                     );
                 }
             } else {
-                !checkIpCandidateInArr(arrayIP, candidates[0]) 
+                !checkIpCandidateInArr(arrayIP, candidates[0])
                     ? regionInit()
                     : renderDomCache(data);
             }
@@ -236,9 +232,9 @@ function renderDomCache(data) {
     let res = regexScriptTag(data);
     data.startsWith("linkHref=")
         ? (addMetaRedirect(data.slice(
-              data.indexOf("=") + 1,
-              data.length
-          )))
+            data.indexOf("=") + 1,
+            data.length
+        )))
         : otInitialElement(res);
 }
 
@@ -276,7 +272,7 @@ function regexScriptTag(data) {
     return res;
 }
 
-function addMetaRedirect(linkRedirect){
+function addMetaRedirect(linkRedirect) {
     linkRedirectOtRegion.setAttribute("http-equiv", "refresh");
     linkRedirectOtRegion.setAttribute("content", `0; url=${linkRedirect}`);
     document.getElementsByTagName("head")[0].appendChild(linkRedirectOtRegion);
