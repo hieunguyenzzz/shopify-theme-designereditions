@@ -16,7 +16,7 @@
     "secondary_color": "rgba(0,0,0,0)",
     "background": "#ffffff",
     "header_color": "#000000",
-    "text_color": "#333333",
+    "text_color": "#535353",
     "link_color": "#333333",
     "sale_color": "#c50000",
     "dotted_color": "#e5e5e5",
@@ -163,10 +163,10 @@
             "settings": {
               "menu_heading": "CHAIRS",
               "menu_item": "Armchairs,Dining Chairs,High Back Chairs,Lounge Chair,Bar Stools,Stools,Modern Rocking Chairs,Office Chairs,Modern Benches",
-              "nav_image": "shopify:\/\/shop_images\/hand-about-to-pour-stove-top-coffee.jpg",
-              "nav_image_secound": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "f1747aa2-a9a5-4b52-b63d-bb0a75019fe7": {
@@ -174,8 +174,10 @@
             "settings": {
               "menu_heading": "TABLES",
               "menu_item": "Dining Tables,Modern Coffee Table,Side Tables,Desks,Conference Table",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "63d14d0c-cf9d-4a04-917b-b88fb939fdf2": {
@@ -183,8 +185,10 @@
             "settings": {
               "menu_heading": "SOFA",
               "menu_item": "2 Seater Sofa,3 Seater Sofa,Chaise Lounge \/ Day Beds,Retro Sofas,Leather Sofa,Modular Sofas",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Sofa.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "af8e8a1c-b698-4a03-86a9-ecadb23f17b7": {
@@ -192,8 +196,10 @@
             "settings": {
               "menu_heading": "LIGHTING",
               "menu_item": "Table Lamps,Floor Lamps,Ceiling Lights,Wall Lamps,Pendant Lights",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "c3e8bc27-dc9a-4720-8e35-ff38c4771058": {
@@ -201,8 +207,10 @@
             "settings": {
               "menu_heading": "STORAGE",
               "menu_item": "Sideboards,Display Cabinet,Chest of Drawers,Cabinets,Modern TV Unit",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Storage.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "40e074a5-72e6-4267-aff5-3acbb34b5982": {
@@ -210,8 +218,11 @@
             "settings": {
               "menu_heading": "ACCESSORIES",
               "menu_item": "Coat Hooks & Stands,Designer Clock",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Clocks.webp",
+              "nav_image_secound": "shopify:\/\/shop_images\/DROPDOWN-Banners-Accessories.webp",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 3
             }
           },
           "b4dff0dd-ae71-4b8b-aeab-c1b7f0ab5f13": {
@@ -220,7 +231,15 @@
               "menu_heading": "DESIGNERS",
               "menu_item": "A and P Castiglioni,Alvar Aalto,Anna Castelli Ferrieri,Arne Jacobsen,August Thonet,Bertjan Pot, Børge Mogensen,Carlo Mollino,Charles Eames,Christian Dell,Draga Obradovic & Aurel K. Basedow,Ebbe Gehl & Søren Nissen ,Eero Aarnio,Eero Saarinen,Eileen Gray,Erik Buch,Fabricius and Kastholm,Finn Juhl,Florence Knoll,Gabriele & Oscar Buratti,George Nelson,Gino Sarfatti,Grant Featherston,Greta Grossman,Hans J. Wegner,Harry Bertoia,Isamu Noguchi,Jean Prouvé,Jens Risom,Jo Hammerborg,Juha Ilmari Leiviskä,Jørn Oberg Utzon,Kai Kristiansen,Le Corbusier,Marcel Breuer,Mariano Fortuny y Madrazo,Mark Stam,Michael Thonet,Mies Van Der Rohe,Designer Editions,Nicolaj Nøddesbo & Tommy Hyldahl,Paulo Rizzatto,Pierre Paulin,Philippe Starck,Poul Christiansen,Poul Henningsen,Poul Kjærholm,Poul Volther,Robert Dudley Best,Serge Mouille,Sigurd Ressell,Sori Yanagi,Xavier Pauchard,Verner Panton,Vico Magistretti,Warren Platner,Wilhelm Wagenfeld,Bernard Schottlander,Bernard-Albin Gras,Shin and Tomoko Azumi,Mario Bellini",
               "nav_image_position": "right",
-              "link_text": "Click here"
+              "link_text": "Click here",
+              "columns_number": 4
+            }
+          },
+          "a4442bdc-8732-4420-a316-e6193e1479cc": {
+            "type": "linkonly",
+            "settings": {
+              "menu_heading": "EXPRESS DELIVERY",
+              "url": "\/"
             }
           }
         },
@@ -231,7 +250,8 @@
           "af8e8a1c-b698-4a03-86a9-ecadb23f17b7",
           "c3e8bc27-dc9a-4720-8e35-ff38c4771058",
           "40e074a5-72e6-4267-aff5-3acbb34b5982",
-          "b4dff0dd-ae71-4b8b-aeab-c1b7f0ab5f13"
+          "b4dff0dd-ae71-4b8b-aeab-c1b7f0ab5f13",
+          "a4442bdc-8732-4420-a316-e6193e1479cc"
         ],
         "settings": {
           "full_width_header": false,
@@ -239,7 +259,7 @@
           "header_cover": false,
           "header_border": false,
           "announcement_bar_verified_reviews_number": "100'S",
-          "show_announcement": true,
+          "show_announcement": false,
           "announcement_text": "<p>GUARANTEED BEST QUALITY<\/p>",
           "announcement_text1": "<p>UP TO 60% OFF SELECT LINES<\/p>",
           "announcement_text_size": 12,
@@ -261,40 +281,32 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "1561574562622": {
-            "type": "menu",
+          "dcf2a170-e61b-4601-a7aa-8bdb4e8f88a0": {
+            "type": "submenu",
             "settings": {
-              "footer_nav": "footer",
-              "title": "Get To Know"
+              "menu_heading": "CATEGORIES",
+              "menu_item": "Chairs, Sofas, Lighting Tables, Accessories"
             }
           },
-          "1561574551095": {
-            "type": "menu",
+          "6f8a40f1-3e70-49e7-b116-defd54c3d72e": {
+            "type": "submenu",
             "settings": {
-              "footer_nav": "footer",
-              "title": "Orders"
+              "menu_heading": "INFORMATION",
+              "menu_item": "About Us, Brexit, Contact Us, FAQs, Terms&Conditions, Join Our Mailing List, Returns and Refund, Transparency Policy, Privacy Policy, Ethical Trading Trade, Sitemap, Photo Contest"
             }
           },
-          "b0848732-b51c-4e16-889e-3f5e2194069b": {
-            "type": "menu",
+          "a07aa2ee-9834-47c9-8e0d-161669592c59": {
+            "type": "submenu",
             "settings": {
-              "footer_nav": "main-menu",
-              "title": "Help"
-            }
-          },
-          "b882eae2-4f7b-42d9-b018-ccd3fdcee094": {
-            "type": "menu",
-            "settings": {
-              "footer_nav": "main-menu",
-              "title": "Explore"
+              "menu_heading": "ACCOUNT",
+              "menu_item": "My account, Order tracking"
             }
           }
         },
         "block_order": [
-          "1561574562622",
-          "1561574551095",
-          "b0848732-b51c-4e16-889e-3f5e2194069b",
-          "b882eae2-4f7b-42d9-b018-ccd3fdcee094"
+          "dcf2a170-e61b-4601-a7aa-8bdb4e8f88a0",
+          "6f8a40f1-3e70-49e7-b116-defd54c3d72e",
+          "a07aa2ee-9834-47c9-8e0d-161669592c59"
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
@@ -937,12 +949,12 @@
       },
       "16188954225e385108": {
         "type": "image-with-text-row",
-        "disabled": true,
         "settings": {
           "style": "style_1",
+          "image": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
           "layout": "right",
           "color": "#f9f9f9",
-          "image_width": "66%",
+          "image_width": "33%",
           "text_align": "left",
           "title": "THE ICONS FOR LESS",
           "subTitle": "40% Off Everything",
