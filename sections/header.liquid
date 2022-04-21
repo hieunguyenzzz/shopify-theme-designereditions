@@ -102,20 +102,28 @@
       </nav>
     </div>
   </div>
-	<div class="tw-drawer tw-absolute tw-inset-0 tw-top-[103px] tw-w-screen  tw-h-[calc(100vh-103px)]">
+	<div class="tw-drawer tw-absolute tw-inset-0 tw-top-[102px] tw-w-screen  tw-h-[calc(100vh-103px)]">
 		<input id="openMenuMobile" type="checkbox" class="tw-drawer-toggle">
 		<div class="tw-drawer-side ">
 			<label for="openMenuMobile" class="tw-drawer-overlay"></label>
 			<div class="tw-w-full tw-absolute tw-inset-0 tw-flex tw-bg-white tw-overflow-auto tw-h-full tw-justify-center tw-isolate ">
-				<ul class="tw-list-none tw-divide-y">
+				<ul class="tw-list-none tw-divide-y tw-w-full">
 					{% for block in section.blocks %}
 						<li>
-							<div tabindex="0" class=" tw-collapse tw-collapse-arrow border-base-300">
-								<div class=" tw-collapse-title tw-leading-[28px]">
-									{{block.settings.menu_heading}}
+							<div tabindex="0" class=" tw-collapse tw-collapse-arrow">
+								<input type="checkbox" class="tw-peer"> 
+								<div class=" tw-collapse-title tw-leading-[28px] peer-checked:tw-bg-transparent">
+									<a href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
 								</div>
-								<div class="tw-collapse-content"> 
-									<p>tabindex="0" attribute is necessary to make the div focusable</p>
+								<div class="tw-collapse-content peer-checked:tw-bg-transparent tw-shadow-inner"> 
+									<ul class="tw-menu tw-menu-compact tw-w-full tw-divide-y tw-divide-opacity-50">
+										{% assign items = block.settings.menu_item | split: ',' %}
+										{% for item in items %}
+											<li >
+												<a class="tw-leading-none" href="/collections/{{ item | handleize }}">{{ item }}</a>
+											</li>
+										{% endfor %}
+									</ul>
 								</div>
 							</div>
 						</li>
