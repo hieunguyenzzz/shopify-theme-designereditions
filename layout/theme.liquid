@@ -156,18 +156,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% render 'timber-cart' %}
 {% endif %}
 
-<aside class="slideout slideout__drawer-right" data-wau-slideout="mobile-navigation" id="slideout-mobile-navigation">
-    {% section 'mobile-navigation' %}
-</aside>
+
 {% section 'header' %}
 <main class="site-wrap tw-overflow-hidden {% if settings.ajax_cart_method == 'drawer' %} is-moved-by-drawer{% endif %}" role="main">
-
-
     <div class="page-wrap">
-        {% if settings.scrolling_bar_position == 'header' %}
-            {% section 'scrolling-announcements' %}
-        {% endif %}
-
         {% if template == 'index' or template contains 'blog' or template contains 'collection' or template contains
       'page' or template contains 'product' %}
             {{ content_for_layout }}

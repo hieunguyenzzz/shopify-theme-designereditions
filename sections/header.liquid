@@ -9,7 +9,7 @@
   {%- assign hd_locale_selector = true -%}
 {%- endif -%}
 
-<header class="header-section tw-pb-[53px] lg:tw-pb-0" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
+<header class="header-section tw-pb-[26px] lg:tw-pb-0 tw-relative tw-border-b" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
   {% if section.settings.show_announcement %}
     <div class="topbar">
       <div class="{% render '[class]-container' class: '' %} tw-flex tw-justify-center tw-items-center tw-truncate tw-text-xs tw-font-bold">
@@ -37,19 +37,19 @@
     </div>
   {% endif %}
   <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
-    <div class="{%- render '[class]-container' class: '' -%} tw-h-[74px] tw-flex tw-items-center tw-relative">
+    <div class="{%- render '[class]-container' class: '' -%} tw-h-[74px] tw-flex tw-items-center ">
       <div class="tw-flex tw-w-full tw-gap-6 tw-justify-center"><!-- start nav container -->
-        <search-trigger class="tw-bg-white tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-top-full tw-items-center lg:tw-relative">
+        <search-trigger class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
           <div class="js-search-reveal tw-z-20 searchreveal focus-within:block" id="search_reveal">
             <div class="tw-w-full tw-animate__animated tw-animate__fadeIn tw-bg-white z-[-1]">
-              <predictive-search class="tw-max-w-xl tw-block tw-relative tw-mx-auto">
-                <form class="tw-relative tw-mx-auto tw-flex tw-items-center tw-gap-6 " action="{{ routes.search_url }}" method="get">
+              <predictive-search class="tw-block tw-relative tw-mx-auto">
+                <form class="tw-relative tw-mx-auto tw-flex tw-items-center tw-gap-6 !tw-max-w-none lg:!tw-max-w-lg" action="{{ routes.search_url }}" method="get">
                   <input name="type" type="hidden" value="product">
-                  <input class="tw-flex-1 tw-px-6 focus:tw-outline-none !tw-text-[16px] !tw-indent-0 !tw-m-0 !tw-h-[62px] !tw-leading-[62px]" type="search" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms | escape }}" role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
-                  <div class="tw-flex tw-max-w-[100px] tw-absolute tw-top-3 tw-bottom-3 tw-w-[100px] tw-right-6 ">
+                  <input class="tw-flex-1 tw-px-6 focus:tw-outline-none !tw-text-[16px] !tw-indent-0 !tw-m-0 !tw-h-[37px] !tw-leading-[37px]" type="search" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms | escape }}" role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+                  <div class="tw-flex tw-invisible tw-max-w-[100px] tw-absolute tw-top-3 tw-bottom-3 tw-w-[100px] tw-right-6 ">
                     <input  value="{{ 'general.search.submit' | t }}" name="submit" id="search_button" class="!tw-hidden button !tw-h-[30px] !tw-leading-[30px]" type="submit">
                   </div>
-                  <div class="predictive-search predictive-search--header tw-absolute tw-top-full tw-left-0 tw-w-full tw-bg-white tw-shadow tw-rounded" data-predictive-search tabindex="-1">
+                  <div class="predictive-search predictive-search--header tw-absolute tw-top-full tw-left-0 tw-w-full tw-bg-white tw-shadow " data-predictive-search tabindex="-1">
                     <div class="predictive-search__loading-state">
                       <svg class="tw-w-5 tw-h-5 tw-mr-3 tw--ml-1 tw-text-white tw-animate-spin" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <circle class="tw-opacity-25" cx="12" cy="12" r="10" stroke-width="4" stroke="currentColor"></circle>
@@ -63,15 +63,15 @@
               </predictive-search>
             </div>
           </div>
-          <a class="tw-w-full sm:tw-px-8 tw-bg-white tw-pt-2 tw-pb-2 tw-pl-4 lg:tw-p-0 tw-opacity-50 tw-text-opacity-50 min-w-[140px] lg:tw-pr-6 tw-leading-[32px] lg:tw-w-[unset] lg:tw-pl-2 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline" href="#" id="search_trigger">
+          <a class="tw-w-full tw-bg-white lg:tw-p-0 tw-opacity-50 tw-text-opacity-50 min-w-[140px] lg:tw-pr-6 tw-leading-[32px] lg:tw-w-[unset] lg:tw-pl-2 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline" href="#" id="search_trigger">
             <i aria-hidden="true" class="icon icon-search tw-h-[32px] !tw-flex tw-items-center"></i>
             <span class="tw-leading-[36px]">{{ 'general.search.placeholder' | t }}</span>
           </a>
         </search-trigger>
-        <div class="tw-flex-1 lg:tw-hidden">
-          <button aria-label="Open navigation" class="text-left tw-m-0 tw-px-0 tw-text-black slideout__trigger-mobile-menu js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="mobile-navigation" name="button" tabindex="0" type="button">
+        <div class="tw-flex-1 lg:tw-hidden tw-flex tw-items-center">
+          <label for="openMenuMobile" aria-label="Open navigation" class="text-left tw-m-0 tw-px-0 tw-text-black slideout__trigger-mobile-menu js-slideout-open" data-slideout-direction="right" data-wau-slideout-target="mobile-navigation" name="button" tabindex="0" type="button">
             <i aria-hidden="true" class="la la-bars"></i>
-          </button>
+          </label>
         </div>
 
         {% render 'logo' %}
@@ -88,9 +88,9 @@
       </div><!-- end nav container -->
     </div>
   </div>
-  <div class="tw-flex tw-w-full tw-justify-center tw-isolate tw-pointer-events-none">
+  <div class="tw-w-full tw-hidden lg:tw-flex tw-justify-center tw-isolate tw-pointer-events-none">
     <div class=" tw-w-full tw-border-b">
-      <nav aria-label="Primary Navigation" class="{%- render '[class]-container' -%} tw-px-4 sm:tw-px-8 tw-hidden lg:tw-block tw-pointer-events-auto">
+      <nav aria-label="Primary Navigation" class="{%- render '[class]-container' -%}tw-px-4 sm:tw-px-8 tw-pointer-events-auto">
         <ul class="navigation__menu tw-gap-x-3 !tw-max-w-none tw-min-h-[60px] tw-items-center tw-flex-wrap tw-bg-white tw-flex tw-justify-center tw-mx-auto" id="main-nav" role="menubar">
           {% for link in linklists[section.settings.main_nav].links %}
             {% render 'navigation', link: link %}
@@ -102,6 +102,36 @@
       </nav>
     </div>
   </div>
+	<div class="tw-drawer tw-absolute tw-inset-0 tw-top-[102px] tw-w-screen  tw-h-[calc(100vh-103px)]">
+		<input id="openMenuMobile" type="checkbox" class="tw-drawer-toggle">
+		<div class="tw-drawer-side ">
+			<label for="openMenuMobile" class="tw-drawer-overlay"></label>
+			<div class="tw-w-full tw-absolute tw-inset-0 tw-flex tw-bg-white tw-overflow-auto tw-h-full tw-justify-center tw-isolate ">
+				<ul class="tw-list-none tw-divide-y tw-w-full">
+					{% for block in section.blocks %}
+						<li>
+							<div tabindex="0" class=" tw-collapse tw-collapse-arrow">
+								<input type="checkbox" class="tw-peer"> 
+								<div class=" tw-collapse-title tw-leading-[28px] peer-checked:tw-bg-transparent">
+									<a href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
+								</div>
+								<div class="tw-collapse-content peer-checked:tw-bg-transparent tw-shadow-inner"> 
+									<ul class="tw-menu tw-menu-compact tw-w-full tw-divide-y tw-divide-opacity-50">
+										{% assign items = block.settings.menu_item | split: ',' %}
+										{% for item in items %}
+											<li >
+												<a class="tw-leading-none" href="/collections/{{ item | handleize }}">{{ item }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
 </header>
 <div class="phantom js-phantom {% if section.settings.header_cover and template == 'index' %}ignore-this{% endif %}" id="phantom"></div>
 
