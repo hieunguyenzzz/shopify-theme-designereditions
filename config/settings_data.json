@@ -1856,9 +1856,15 @@
         "type": "rev_This-Spring",
         "settings": {
         }
+      },
+      "rev_UK-Home-Story": {
+        "type": "rev_UK-Home-Story",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_UK-Home-Story",
       "rev_This-Spring",
       "16188954225e385108",
       "1559084715445",
