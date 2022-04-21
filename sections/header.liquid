@@ -42,9 +42,9 @@
         </div>
     {% endunless %}
     <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
-        <div class="{% render '[class]-container'  class: '' %}  tw-flex tw-items-center">
-            <div class="tw-flex tw-w-full tw-gap-6 tw-relative tw-justify-center"><!-- start nav container -->
-                <search-trigger class="lg:tw-flex tw-flex-1 tw-hidden tw-items-center tw-relative">
+        <div class="{% render '[class]-container'  class: '' %}  tw-flex tw-items-center tw-relative">
+            <div class="tw-flex tw-w-full tw-gap-6 tw-justify-center"><!-- start nav container -->
+                <search-trigger class=" tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-top-full tw-items-center lg:tw-relative">
                     <div class="js-search-reveal tw-z-20 searchreveal focus-within:block" id="search_reveal">
                         <div class="tw-w-full tw-animate__animated tw-animate__fadeIn tw-bg-white tw-shadow-lg z-[-1]">
                             <predictive-search class="tw-max-w-xl tw-block tw-relative tw-mx-auto">
@@ -84,7 +84,7 @@
                         </div>
                         
                     </div>
-                        <a href="#" id="search_trigger" class=" tw-opacity-50 tw-text-opacity-50 min-w-[140px] tw-leading-[32px] tw-pr-6 tw-pl-1 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline">
+                        <a href="#" id="search_trigger" class="tw-w-full tw-pt-2 tw-pb-1 tw-pl-4 lg:tw-p-0 tw-opacity-50 tw-text-opacity-50 min-w-[140px] lg:tw-pr-6 tw-leading-[32px] lg:tw-w-[unset] lg:tw-pl-2 py-2 tw-border-b tw-flex tw-gap-3 tw-items-baseline">
                             <i aria-hidden="true" class="icon icon-search tw-h-[32px] !tw-flex tw-items-center"></i>
                             <span class="tw-leading-[36px]">Search entire store here...</span>
                         </a>
@@ -109,17 +109,20 @@
             </div><!-- end nav container -->
         </div>
     </div>
-    <div class="tw-flex tw-w-full tw-justify-center ">
-        <nav aria-label="Primary Navigation" class="tw-container tw-hidden lg:tw-block tw-isolate ">
-            <ul aria-label="Primary Navigation" class="navigation__menu  tw-bg-white tw-border-b tw-flex tw-justify-center tw-gap-x-[2%]" id="main-nav" role="menubar">
-                {% for link in linklists[section.settings.main_nav].links %}
-                    {% render 'navigation', link: link %}
-                {% endfor %}
-								{% for block in section.blocks %}
-                    {% render '[navigation]-with-images',component:block link:block.settings.link heading: block.settings.menu_heading menu_items:block.settings.menu_item %}
-                {% endfor %}
-            </ul>
-        </nav>
+    <div class="tw-flex tw-w-full tw-justify-center tw-isolate">
+			<div class=" tw-border-b tw-w-full">
+				<nav aria-label="Primary Navigation" class="{%- render '[class]-container'}-%} tw-hidden lg:tw-block">
+					<ul aria-label="Primary Navigation" class="navigation__menu  !tw-max-w-none  tw-bg-white  tw-flex tw-justify-evenly tw-mx-auto tw-gap-x-[2%]" id="main-nav" role="menubar">
+							{% for link in linklists[section.settings.main_nav].links %}
+									{% render 'navigation', link: link %}
+							{% endfor %}
+							{% for block in section.blocks %}
+									{% render '[navigation]-with-images',component:block link:block.settings.link heading: block.settings.menu_heading menu_items:block.settings.menu_item %}
+							{% endfor %}
+					</ul>
+			</nav>
+			</div>
+        
         
     </div>
 
