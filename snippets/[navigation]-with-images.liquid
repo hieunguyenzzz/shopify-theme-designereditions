@@ -1,53 +1,83 @@
-{% assign items = menu_items | split: ',' %}
-<li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
-      link.title
-    }}" data-active-class="navigation__menuitem--active" role="none">
-  <a class="navigation__menulink js-menu-link js-open-dropdown-on-key" href="{{ link.url }}">{{ heading }}</a>
-  <ul class="tw-bg-white tw-leading-loose tw-absolute tw-shadow tw-left-0 tw-z-[-1] tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-border-y tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
-    <div class="{%- render '[class]-container' class: '' -%}tw-flex tw-gap-6 tw-justify-center">
-      {% if component.settings.nav_image != blank %}
-        <span class="desktop-3 tablet-hide mm-image tw-order-2">
-          {%- assign image_size = '300x' -%}
-          <a href="{{ component.settings.promo_url }}">
-            <div class="megamenu__imagecontainer">
-              <img src="{{ component.settings.nav_image | img_url: image_size }}"/>
-            </div>
-            <noscript>
-              <img src="{{ component.settings.nav_image | img_url: '500x' }}" class="navigation-image"/>
-            </noscript>
-          </a>
-        </span>
-      {% endif %}
-      {% if component.settings.nav_image_secound != blank %}
-        <span class="desktop-3 tablet-hide mm-image tw-order-2">
-          {%- assign image_size = '300x' -%}
-          <a href="{{ component.settings.promo_url_secound }}">
-            <div class="megamenu__imagecontainer">
-              <img src="{{ component.settings.nav_image_secound | img_url: image_size }}"/>
-            </div>
-            <noscript>
-              <img src="{{ component.settings.nav_image_secound | img_url: '500x' }}" class="navigation-image"/>
-            </noscript>
-          </a>
-        </span>
-      {% endif %}
-      <span class="flex tw-order-1">
-        {% assign megamenu__header = link.title | downcase %}
-        {% if link.url
-        contains 'designers' %}
-          <ul class="tw-columns-3 xl:tw-columns-4 tw-gap-6 tw-mx-auto tw-w-full">
-            {% render 'designer-listitems' %}
-          </ul>
-        {% else %}
-          <ul class="tw-columns-3 xl:tw-columns-4 tw-gap-6 tw-mx-auto tw-w-full tw-list-none tw-justify-center">
+{%- case component.type -%}
+  {%- when 'linkonly' -%}
+    <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px] navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
+              link.title
+            }}" data-active-class="navigation__menuitem--active" role="none">
+      <a class="xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
+    </li>
+  {%- else -%}
+    {% assign items = menu_items | split: ',' %}
+    <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px]  tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
+                link.title
+              }}" data-active-class="navigation__menuitem--active" role="none">
+      <a class="navigation__menulink xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
+      <div class="tw-bg-white tw-z-[-1] tw-leading-loose tw-absolute tw-shadow tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-border-y tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
+        <div class="{%- render '[class]-container' class: '' -%}tw-flex tw-gap-6 tw-justify-center">
+          {% if component.settings.nav_image != blank %}
+            <span class="desktop-3 tablet-hide mm-image tw-order-2 tw-w-[300px] xl:tw-w-[400px] tw-flex-shrink-0">
+              {%- assign image_size = '300x' -%}
+              <a href="{{ component.settings.promo_url }}">
+                <div class="megamenu__imagecontainer">
+                  <img class="tw-w-full" src="{{ component.settings.nav_image | img_url: image_size }}"/>
+                </div>
+                <noscript>
+                  <img class="tw-w-full" src="{{ component.settings.nav_image | img_url: image_size }}" class="navigation-image"/>
+                </noscript>
+              </a>
+              <div class="tw-text-[22px] ">
+                <span class="tw-font-heading tw-text-[#dba62b] tw-font-bold">Up to 50% off
+                </span>
+                <span class="tw-font-heading tw-font-bold tw-text-black">Express
+                </span>
+                <span class="">Delivery</span>
+              </div>
+							<a href="" class="tw-text-gray-400 tw-underline tw-underline-offset-2">
+								{{component.settings.link_text}}</a>
+            </span>
+          {% endif %}
+          {% if component.settings.nav_image_secound != blank %}
+            <span class="desktop-3 tablet-hide mm-image tw-order-2 tw-w-[300px] xl:tw-w-[400px] tw-flex-shrink-0">
+              {%- assign image_size = '300x' -%}
+              <a href="{{ component.settings.promo_url_secound }}">
+                <div class="megamenu__imagecontainer">
+                  <img class="tw-w-full" src="{{ component.settings.nav_image_secound | img_url: image_size }}"/>
+                </div>
+                <noscript>
+                  <img class="tw-w-full" src="{{ component.settings.nav_image_secound | img_url: image_size }}" class="navigation-image"/>
+                </noscript>
+              </a>
+							<div class="tw-text-[22px] ">
+                <span class="tw-font-heading tw-text-[#dba62b] tw-font-bold">Up to 50% off
+                </span>
+                <span class="tw-font-heading tw-font-bold tw-text-black">Express
+                </span>
+                <span class="">Delivery</span>
+              </div>
+							<a href="" class="tw-text-gray-400 tw-underline tw-underline-offset-2">
+								{{component.settings.link_text}}</a>
+            </span>
+          {% endif %}
+          {% assign gridcss = 'tw-grid-cols-2' %}
+          {% case component.settings.columns_number  %}
+            {% when 1 %}
+              {% assign gridcss = 'tw-grid-cols-1' %}
+            {% when 2 %}
+              {% assign gridcss = 'tw-grid-cols-2' %}
+            {% when 3 %}
+              {% assign gridcss = 'tw-grid-cols-2 lg:tw-grid-cols-3' %}
+            {% when 4 %}
+              {% assign gridcss = 'tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4' %}
+            {% when 5 %}
+              {% assign gridcss = 'tw-grid-cols-2  md:tw-grid-cols-3 lg:tw-grid-cols-5' %}
+          {% endcase %}
+          <ul class="tw-grid {{gridcss}} tw-gap-x-6 tw-gap-y-3 tw-list-none tw-justify-center tw-content-center">
             {% for item in items %}
-              <li class="">
+              <li class="tw-py-1 tw-leading-snug tw-max-w-[180px]">
                 <a class="" href="/collections/{{ item | handleize }}">{{ item }}</a>
               </li>
             {% endfor %}
           </ul>
-        {% endif %}
-      </span>
-    </div>
-  </ul>
-</li>
+        </div>
+      </div>
+    </li>
+{%- endcase -%}
