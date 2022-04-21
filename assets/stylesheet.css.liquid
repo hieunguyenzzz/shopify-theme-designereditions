@@ -1890,7 +1890,6 @@
  
  #navigation {
    width: 100%;
-   position: relative;
  }
  
  .nav-container {
@@ -10068,7 +10067,7 @@ margin-right: 0.4em;
  .slideout {
    list-style: none;
    background: var(--background);
-   width: 285px;
+   width: 100vw;
    height: auto;
    position: fixed;
    top: 0;
@@ -10082,6 +10081,7 @@ margin-right: 0.4em;
    -moz-transition-duration: 0.2s;
    -o-transition-duration: 0.2s;
    transition-duration: 0.2s;
+   visibility:hidden
  }
  
  .site-overlay {
@@ -10095,6 +10095,7 @@ margin-right: 0.4em;
    opacity: 0;
    background: #363636;
    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+   display:none;
  }
  .slideout__drawer-right {
    transform: translateX(285px);
@@ -10103,6 +10104,10 @@ margin-right: 0.4em;
    -moz-transform: translateX(285px);
    -ms-transform: translateX(285px);
    -o-transform: translateX(285px);
+}
+.slideout--active{
+  visibility: visible;
+  opacity: 1;
 }
  .slideout__drawer-left {
    transform: translateX(-285px);
