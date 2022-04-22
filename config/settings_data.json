@@ -1862,6 +1862,7 @@
       },
       "rev_This-Spring": {
         "type": "rev_This-Spring",
+        "disabled": true,
         "settings": {
         }
       },
