@@ -4129,6 +4129,10 @@ html {
   right: -2rem;
 }
 
+.\!tw-top-\[100px\] {
+  top: 100px !important;
+}
+
 .tw-isolate {
   isolation: isolate;
 }
@@ -4151,6 +4155,10 @@ html {
 
 .tw-z-20 {
   z-index: 20;
+}
+
+.\!tw-z-50 {
+  z-index: 50 !important;
 }
 
 .tw-order-2 {
@@ -5208,6 +5216,10 @@ html {
   padding-bottom: 100%;
 }
 
+.tw-pt-\[100px\] {
+  padding-top: 100px;
+}
+
 .tw-text-left {
   text-align: left;
 }
@@ -5707,6 +5719,30 @@ html {
   }
 }
 
+.before\:tw-fixed::before {
+  content: var(--tw-content);
+  position: fixed;
+}
+
+.before\:tw-inset-0::before {
+  content: var(--tw-content);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.before\:tw-bg-black::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.before\:tw-content-\[\'\'\]::before {
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
 .empty\:tw-hidden:empty {
   display: none;
 }
@@ -5997,6 +6033,18 @@ html {
     right: -2rem;
   }
 
+  .lg\:tw-top-\[124px\] {
+    top: 124px;
+  }
+
+  .lg\:\!tw-top-\[124px\] {
+    top: 124px !important;
+  }
+
+  .lg\:\!tw-top-\[60px\] {
+    top: 60px !important;
+  }
+
   .lg\:tw-order-\[-1\] {
     order: -1;
   }
@@ -6233,6 +6281,10 @@ html {
 
   .lg\:tw-pb-0 {
     padding-bottom: 0px;
+  }
+
+  .lg\:tw-pt-\[124px\] {
+    padding-top: 124px;
   }
 
   .lg\:tw-text-left {
