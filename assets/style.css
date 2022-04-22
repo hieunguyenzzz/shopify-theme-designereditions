@@ -6393,6 +6393,11 @@ html {
     padding-bottom: 0.25rem;
   }
 
+  .lg\:tw-px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .lg\:tw-pb-0 {
     padding-bottom: 0px;
   }
