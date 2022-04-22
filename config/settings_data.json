@@ -329,7 +329,6 @@
         "type": "product-template",
         "settings": {
           "show_popup": false,
-          "image": "shopify:\/\/shop_images\/designer-editions-home-image.png",
           "title": "Bildglas",
           "text": "Berätta för ditt varumärkes historia via video och bilder",
           "full_width": false,
@@ -1082,7 +1081,7 @@
           "dd1658c2-dd54-4686-912e-1a30f8a1de2d": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/EU-2.png",
+              "image": "shopify:\/\/shop_images\/EU-2.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p>No Extra Taxes \/ Duty<\/p><p>Guaranteed <\/p>",
@@ -1101,7 +1100,7 @@
           "6e281097-1f48-4b35-8b25-3cbfb40e7085": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2aa.png",
+              "image": "shopify:\/\/shop_images\/2aa.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p><strong>RETURNS<\/strong><\/p><p>30-Day Returns<\/p>",
@@ -1120,7 +1119,7 @@
           "fe1bdd83-57be-4473-9b52-91c9b0f32168": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/3aa.png",
+              "image": "shopify:\/\/shop_images\/3aa.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p><strong>WARRANTY<\/strong><\/p><p>5 Years Warranty<\/p>",
@@ -1713,7 +1712,6 @@
           "cbeed15f-863f-4b55-a318-c9c916279248": {
             "type": "question",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2aa_50x_1dcb3eda-3455-4d0f-8fd6-f2f58a4acd5c.png",
               "title": "RETURNS<br><p>30-day returns<\/p>",
               "answer": "<p>We offer 30 day returns to our customer in most of Europe. We created this policy as part of our ongoing customer support to provide a hassle-free shopping environment, enabling customers to assess aesthetics in their living situation space.<\/p>"
             }
@@ -1721,7 +1719,6 @@
           "7b5c334f-0fa7-47a1-8faa-45a5408d0b4a": {
             "type": "question",
             "settings": {
-              "image": "shopify:\/\/shop_images\/3aa_50x_423709e4-511d-489e-a091-93728a4f8f7f.png",
               "title": "WARRANTY<br><p>5 years warranty<\/p>",
               "answer": "<p>One of the reasons you might be shopping with us is that you recognise the superior quality of our pieces. And just as we want our furniture to be the best you can find, we want our promise to you to be equally superior. That’s why, while most furniture manufacturers only offer a 1 year warranty, we offer a 5 year warranty. Please go to <a href=\"https:\/\/designer-icons.com\/pages\/5-year-warranty\" title=\"https:\/\/designer-icons.com\/pages\/5-year-warranty\">www.designer-icons.com<\/a> to read the full warranty policy.<\/p>"
             }
@@ -1730,7 +1727,6 @@
             "type": "question",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/ii-icons_2.png",
               "title": "PRODUCT INFO<br>",
               "answer": "<p><strong>Fabric:<\/strong> Italian Leather (Semi Aniline)<\/p><p><strong>Feature:<\/strong> Double Sided Leather<\/p><p><strong>Style:<\/strong> Modern \/ Comfort<\/p><p><strong>Warranty:<\/strong> 5 Years<\/p><p><strong>Instructions:<\/strong> N\/A<\/p><p><strong>Clean:<\/strong> Dust \/ Leather Cleaner<\/p><p><strong>Note:<\/strong> Chair Not Included<\/p><p><strong>Dimension<\/strong>: Width 48.5cm, Depth 38.5cm, Height 3.5cm<\/p><p><strong>Packing Dimension:<\/strong> Width 51cm, Depth 41cm, Height 6cm<\/p><p><strong>CBM:<\/strong> 0.237 <\/p><p><strong>Product Weight:<\/strong> 0.300kg<\/p>"
             }
@@ -1739,7 +1735,6 @@
             "type": "question",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/ii-icons_3.png",
               "title": "PRODUCT DESCRIPTION<br>",
               "answer": "<p>Our reproduction Cushion for Wishbone Chair is reversible, requires low maintenance and resistant to most stains and fading. Available in easy to pair up colors of Black, White, Tan, Mocha and Beige.<\/p>"
             }
