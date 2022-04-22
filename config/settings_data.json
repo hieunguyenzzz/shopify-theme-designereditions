@@ -227,7 +227,7 @@
               "nav_image_secound": "shopify:\/\/shop_images\/DROPDOWN-Banners-Accessories.webp",
               "nav_image_position": "right",
               "link_text": "Click here",
-              "url": "\/",
+              "url": "shopify:\/\/collections\/accessories",
               "columns_number": 3
             }
           },
