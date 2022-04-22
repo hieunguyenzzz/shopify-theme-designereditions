@@ -190,7 +190,7 @@
               "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Sofa.webp",
               "nav_image_position": "right",
               "link_text": "Click here",
-              "url": "\/",
+              "url": "shopify:\/\/collections\/sofas",
               "columns_number": 3
             }
           },
