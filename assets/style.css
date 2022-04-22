@@ -4821,6 +4821,16 @@ html {
   row-gap: 0.75rem;
 }
 
+.tw-gap-x-\[4\%\] {
+  -moz-column-gap: 4%;
+       column-gap: 4%;
+}
+
+.tw-gap-x-\[2\%\] {
+  -moz-column-gap: 2%;
+       column-gap: 2%;
+}
+
 .tw-space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -5953,6 +5963,10 @@ html {
 
 .tw-group:hover .group-hover\:tw-opacity-0 {
   opacity: 0;
+}
+
+.tw-group:focus .group-focus\:\!tw-pointer-events-none {
+  pointer-events: none !important;
 }
 
 .tw-group:focus .group-focus\:tw-bg-transparent {
