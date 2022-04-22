@@ -214,7 +214,7 @@
               "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Storage.webp",
               "nav_image_position": "right",
               "link_text": "Click here",
-              "url": "\/",
+              "url": "shopify:\/\/collections\/storage",
               "columns_number": 3
             }
           },
