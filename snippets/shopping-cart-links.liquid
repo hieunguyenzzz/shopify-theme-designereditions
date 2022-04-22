@@ -10,8 +10,8 @@
 {% if shop.customer_accounts_enabled %}
     {% if customer  %}
         <li class="cust tw-group tw-relative">
-            <a href="{{ routes.account_url }}">
-                <i aria-hidden="true" class="la la-user"></i>
+            <a   class="tw-text-lg" href="{{ routes.account_url }}">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg>
             </a>
             <div class="flex tw-min-w-[120px] tw-transition tw-opacity-0 group-hover:tw-opacity-100 tw-absolute tw-flex-col tw-text-left tw-invisible group-hover:tw-visible tw-top-full tw-right-0 tw-bg-white tw-shadow-lg tw-p-2">
                 <a href="{{ routes.account_url }}" class="!tw-px-3 tw-font-semibold !tw-py-1 !tw-leading-loose hover:tw-bg-gray-200 tw-w-full">
@@ -26,76 +26,16 @@
     {% else %}
 
         <li class="cust">
-            <a href="{{ routes.account_login_url }}">
-                <i aria-hidden="true" class="la la-user"></i>
+            <a  class="tw-text-lg" href="{{ routes.account_login_url }}">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg>
             </a>
         </li>
     {% endif %}
 {% endif %}
-{%- if hd_locale_selector -%}
-    <li class="lang-selector">
-        {%- form 'localization', class: 'selectors-form' -%}
-            <div class="selectors-form__item">
-                <h2 class="visually-hidden" id="lang-heading">
-                    {{ 'general.language.dropdown_label' | t }}
-                </h2>
-
-                <div class="disclosure" data-disclosure-locale>
-                    <button aria-controls="lang-list" aria-describedby="lang-heading" aria-expanded="false" class="disclosure__toggle" data-disclosure-toggle type="button">
-                        {{ form.current_locale.iso_code }}
-                    </button>
-                    <ul class="disclosure-list" data-disclosure-list id="lang-list">
-                        {% for locale in form.available_locales %}
-                            <li class="disclosure-list__item {% if locale.iso_code == form.current_locale.iso_code %}disclosure-list__item--current{% endif %}">
-                                <a class="disclosure-list__option" href="#" lang="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %} aria-current="true" {% endif %} data-value="{{ locale.iso_code }}" data-disclosure-option>
-                                    {{ locale.endonym_name }}
-                                </a>
-                            </li>
-                        {%- endfor -%}
-                    </ul>
-                    <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ form.current_locale.iso_code }}" data-disclosure-input/>
-                </div>
-            </div>
-        {%- endform -%}
-    </li>
-{%- endif -%}
-{%- if hd_currency_selector -%}
-    <li class="curr-selector">
-        {%- form 'localization', class: 'selectors-form' -%}
-            <div class="selectors-form__item">
-                <h2 class="visually-hidden" id="currency-heading">
-                    {{ 'general.currency.dropdown_label' | t }}
-                </h2>
-
-                <div class="disclosure" data-disclosure-currency>
-                    <button aria-controls="currency-list" aria-describedby="currency-heading" aria-expanded="false" class="disclosure__toggle" data-disclosure-toggle type="button">
-                        {{ form.current_currency.iso_code }}
-                        {%- if form.current_currency.symbol -%}
-                            {{ form.current_currency.symbol }}
-                        {%- endif -%}
-                    </button>
-                    <ul class="disclosure-list" data-disclosure-list id="currency-list">
-                        {% for currency in form.available_currencies %}
-                            <li class="disclosure-list__item {% if currency.iso_code == form.current_currency.iso_code %}disclosure-list__item--current{% endif %}">
-                                <a class="disclosure-list__option" href="#" {% if currency.iso_code == form.current_currency.iso_code %} aria-current="true" {% endif %} data-value="{{ currency.iso_code }}" data-disclosure-option>
-                                    {{ currency.iso_code }}
-                                    {%- if currency.symbol -%}
-                                        {{ currency.symbol }}
-                                    {%- endif -%}
-                                </a>
-                            </li>
-                        {%- endfor -%}
-                    </ul>
-                    <input type="hidden" name="currency_code" id="CurrencySelector" value="{{ form.current_currency.iso_code }}" data-disclosure-input/>
-                </div>
-            </div>
-        {%- endform -%}
-    </li>
-{%- endif -%}
 <li>
     <a href="{{ routes.cart_url }}" {% if settings.ajax_cart_method == 'drawer' %} class="site-header__cart-toggle !tw-flex tw-items-center js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" {% endif %}>
         <span class="cart-words"></span>
-        &nbsp;<i aria-hidden="true" class="icon icon-cart"></i>
+        <svg class="tw-text-lg" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span class="CartCount tw-badge tw-badge-sm empty:tw-hidden">{%- if cart.item_count > 0  -%}
             {{ cart.item_count }}
         {% endif %}</span>
