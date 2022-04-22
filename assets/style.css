@@ -4956,6 +4956,31 @@ html {
   border-color: currentColor;
 }
 
+.tw-border-\[rgb\(204\,204\,204\)\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
+
+.tw-border-\[color\:rgb\(204\,204\,204\)\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
+
+.tw-border-\[\#cccccc\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
+
+.tw-border-\[color\:\#cccccc\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
+
+.tw-border-b-\[\#cccccc\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(204 204 204 / var(--tw-border-opacity));
+}
+
 .tw-border-opacity-50 {
   --tw-border-opacity: 0.5;
 }
@@ -5285,6 +5310,10 @@ html {
 
 .tw-pt-\[100px\] {
   padding-top: 100px;
+}
+
+.tw-pb-\[100px\] {
+  padding-bottom: 100px;
 }
 
 .tw-text-left {
@@ -5913,6 +5942,14 @@ html {
 
 .tw-group:hover .group-hover\:tw-opacity-0 {
   opacity: 0;
+}
+
+.tw-group:focus .group-focus\:tw-bg-transparent {
+  background-color: transparent;
+}
+
+.tw-group:focus .group-focus\:\!tw-bg-transparent {
+  background-color: transparent !important;
 }
 
 .tw-peer:checked ~ .peer-checked\:tw-bg-transparent {
