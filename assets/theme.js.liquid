@@ -3413,27 +3413,26 @@ theme.Header = (function() {
 			makeNavigationSticky();
 		});
 		document.addEventListener('click', function (event) {
-      if(searchTrigger or searchMobileTrigger){
-        if (event.target === searchTrigger || searchTrigger.contains(event.target)|| searchMobileTrigger.contains(event.target) || event.target === searchReveal || searchReveal.contains(event.target)) {
-        } else {
-          searchReveal.classList.remove("searchreveal--show");
-        }
-      }
-			
+      //if(searchTrigger or searchMobileTrigger){
+      //  if (event.target === searchTrigger || searchTrigger.contains(event.target)|| searchMobileTrigger.contains(event.target) || event.target === searchReveal || searchReveal.contains(event.target)) {
+      //  } else {
+      //    searchReveal.classList.remove("searchreveal--show");
+      //  }
+      //}
 		});
 
-		searchTrigger.addEventListener('click', function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-			searchReveal.classList.add("searchreveal--show");
-      document.querySelector("#search_reveal #q").focus();
-		});
-    searchMobileTrigger.addEventListener('click', function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-			searchReveal.classList.add("searchreveal--show");
-      document.querySelector("#search_reveal #q").focus();
-		});
+		// searchTrigger.addEventListener('click', function (event) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+		// 	searchReveal.classList.add("searchreveal--show");
+    //   document.querySelector("#search_reveal #q").focus();
+		// });
+    // searchMobileTrigger.addEventListener('click', function (event) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+		// 	searchReveal.classList.add("searchreveal--show");
+    //   document.querySelector("#search_reveal #q").focus();
+		// });
 		makeNavigationSticky();
 		theme.a11yHelpers.setUpAriaExpansion();
 		theme.a11yHelpers.setUpAccessibleNavigationMenus();
