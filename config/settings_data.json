@@ -262,7 +262,7 @@
         ],
         "settings": {
           "full_width_header": false,
-          "enable_sticky_header": true,
+          "enable_sticky_header": false,
           "header_cover": false,
           "header_border": false,
           "announcement_bar_verified_reviews_number": "100'S",
@@ -273,7 +273,7 @@
           "top_nav": "",
           "cart_position": "header",
           "show_locale_selector": false,
-          "show_currency_selector": true,
+          "show_currency_selector": false,
           "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
           "logoname": "DESIGNER ICONS",
           "logosize": 20,
