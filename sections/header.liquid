@@ -39,7 +39,7 @@
   <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
     <div class="{%- render '[class]-container' class: '' -%} tw-h-[74px] tw-flex tw-items-center ">
       <div class="tw-flex tw-w-full tw-gap-6 tw-justify-center"><!-- start nav container -->
-        <search-trigger class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 lg:tw-pb-0 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
+        <search-trigger class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 lg:tw-pb-0 lg:tw-px-0 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
           <div class="js-search-reveal tw-z-20 searchreveal focus-within:block" id="search_reveal">
             <div class="tw-w-full tw-animate__animated tw-animate__fadeIn tw-bg-white z-[-1]">
               <predictive-search class="tw-block tw-relative tw-mx-auto">
@@ -112,10 +112,7 @@
             <li>
               {% assign hadChildren = false %}
               {% assign items = block.settings.menu_item | split: ',' %}
-              {% if items.size > 0 %}
-                {% assign hadChildren = true %}
-
-              {% endif %}
+    
               {%- unless hadChildren -%}
                 <div class=" tw-collapse-title tw-leading-[28px] group-focus:tw-bg-transparent">
                   <a href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
