@@ -166,7 +166,7 @@
               "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs.webp",
               "nav_image_position": "right",
               "link_text": "Click here",
-              "url": "\/",
+              "url": "shopify:\/\/collections\/chairs",
               "columns_number": 3
             }
           },
