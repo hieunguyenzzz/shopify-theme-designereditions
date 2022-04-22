@@ -9,7 +9,7 @@
   {%- assign hd_locale_selector = true -%}
 {%- endif -%}
 
-<header class="header-section tw-pb-[26px] lg:tw-pb-0 tw-relative tw-border-b tw-border-b-[#cccccc] tw-border-solid" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
+<header class="header-section tw-pb-[26px] lg:tw-pb-0 tw-relative tw-border-b tw-border-b-[#cecece] lg:tw-border-none tw-border-solid" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
   {% if section.settings.show_announcement %}
     <div class="topbar">
       <div class="{% render '[class]-container' class: '' %} tw-flex tw-justify-center tw-items-center tw-truncate tw-text-xs tw-font-bold">
@@ -39,7 +39,7 @@
   <div id="navigation" {% if section.settings.full_width_header %} class="gridlock-fluid" {% endif %}>
     <div class="{%- render '[class]-container' class: '' -%} tw-h-[74px] tw-flex tw-items-center ">
       <div class="tw-flex tw-w-full tw-gap-6 tw-justify-center"><!-- start nav container -->
-        <search-trigger class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
+        <search-trigger class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 lg:tw-pb-0 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
           <div class="js-search-reveal tw-z-20 searchreveal focus-within:block" id="search_reveal">
             <div class="tw-w-full tw-animate__animated tw-animate__fadeIn tw-bg-white z-[-1]">
               <predictive-search class="tw-block tw-relative tw-mx-auto">
@@ -102,11 +102,11 @@
       </nav>
     </div>
   </div>
-  <div class="tw-drawer lg:tw-hidden tw-absolute tw-inset-0 tw-top-[100px] tw-w-screen  tw-h-[calc(100vh-103px)]">
+  <div class="tw-drawer tw-pointer-events-none lg:tw-hidden tw-absolute tw-inset-0 tw-top-[100px] tw-w-screen  tw-h-[calc(100vh-103px)]">
     <input class="tw-drawer-toggle" id="openMenuMobile" type="checkbox">
     <div class="tw-drawer-side ">
       <label class="tw-drawer-overlay" for="openMenuMobile"></label>
-      <div class="tw-w-full tw-absolute tw-inset-0 tw-flex tw-bg-white tw-overflow-auto tw-pb-[100px] tw-h-full tw-justify-center tw-isolate ">
+      <div class="tw-w-full tw-pointer-events-auto tw-absolute tw-inset-0 tw-flex tw-bg-white tw-overflow-auto tw-pb-[100px] tw-h-full tw-justify-center tw-isolate ">
         <ul class="tw-list-none tw-divide-y tw-w-full">
           {% for block in section.blocks %}
             <li>
@@ -121,11 +121,11 @@
                   <a href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
                 </div>
               {% else %}
-                <div class=" tw-collapse tw-group tw-collapse-arrow" tabindex="0">
+                <div class=" tw-collapse tw-pointer-events-none tw-group tw-collapse-arrow" tabindex="0">
                   <div class=" tw-collapse-title tw-leading-[28px] group-focus:!tw-bg-transparent">
-                    <a href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
+                    <a class="tw-pointer-events-auto" href="{{block.settings.link}}">{{block.settings.menu_heading}}</a>
                   </div>
-                  <div class="tw-collapse-content group-focus:!tw-bg-transparent tw-shadow-inner">
+                  <div class="tw-collapse-content tw-pointer-events-auto group-focus:!tw-bg-transparent tw-shadow-inner">
                     <ul class="tw-menu tw-menu-compact tw-w-full tw-divide-y tw-divide-opacity-50">
                       {% for item in items %}
                         <li>

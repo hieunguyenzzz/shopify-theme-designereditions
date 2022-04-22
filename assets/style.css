@@ -4981,6 +4981,11 @@ html {
   border-bottom-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 
+.tw-border-b-\[\#cecece\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(206 206 206 / var(--tw-border-opacity));
+}
+
 .tw-border-opacity-50 {
   --tw-border-opacity: 0.5;
 }
@@ -5640,6 +5645,12 @@ html {
 .tw-shadow-inner {
   --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.tw-shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -6315,6 +6326,10 @@ html {
 
   .lg\:tw-border-solid {
     border-style: solid;
+  }
+
+  .lg\:tw-border-none {
+    border-style: none;
   }
 
   .lg\:\!tw-bg-transparent {
