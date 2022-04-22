@@ -41,7 +41,7 @@
       <div class="tw-flex tw-w-full tw-gap-6 tw-justify-center"><!-- start nav container -->
         <div class="tw-bg-white tw-px-4 sm:tw-px-8 tw-pb-2 lg:tw-pb-0 lg:tw-px-0 tw-flex tw-flex-1 tw-absolute tw-left-0 tw-w-full tw-bottom-0 tw-items-center lg:tw-relative">
           <predictive-search class="tw-block tw-group focus-within:tw-z-20 tw-relative tw-w-full">
-            <form class="tw-flex tw-relative tw-max-w-[300px] tw-w-full tw-border-b tw-items-baseline tw-gap-3 tw-pl-2 tw-pr-4" action="{{ routes.search_url }}" method="get">
+            <form class="tw-flex tw-relative lg:tw-max-w-[300px] tw-w-full tw-border-b tw-items-baseline tw-gap-3 tw-pl-2 tw-pr-4" action="{{ routes.search_url }}" method="get">
               <input name="type" type="hidden" value="product">
               <i aria-hidden="true" class=" icon tw-text-gray-400 icon-search tw-h-[32px] !tw-flex tw-items-center"></i>
               <input class="tw-flex-1 tw-text-gray-400 focus:tw-text-black focus:tw-outline-none !tw-text-[16px] !tw-indent-0 !tw-m-0 !tw-h-[37px] !tw-leading-[37px]" type="search" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms | escape }}" role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false"/>
