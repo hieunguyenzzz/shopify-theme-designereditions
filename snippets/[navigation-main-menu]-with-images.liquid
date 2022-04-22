@@ -1,16 +1,27 @@
-{%- case component.type -%}
+
+{% assign hanlizedHeading  = component.settings.menu_heading | handleize %}
+{% for link in linklists.main-menu.links %}
+  {% if link.handle == hanlizedHeading %}
+    {% assign menu = link %}
+  {% endif %}
+{% endfor %}  
+{% assign type = 'linkonly' %}
+{%- if menu.links.size > 0 -%}
+  {% assign type = 'mega' %}
+{%- endif -%}
+{%- case type -%}
   {%- when 'linkonly' -%}
     <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px] navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
-                                            link.title
-                                          }}" data-active-class="navigation__menuitem--active" role="none">
-      <a class="xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
+      component.settings.menu_heading
+                                    }}" data-active-class="navigation__menuitem--active" role="none">
+      <a class="xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ component.settings.url }}">{{ component.settings.menu_heading }}</a>
     </li>
   {%- else -%}
     {% assign items = menu_items | split: ',' %}
     <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px]  tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
-                                              link.title
-                                            }}" data-active-class="navigation__menuitem--active" role="none">
-      <a class="navigation__menulink xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
+      component.settings.menu_heading
+                                      }}" data-active-class="navigation__menuitem--active" role="none">
+      <a class="navigation__menulink xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ component.settings.url }}">{{ component.settings.menu_heading }}</a>
       <div class="tw-bg-white tw-z-[-1] tw-leading-loose tw-absolute tw-shadow tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-border-y tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
         <div class="{%- render '[class]-container' class: '' -%}tw-flex tw-gap-6 tw-justify-center">
           {% if component.settings.nav_image != blank %}
@@ -71,14 +82,10 @@
               {% assign gridcss = 'tw-grid-cols-2  md:tw-grid-cols-3 lg:tw-grid-cols-5' %}
           {% endcase %}
           <ul class="tw-grid {{gridcss}} tw-gap-x-6 tw-gap-y-3 tw-list-none tw-justify-center tw-content-center">
-            {% for item in items %}
-              {% assign handlizedItem = item | handleize %}
-              {% assign collection = collections[handlizedItem] %}
-              {% if collection and collection.products.size > 0  %}
-                <li class="tw-py-1 tw-leading-snug tw-max-w-[180px]">
-                  <a class="" href="/collections/{{ item | handleize }}">{{ item }}</a>
-                </li>
-              {% endif %}
+            {% for item in menu.links %}
+              <li class="tw-py-1 tw-leading-snug tw-max-w-[180px]">
+                <a class="" href="{{item.url}}">{{ item.title }}</a>
+              </li>
             {% endfor %}
           </ul>
         </div>

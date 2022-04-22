@@ -159,42 +159,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {% section 'header' %}
 <main class="site-wrap tw-overflow-hidden {% if settings.ajax_cart_method == 'drawer' %} is-moved-by-drawer{% endif %}" role="main">
-    <div class="page-wrap">
-        {% if template == 'index' or template contains 'blog' or template contains 'collection' or template contains
+  <div class="page-wrap">
+    {% if template == 'index' or template contains 'blog' or template contains 'collection' or template contains
       'page' or template contains 'product' %}
-            {{ content_for_layout }}
-        {% else %}
-            {% render 'breadcrumb' %}
-            <div class="row" id="content">
+      {{ content_for_layout }}
+    {% else %}
+      {% render 'breadcrumb' %}
+      <div class="row" id="content">
 
-                {{ content_for_layout }}
-            </div>
-        {% endif %}
-    </div>
-
-
-    {% if settings.scrolling_bar_position == 'above_footer' %}
-        {% section 'scrolling-announcements' %}
+        {{ content_for_layout }}
+      </div>
     {% endif %}
-    {% section 'newsletter' %}
-    {% section 'footer' %}
+  </div>
 
-    {% if settings.scrolling_bar_position == 'below_footer' %}
-        {% section 'scrolling-announcements' %}
-    {% endif %}
+
+  {% if settings.scrolling_bar_position == 'above_footer' %}
+    {% section 'scrolling-announcements' %}
+  {% endif %}
+  {% section 'newsletter' %}
+  {% section 'footer' %}
+
+  {% if settings.scrolling_bar_position == 'below_footer' %}
+    {% section 'scrolling-announcements' %}
+  {% endif %}
 
 </main>
-
 <script src="{{'//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' }}"></script>
 <script src="{{ 'eventemitter3.min.js' | asset_url }}"></script>
 <script src="{{ 'theme.js' | asset_url }}"></script>
 <script src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
 
 <a class="scrollup" href="#">
-    <i aria-hidden="true" class="la la-chevron-up"></i>
-    TOP</a>
+  <i aria-hidden="true" class="la la-chevron-up"></i>
+  TOP</a>
 {% if settings.popup %}
-    {% render 'popup' %}
+  {% render 'popup' %}
 {% endif %}
 <div class="fancybox-wrapper"></div>
 <div class="clear"></div>
@@ -204,8 +203,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% render 'ajax-cart-template' %}
 
 {% if settings.ajax_cart_method == 'drawer' %}
-    {{ 'ajax-cart.js' | asset_url | script_tag }}
-    <script>
+  {{ 'ajax-cart.js' | asset_url | script_tag }}
+  <script>
     jQuery(function ($) {
       ajaxCart.init({
         formSelector: '[data-product-form]',
@@ -230,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endif %}
   </script>
 {% else %}
-    {% render 'ajaxify-cart' %}
+  {% render 'ajaxify-cart' %}
 {% endif %}
 
 <!-- No JS -->
@@ -269,20 +268,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         predictive_search_url: '{{ routes.predictive_search_url }}'
       };
 </script>
-<script>
+<!-- <script>
     AOS.init();
-  </script>
-  {% render '[predictive-search]' class: '' %}
-  <!-- **BEGIN** Hextom USB Integration // Main Include - DO NOT MODIFY -->
-  {% render 'hextom_usb_main', product: product, customer: customer %}
-  <!-- **END** Hextom USB Integration // Main Include - DO NOT MODIFY -->
+  </script> -->
+{% render '[predictive-search]' class: '' %}
+<!-- **BEGIN** Hextom USB Integration // Main Include - DO NOT MODIFY -->
+{% render 'hextom_usb_main', product: product, customer: customer %}
+<!-- **END** Hextom USB Integration // Main Include - DO NOT MODIFY -->
 {%- render 'bold-currency-converter' -%}
 {{'tiny-img-link-preloader.js' | asset_url | script_tag }}
 
 <!-- **BEGIN** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
-    {% render 'hextom_fsb_main', product: product, customer: customer %}
-    <!-- **END** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
+{% render 'hextom_fsb_main', product: product, customer: customer %}
+<!-- **END** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
 
-  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WVJMtJ"></script>
+<script async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WVJMtJ" type="text/javascript"></script>
   {% include 'add_footer_assets' %}</body>
 </html>
