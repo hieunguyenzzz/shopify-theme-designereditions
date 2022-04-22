@@ -3413,10 +3413,13 @@ theme.Header = (function() {
 			makeNavigationSticky();
 		});
 		document.addEventListener('click', function (event) {
-			if (event.target === searchTrigger || searchTrigger.contains(event.target)|| searchMobileTrigger.contains(event.target) || event.target === searchReveal || searchReveal.contains(event.target)) {
-			} else {
-				searchReveal.classList.remove("searchreveal--show");
-			}
+      if(searchTrigger or searchMobileTrigger){
+        if (event.target === searchTrigger || searchTrigger.contains(event.target)|| searchMobileTrigger.contains(event.target) || event.target === searchReveal || searchReveal.contains(event.target)) {
+        } else {
+          searchReveal.classList.remove("searchreveal--show");
+        }
+      }
+			
 		});
 
 		searchTrigger.addEventListener('click', function (event) {
