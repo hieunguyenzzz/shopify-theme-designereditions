@@ -105,26 +105,27 @@
       <label class="tw-drawer-overlay" for="openMenuMobile"></label>
       <div class="tw-w-full tw-pointer-events-auto tw-absolute tw-border-t tw-inset-0 tw-flex tw-bg-white tw-overflow-auto tw-pb-[100px] tw-h-full tw-justify-center tw-isolate ">
         <ul class="tw-list-none tw-divide-y tw-w-full">
-          {% for block in section.blocks %}
+          {% for link in linklists.main-menu.links %}
             <li class="{% render '[class]-container' %}">
-
               {% assign hadChildren = false %}
-              {% assign items = block.settings.menu_item | split: ',' %}
-
+              {% assign items = link.links %}
+              {% if items.links.size > 0 %}
+                {% assign hadChildren = true %}
+              {% endif %}
               {%- unless hadChildren -%}
                 <div class=" tw-collapse-title tw-leading-[28px] group-focus:tw-bg-transparent">
-                  <a href="{{block.settings.url}}">{{block.settings.menu_heading}}</a>
+                  <a class="tw-uppercase " href="{{ link.url }}">{{ link.title }}</a>
                 </div>
               {% else %}
                 <div class=" tw-collapse tw-pointer-events-none tw-group tw-collapse-arrow" tabindex="0">
                   <div class=" tw-collapse-title tw-leading-[28px] tw-pointer-events-auto group-focus:!tw-bg-transparent group-focus:!tw-pointer-events-none">
-                    <a class="tw-pointer-events-auto" href="{{block.settings.url}}">{{block.settings.menu_heading}}</a>
+                    <a class="tw-uppercase" class="tw-pointer-events-auto" href="{{ link.url }}">{{ link.title }}</a>
                   </div>
                   <div class="tw-collapse-content tw-pointer-events-auto group-focus:!tw-bg-transparent tw-shadow-inner">
                     <ul class="tw-menu tw-menu-compact tw-w-full tw-divide-y tw-divide-opacity-50">
                       {% for item in items %}
                         <li>
-                          <a class="tw-leading-none" href="/collections/{{ item | handleize }}">{{ item }}</a>
+                          <a class="tw-leading-none" href="{{item.url}}">{{ item.title }}</a>
                         </li>
                       {% endfor %}
                     </ul>
