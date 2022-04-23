@@ -561,7 +561,13 @@
         "physical_gift_card_invalid_code": "Fysisk gavekort kode er ugyldig.",
         "sms_marketing_phone_invalid": "Skriv inn et gyldig telefonnummer",
         "address_first_name_contains_emojis": "Fornavn kan ikke inneholde emojis",
-        "address_last_name_contains_emojis": "Etternavn kan ikke inneholde emojis"
+        "address_last_name_contains_emojis": "Etternavn kan ikke inneholde emojis",
+        "address_address1_contains_emojis": "Adresse1 kan ikke inneholde emojis",
+        "address_address2_contains_emojis": "Adresse2 kan ikke inneholde emojis",
+        "address_city_contains_emojis": "Byen kan ikke inneholde emojis",
+        "address_company_contains_emojis": "Selskapet kan ikke inneholde emojis",
+        "address_phone_contains_emojis": "Telefonnummer kan ikke inneholde emojis",
+        "address_zip_contains_emojis": "Zip \/ postnummer kan ikke inneholde emojis"
       },
       "payment_errors": {
         "generic_error": "Det var et problem med behandling av betaling. Prøv igjen eller bruke en annen betalingsmåte.",
