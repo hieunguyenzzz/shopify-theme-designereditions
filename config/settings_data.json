@@ -954,6 +954,7 @@
       },
       "16188954225e385108": {
         "type": "image-with-text-row",
+        "disabled": true,
         "settings": {
           "style": "style_1",
           "image": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
