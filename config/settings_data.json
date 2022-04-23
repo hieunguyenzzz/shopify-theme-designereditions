@@ -1314,10 +1314,11 @@
           "162159895992baa653-0": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Most-Searched-Dining-chairs.jpg",
               "image_width": "50%",
-              "link": "shopify:\/\/pages\/our-customers",
-              "heading": "Annick Bast, Belgium",
-              "rich_text": "<p>Classic Styling - Walnut - Black Wishbone Chairs<\/p>",
+              "link": "shopify:\/\/collections\/dining-chairs",
+              "heading": "SHOP NOW -",
+              "rich_text": "<p>Mid-century, Danish Classic, retro, designer lighting, a vast range of in-stock pieces for immediate delivery, exceptional quality.<\/p>",
               "button": "",
               "text_align": "left"
             }
