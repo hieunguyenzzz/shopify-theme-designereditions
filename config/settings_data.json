@@ -1326,10 +1326,11 @@
           "162159895992baa653-1": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Most-Searched-lighting.jpg",
               "image_width": "50%",
-              "link": "shopify:\/\/pages\/our-customers",
-              "heading": "La Datcha, Chalet, Megeve",
-              "rich_text": "<p>Nordic styling in this exclusive chalet<\/p>",
+              "link": "shopify:\/\/collections\/lighting",
+              "heading": "SHOP NOW -",
+              "rich_text": "<p>Mid-century, Danish Classic, retro, designer lighting, a vast range of in-stock pieces for immediate delivery, exceptional quality.<\/p>",
               "button": "",
               "text_align": "left"
             }
@@ -1869,6 +1870,7 @@
     "content_for_index": [
       "rev_UK-Home-Story",
       "rev_This-Spring",
+      "162159895992baa653",
       "16188954225e385108",
       "1559084715445",
       "1618896363be3841e6",
@@ -1879,8 +1881,7 @@
       "163541368248f9d2e8",
       "1635413768a1194b60",
       "1635419372bc88c051",
-      "161890494913acaf20",
-      "162159895992baa653"
+      "161890494913acaf20"
     ],
     "blocks": {
       "15323590465973626552": {
