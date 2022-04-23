@@ -1316,7 +1316,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Most-Searched-Dining-chairs.jpg",
-              "image_width": "50%",
+              "image_width": "33%",
               "link": "shopify:\/\/collections\/dining-chairs",
               "heading": "Classic Dining -",
               "rich_text": "<p>Modern & Scandinavian style dining chairs, from traditional soaped oak, fiberglass, or highly polished stainless steel, hand-finished.<\/p>",
@@ -1328,7 +1328,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Most-Searched-lighting.jpg",
-              "image_width": "50%",
+              "image_width": "33%",
               "link": "shopify:\/\/collections\/lighting",
               "heading": "Mid-Century Lighing",
               "rich_text": "<p>Mid-century, Danish Classic, Retro, designer lighting, a vast range of in-stock pieces for immediate delivery, exceptional quality. Immediate dispatch.<\/p>",
