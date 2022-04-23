@@ -831,7 +831,8 @@
           "sms": {
             "title": "Eller sende en kobling til telefonen din"
           }
-        }
+        },
+        "estimated_delivery": "Forventet levering "
       },
       "review": {
         "title": "Anmeldelse",
