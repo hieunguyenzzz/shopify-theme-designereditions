@@ -263,7 +263,17 @@
         "confirmation_number_label": "bekreftelse #%{confirmation_number}",
         "estimated_taxes_finalization_tooltip_content": "Den endelige skatt og totalt vil bli bekreftet via e-post eller tekst etter at du har lagt inn bestillingen.",
         "higher_value_discount_already_applied": "En høyere verdi rabatt er allerede installert.",
-        "information_estimated_taxes_label": "Skatter (estimert)"
+        "information_estimated_taxes_label": "Skatter (estimert)",
+        "percent_off_shipping": "%{percent}% OFF SHIPPING.",
+        "amount_off_shipping": "%{amount} av frakt",
+        "deferred_payment_info": {
+          "title": "Betaling av %{amount_due} er på grunn av %{due_at}",
+          "description_html": "For spørsmål om bestillingen din, %{contact_us}."
+        },
+        "payment_terms_totals": {
+          "due_today": "Totalt forfalt i dag",
+          "due_later": "Totalt på grunn av det %{due_at}"
+        }
       },
       "shipping": {
         "title": "Shipping",
@@ -343,7 +353,11 @@
             "other": "for første %{count} ordrene"
           }
         },
-        "one_time_purchase_shipping": "Engangsavgift frakt"
+        "one_time_purchase_shipping": "Engangsavgift frakt",
+        "arrives_time": "Ankommer %{time}",
+        "arrives_time_range": "Ankommer %{min_time}–%{max_time}",
+        "estimated_time": "estimert %{time}",
+        "estimated_time_range": "estimert %{min_time}–%{max_time}"
       },
       "localized_fields": {
         "additional_information": {
