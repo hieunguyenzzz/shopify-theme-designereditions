@@ -24,7 +24,7 @@
     "button_hover": "#727272",
     "button_text": "#ffffff",
     "secondary_button_color": "#acacac",
-    "secondary_button_hover": "#3a3a3a",
+    "secondary_button_hover": "#46856e",
     "secondary_button_text": "#ffffff",
     "new_background": "#ededed",
     "new_color": "#535353",
@@ -321,7 +321,7 @@
           "payment_icon_color": true,
           "show_social_icons": true,
           "show_copyright": true,
-          "show_locale_selector": false,
+          "show_locale_selector": true,
           "show_currency_selector": true
         }
       },
@@ -1320,7 +1320,7 @@
               "link": "shopify:\/\/collections\/dining-chairs",
               "heading": "Classic Dining -",
               "rich_text": "<p>Modern & Scandinavian style dining chairs, from traditional soaped oak, fiberglass, or highly polished stainless steel, hand-finished.<\/p>",
-              "button": "Shop Now",
+              "button": "EXPLORE",
               "text_align": "left"
             }
           },
@@ -1332,7 +1332,7 @@
               "link": "shopify:\/\/collections\/lighting",
               "heading": "Mid-Century Lighing",
               "rich_text": "<p>Mid-century, Danish Classic, Retro, designer lighting, a vast range of in-stock pieces for immediate delivery, exceptional quality. Immediate dispatch.<\/p>",
-              "button": "Shop Now",
+              "button": "EXPLORE",
               "text_align": "left"
             }
           },
@@ -1344,7 +1344,7 @@
               "link": "shopify:\/\/collections\/modern-coffee-table",
               "heading": "Modern, Vintage - Coffee Tables",
               "rich_text": "<p>Designer Coffee Tables, From Noguchi Style to Eero Saarinen, Stylish have them all, Glass, Walnut, Oak to Highly Polished Stainless Steel.<\/p>",
-              "button": "Shop Now",
+              "button": "Explore",
               "text_align": "left"
             }
           },
@@ -1356,7 +1356,7 @@
               "link": "shopify:\/\/collections\/lounge-chair",
               "heading": "Lounge Lovers ❥",
               "rich_text": "<p>For all those Lounge Lovers, a vast array of leathers, fabrics, and finishes. Looking for that one off handcrafted piece. Look no further.<\/p>",
-              "button": "Shop Now",
+              "button": "Explore",
               "text_align": "left"
             }
           }
@@ -1368,7 +1368,7 @@
           "1fb307b4-82e2-48ba-a902-00c8de8242fe"
         ],
         "settings": {
-          "heading": "",
+          "heading": "Our collections",
           "full_width": false,
           "promo_background_color": "#ffffff",
           "text_color": "#000000",
