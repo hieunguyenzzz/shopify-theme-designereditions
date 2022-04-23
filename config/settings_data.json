@@ -1317,9 +1317,9 @@
               "image": "shopify:\/\/shop_images\/Most-Searched-Dining-chairs.jpg",
               "image_width": "50%",
               "link": "shopify:\/\/collections\/dining-chairs",
-              "heading": "SHOP NOW -",
-              "rich_text": "<p>Mid-century, Danish Classic, retro, designer lighting, a vast range of in-stock pieces for immediate delivery, exceptional quality.<\/p>",
-              "button": "",
+              "heading": "Classic Dining -",
+              "rich_text": "<p>Modern & Scandinavian style dining chairs, from traditional soaped oak, fiberglass, or high polished stainless steel, hand-finished, exceptional quality.<\/p>",
+              "button": "EXPLORE",
               "text_align": "left"
             }
           },
@@ -1334,14 +1334,38 @@
               "button": "",
               "text_align": "left"
             }
+          },
+          "bca4cc6b-a354-4b6f-930c-71206efe7aed": {
+            "type": "image",
+            "settings": {
+              "image_width": "33%",
+              "link": "",
+              "heading": "Our collections",
+              "rich_text": "<p>Enter text to accompany your image.<\/p>",
+              "button": "Explore",
+              "text_align": "left"
+            }
+          },
+          "1fb307b4-82e2-48ba-a902-00c8de8242fe": {
+            "type": "image",
+            "settings": {
+              "image_width": "33%",
+              "link": "",
+              "heading": "Our collections",
+              "rich_text": "<p>Enter text to accompany your image.<\/p>",
+              "button": "Explore",
+              "text_align": "left"
+            }
           }
         },
         "block_order": [
           "162159895992baa653-0",
-          "162159895992baa653-1"
+          "162159895992baa653-1",
+          "bca4cc6b-a354-4b6f-930c-71206efe7aed",
+          "1fb307b4-82e2-48ba-a902-00c8de8242fe"
         ],
         "settings": {
-          "heading": "Our customers",
+          "heading": "Our collections",
           "full_width": false,
           "promo_background_color": "#ffffff",
           "text_color": "#000000",
