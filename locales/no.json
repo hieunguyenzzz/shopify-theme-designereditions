@@ -590,7 +590,12 @@
           "cannot_process": "Denne transaksjonen kan ikke behandles.",
           "no_match": "Ingen treff",
           "card_declined": "Kortet ditt ble avvist"
-        }
+        },
+        "checkout_amount_changed": "Din betaling kunne ikke behandles fordi beløpet på grunn av kassen har endret seg. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_payment_not_allowed": "Utsatt betalinger er ikke tillatt. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_payment_required": "Denne ordren krever en utsatt betaling. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_amount_changed": "Din betaling kunne ikke behandles fordi utsatt betalingsbeløp har endret seg. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_date_changed": "Din betaling kunne ikke behandles fordi utsatt betalingsdato har endret seg. Vennligst sjekk bestillingen din og prøv igjen."
       },
       "shipping_errors": {
         "shipping_method": "Handlekurven er oppdatert og den tidligere shipping rate er ikke gyldig. Velg en ny kurs.",
