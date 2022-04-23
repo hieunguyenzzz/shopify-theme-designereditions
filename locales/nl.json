@@ -662,5 +662,27 @@
       "days": "Dagen",
       "day": "Dag"
     }
+  },
+  "templates": {
+    "search": {
+      "no_results": "Geen resultaten gevonden voor \"{{ terms }}\". Controleer de spelling of gebruik een ander woord of zin.",
+      "page": "Bladzijde",
+      "products": "Producten",
+      "results_with_count": {
+        "one": "{{ count }} resultaat",
+        "other": "{{ count }} resultaten"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} resultaat gevonden voor \"{{ terms }}”",
+        "other": "{{ count }} Resultaten gevonden voor \"{{ terms }}”"
+      },
+      "title": "Zoekresultaten",
+      "search_for": "Zoeken naar \"{{ terms }}”",
+      "collections": "Collecties",
+      "suggestions": "Suggesties"
+    }
+  },
+  "accessibility": {
+    "vendor": "TE DOEN"
   }
 }

@@ -1911,5 +1911,27 @@
       "yellow-lacquered": "Gul lakkert",
       "black-marble": "Svart marmor"
     }
+  },
+  "templates": {
+    "search": {
+      "no_results": "Ingen resultater funnet for \"{{ terms }}\". Kontroller stavemåten eller bruk et annet ord eller en setning.",
+      "page": "Side",
+      "products": "Produkter",
+      "results_with_count": {
+        "one": "{{ count }} resultat",
+        "other": "{{ count }} resultater"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} Resultat funnet for \"{{ terms }}”",
+        "other": "{{ count }} Resultater funnet for \"{{ terms }}”"
+      },
+      "title": "Søkeresultater",
+      "search_for": "Søk etter \"{{ terms }}”",
+      "collections": "Samlinger",
+      "suggestions": "Forslag"
+    }
+  },
+  "accessibility": {
+    "vendor": "Å GJØRE"
   }
 }
