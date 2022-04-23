@@ -81,7 +81,7 @@
     "show_reviews": false,
     "product_info": "colors",
     "color_swatch_options": "variant-image",
-    "icon_shape": "rectangle",
+    "icon_shape": "circle",
     "icon_position": "top_right",
     "new_icon": true,
     "sale_icon": true,
