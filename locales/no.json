@@ -832,7 +832,8 @@
             "title": "Eller sende en kobling til telefonen din"
           }
         },
-        "estimated_delivery": "Forventet levering "
+        "estimated_delivery": "Forventet levering ",
+        "view_business_customer_account": "Se konto"
       },
       "review": {
         "title": "Anmeldelse",
@@ -861,7 +862,8 @@
             "privacy_policy": "personvern",
             "terms_of_service": "Vilkår for bruk",
             "description_html": "Ved å registrere deg via tekst, godtar du å motta regelmessige automatisert markedsføring meldinger, inkludert cart påminnelser, på telefonnummeret som er oppgitt. Samtykke er ikke en betingelse for kjøpet. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre %{privacy_policy_link} og %{terms_of_service_link}.",
-            "description_html_transactional": "Vi sender deg en ordre kvittering og tilbakevendende frakt oppdateringer via tekstmelding. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre retningslinjer for personvern og vilkårene for bruk."
+            "description_html_transactional": "Vi sender deg en ordre kvittering og tilbakevendende frakt oppdateringer via tekstmelding. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre retningslinjer for personvern og vilkårene for bruk.",
+            "description_transactional_html": "Vi sender deg en ordre kvittering og gjentakende forsendelsesoppdateringer via tekstmelding. Svar Stopp for å abonnere. Svar Hjelp for hjelp. Meldingsfrekvensen varierer. MSG og datahastigheter kan gjelde. Se vår %{privacy_policy_modal_link} og %{terms_of_service_modal_link}."
           }
         },
         "unsubscribe": {
