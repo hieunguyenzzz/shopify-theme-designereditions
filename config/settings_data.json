@@ -75,7 +75,7 @@
     "quickview": false,
     "focus_border_weight": 1,
     "grid_space": 10,
-    "details_align": "center",
+    "details_align": "left",
     "image_flip": true,
     "vendor": false,
     "show_reviews": false,
