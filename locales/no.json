@@ -1228,6 +1228,10 @@
       },
       "product_type": {
         "label": "Produkttype"
+      },
+      "boolean": {
+        "true_label": "Ja",
+        "false_label": "Nei"
       }
     },
     "search": {
