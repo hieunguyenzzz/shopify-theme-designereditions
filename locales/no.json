@@ -480,7 +480,15 @@
         },
         "account_connected": "konto tilkoblet",
         "expiry_long": "(Utgår %{month}\/%{year})",
-        "expiry_short": "(Exp %{month}\/%{year})"
+        "expiry_short": "(Exp %{month}\/%{year})",
+        "paypal_label": "PayPal.",
+        "klarna_label": "Klarna.",
+        "google": {
+          "connect": "Klikk for å koble til Google Pay-kontoen din",
+          "error_authorizing": "Feil godkjenning av betaling"
+        },
+        "email_connected": "Konto tilkoblet: ",
+        "mor_disclaimer_html": "Ved å klikke nedenfor og fullføre bestillingen din, godtar du å kjøpe varen din fra Flow I.O som selger av rekord for denne transaksjonen, på flow i.o <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">Vilkår og betingelser<\/a> og <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">Personvernregler<\/a>. Flow i.o er en internasjonal oppfyllelse tjenesteleverandør til %{shop_name}\n"
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "Nåværende saldo %{amount}",
@@ -551,7 +559,9 @@
         "physical_gift_card_invalid_quantity": "Fysiske gavekort linjeelementer må ha en mengde som samsvarer med antall gavekort koder.",
         "physical_gift_card_duplicate_code": "Fysisk gavekort linje inneholder duplisert kode.",
         "physical_gift_card_invalid_code": "Fysisk gavekort kode er ugyldig.",
-        "sms_marketing_phone_invalid": "Skriv inn et gyldig telefonnummer"
+        "sms_marketing_phone_invalid": "Skriv inn et gyldig telefonnummer",
+        "address_first_name_contains_emojis": "Fornavn kan ikke inneholde emojis",
+        "address_last_name_contains_emojis": "Etternavn kan ikke inneholde emojis"
       },
       "payment_errors": {
         "generic_error": "Det var et problem med behandling av betaling. Prøv igjen eller bruke en annen betalingsmåte.",
