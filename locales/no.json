@@ -262,7 +262,8 @@
         "recurring_total_tooltip": "Inkluderer ikke frakt, skatt, avgifter, eller eventuelle rabatter.",
         "confirmation_number_label": "bekreftelse #%{confirmation_number}",
         "estimated_taxes_finalization_tooltip_content": "Den endelige skatt og totalt vil bli bekreftet via e-post eller tekst etter at du har lagt inn bestillingen.",
-        "higher_value_discount_already_applied": "En høyere verdi rabatt er allerede installert."
+        "higher_value_discount_already_applied": "En høyere verdi rabatt er allerede installert.",
+        "information_estimated_taxes_label": "Skatter (estimert)"
       },
       "shipping": {
         "title": "Shipping",
