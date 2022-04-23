@@ -79,7 +79,7 @@
     "image_flip": true,
     "vendor": false,
     "show_reviews": false,
-    "product_info": "sizes",
+    "product_info": "colors",
     "color_swatch_options": "variant-image",
     "icon_shape": "rectangle",
     "icon_position": "top_right",
