@@ -1160,7 +1160,8 @@
         "variant_requires_selling_plan": "Variant kan kun kjøpes med en selger plan.",
         "selling_plan_not_applicable": "Kan ikke gjelde selge plan for å variant",
         "shipping_address_not_required": "Denne vognen ikke krever frakt",
-        "shipping_address_invalid": "Det var et problem å beregne fraktpriser. Fortsett til kassen for å velge en fraktkostnad før du fullfører din bestilling."
+        "shipping_address_invalid": "Det var et problem å beregne fraktpriser. Fortsett til kassen for å velge en fraktkostnad før du fullfører din bestilling.",
+        "selling_plan_not_available_for_company_locations": "Bare one-time-kjøp er tilgjengelig for B2B-ordrer"
       },
       "storefront": {
         "invalid_password": "Feil passord, prøv igjen."
