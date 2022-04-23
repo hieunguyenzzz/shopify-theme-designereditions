@@ -899,7 +899,10 @@
         "installments": {
           "paid_in_installments": "Betales i avdrag med butikk Pay.",
           "view_schedule": "Vis Schedule"
-        }
+        },
+        "title_with_logo_html": "Husk meg med det %{shopify_pay}",
+        "label_address_payment_and_faster_checkouts": "La Shop Pay Fyll ut adressen min og betalingsinformasjonen for raskere utsjekking.",
+        "label_faster_checkouts_and_thousand_shops": "Lagre min info med butikk betale for raskere utsjekking på over en million butikker."
       },
       "notifications": {
         "title": "Varsler"
@@ -993,6 +996,10 @@
           "generic_error": "Det oppstod et problem under behandling av forespørselen.",
           "success_message": "Betalingsmåten din har blitt slettet"
         }
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Merchant of Record Vilkår og betingelser",
+        "privacy_policy": "Merchant of Record Privacy Policy"
       }
     },
     "pagination": {
