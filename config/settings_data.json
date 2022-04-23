@@ -321,7 +321,7 @@
           "payment_icon_color": true,
           "show_social_icons": true,
           "show_copyright": true,
-          "show_locale_selector": true,
+          "show_locale_selector": false,
           "show_currency_selector": true
         }
       },
