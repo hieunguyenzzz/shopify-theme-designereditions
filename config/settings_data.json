@@ -134,7 +134,7 @@
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
     "checkout_accent_color": "#000000",
-    "checkout_button_color": "#000000",
+    "checkout_button_color": "#46856e",
     "checkout_error_color": "#ff0000",
     "scroll_color": "#000000",
     "scroll_background": "#ffffff",
