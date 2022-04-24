@@ -1897,9 +1897,9 @@
       "1650784908733d1159": {
         "type": "instafeed",
         "settings": {
-          "heading_font": "abel_n4",
-          "heading_size": 21,
-          "feed_width": 95,
+          "heading_font": "sans-serif",
+          "heading_size": 18,
+          "feed_width": 75,
           "html_area": "<div id=\"feed-17965\" class=\"instafeed-shopify\"><\/div>"
         }
       }
