@@ -1899,7 +1899,7 @@
         "settings": {
           "heading_font": "sans-serif",
           "heading_size": 18,
-          "feed_width": 75,
+          "feed_width": 65,
           "html_area": "<div id=\"feed-17965\" class=\"instafeed-shopify\"><\/div>"
         }
       }
