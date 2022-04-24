@@ -1977,10 +1977,11 @@
           "16507862046b175cc3-1": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs.jpg",
               "image_width": "33%",
-              "link": "",
-              "heading": "Our collections",
-              "rich_text": "<p>Enter text to accompany your image.<\/p>",
+              "link": "shopify:\/\/collections\/lounge-chair",
+              "heading": "Lounge Lovers",
+              "rich_text": "<p>The one-stop-shop for loungers, a vast array of leathers, fabrics, and finishes. Looking for that one off handcrafted piece. Look no further, Stylish is here.<\/p>",
               "button": "Explore",
               "text_align": "left"
             }
