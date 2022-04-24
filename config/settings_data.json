@@ -1914,9 +1914,9 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Most-Searched-Storage-01.jpg",
               "image_width": "33%",
-              "link": "",
-              "heading": "Our collections",
-              "rich_text": "<p>Enter text to accompany your image.<\/p>",
+              "link": "shopify:\/\/collections\/storage",
+              "heading": "Unique Storage -",
+              "rich_text": "<p>Storage solutions, some of the most vibrant and stylish classic pieces from Stylish.<\/p>",
               "button": "Explore",
               "text_align": "left"
             }
@@ -2007,7 +2007,7 @@
         "settings": {
           "heading": "",
           "full_width": false,
-          "promo_background_color": "#fff",
+          "promo_background_color": "#ffffff",
           "text_color": "#000000",
           "heading_size": 24
         }
