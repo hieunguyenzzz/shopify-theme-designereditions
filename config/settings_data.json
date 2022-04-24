@@ -990,6 +990,7 @@
       },
       "161889932583d927ec": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "1618899325eb1a2f07-0": {
             "type": "featured_collection",
@@ -1338,6 +1339,7 @@
           },
           "bca4cc6b-a354-4b6f-930c-71206efe7aed": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Most-Searched-Tables_42b110f7-6c28-45b5-9227-c4afd4ed1da9.jpg",
               "image_width": "33%",
@@ -1350,6 +1352,7 @@
           },
           "1fb307b4-82e2-48ba-a902-00c8de8242fe": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs.jpg",
               "image_width": "33%",
@@ -1951,7 +1954,7 @@
         "settings": {
           "heading": "",
           "full_width": false,
-          "promo_background_color": "#fff",
+          "promo_background_color": "#ffffff",
           "text_color": "#000000",
           "heading_size": 24
         }
@@ -1962,11 +1965,11 @@
       "rev_This-Spring",
       "162159895992baa653",
       "16188954225e385108",
+      "1618896363be3841e6",
+      "1618900529d0ebe344",
       "1650785388ef09e39f",
       "1559084715445",
-      "1618896363be3841e6",
       "161889932583d927ec",
-      "1618900529d0ebe344",
       "1619102614752e1fbd",
       "16195080989caa835d",
       "163541368248f9d2e8",
