@@ -1909,6 +1909,7 @@
           "1650785388ef09e39f-0": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Most-Searched-Storage-01.jpg",
               "image_width": "33%",
               "link": "",
               "heading": "Our collections",
@@ -1948,7 +1949,7 @@
           "1650785388ef09e39f-2"
         ],
         "settings": {
-          "heading": "Our customers",
+          "heading": "",
           "full_width": false,
           "promo_background_color": "#fff",
           "text_color": "#000000",
