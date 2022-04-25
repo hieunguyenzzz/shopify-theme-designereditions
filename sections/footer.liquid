@@ -70,7 +70,7 @@
             {% when 'menu' %}
               <div class="tw-w-full md:tw-w-1/2 lg:tw-w-1/4 lg:tw-max-w-[200px] footer-menu">
                 <label class="togglecontent" for="menu-item-{{ forloop.index }}">
-                  <h4>{{ block.settings.title }}</h4>
+                  <h4 class="tw-uppercase">{{ block.settings.title }}</h4>
                 </label><input id="menu-item-{{ forloop.index }}" type="checkbox">
                 <div class="footer-block-content">
                   <ul class="tw-list-none" {{ block.shopify_attributes }}>
@@ -83,7 +83,7 @@
             {% when 'newsletter' %}
               <div class="{{ column_width }} tw-w-full lg:tw-w-1/4 lg:tw-max-w-[200px] footer-menu">
                 <label class="togglecontent" for="menu-item-{{ forloop.index }}">
-                  <h4>{{ block.settings.title }}</h4>
+                  <h4 class="">{{ block.settings.title }}</h4>
                 </label><input id="menu-item-{{ forloop.index }}" type="checkbox">
                 <div class="footer-block-content" id="footer_signup">
                   {{ block.settings.mailing_subheading }}
