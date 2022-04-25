@@ -10061,14 +10061,15 @@ margin-right: 0.4em;
  .slideout {
    list-style: none;
    background: var(--background);
-   width: 100vw;
+   width: 80%;
+   max-width:400px;
    height: auto;
    position: fixed;
    top: 0;
    bottom: 0;
    left: unset;
    right: unset;
-   z-index: 15;
+   z-index: 50;
    overflow-y: auto;
    overflow-x: hidden;
    -webkit-transition-duration: 0.2s;
@@ -10084,12 +10085,11 @@ margin-right: 0.4em;
    left: 0;
    height: 100vh;
    width: 100vw;
-   z-index: 13;
+   z-index: 49;
    visibility: hidden;
    opacity: 0;
    background: #363636;
    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-   display:none;
  }
  .slideout__drawer-right {
    transform: translateX(285px);
