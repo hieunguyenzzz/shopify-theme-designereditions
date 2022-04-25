@@ -4635,6 +4635,12 @@ html {
   transform: var(--tw-transform);
 }
 
+.tw-scale-100 {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: var(--tw-transform);
+}
+
 .tw-transform {
   transform: var(--tw-transform);
 }
