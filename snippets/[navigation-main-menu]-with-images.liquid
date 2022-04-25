@@ -35,7 +35,7 @@
           {% if component.settings.nav_image != blank %}
             <span class="tw-px-[10px] tw-py-[8px] tw-order-2 tw-w-1/3 tw-flex-shrink-0">
               {%- assign image_size = '300x' -%}
-              <a href="{{ component.settings.promo_url }}">
+              <a href="{{ component.settings.promo_url }}" class="hover:tw-scale-110 tw-scale-0 tw-transition-transform tw-block tw-duration-700">
                 <div class="megamenu__imagecontainer">
                   <img class="tw-w-full" src="{{ component.settings.nav_image | img_url: image_size }}"/>
                 </div>
@@ -50,14 +50,14 @@
                 </span>
                 <span class="">Delivery</span>
               </div>
-              <a class="tw-underline tw-text-[#767874]" href="">
+              <a class="tw-underline tw-text-[#767874]" href="{{ component.settings.promo_url }}">
                 {{component.settings.link_text}}</a>
             </span>
           {% endif %}
           {% if component.settings.nav_image_secound != blank %}
             <span class="tw-px-[10px] tw-py-[8px] tw-order-2 tw-w-1/3 tw-flex-shrink-0">
               {%- assign image_size = '300x' -%}
-              <a href="{{ component.settings.promo_url_secound }}">
+              <a href="{{ component.settings.promo_url_secound }}" class="hover:tw-scale-110 tw-scale-0 tw-transition-transform tw-block tw-duration-700">
                 <div class="megamenu__imagecontainer">
                   <img class="tw-w-full" src="{{ component.settings.nav_image_secound | img_url: image_size }}"/>
                 </div>
@@ -72,7 +72,7 @@
                 </span>
                 <span class="">Delivery</span>
               </div>
-              <a class="tw-underline tw-text-[#767874]" href="">
+              <a class="tw-underline tw-text-[#767874]" href="{{ component.settings.promo_url_secound }}">
                 {{component.settings.link_text}}</a>
             </span>
           {% endif %}
