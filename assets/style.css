@@ -4938,6 +4938,11 @@ html {
   border-bottom-color: rgb(206 206 206 / var(--tw-border-opacity));
 }
 
+.tw-border-t-white {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .tw-border-opacity-50 {
   --tw-border-opacity: 0.5;
 }

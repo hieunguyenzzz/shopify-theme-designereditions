@@ -9,7 +9,7 @@
   {%- assign hd_locale_selector = true -%}
 {%- endif -%}
 
-<header class="header-section tw-shadow-sm tw-z-30 lg:tw-pb-0 tw-relative" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
+<header class="header-section tw-border-y lg:tw-border-none tw-border-solid tw-border-t-white tw-z-30 lg:tw-pb-0 tw-relative" data-section-id="{{ section.id }}" data-section-type="header-section" data-sticky="{{ section.settings.enable_sticky_header }}">
   {% if section.settings.show_announcement %}
     <div class="topbar">
       <div class="{% render '[class]-container' class: '' %} tw-flex tw-justify-center tw-items-center tw-truncate tw-text-xs tw-font-bold">
@@ -75,7 +75,7 @@
     </div>
   </div>
   <div class="tw-w-full tw-hidden lg:tw-flex tw-justify-center tw-isolate tw-pointer-events-none">
-    <div class=" tw-w-full tw-border-b">
+    <div class=" tw-w-full tw-border-y">
       <nav aria-label="Primary Navigation" class="{%- render '[class]-container' -%}tw-px-4 sm:tw-px-8 tw-pointer-events-auto">
         <ul class="navigation__menu tw-gap-x-[2%] tw-justify-between !tw-max-w-none tw-min-h-[60px] tw-items-center tw-flex-wrap tw-bg-white tw-flex tw-mx-auto" id="main-nav" role="menubar">
           {% for block in section.blocks %}
