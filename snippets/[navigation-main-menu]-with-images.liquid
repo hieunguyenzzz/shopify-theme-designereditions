@@ -1,7 +1,6 @@
 
-{% assign hanlizedHeading  = component.settings.menu_heading | handleize %}
 {% for link in linklists.main-menu.links %}
-  {% if link.handle == hanlizedHeading %}
+  {% if link.handle == component.settings.menu_item %}
     {% assign menu = link %}
   {% endif %}
 {% endfor %}  
@@ -17,7 +16,6 @@
       <a class="js-menu-link tw-uppercase js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ component.settings.url }}">{{ component.settings.menu_heading }}</a>
     </li>
   {%- else -%}
-    {% assign items = menu_items | split: ',' %}
     <li data-layout="[navigation-main-menu]-with-images" aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px]  tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
       component.settings.menu_heading
                                       }}" data-active-class="navigation__menuitem--active" role="none">
