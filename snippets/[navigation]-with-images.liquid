@@ -3,18 +3,25 @@
     <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px] navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
                                             link.title
                                           }}" data-active-class="navigation__menuitem--active" role="none">
-      <a class="xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
+      <a class="js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
     </li>
   {%- else -%}
     {% assign items = menu_items | split: ',' %}
     <li aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px]  tw-group navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
                                               link.title
                                             }}" data-active-class="navigation__menuitem--active" role="none">
-      <a class="navigation__menulink xl:tw-px-4 tw-px-2 js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ link.url }}">{{ heading }}</a>
-      <div class="tw-bg-white tw-z-[-1] tw-leading-loose tw-absolute tw-shadow tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-border-y tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-12 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
+                                            <div class=" tw-h-[57px] tw-flex tw-items-center tw-gap-2">
+                                              <a class="" href="{{ component.settings.url }}">
+                                                {{ component.settings.menu_heading }}
+                                              </a>
+                                              <svg class="tw-rotate-90  tw-text-[12px] tw-mt-1" fill="currentColor" height="1em" stroke-width="0.2px" stroke="currentColor" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" fill-rule="evenodd"></path>
+                                              </svg>
+                                            </div>
+      <div class="tw-bg-white tw-z-[-1] tw-leading-loose tw-absolute tw-shadow tw-left-0 tw-right-0 tw-opacity-0 group-hover:tw-opacity-100 tw-border-b tw-border-opacity-50 tw-pointer-events-none group-hover:tw-pointer-events-auto tw-py-10 tw-duration-500 tw-transition-[opacity,margin] tw-invisible group-hover:tw-visible tw--mt-6 group-hover:tw-mt-0">
         <div class="{%- render '[class]-container' class: '' -%}tw-flex tw-gap-6 tw-justify-center">
           {% if component.settings.nav_image != blank %}
-            <span class="desktop-3 tablet-hide mm-image tw-order-2 tw-w-[300px] xl:tw-w-[400px] tw-flex-shrink-0">
+            <span class="tw-px-[10px] tw-py-[8px] tw-order-2 tw-w-1/3 tw-flex-shrink-0">
               {%- assign image_size = '300x' -%}
               <a href="{{ component.settings.promo_url }}">
                 <div class="megamenu__imagecontainer">
@@ -24,7 +31,7 @@
                   <img class="tw-w-full" src="{{ component.settings.nav_image | img_url: image_size }}" class="navigation-image"/>
                 </noscript>
               </a>
-              <div class="tw-text-[22px] ">
+              <div class="w-text-[22px] tw-leading-[32px] tw-mt-[30px]">
                 <span class="tw-font-heading tw-text-[#dba62b] tw-font-bold">Up to 50% off
                 </span>
                 <span class="tw-font-heading tw-font-bold tw-text-black">Express
@@ -36,7 +43,7 @@
             </span>
           {% endif %}
           {% if component.settings.nav_image_secound != blank %}
-            <span class="desktop-3 tablet-hide mm-image tw-order-2 tw-w-[300px] xl:tw-w-[400px] tw-flex-shrink-0">
+            <span class="tw-px-[10px] tw-py-[8px] tw-order-2 tw-w-1/3 tw-flex-shrink-0">
               {%- assign image_size = '300x' -%}
               <a href="{{ component.settings.promo_url_secound }}">
                 <div class="megamenu__imagecontainer">
@@ -46,7 +53,7 @@
                   <img class="tw-w-full" src="{{ component.settings.nav_image_secound | img_url: image_size }}" class="navigation-image"/>
                 </noscript>
               </a>
-              <div class="tw-text-[22px] ">
+              <div class="w-text-[22px] tw-leading-[32px] tw-mt-[30px]">
                 <span class="tw-font-heading tw-text-[#dba62b] tw-font-bold">Up to 50% off
                 </span>
                 <span class="tw-font-heading tw-font-bold tw-text-black">Express
@@ -70,12 +77,12 @@
             {% when 5 %}
               {% assign gridcss = 'tw-grid-cols-2  md:tw-grid-cols-3 lg:tw-grid-cols-5' %}
           {% endcase %}
-          <ul class="tw-grid {{gridcss}} tw-gap-x-6 tw-gap-y-3 tw-list-none tw-justify-center tw-content-center">
+          <ul class="tw-grid {{ gridcss }} tw-list-none tw-justify-center tw-content-center">
             {% for item in items %}
               {% assign handlizedItem = item | handleize %}
               {% assign collection = collections[handlizedItem] %}
               {% if collection and collection.products.size > 0  %}
-                <li class="tw-py-1 tw-leading-snug tw-max-w-[180px]">
+                <li class="tw-py-1 tw-leading-snug tw-w-[300px] tw-px-[25px] tw-min-h-[33px]">
                   <a class="" href="/collections/{{ item | handleize }}">{{ item }}</a>
                 </li>
               {% endif %}
