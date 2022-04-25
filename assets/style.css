@@ -5839,6 +5839,11 @@ html {
   filter: var(--tw-filter);
 }
 
+.focus\:tw-text-base:focus {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .focus\:tw-text-black:focus {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
