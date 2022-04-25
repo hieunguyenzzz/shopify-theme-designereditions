@@ -162,7 +162,7 @@
             "type": "submenu_with_image",
             "settings": {
               "menu_heading": "CHAIRS",
-              "menu_item": "main_menu_chairs",
+              "menu_item": "chairs",
               "menu_items": "",
               "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs.webp",
               "nav_image_position": "right",
