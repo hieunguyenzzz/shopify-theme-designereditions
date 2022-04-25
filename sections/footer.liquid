@@ -18,13 +18,13 @@
         {% endif %}
         <div class="tw-space-y-2">
           {%- if settings.contact_address != blank -%}
-            <div><span class="tw-opacity-70 tw-mr-3">Address: </span><a class="tw-underline" target="_blank" href="https://www.google.com/search?q={{settings.contact_address}}">{{settings.contact_address}}</a></div>
+            <div><span class="tw-opacity-70 tw-mr-3">{{ 'strings.general.address' | t }}: </span><a class="tw-underline" target="_blank" href="https://www.google.com/search?q={{settings.contact_address}}">{{settings.contact_address}}</a></div>
           {%- endif -%}
           {%- if settings.contact_phone != blank -%}
-            <div><span class="tw-opacity-70 tw-mr-3">Contact us: </span><a class="tw-underline" href="tel:{{settings.contact_phone}}" target="_blank" title="tel:{{settings.contact_phone}}">{{settings.contact_phone}}</a></div>
+            <div><span class="tw-opacity-70 tw-mr-3">{{ 'strings.general.contact_us' | t }}: </span><a class="tw-underline" href="tel:{{settings.contact_phone}}" target="_blank" title="tel:{{settings.contact_phone}}">{{settings.contact_phone}}</a></div>
           {%- endif -%}
           {%- if settings.contact_email != blank -%}
-            <div><span class="tw-opacity-70 tw-mr-3">Email: </span><a class="tw-underline" href="mailto:{{settings.contact_email}}">{{settings.contact_email}}</a></div>
+            <div><span class="tw-opacity-70 tw-mr-3">{{ 'strings.general.email' | t }}: </span><a class="tw-underline" href="mailto:{{settings.contact_email}}">{{settings.contact_email}}</a></div>
           {%- endif -%}
         </div>
       </div>
