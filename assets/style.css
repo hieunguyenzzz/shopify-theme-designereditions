@@ -4629,6 +4629,12 @@ html {
   transform: var(--tw-transform);
 }
 
+.tw-scale-0 {
+  --tw-scale-x: 0;
+  --tw-scale-y: 0;
+  transform: var(--tw-transform);
+}
+
 .tw-transform {
   transform: var(--tw-transform);
 }
@@ -5630,6 +5636,12 @@ html {
   transition-duration: 150ms;
 }
 
+.tw-transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .tw-duration-700 {
   transition-duration: 700ms;
 }
@@ -5801,6 +5813,18 @@ html {
 .focus-within\:tw-bg-gray-100:focus-within {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.hover\:tw-scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: var(--tw-transform);
+}
+
+.hover\:tw-scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: var(--tw-transform);
 }
 
 .hover\:tw-border-black:hover {
