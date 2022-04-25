@@ -1,6 +1,14 @@
 {
   "strings": {
+    "promo": {
+      "up_to": "Up to 50% off",
+      "express": "Express",
+      "delivery": "Delivery"
+    },
     "general": {
+      "address": "Address",
+      "contact_us": "Contact Us",
+      "email": "Email",
       "show_express_delivery_options": "Show Express Delivery Options",
       "learn_more": "Learn More",
       "verified_reviews": "VERIFIED REVIEWS",
@@ -42,8 +50,8 @@
       "upholstery": "Upholstery",
       "finish": "Finish",
       "choose-materials": "Choose. Materials",
-      "woods-finishes": "Woods \/ Finishes",
-      "material-size": "Material \/ Size",
+      "woods-finishes": "Woods / Finishes",
+      "material-size": "Material / Size",
       "material": "Material",
       "fabric": "Fabric",
       "wood-options": "Wood Options",
@@ -152,9 +160,9 @@
       "black-cowhide": "Black Cowhide",
       "brown-cowhide": "Brown Cowhide",
       "black-laquered": "Black Laquered",
-      "black-gold": "Black \/ Gold",
-      "white-gold": "White \/ Gold",
-      "gold-gold": "Gold \/ Gold",
+      "black-gold": "Black / Gold",
+      "white-gold": "White / Gold",
+      "gold-gold": "Gold / Gold",
       "rattan": "Rattan",
       "maple": "Maple",
       "brass": "Brass",
@@ -170,7 +178,7 @@
       "soaped-oak": "Soaped - Oak",
       "black-lacquered": "Black Lacquered",
       "black-painted-ash": "Black Painted Ash",
-      "walnut-oak": "Walnut \/ Oak",
+      "walnut-oak": "Walnut / Oak",
       "smoke-gray": "Smoke Gray",
       "coffee": "Coffee",
       "transparent": "Transparent",
@@ -198,7 +206,7 @@
       "grey-transparent": "Grey Transparent",
       "105-cm": "105 CM",
       "multitone": "Multitone",
-      "black-maple": "Black \/ Maple",
+      "black-maple": "Black / Maple",
       "blue-multitone": "Blue Multitone",
       "green-multitone": "Green Multitone",
       "red-multitone": "Red  Multitone",
@@ -317,7 +325,7 @@
   },
   "blogs": {
     "article": {
-      "posted_on_date_html": "Posted on <time datetime=\"{{ date }}\">{{ date }}<\/time>",
+      "posted_on_date_html": "Posted on <time datetime=\"{{ date }}\">{{ date }}</time>",
       "tags": "Tags",
       "tagged": "Tagged",
       "comments": "Comments",
@@ -351,8 +359,8 @@
       "check_other_stores": "Check availability at other stores",
       "pick_up_available": "Pickup available",
       "pick_up_currently_unavailable": "Pickup currently unavailable",
-      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}</strong>"
     }
   },
   "cart": {
@@ -434,7 +442,7 @@
       "signup": "Login or create an account",
       "details": "Account Details",
       "view_addresses": "View Addresses",
-      "returns_content": "Return\/Exchange",
+      "returns_content": "Return/Exchange",
       "return": "Return to Account Details"
     },
     "activate_account": {
@@ -458,7 +466,7 @@
       "city": "City",
       "country": "Country",
       "province": "Province",
-      "zip": "Postal\/Zip Code",
+      "zip": "Postal/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add Address",
@@ -547,7 +555,7 @@
     },
     "mobile_nav": {
       "account": "Account",
-      "login": "Log In\/Create Account",
+      "login": "Log In/Create Account",
       "logout": "Logout"
     }
   },
