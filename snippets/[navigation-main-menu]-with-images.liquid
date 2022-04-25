@@ -14,7 +14,7 @@
     <li data-layout="[navigation-main-menu]-with-images" aria-expanded="false" aria-haspopup="true" class="navigation__menuitem tw-h-[60px] navigation__menuitem--dropdown js-doubletap-to-go js-aria-expand {{
       component.settings.menu_heading
                                     }}" data-active-class="navigation__menuitem--active" role="none">
-      <a class="js-menu-link js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ component.settings.url }}">{{ component.settings.menu_heading }}</a>
+      <a class="js-menu-link tw-uppercase js-open-dropdown-on-key tw-h-full tw-flex tw-items-center" href="{{ component.settings.url }}">{{ component.settings.menu_heading }}</a>
     </li>
   {%- else -%}
     {% assign items = menu_items | split: ',' %}
@@ -22,7 +22,7 @@
       component.settings.menu_heading
                                       }}" data-active-class="navigation__menuitem--active" role="none">
                                       <div class=" tw-h-[57px] tw-flex tw-items-center tw-gap-2">
-                                        <a class="" href="{{ component.settings.url }}">
+                                        <a class="tw-uppercase" href="{{ component.settings.url }}">
                                           {{ component.settings.menu_heading }}
                                         </a>
                                         <svg class="tw-rotate-90  tw-text-[12px] tw-mt-1" fill="currentColor" height="1em" stroke-width="0.2px" stroke="currentColor" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
