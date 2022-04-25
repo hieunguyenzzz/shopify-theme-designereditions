@@ -297,21 +297,24 @@
             "type": "submenu",
             "settings": {
               "menu_heading": "CATEGORIES",
-              "menu_item": "Chairs, Sofas, Lighting Tables, Accessories"
+              "menu_item": "categories",
+              "menu_items": ""
             }
           },
           "6f8a40f1-3e70-49e7-b116-defd54c3d72e": {
             "type": "submenu",
             "settings": {
               "menu_heading": "INFORMATION",
-              "menu_item": "About Us, Brexit, Contact Us, FAQs, Terms&Conditions, Join Our Mailing List, Returns and Refund, Transparency Policy, Privacy Policy, Ethical Trading Trade, Sitemap, Photo Contest"
+              "menu_item": "infomation",
+              "menu_items": ""
             }
           },
           "a07aa2ee-9834-47c9-8e0d-161669592c59": {
             "type": "submenu",
             "settings": {
               "menu_heading": "ACCOUNT",
-              "menu_item": "My account, Order tracking"
+              "menu_item": "account",
+              "menu_items": ""
             }
           }
         },
