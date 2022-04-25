@@ -33,9 +33,14 @@
         {% for block in section.blocks %}
           {% case block.type %}
           {% when 'submenu' %}
-            {% assign items = block.settings.menu_item | split: ',' %}
+          {% assign menu = nil %}
+          {% for link in linklists.footer.links %}
+            {% if link.handle == block.settings.menu_item %}
+              {% assign menu = link %}
+            {% endif %}
+          {% endfor %}  
             {% assign twoColumns = false %}
-            {% if items.size > 6 %}
+            {% if menu.links.size > 6 %}
               {% assign twoColumns = true %}
             {% endif %}
             
@@ -54,12 +59,10 @@
                 <input id="menu-item-{{ forloop.index }}" type="checkbox">
                 <div class="footer-block-content">
                   <ul class="tw-list-none  {% if twoColumns %}
-                    tw-columns-2
+                    tw-grid tw-grid-cols-2
                   {% endif %}" {{ block.shopify_attributes }}>
-                    {% for item in items %}
-                      {% assign handlizeItem  = item | handleize %}
-                      {% assign url = '/collections/' | append: handlizeItem %}
-                      <li>{{ item | link_to: url }}</li>
+                    {% for item in menu.links %}
+                      <li>{{ item.title | link_to: item.url }}</li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -412,6 +415,11 @@
         "type": "text",
         "id": "menu_item",
         "label": "Menu item"
+      },
+      {
+        "type": "text",
+        "id": "menu_items",
+        "label": "Menu items"
       }
     ]
   },
