@@ -269,7 +269,7 @@
         ],
         "settings": {
           "full_width_header": false,
-          "enable_sticky_header": false,
+          "enable_sticky_header": true,
           "header_cover": false,
           "header_border": false,
           "announcement_bar_verified_reviews_number": "100'S",
