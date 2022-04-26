@@ -282,7 +282,7 @@
           "show_locale_selector": false,
           "show_currency_selector": false,
           "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
-          "logoname": "DESIGNER ICONS",
+          "logoname": "DESIGNER EDITIONS",
           "logosize": 20,
           "logo_max_width": 165,
           "logo_position": "inline",
@@ -1055,7 +1055,7 @@
           "499d741e-8c9f-4282-8f07-86accdfd1f9e": {
             "type": "html",
             "settings": {
-              "code": "<div class=\"b-video b-video-b-video grey-bg\" style=\"\n    padding-bottom: 56.25%;\n    position: relative;\n\">\n    <iframe loading=\"lazy\" style=\"width:100%;height:100%;position: absolute;top: 0;left: 0;\" data-src=\"https:\/\/fast.wistia.net\/embed\/iframe\/67nabx3lvb?amp;embedType=async&amp;videoWidth=320\" title=\"Designer Icons\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" class=\"wistia_embed lazyload\" name=\"wistia_embed\" width=\"1200\" height=\"600\"><\/iframe>\n    <div class=\"b-video-text\">\n      <h1 class=\"hd1 mv0\">The Original Quality<\/h1>\n      <p class=\"mt3 mb4\">Every Detail. Considered.<\/p>\n      <a class=\"btn white button\" href=\"\/pages\/about-us\">Learn More<\/a>\n    <\/div>\n<\/div>\n<style>\n .b-video-text {\n    position: absolute;\n    text-align: center;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    -moz-transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    -o-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n  @media screen and (min-width: 768px)\n    { \n\nh1.hd1.mv0 {\n    font-size: 47px;\n}a.btn.white.button {\n    width: 175px;\n}\n}\n<\/style>",
+              "code": "<div class=\"b-video b-video-b-video grey-bg\" style=\"\n    padding-bottom: 56.25%;\n    position: relative;\n\">\n    <iframe loading=\"lazy\" style=\"width:100%;height:100%;position: absolute;top: 0;left: 0;\" data-src=\"https:\/\/fast.wistia.net\/embed\/iframe\/67nabx3lvb?amp;embedType=async&amp;videoWidth=320\" title=\"Designer Editions\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" class=\"wistia_embed lazyload\" name=\"wistia_embed\" width=\"1200\" height=\"600\"><\/iframe>\n    <div class=\"b-video-text\">\n      <h1 class=\"hd1 mv0\">The Original Quality<\/h1>\n      <p class=\"mt3 mb4\">Every Detail. Considered.<\/p>\n      <a class=\"btn white button\" href=\"\/pages\/about-us\">Learn More<\/a>\n    <\/div>\n<\/div>\n<style>\n .b-video-text {\n    position: absolute;\n    text-align: center;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    -moz-transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    -o-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n  @media screen and (min-width: 768px)\n    { \n\nh1.hd1.mv0 {\n    font-size: 47px;\n}a.btn.white.button {\n    width: 175px;\n}\n}\n<\/style>",
               "width": "100%"
             }
           }
@@ -1194,7 +1194,7 @@
             "type": "question",
             "settings": {
               "title": "Do you have any showrooms where I can see the furniture?",
-              "answer": "<p>We are online only.<br\/>Decades after the deaths of the renowned designers, the prices are high, making them available only to the wealthy - Here at Designer Icons we offer affordable designer furniture for all. Therefore, We Created an Alternative -&gt; Out of frustration, we created an alternative by eliminating middle men, sales staff and expensive showrooms.  We take this savings and pass them on to our customers, therefore offering the great quality product at a great price.<\/p>"
+              "answer": "<p>We are online only.<br\/>Decades after the deaths of the renowned designers, the prices are high, making them available only to the wealthy - Here at Designer Editions we offer affordable designer furniture for all. Therefore, We Created an Alternative -&gt; Out of frustration, we created an alternative by eliminating middle men, sales staff and expensive showrooms.  We take this savings and pass them on to our customers, therefore offering the great quality product at a great price.<\/p>"
             }
           },
           "e07aacbe-171d-47fe-b9c9-c69626e38196": {
@@ -1263,8 +1263,8 @@
           "e86f83c1-8484-4b18-a573-774637f7470e": {
             "type": "quote",
             "settings": {
-              "quote": "<p>I am so happy for the lamp I ordered from Designer Icons! The quality and service was perfect! I will tell all my friends about Designer Icons, and tell them how pleased I am! Thank you<\/p>",
-              "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>I love Designer Icons",
+              "quote": "<p>I am so happy for the lamp I ordered from Designer Editions! The quality and service was perfect! I will tell all my friends about Designer Editions, and tell them how pleased I am! Thank you<\/p>",
+              "title1": "<div class=\"review-stars\">★ ★ ★ ★ ★<\/div>I love Designer Editions",
               "author": ""
             }
           },
@@ -1279,7 +1279,7 @@
           "190df8a5-2664-415e-9168-b35fa5e46c30": {
             "type": "quote",
             "settings": {
-              "quote": "<p>Excellent product and service. Received in the UK 6 days after stock arrived at Designer Icons even though there are world wide problems with freight due to brexit and covid. <\/p>",
+              "quote": "<p>Excellent product and service. Received in the UK 6 days after stock arrived at Designer Editions even though there are world wide problems with freight due to brexit and covid. <\/p>",
               "title1": "<div class=\"review-stars\">★ ★ ★ ★ ☆<\/div>designer-quality furniture",
               "author": ""
             }
@@ -1491,7 +1491,7 @@
               "iwt_image_width": "50%",
               "iwt_text_align": "left",
               "iwt_title": "Prices Are Kept High",
-              "iwt_text": "<p>Mid-century furniture that were created over 60 years ago should to be accessible to all. Decades after the deaths of the renowned designers, the prices are high, making them available only to the wealthy - Here at Designer Icons we offer affordable designer furniture for all<br\/><br\/><\/p>",
+              "iwt_text": "<p>Mid-century furniture that were created over 60 years ago should to be accessible to all. Decades after the deaths of the renowned designers, the prices are high, making them available only to the wealthy - Here at Designer Editions we offer affordable designer furniture for all<br\/><br\/><\/p>",
               "iwt_link": "",
               "iwt_button": "",
               "shadow": false,
