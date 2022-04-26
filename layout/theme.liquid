@@ -88,17 +88,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {{ "customer_area.js" | shopify_asset_url | script_tag }}
     {% endif %}
     {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
-{%- render 'bold-common' -%}
     {{ 'theme-style.css' | asset_url | stylesheet_tag }}
-
-                        {% include 'otRegion' %}            
                         
   <!-- REAMAZE INTEGRATION START - DO NOT REMOVE -->
 {% render 'reamaze-config' %}
 {% render 'reamaze-sso' %}
 <!-- REAMAZE INTEGRATION END - DO NOT REMOVE -->
 
-{% include 'wiser' %}{% include 'wiser_popup' %}
+{% include 'wiser' %}
+{% include 'wiser_popup' %}
   {% render 'shogun-head' %}
 {% include 'add_header_assets' %}</head>
 
@@ -230,11 +228,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- <script>
     AOS.init();
   </script> -->
-{% render '[predictive-search]' class: '' %}
 <!-- **BEGIN** Hextom USB Integration // Main Include - DO NOT MODIFY -->
 {% render 'hextom_usb_main', product: product, customer: customer %}
 <!-- **END** Hextom USB Integration // Main Include - DO NOT MODIFY -->
-{%- render 'bold-currency-converter' -%}
 {{'tiny-img-link-preloader.js' | asset_url | script_tag }}
 
 <!-- **BEGIN** Hextom FSB Integration // Main Include - DO NOT MODIFY -->

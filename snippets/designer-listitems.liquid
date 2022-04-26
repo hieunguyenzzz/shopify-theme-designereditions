@@ -118,9 +118,6 @@ const allInspiredOf = [
             "name": "Mies Van Der Rohe"
         },
         {
-            "name": "Designer Icons"
-        },
-        {
             "name": "Nicolaj Nøddesbo & Tommy Hyldahl"
         },
         {
@@ -187,7 +184,7 @@ const allInspiredOf = [
 {%- endcomment -%}
 
 
-{% assign designers = 'A and P Castiglioni,Alvar Aalto,Anna Castelli Ferrieri,Arne Jacobsen,August Thonet,Bertjan Pot, Børge Mogensen,Carlo Mollino,Charles Eames,Christian Dell,Draga Obradovic & Aurel K. Basedow,Ebbe Gehl & Søren Nissen  ,Eero Aarnio,Eero Saarinen,Eileen Gray,Erik Buch,Fabricius and Kastholm,Finn Juhl,Florence Knoll,Gabriele & Oscar Buratti,George Nelson,Gino Sarfatti,Grant Featherston,Greta Grossman,Hans J. Wegner,Harry Bertoia,Isamu Noguchi,Jean Prouvé,Jens Risom,Jo Hammerborg,Juha Ilmari Leiviskä,Jørn Oberg Utzon,Kai Kristiansen,Le Corbusier,Marcel Breuer,Mariano Fortuny y Madrazo,Mark Stam,Michael Thonet,Mies Van Der Rohe,Designer Icons,Nicolaj Nøddesbo & Tommy Hyldahl,Paulo Rizzatto,Pierre Paulin,Philippe Starck,Poul Christiansen,Poul Henningsen,Poul Kjærholm,Poul Volther,Robert Dudley Best,Serge Mouille,Sigurd Ressell,Sori Yanagi,Xavier Pauchard,Verner Panton,Vico Magistretti,Warren Platner,Wilhelm Wagenfeld,Bernard Schottlander,Bernard-Albin Gras,Shin and Tomoko Azumi,Mario Bellini' | split: ',' | sort %}
+{% assign designers = 'A and P Castiglioni,Alvar Aalto,Anna Castelli Ferrieri,Arne Jacobsen,August Thonet,Bertjan Pot, Børge Mogensen,Carlo Mollino,Charles Eames,Christian Dell,Draga Obradovic & Aurel K. Basedow,Ebbe Gehl & Søren Nissen  ,Eero Aarnio,Eero Saarinen,Eileen Gray,Erik Buch,Fabricius and Kastholm,Finn Juhl,Florence Knoll,Gabriele & Oscar Buratti,George Nelson,Gino Sarfatti,Grant Featherston,Greta Grossman,Hans J. Wegner,Harry Bertoia,Isamu Noguchi,Jean Prouvé,Jens Risom,Jo Hammerborg,Juha Ilmari Leiviskä,Jørn Oberg Utzon,Kai Kristiansen,Le Corbusier,Marcel Breuer,Mariano Fortuny y Madrazo,Mark Stam,Michael Thonet,Mies Van Der Rohe,Nicolaj Nøddesbo & Tommy Hyldahl,Paulo Rizzatto,Pierre Paulin,Philippe Starck,Poul Christiansen,Poul Henningsen,Poul Kjærholm,Poul Volther,Robert Dudley Best,Serge Mouille,Sigurd Ressell,Sori Yanagi,Xavier Pauchard,Verner Panton,Vico Magistretti,Warren Platner,Wilhelm Wagenfeld,Bernard Schottlander,Bernard-Albin Gras,Shin and Tomoko Azumi,Mario Bellini' | split: ',' | sort %}
 
 {% for designer in designers %}
     {% assign handlizedDisigner = designer | handleize %}
