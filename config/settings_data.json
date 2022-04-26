@@ -453,6 +453,7 @@
           },
           "1bcec56b-8205-45d3-bd2c-67a7789d4daa": {
             "type": "search_box",
+            "disabled": true,
             "settings": {
             }
           }
