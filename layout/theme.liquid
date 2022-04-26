@@ -31,13 +31,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link crossorigin href="//ajax.googleapis.com" rel="preconnect"/>
 
 
-    {%- assign main_font = settings.main_font -%}
-    {%- assign heading_font = settings.heading_font -%}
-    {%- assign nav_font = settings.nav_font -%}
-    {%- assign main_font_bold = main_font | font_modify: 'weight', 'bolder' -%}
-    {%- assign main_font_italic = main_font | font_modify: 'style', 'italic' -%}
-    {%- assign main_font_bold_italic = main_font_bold | font_modify: 'style', 'italic' -%}
-
     <!-- Preload onDomain stylesheets and script libraries -->
     <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style">
     <link rel="preload" href="{{ 'stylesheet.css' | asset_url }}" as="style">
@@ -83,48 +76,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'structured-data' %}
     {% render 'css-variables' %}
 
+    <link rel="stylesheet" href="{{ 'font.css' | asset_url }}" type="text/css">
     <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css">
     <link rel="stylesheet" href="{{ 'stylesheet.css' | asset_url }}" type="text/css">
     <link rel="stylesheet" href="{{ 'queries.css' | asset_url }}" type="text/css">
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}" type="text/css">
 
-    <style>
-    {
-        {
-        main_font | font_face: font_display: 'swap'
-      }
-    }
-
-      {
-        {
-        nav_font | font_face: font_display: 'swap'
-      }
-    }
-
-      {
-        {
-        heading_font | font_face: font_display: 'swap'
-      }
-    }
-
-      {
-        {
-        main_font_bold | font_face: font_display: 'swap'
-      }
-    }
-
-      {
-        {
-        main_font_italic | font_face: font_display: 'swap'
-      }
-    }
-
-      {
-        {
-        main_font_bold_italic | font_face: font_display: 'swap'
-      }
-    }
-  </style>
 
     {% if template contains 'customers' %}
         {{ "shopify_common.js" | shopify_asset_url | script_tag }}
