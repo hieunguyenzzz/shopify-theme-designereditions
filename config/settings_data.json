@@ -253,7 +253,7 @@
             "type": "linkonly",
             "settings": {
               "menu_heading": "EXPRESS DELIVERY",
-              "url": "\/"
+              "url": "shopify:\/\/collections\/express-delivery"
             }
           }
         },
