@@ -18,12 +18,12 @@ window.__wilInstagramShopify__=[{"insta_mode":"basic","insta_hashtag":"","insta_
             link.type = 'text/css';
             link.rel = 'stylesheet';
             headEl.appendChild(link);
-            link.href = 'https://instafeedhub-layout.netlify.app/styles.css?ver=1651654077';
+            link.href = 'https://instafeedhub-layout.netlify.app/styles.css?ver=1651654083';
 
             var scriptEl = document.createElement('script');
             scriptEl.type='text/javascript';
             scriptEl.async = true;
             headEl.appendChild(scriptEl);
-            scriptEl.src = 'https://instafeedhub-layout.netlify.app/main.js?ver=1651654077';
+            scriptEl.src = 'https://instafeedhub-layout.netlify.app/main.js?ver=1651654083';
         }, false);
 		
