@@ -1,15 +1,15 @@
 {
   "general": {
     "404": {
-      "subtext": "Den här sidan existerar inte. Försök att söka efter vad du vill hitta:",
-      "title": "Oj - vi kunde inte hitta den där"
+      "subtext": "Den här sidan finns inte. Försök att söka efter vad du vill hitta:",
+      "title": "Oj - vi kunde inte hitta den"
     },
     "pagination": {
-      "showing_items": "Visar objekt",
+      "showing_items": "Visar föremål",
       "of": "av"
     },
     "forms": {
-      "post_error": "Tyvärr, ser ut som att något gick fel. Vänligen korrigera följande och skicka igen:"
+      "post_error": "Tyvärr, ser ut som att något gick fel. Korrigera följande och skicka igen:"
     },
     "breadcrumbs": {
       "home": "Hem"
@@ -26,7 +26,7 @@
       "no_results_html": "Din sökning efter \"{{ terms }}\"gav inga resultat.",
       "results_for_html": "Din sökning efter \"{{ terms }}\"avslöjade följande:",
       "title": "Sök",
-      "placeholder": "Sök",
+      "placeholder": "Sök hela butiken här ...",
       "submit": "Sök"
     },
     "language": {

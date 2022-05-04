@@ -1,1 +1,1 @@
-designer-icons.com
+https://designer-editions2.myshopify.com/

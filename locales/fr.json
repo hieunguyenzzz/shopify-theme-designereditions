@@ -1396,7 +1396,10 @@
       "sale_ends_in": "La vente se termine",
       "days": "Journées",
       "day": "Jour",
-      "delivery-label-image": "Free-Delivery-Product-Page-fr.png"
+      "delivery-label-image": "Free-Delivery-Product-Page-fr.png",
+      "change-shipping-country-and-language": "Changer le pays d'expédition et la langue",
+      "designers": "Designers",
+      "availabilityfilter": "Livraison express"
     },
     "product_options": {
       "choose-colours": "Choisissez Couleurs:",

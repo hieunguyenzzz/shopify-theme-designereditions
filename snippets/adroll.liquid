@@ -1,0 +1,7 @@
+{% if customer %}
+<script>
+    adroll_email = "{{ customer.email }}";
+    adroll_user_id = "{{ customer.id }}";
+    adroll_accepts_marketing = "{{ customer.accepts_marketing }}";
+</script>
+{% endif %}

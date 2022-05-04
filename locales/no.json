@@ -86,7 +86,10 @@
         "checkout_context": {
           "step_one": "%{shop_name} - Sjekk ut"
         },
-        "tooltip_accessibility_label": "Mer informasjon"
+        "tooltip_accessibility_label": "Mer informasjon",
+        "errors": {
+          "session_identifier_not_unique_error": "Noe gikk galt med bestillingen din, prøv å sjekke ut igjen."
+        }
       },
       "contact": {
         "title": "Informasjon",
@@ -259,7 +262,18 @@
         "recurring_total_tooltip": "Inkluderer ikke frakt, skatt, avgifter, eller eventuelle rabatter.",
         "confirmation_number_label": "bekreftelse #%{confirmation_number}",
         "estimated_taxes_finalization_tooltip_content": "Den endelige skatt og totalt vil bli bekreftet via e-post eller tekst etter at du har lagt inn bestillingen.",
-        "higher_value_discount_already_applied": "En høyere verdi rabatt er allerede installert."
+        "higher_value_discount_already_applied": "En høyere verdi rabatt er allerede installert.",
+        "information_estimated_taxes_label": "Skatter (estimert)",
+        "percent_off_shipping": "%{percent}% OFF SHIPPING.",
+        "amount_off_shipping": "%{amount} av frakt",
+        "deferred_payment_info": {
+          "title": "Betaling av %{amount_due} er på grunn av %{due_at}",
+          "description_html": "For spørsmål om bestillingen din, %{contact_us}."
+        },
+        "payment_terms_totals": {
+          "due_today": "Totalt forfalt i dag",
+          "due_later": "Totalt på grunn av det %{due_at}"
+        }
       },
       "shipping": {
         "title": "Shipping",
@@ -339,7 +353,11 @@
             "other": "for første %{count} ordrene"
           }
         },
-        "one_time_purchase_shipping": "Engangsavgift frakt"
+        "one_time_purchase_shipping": "Engangsavgift frakt",
+        "arrives_time": "Ankommer %{time}",
+        "arrives_time_range": "Ankommer %{min_time}–%{max_time}",
+        "estimated_time": "estimert %{time}",
+        "estimated_time_range": "estimert %{min_time}–%{max_time}"
       },
       "localized_fields": {
         "additional_information": {
@@ -462,7 +480,15 @@
         },
         "account_connected": "konto tilkoblet",
         "expiry_long": "(Utgår %{month}\/%{year})",
-        "expiry_short": "(Exp %{month}\/%{year})"
+        "expiry_short": "(Exp %{month}\/%{year})",
+        "paypal_label": "PayPal.",
+        "klarna_label": "Klarna.",
+        "google": {
+          "connect": "Klikk for å koble til Google Pay-kontoen din",
+          "error_authorizing": "Feil godkjenning av betaling"
+        },
+        "email_connected": "Konto tilkoblet: ",
+        "mor_disclaimer_html": "Ved å klikke nedenfor og fullføre bestillingen din, godtar du å kjøpe varen din fra Flow I.O som selger av rekord for denne transaksjonen, på flow i.o <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">Vilkår og betingelser<\/a> og <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">Personvernregler<\/a>. Flow i.o er en internasjonal oppfyllelse tjenesteleverandør til %{shop_name}\n"
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "Nåværende saldo %{amount}",
@@ -533,7 +559,15 @@
         "physical_gift_card_invalid_quantity": "Fysiske gavekort linjeelementer må ha en mengde som samsvarer med antall gavekort koder.",
         "physical_gift_card_duplicate_code": "Fysisk gavekort linje inneholder duplisert kode.",
         "physical_gift_card_invalid_code": "Fysisk gavekort kode er ugyldig.",
-        "sms_marketing_phone_invalid": "Skriv inn et gyldig telefonnummer"
+        "sms_marketing_phone_invalid": "Skriv inn et gyldig telefonnummer",
+        "address_first_name_contains_emojis": "Fornavn kan ikke inneholde emojis",
+        "address_last_name_contains_emojis": "Etternavn kan ikke inneholde emojis",
+        "address_address1_contains_emojis": "Adresse1 kan ikke inneholde emojis",
+        "address_address2_contains_emojis": "Adresse2 kan ikke inneholde emojis",
+        "address_city_contains_emojis": "Byen kan ikke inneholde emojis",
+        "address_company_contains_emojis": "Selskapet kan ikke inneholde emojis",
+        "address_phone_contains_emojis": "Telefonnummer kan ikke inneholde emojis",
+        "address_zip_contains_emojis": "Zip \/ postnummer kan ikke inneholde emojis"
       },
       "payment_errors": {
         "generic_error": "Det var et problem med behandling av betaling. Prøv igjen eller bruke en annen betalingsmåte.",
@@ -556,7 +590,12 @@
           "cannot_process": "Denne transaksjonen kan ikke behandles.",
           "no_match": "Ingen treff",
           "card_declined": "Kortet ditt ble avvist"
-        }
+        },
+        "checkout_amount_changed": "Din betaling kunne ikke behandles fordi beløpet på grunn av kassen har endret seg. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_payment_not_allowed": "Utsatt betalinger er ikke tillatt. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_payment_required": "Denne ordren krever en utsatt betaling. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_amount_changed": "Din betaling kunne ikke behandles fordi utsatt betalingsbeløp har endret seg. Vennligst sjekk bestillingen din og prøv igjen.",
+        "deferred_date_changed": "Din betaling kunne ikke behandles fordi utsatt betalingsdato har endret seg. Vennligst sjekk bestillingen din og prøv igjen."
       },
       "shipping_errors": {
         "shipping_method": "Handlekurven er oppdatert og den tidligere shipping rate er ikke gyldig. Velg en ny kurs.",
@@ -792,7 +831,9 @@
           "sms": {
             "title": "Eller sende en kobling til telefonen din"
           }
-        }
+        },
+        "estimated_delivery": "Forventet levering ",
+        "view_business_customer_account": "Se konto"
       },
       "review": {
         "title": "Anmeldelse",
@@ -821,7 +862,8 @@
             "privacy_policy": "personvern",
             "terms_of_service": "Vilkår for bruk",
             "description_html": "Ved å registrere deg via tekst, godtar du å motta regelmessige automatisert markedsføring meldinger, inkludert cart påminnelser, på telefonnummeret som er oppgitt. Samtykke er ikke en betingelse for kjøpet. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre %{privacy_policy_link} og %{terms_of_service_link}.",
-            "description_html_transactional": "Vi sender deg en ordre kvittering og tilbakevendende frakt oppdateringer via tekstmelding. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre retningslinjer for personvern og vilkårene for bruk."
+            "description_html_transactional": "Vi sender deg en ordre kvittering og tilbakevendende frakt oppdateringer via tekstmelding. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre retningslinjer for personvern og vilkårene for bruk.",
+            "description_transactional_html": "Vi sender deg en ordre kvittering og gjentakende forsendelsesoppdateringer via tekstmelding. Svar Stopp for å abonnere. Svar Hjelp for hjelp. Meldingsfrekvensen varierer. MSG og datahastigheter kan gjelde. Se vår %{privacy_policy_modal_link} og %{terms_of_service_modal_link}."
           }
         },
         "unsubscribe": {
@@ -857,7 +899,10 @@
         "installments": {
           "paid_in_installments": "Betales i avdrag med butikk Pay.",
           "view_schedule": "Vis Schedule"
-        }
+        },
+        "title_with_logo_html": "Husk meg med det %{shopify_pay}",
+        "label_address_payment_and_faster_checkouts": "La Shop Pay Fyll ut adressen min og betalingsinformasjonen for raskere utsjekking.",
+        "label_faster_checkouts_and_thousand_shops": "Lagre min info med butikk betale for raskere utsjekking på over en million butikker."
       },
       "notifications": {
         "title": "Varsler"
@@ -951,6 +996,10 @@
           "generic_error": "Det oppstod et problem under behandling av forespørselen.",
           "success_message": "Betalingsmåten din har blitt slettet"
         }
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Merchant of Record Vilkår og betingelser",
+        "privacy_policy": "Merchant of Record Privacy Policy"
       }
     },
     "pagination": {
@@ -1111,7 +1160,8 @@
         "variant_requires_selling_plan": "Variant kan kun kjøpes med en selger plan.",
         "selling_plan_not_applicable": "Kan ikke gjelde selge plan for å variant",
         "shipping_address_not_required": "Denne vognen ikke krever frakt",
-        "shipping_address_invalid": "Det var et problem å beregne fraktpriser. Fortsett til kassen for å velge en fraktkostnad før du fullfører din bestilling."
+        "shipping_address_invalid": "Det var et problem å beregne fraktpriser. Fortsett til kassen for å velge en fraktkostnad før du fullfører din bestilling.",
+        "selling_plan_not_available_for_company_locations": "Bare one-time-kjøp er tilgjengelig for B2B-ordrer"
       },
       "storefront": {
         "invalid_password": "Feil passord, prøv igjen."
@@ -1178,6 +1228,10 @@
       },
       "product_type": {
         "label": "Produkttype"
+      },
+      "boolean": {
+        "true_label": "Ja",
+        "false_label": "Nei"
       }
     },
     "search": {
@@ -1647,7 +1701,237 @@
       "fibreglass": "Fiberglass:",
       "size": "Størrelse",
       "position-of-chaise": "Posisjonen til chaise",
-      "chrome": "Krom"
+      "chrome": "Krom",
+      "amber": "Rav",
+      "dark-blue": "Mørke blå",
+      "violet": "Fiolett",
+      "yellow": "Gul",
+      "turquoise": "Turkis.",
+      "bell-gray-gray": "Bell Graygray",
+      "charcoal-grey-alcantara": "Kullgrå Alcantara.",
+      "creamy-alcantara": "Creamy Alcantara.",
+      "light-grey-alcantara": "Lysegrå Alcantara.",
+      "bottle-green-velvet": "Flaske grønn fløyel",
+      "dark-grey-velvet": "Mørkegrå fløyel",
+      "dark-red-velvet": "Mørk rød fløyel",
+      "creamy-boucle": "Creamy Boucle.",
+      "velvet": "Fløyel",
+      "alcantara": "Alcantara.",
+      "boucle": "Boucle.",
+      "deep-red": "Dyp rød",
+      "bottle-green": "Flaske grønn",
+      "dark-aqua-velvet": "Dark Aqua Velvet.",
+      "pink-velvet": "Rosa fløyel",
+      "charcoal-grey-velvet": "Kullgrå fløyel",
+      "bright-grey-velvet": "Bright Grey Velvet.",
+      "pebble-green-velvet": "Pebble Green Velvet.",
+      "antique-brown": "Antikke brun",
+      "black": "Svart",
+      "gold": "Gull",
+      "dark-grey": "Mørk grå",
+      "light-grey": "Lysegrå",
+      "burgundy": "burgunder",
+      "coronation": "Kroning",
+      "dusty-pink": "Støvete rosa",
+      "mocha": "Mocha.",
+      "petrol-blue": "Bensin blå",
+      "white": "Hvit",
+      "red": "rød",
+      "wihte": "Wihte.",
+      "dark-tan": "Mørk tan.",
+      "light-pebble-grey": "Lys Pebble Gray",
+      "charcoal-grey": "Kullgrå",
+      "morocan-blue": "Morocan blå",
+      "orange": "oransje",
+      "purple": "Lilla",
+      "light-green": "Lysegrønn",
+      "grey": "Grå",
+      "cognac": "Cognac.",
+      "moroccan-blue": "Marokkansk blå",
+      "blue": "Blå",
+      "green": "Grønn",
+      "deep-purple": "Mørk lilla",
+      "plywood": "Kryssfiner",
+      "walnut": "Valnøtt",
+      "light-blue": "Lyse blå",
+      "walnut-veneer": "Valnøtt finér.",
+      "pink": "Rosa",
+      "brown-velvet": "Brun fløyel",
+      "blue-velvet": "Blå fløyel",
+      "grey-velvet": "Grå fløyel",
+      "solid-ash": "Solid aske",
+      "sheepskin": "Saueskinn",
+      "marble": "Marmor",
+      "white-marble": "Hvit marmor",
+      "white-quartz-120": "Hvit kvarts 120.",
+      "white-quartz-160": "Hvit kvarts 160.",
+      "black-nero-marquina-marble": "Svart nero marquina marmor",
+      "90-cm": "90 cm.",
+      "120-cm": "120 cm",
+      "aqua-blue": "Aqua Blue.",
+      "beige": "Beige",
+      "tan": "Tan.",
+      "red-leather": "Rødt skinn",
+      "ash": "Aske",
+      "natural": "Naturlig",
+      "solid-oak": "Solid eik",
+      "wool": "Ull",
+      "premium-leather": "Premium Leather.",
+      "oak": "Eik",
+      "beech": "Beech.",
+      "cream": "Krem",
+      "italian-leather": "Italiensk skinn",
+      "rosewood": "Rosewood.",
+      "dusty-rose": "Dusty Rose.",
+      "mustard": "Sennep",
+      "solid-american-ashwood": "Solid American Ashwood.",
+      "nord-dark-pebble": "Nord Dark Pebble.",
+      "nord-red": "Nord Rød",
+      "nord-grey": "Nord Gray",
+      "nord-dark-aqua": "Nord Dark Aqua.",
+      "nord-light-sage": "Nord lys salvie",
+      "camel": "Kamel",
+      "smoked-transparent": "Røkt gjennomsiktig",
+      "clear": "Klar",
+      "patchwork": "Lappeteppe",
+      "brushed-brass": "Børstet messing",
+      "medium": "Medium",
+      "large": "Stor",
+      "black-cowhide": "Svart cowhide.",
+      "brown-cowhide": "Brown Cowhide.",
+      "black-laquered": "Svart laquered.",
+      "black-gold": "Svart gull",
+      "white-gold": "Hvitt gull",
+      "gold-gold": "Gull \/ gull",
+      "rattan": "Rotting",
+      "maple": "lønnetre",
+      "brass": "Messing",
+      "without-throw": "Uten kaste",
+      "with-throw": "Med kaste",
+      "small": "Liten",
+      "ash-wood": "Asketre",
+      "silver": "Sølv",
+      "olive": "Oliven",
+      "multi-color": "Flerfarget",
+      "dark-wood": "Mørkt tre",
+      "light-wood": "Lett ved",
+      "soaped-oak": "Såpet - eik",
+      "black-lacquered": "Svart lakkert",
+      "black-painted-ash": "Svart malt aske",
+      "walnut-oak": "Valnøtt \/ eik",
+      "smoke-gray": "Røykgrå",
+      "coffee": "Kaffe",
+      "transparent": "Gjennomsiktig",
+      "30-cm": "30 cm.",
+      "rose-gold": "Rose gull",
+      "pearl-black": "Pearl svart",
+      "45-cm": "45 cm",
+      "60-cm": "60 cm.",
+      "80-cm": "80 cm",
+      "melt-red-copper": "Smelte rødt kobber",
+      "melt-chrome": "Smelte krom",
+      "melt-gold": "Smelte gull",
+      "bliss-coffee": "Lykke kaffe",
+      "matt-black": "Matt svart",
+      "matt-gray": "Matt grå",
+      "matt-coffee": "Matt kaffe",
+      "multicolor": "Flerfarget",
+      "antique-blue": "Antikke blå",
+      "dark-brown": "Mørkebrun",
+      "x-large": "X stor",
+      "basalt": "Basalt",
+      "mauve": "Mauve.",
+      "moss-grey": "Moss grå",
+      "teal": "Blågrønn",
+      "grey-transparent": "Grå gjennomsiktig",
+      "105-cm": "105 cm",
+      "multitone": "Multitone.",
+      "black-maple": "Svart \/ Maple.",
+      "blue-multitone": "Blå multiton",
+      "green-multitone": "Grønn multiton",
+      "red-multitone": "Rød multiton",
+      "polished-ss": "Polert Ss.",
+      "bordeaux": "Bordeaux.",
+      "citrus": "Sitrus",
+      "dark-green": "Mørk grønn",
+      "lacquered": "Lakkert",
+      "false": "falsk",
+      "terracota": "Terracota.",
+      "brown-white-black": "Brun + hvit + svart",
+      "black-white": "Svart + hvit",
+      "oak-veneer": "Eik finér.",
+      "caramel-aniline": "Karamell anilin",
+      "32-cm": "32 cm.",
+      "without-piping": "Uten rør",
+      "with-piping": "Med rør",
+      "aluminium": "Aluminium",
+      "lime": "Lime",
+      "oak-soap-finish": "Eik såpe finish",
+      "walnut-stain": "Valnøtt flekk",
+      "special-edition": "Spesialutgave",
+      "oak-oiled": "Eik - oljert",
+      "petrol-green": "Bensingrønn",
+      "red-berry": "Red Berry.",
+      "steel-blue": "Stålblå",
+      "old-pink": "Gamle rosa",
+      "dark-pebble-grey": "Mørk pebble grå",
+      "ph-yellow": "PH gul",
+      "ph-red": "PH rød",
+      "ph-white": "PH hvit",
+      "ph-green": "PH grønn",
+      "bliss-black-gray": "Lykke svart grå",
+      "bliss-black-green": "Lykke svart grønn",
+      "bliss-brass-gray": "Bliss messing grå",
+      "bliss-brass-green": "Bliss messing grønn",
+      "bliss-copper-gray": "Bliss kobber grå",
+      "bliss-gray-green": "Bliss Grey Green.",
+      "copper": "Kobber",
+      "48-cm": "48 cm",
+      "72-cm": "72 cm.",
+      "84-cm": "84 cm",
+      "white-glass-opaque": "Hvit glass - ugjennomsiktig",
+      "white-n-brass": "Hvit n messing",
+      "shades-of-blue": "Nyanser av blå",
+      "shades-of-red": "Nyanser av rød",
+      "shades-of-grey": "Nyanser av grått",
+      "shades-of-green": "Nyanser av grønt",
+      "shades-of-white": "Nyanser av hvite",
+      "13-cm": "13 cm.",
+      "23-cm": "23 cm.",
+      "31-cm": "31 cm.",
+      "47-cm": "47 cm",
+      "copper-bronze": "Kobber bronse",
+      "left-chaise": "Venstre chaise",
+      "right-chaise": "Høyre chaise.",
+      "buck-brown": "Buw brun",
+      "dark-burgundy-waxy": "Mørk Burgund Waxy.",
+      "american-walnut": "American Walnut",
+      "96-cm": "96 cm",
+      "102-cm": "102 cm.",
+      "yellow-lacquered": "Gul lakkert",
+      "black-marble": "Svart marmor"
     }
+  },
+  "templates": {
+    "search": {
+      "no_results": "Ingen resultater funnet for \"{{ terms }}\". Kontroller stavemåten eller bruk et annet ord eller en setning.",
+      "page": "Side",
+      "products": "Produkter",
+      "results_with_count": {
+        "one": "{{ count }} resultat",
+        "other": "{{ count }} resultater"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} Resultat funnet for \"{{ terms }}”",
+        "other": "{{ count }} Resultater funnet for \"{{ terms }}”"
+      },
+      "title": "Søkeresultater",
+      "search_for": "Søk etter \"{{ terms }}”",
+      "collections": "Samlinger",
+      "suggestions": "Forslag"
+    }
+  },
+  "accessibility": {
+    "vendor": "Å GJØRE"
   }
 }

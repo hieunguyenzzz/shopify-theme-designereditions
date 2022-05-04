@@ -427,7 +427,10 @@
       "change-shipping-country-and-language": "Ändern Sie den Versandland und Sprache",
       "designers": "Designer",
       "availabilityfilter": "Expresszustellung",
-      "delivery-label-image": "Free-Delivery-Product-Page-de.png"
+      "delivery-label-image": "Free-Delivery-Product-Page-de.png",
+      "verified-reviews": "Verifizierte Bewertungen",
+      "the-finer-details": "Die feineren Details.",
+      "contemporary-inspiration": "Zeitgenössische Inspiration."
     },
     "product_options": {
       "choose-colours": "Wählen Sie Farben:",
@@ -659,5 +662,27 @@
       "yellow-lacquered": "Gelb lackiert",
       "black-marble": "Schwarzer Marmor"
     }
+  },
+  "templates": {
+    "search": {
+      "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfen Sie die Schreibweise oder verwenden Sie ein anderes Wort oder einen anderen Satz.",
+      "page": "Buchseite",
+      "products": "Produkte",
+      "results_with_count": {
+        "one": "{{ count }} Ergebnis",
+        "other": "{{ count }} Ergebnisse"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} Ergebnis gefunden für \"{{ terms }}”",
+        "other": "{{ count }} Ergebnisse gefunden für \"{{ terms }}”"
+      },
+      "title": "Suchergebnisse",
+      "search_for": "Suchen nach \"{{ terms }}”",
+      "collections": "Sammlungen",
+      "suggestions": "Vorschläge"
+    }
+  },
+  "accessibility": {
+    "vendor": "MACHEN"
   }
 }

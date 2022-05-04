@@ -35,7 +35,7 @@ ES es /es-es' %}
                 {% continue %}
             {% endunless %}
             {% assign lang =  localization.available_languages | where: "iso_code", langcode | first | default: localization.language  %}
-                <a title="{{lang.endonym_name}}" href="{{root_url | append: path | replace: '//', '/'}}" class=" tw-items-center !tw-py-2 tw-leading-none tw-capitalize !tw-flex tw-justify-between !tw-px-3 tw-gap-2  hover:tw-underline {% if country.iso_code == localization.country.iso_code %} tw-font-bold{% endif %} focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-country="{{ country.iso_code }}" data-lang="{{ lang.iso_code }}" data-value="{{ country.iso_code }}">
+                <a title="{{country.name}}" href="{{root_url | append: path | replace: '//', '/'}}" class=" tw-items-center !tw-py-2 tw-leading-none tw-capitalize !tw-flex tw-justify-between !tw-px-3 tw-gap-2  hover:tw-underline {% if country.iso_code == localization.country.iso_code %} tw-font-bold{% endif %} focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-country="{{ country.iso_code }}" data-lang="{{ lang.iso_code }}" data-value="{{ country.iso_code }}">
                     {{ country.name | capitalize }}
                     {% if show %}
                         ({{lang.name | capitalize}})
