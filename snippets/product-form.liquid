@@ -94,7 +94,7 @@
                     data-inventory-quantity="{{variant.inventory_quantity}}"
                 {% endcapture %}
                 {% capture data-in-stock %}
-                    data-in-stock="{{variant.metafields.global.in-stock | default:'false'}}"
+                    data-in-stock="{{variant.available | default:'false'}}"
                 {% endcapture %}
                 <option value="{{ variant.id }}" data-available="{{product.available}}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
                     {{ variant.title }}
@@ -123,7 +123,7 @@
                     data-inventory-quantity="{{variant.inventory_quantity}}"
                 {% endcapture %}
                 {% capture data-in-stock %}
-                    data-in-stock="{{variant.metafields.global.in-stock | default:'false'}}"
+                    data-in-stock="{{variant.available | default:'false'}}"
                 {% endcapture %}
                 <option data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
                     {{ variant.title }}
