@@ -23,9 +23,9 @@
             Instagram Shop
         </h2>
     </div>
-    <div id="instagram-recomedations" style="display: grid;justify-content: center; grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); gap: 1rem;">
+    <div id="instagram-recomedations" style="display: grid;justify-content: center; grid-template-columns: repeat(auto-fit, minmax(200px, 280px)); gap: 1rem;">
         <img width="2px" class="lazyload-fade lazyautosizes lazyload" height="2px" onload="loadInstagramRecomedations{{section.id}}()" data-src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"/></div>
-</div>
+	</div>
 <script>
     function loadInstagramRecomedations{{section.id}}(){
         let feed = Object.values({{ shop.metafields.instagram | json }}).filter(feed => feed.includes('{{product.id}}'));
