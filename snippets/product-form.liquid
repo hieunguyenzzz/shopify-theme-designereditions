@@ -94,7 +94,13 @@
                     data-inventory-quantity="{{variant.inventory_quantity}}"
                 {% endcapture %}
                 {% capture data-in-stock %}
-                    data-in-stock="{{variant.available | default:'false'}}"
+                {% if variant.inventory_quantity > 0 %}
+                  data-in-stock="true"
+                  {% else %}
+                  data-in-stock="false"
+                {% endif %}
+                   
+                    data-in-available="{{variant.available }}"
                 {% endcapture %}
                 <option value="{{ variant.id }}" data-available="{{product.available}}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
                     {{ variant.title }}
@@ -123,7 +129,13 @@
                     data-inventory-quantity="{{variant.inventory_quantity}}"
                 {% endcapture %}
                 {% capture data-in-stock %}
-                    data-in-stock="{{variant.available | default:'false'}}"
+                {% if variant.inventory_quantity > 0 %}
+                data-in-stock="true"
+                {% else %}
+                data-in-stock="false"
+              {% endif %}
+                 
+                  data-in-available="{{variant.available }}"
                 {% endcapture %}
                 <option data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
                     {{ variant.title }}

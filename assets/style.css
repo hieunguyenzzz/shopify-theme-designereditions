@@ -6115,12 +6115,12 @@ html {
     margin-top: 0.25rem;
   }
 
-  .lg\:tw-mb-5 {
-    margin-bottom: 1.25rem;
-  }
-
   .lg\:tw-mb-2 {
     margin-bottom: 0.5rem;
+  }
+
+  .lg\:tw-mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .lg\:tw-block {
