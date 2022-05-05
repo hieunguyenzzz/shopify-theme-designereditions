@@ -1,6 +1,6 @@
 {% assign featuredShowexpress = false %}
 {% for variant in product.variants %}
-  {% if variant.metafields.global.in-stock == 'true' or variant.metafields.global.in-stock == true %}
+  {% if variant.available == true  %}
     {% assign featuredShowexpress = true %}
   {% endif %}
 {% endfor %}
