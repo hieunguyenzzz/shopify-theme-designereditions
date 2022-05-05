@@ -25,7 +25,7 @@ choose colours" %}
 
   <!-- {% assign image_url = value | handle | append: '.png' | file_url %} -->
   {% assign handleValue = value | handle %}
-  {% assign image_url = 'https://res.cloudinary.com/dfgbpib38/image/upload/v1651480208/swatchs/' | append: product.handle | append: '/' | append: handleValue | append: '.png'  %}
+  {% assign image_url = 'https://res.cloudinary.com/dfgbpib38/image/upload/swatchs/' | append: product.handle | append: '/' | append: handleValue | append: '.png'  %}
 
   {% assign css_color = value | split: ' ' | last | handle %}
 
