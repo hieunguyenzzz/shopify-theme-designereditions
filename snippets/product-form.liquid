@@ -92,6 +92,7 @@
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
+          			data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                     data-in-stock="{{variant.available | default:'false'}}"
@@ -121,6 +122,7 @@
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
+ 					data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                     data-in-stock="{{variant.available | default:'false'}}"
