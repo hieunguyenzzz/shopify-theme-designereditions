@@ -599,6 +599,12 @@
       "days": "Días",
       "day": "Día",
       "delivery-label-image": "Free-Delivery-Product-Page-es.png"
+    },
+    "languages": {
+      "en": "inglés",
+      "nl": "Holandés",
+      "fr": "Francés",
+      "de": "Alemán"
     }
   }
 }
