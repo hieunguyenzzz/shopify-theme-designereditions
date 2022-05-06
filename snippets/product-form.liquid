@@ -32,12 +32,20 @@
     }
 
     let current = document.querySelector(`[data-in-stock][value="${variantId}"]`)
-
+    if(show){
+      current = document.querySelector(`[data-in-stock="true"][value="${variantId}"]`)
+    }
+    if(!current){
+        current =document.querySelector(`[data-in-stock="true"]`)
+        const variantId = current.value
+        optionSelectors.selectVariant(variantId)
+        return 
+      }
       let instockinput = optionSelectors.product.options.reduce((result,value,index,array)=>{
         if(index===0){
           result.push(`option[data-in-stock="true"]`)
         }
-        if(index>0 && index <array.length){
+        if(index>0 && index < array.length){
           const value = current.dataset[`option-${index}`]
           result.push(`${result[index-1]||''}[data-option-${index}="${value}"]`)
         }
@@ -50,7 +58,7 @@
         })
         return result
       },[])
-      // console.log({current,'optionSelectors.product.options':instockinput})
+      console.log({current,'optionSelectors.product.options':instockinput})
       document.querySelectorAll('.swatch-element>input').forEach(e=>{
         if(instockinput.includes(e.id)){
           e.setAttribute('data-in-stock',"true")
@@ -58,6 +66,7 @@
           e.setAttribute('data-in-stock',"false")
         }
       })
+      
   }
   window.addEventListener("themeloaded", function(event) {
     let variantchangeevent
@@ -68,15 +77,7 @@
           handleShowExpressDeliveryOptions(variant.id)
         })
       }
-      let current =document.querySelector(`[data-in-stock="true"][value="${optionSelectors.variantIdField.value}"]`)
-      if(!current){
-        current =document.querySelector(`[data-in-stock="true"]`)
-        const variantId = current.value
-        optionSelectors.selectVariant(variantId)
-      }
-
     })
-
   })
 </script>
 {% endif %}
