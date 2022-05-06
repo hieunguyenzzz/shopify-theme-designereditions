@@ -1,5 +1,11 @@
 {
   "strings": {
+    "languages":{
+      "en": "English",
+      "nl": "Dutch",
+      "fr": "French",
+      "de": "German"
+    },
     "instagram": {
       "title": "Instagram \/ Customer Gallery"
     },

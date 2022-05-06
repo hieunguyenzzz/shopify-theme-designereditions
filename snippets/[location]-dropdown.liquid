@@ -34,11 +34,11 @@ ES es /es-es' %}
             {% unless country %}
                 {% continue %}
             {% endunless %}
-            {% assign lang =  localization.available_languages | where: "iso_code", langcode | first | default: localization.language  %}
+            {% assign lang =  'strings.languages.' | append:  langcode | t  %}
                 <a title="{{country.name}}" href="{{root_url | append: path | replace: '//', '/'}}" class=" tw-items-center !tw-py-2 tw-leading-none tw-capitalize !tw-flex tw-justify-between !tw-px-3 tw-gap-2  hover:tw-underline {% if country.iso_code == localization.country.iso_code %} tw-font-bold{% endif %} focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-country="{{ country.iso_code }}" data-lang="{{ lang.iso_code }}" data-value="{{ country.iso_code }}">
                     {{ country.name | capitalize }}
                     {% if show %}
-                        ({{lang.name | capitalize}})
+                        ({{ lang | capitalize }})
                     {% endif %}
                     {%- assign iconPath =  country.iso_code | downcase | append:'-flag' | append: '.svg' %}
                     <img width="16" height="16" class="!tw-pl-0 tw-w-4 tw-h-4 tw-rounded-full tw-object-cover" src="{{ iconPath | asset_url}}"/>
