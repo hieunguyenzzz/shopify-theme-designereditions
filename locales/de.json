@@ -661,6 +661,12 @@
       "102-cm": "102 cm",
       "yellow-lacquered": "Gelb lackiert",
       "black-marble": "Schwarzer Marmor"
+    },
+    "languages": {
+      "en": "Englisch",
+      "nl": "Niederländisch",
+      "fr": "Französisch",
+      "de": "Deutsch"
     }
   },
   "templates": {
