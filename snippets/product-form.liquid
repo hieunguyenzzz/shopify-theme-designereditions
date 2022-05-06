@@ -46,8 +46,11 @@
       },[]).reduce((result,selector,index)=>{
         // console.log({selector})
         document.querySelectorAll(selector).forEach(e=>{
-            firstId = e.value
+          if(!firstId&&index===1){
+  			firstId = e.value
             console.log({firstId});
+			}
+          
           result.push(`product-template-swatch-${index+1}-${e.dataset[`option-${index+1}`].toLowerCase()}`)
         })
         return result
