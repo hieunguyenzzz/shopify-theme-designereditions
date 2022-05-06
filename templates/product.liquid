@@ -241,6 +241,11 @@ section.homepage-newsletter .section-title {
 
 </style>
 
+<script type="text/javascript">
+var _learnq = _learnq || [];
+	document.getElementById("AddToCart").addEventListener('click',function (){
+ 		_learnq.push(['track', 'Added to Cart', item]);
+	});</script>
 
 <!--Start Stamped.io Auto Installation--><div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
 <!--End Stamped.io Auto Installation-->{% include 'wiser_related' %}{% include 'wiser_recommended' %}{% include 'wiser_alsobought' %}{% include 'wiser_recentview' %}{% include 'wiser_topselling' %}{% include 'wiser_trending' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_recent_related' %}
