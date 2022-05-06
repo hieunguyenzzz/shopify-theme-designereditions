@@ -1910,6 +1910,12 @@
       "102-cm": "102 cm.",
       "yellow-lacquered": "Gul lakkert",
       "black-marble": "Svart marmor"
+    },
+    "languages": {
+      "en": "Engelsk",
+      "nl": "nederlandsk",
+      "fr": "fransk",
+      "de": "tysk"
     }
   },
   "templates": {
