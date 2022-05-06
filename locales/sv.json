@@ -1854,6 +1854,12 @@
       "without-piping": "Utan rörledning",
       "with-piping": "Med rörledningar",
       "oak-soap-finish": "Eksål"
+    },
+    "languages": {
+      "en": "engelsk",
+      "nl": "Holländsk",
+      "fr": "Franska",
+      "de": "tysk"
     }
   },
   "templates": {
