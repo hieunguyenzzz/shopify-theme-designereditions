@@ -1,6 +1,6 @@
 {% assign featuredShowexpress = false %}
 {% for variant in product.variants %}
-  {% if variant.available == true  %}
+  {% if variant.inventory_quantity > 0  %}
     {% assign featuredShowexpress = true %}
   {% endif %}
 {% endfor %}
@@ -30,17 +30,9 @@
     }else{
       document.querySelector('.product-form').classList.remove('show-outstock')
     }
-
+    
     let current = document.querySelector(`[data-in-stock][value="${variantId}"]`)
-    if(show){
-      current = document.querySelector(`[data-in-stock="true"][value="${variantId}"]`)
-    }
-    if(!current){
-        current =document.querySelector(`[data-in-stock="true"]`)
-        const variantId = current.value
-        optionSelectors.selectVariant(variantId)
-        return 
-      }
+    let firstId
       let instockinput = optionSelectors.product.options.reduce((result,value,index,array)=>{
         if(index===0){
           result.push(`option[data-in-stock="true"]`)
@@ -54,19 +46,29 @@
       },[]).reduce((result,selector,index)=>{
         // console.log({selector})
         document.querySelectorAll(selector).forEach(e=>{
+            firstId = e.value
           result.push(`product-template-swatch-${index+1}-${e.dataset[`option-${index+1}`].toLowerCase()}`)
         })
         return result
       },[])
-      console.log({current,'optionSelectors.product.options':instockinput})
+     
       document.querySelectorAll('.swatch-element>input').forEach(e=>{
         if(instockinput.includes(e.id)){
+         
           e.setAttribute('data-in-stock',"true")
         }else{
           e.setAttribute('data-in-stock',"false")
         }
       })
-      
+      if(show){
+        current = document.querySelector(`[data-in-stock="true"][value="${variantId}"]`);
+        if(!current){
+          alert(firstId)
+          optionSelectors.selectVariant(firstId)
+          return 
+        }
+      }
+     
   }
   window.addEventListener("themeloaded", function(event) {
     let variantchangeevent
