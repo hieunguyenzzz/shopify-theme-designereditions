@@ -661,6 +661,12 @@
       "sale_ends_in": "De verkoop eindigt in",
       "days": "Dagen",
       "day": "Dag"
+    },
+    "languages": {
+      "en": "Engels",
+      "nl": "Nederlands",
+      "fr": "Frans",
+      "de": "Duits"
     }
   },
   "templates": {
