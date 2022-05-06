@@ -1630,6 +1630,12 @@
       "multi-color": "Couleur multiple",
       "dark-wood": "Bois foncé",
       "light-wood": "Bois clair"
+    },
+    "languages": {
+      "en": "Anglais",
+      "nl": "Néerlandais",
+      "fr": "Français",
+      "de": "Allemand"
     }
   },
   "templates": {
