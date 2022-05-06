@@ -1,5 +1,11 @@
 {
   "strings": {
+    "languages":{
+      "en": "English",
+      "nl": "Dutch",
+      "fr": "French",
+      "de": "German"
+    },
     "promo": {
       "up_to": "Up to 50% off",
       "express": "Express",
