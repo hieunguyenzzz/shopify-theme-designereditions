@@ -94,6 +94,7 @@
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
+          			data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                 {% if variant.inventory_quantity > 0 %}
@@ -129,6 +130,7 @@
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
+ 					data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                 {% if variant.inventory_quantity > 0 %}
