@@ -9,7 +9,7 @@
 {% assign image_size     = '360x504' %}
 {% assign featured_image            = product.featured_image %}
 <div class="ci">
-    <!-- <img class="tw-absolute tent tw-w-1/3 tw-z-10 tw-top-0 tw-left-0" data-src="" src="{{'strings.general.delivery-label-image' | t | file_img_url:'100x100'}}"/> -->
+    <img class="tw-absolute tent tw-w-1/3 tw-z-10 tw-top-0 tw-left-0" data-src="" src="{{'strings.general.delivery-label-image' | t | file_img_url:'100x100'}}"/>
     {% if product.available %}
         {% if discount %}
             <span class="percentage_off tw-absolute tw-top-0 tw-right-0 tw-z-10 empty:tw-hidden">{{'strings.general.percentage_off' | t: number:discount}}</span>
