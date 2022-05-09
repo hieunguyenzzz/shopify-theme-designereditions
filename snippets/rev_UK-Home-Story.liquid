@@ -1,7 +1,7 @@
 {% capture asset_url_rev %}{% include 'asset_url_rev' %}{% endcapture %}<div class = "" id="revslider_foot_UK-Home-Story">
 			<!-- START DE Home Story REVOLUTION SLIDER 6.5.6.13 --><p class="rs-p-wp-fix"></p>
-			<rs-module-wrap id="20_wrapper" data-source="gallery" style="visibility:hidden;background:rgba(236,231,228,0);padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-				<rs-module id="20" style="" data-version="6.5.6.13">
+			<rs-module-wrap id="20_1_wrapper" data-source="gallery" style="visibility:hidden;background:rgba(236,231,228,0);padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+				<rs-module id="20_1" style="" data-version="6.5.6.13">
 					<rs-slides>
 						<rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide 1" data-in="o:0;" data-out="a:false;">
 							<img src="{{asset_url_rev}}dummy.png" alt="Alt" title="Image Title" data-lazyload="//cdn.shopify.com/s/files/1/0641/1354/1347/t/7/assets/DE-home-story-bg.jpg" class="rev-slidebg tp-rs-img rs-lazyload" data-no-retina>
@@ -226,16 +226,26 @@
 					--></rs-static-layers>
 				</rs-module>
 				<script type="text/javascript">
-					setREVStartSize({c: '20',rl:[1240,1240,1240,480],el:[720,720,720,600],gw:[1920,1920,1920,480],gh:[720,720,720,600],type:'hero',justify:'',layout:'fullwidth',mh:"0"});if (window.RS_MODULES!==undefined && window.RS_MODULES.modules!==undefined && window.RS_MODULES.modules["20"]!==undefined) {window.RS_MODULES.modules["20"].once = false;window.revapi1 = undefined;if (window.RS_MODULES.checkMinimal!==undefined) window.RS_MODULES.checkMinimal()}
+					setREVStartSize({c: '20_1',rl:[1240,1240,1240,480],el:[720,720,720,600],gw:[1920,1920,1920,480],gh:[720,720,720,600],type:'hero',justify:'',layout:'fullwidth',mh:"0"});if (window.RS_MODULES!==undefined && window.RS_MODULES.modules!==undefined && window.RS_MODULES.modules["201"]!==undefined) {window.RS_MODULES.modules["201"].once = false;window.revapi1_2 = undefined;if (window.RS_MODULES.checkMinimal!==undefined) window.RS_MODULES.checkMinimal()}
 				</script>
 			</rs-module-wrap>
 			<!-- END REVOLUTION SLIDER -->
 {% assign revslider_enabled = 1 %}</div><link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
 <link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400%7CDIN+Next+LT+Arabic+Bold:900%7CRoboto:400%7CDIN+Next+LT+Arabic+Regular:400%2C300" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+<link href="https://cdn.shopify.com/s/files/1/0641/1354/1347/t/5/assets/font.css" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
 
 <style type="text/css" id="rs-plugin-settings-inline-css">		.rev_slider ul.tp-revslider-mainul{width:100% !important}
-		#20_wrapper rs-loader.spinner2{background-color:#FFFFFF !important}</style><script type="text/javascript" id="rs-initialisation-scripts">
+		#20_wrapper rs-loader.spinner2{background-color:#FFFFFF !important}
+		.rev_slider ul.tp-revslider-mainul{width:100% !important}
+		#20_1_wrapper rs-loader.spinner2{background-color:#FFFFFF !important}</style><script type="text/javascript" id="rs-initialisation-scripts">
 		if(typeof jQuery !== "undefined"){
 
 		var	tpj = jQuery;
@@ -250,7 +260,7 @@
 
 		}
 
-		var	revapi1;
+		var	revapi1,revapi1_2;
 
 		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
 		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
@@ -291,6 +301,48 @@
 			});
 			
 		}} 
+
+		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+		RS_MODULES.modules["201"] = {init:function() {
+			window.revapi1_2 = window.revapi1_2===undefined || window.revapi1_2===null || window.revapi1_2.length===0  ? document.getElementById("20_1") : window.revapi1_2;
+			if(window.revapi1_2 === null || window.revapi1_2 === undefined || window.revapi1_2.length==0) { window.revapi1_2initTry = window.revapi1_2initTry ===undefined ? 0 : window.revapi1_2initTry+1; if (window.revapi1_2initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["201"].init()}); return;}
+			window.revapi1_2 = jQuery(window.revapi1_2);
+			if(window.revapi1_2.revolution==undefined){ revslider_showDoubleJqueryError("20_1"); return;}
+			revapi1_2.revolutionInit({
+					revapi:"revapi1_2",
+					sliderType:"hero",
+					DPR:"dpr",
+					sliderLayout:"fullwidth",
+					duration:"7000ms",
+					visibilityLevels:"1240,1240,1240,480",
+					visibilityLevelsKey:"6261614fea8a3",
+					gridwidth:"1920,1920,1920,480",
+					gridheight:"720,720,720,600",
+					lazyType:"smart",
+					spinner:"spinner2",
+					perspective:600,
+					perspectiveType:"local",
+					editorheight:"720,768,400,600",
+					responsiveLevels:"1240,1240,1240,480",
+					progressBar:{disableProgressBar:true},
+					navigation: {
+						onHoverStop:false
+					},
+					viewPort: {
+						global:true,
+						globalDist:"-200px",
+						enable:false,
+						visible_area:"20%"
+					},
+					fallbacks: {
+						allowHTML5AutoPlayOnAndroid:true
+					},
+			});
+			var revapi1 = revapi1_2;
+			
+		}} 
+		console.log("Warning - ID: 20 exists already and was converted to: 20_1")
 
 		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
 	</script>
