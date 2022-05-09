@@ -100,6 +100,9 @@
 							><img src="{{asset_url_rev}}dummy.png" class="tp-rs-img rs-lazyload" data-lazyload="//cdn.shopify.com/s/files/1/0641/1354/1347/t/7/assets/Sofa-Lounge-Chair-mobile3b.jpg" data-no-retina> 
 							</rs-layer><!--
 -->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-3" data-title="Slide" data-in="o:0;" data-out="a:false;">
+							<img src="{{asset_url_rev}}dummy.png" alt="Alt" title="Image Title" data-lazyload="{{asset_url_rev}}transparent.png" class="rev-slidebg tp-rs-img rs-lazyload" data-no-retina>
+<!---->						</rs-slide>
 					</rs-slides>
 					<rs-static-layers><!--
 
@@ -196,6 +199,7 @@
 			if(window.revapi2.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_2_1"); return;}
 			revapi2.revolutionInit({
 					revapi:"revapi2",
+					DPR:"dpr",
 					sliderLayout:"fullwidth",
 					visibilityLevels:"1240,1240,1240,480",
 					visibilityLevelsKey:"6261614fea8a3",
