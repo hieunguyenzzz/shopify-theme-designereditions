@@ -2022,9 +2022,15 @@
           "text_color": "#000000",
           "heading_size": 24
         }
+      },
+      "rev_UK-Sofa--Lounge-Chair-Sale": {
+        "type": "rev_UK-Sofa--Lounge-Chair-Sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_UK-Sofa--Lounge-Chair-Sale",
       "rev_UK-Home-Story",
       "rev_This-Spring",
       "162159895992baa653",
