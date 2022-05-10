@@ -30,7 +30,7 @@
 <script>
       function loadInstagramRecomedations{{section.id}}(){
         const allfeed = {{ shop.metafields.instagram.entities.value | json }};
-        let feed = allfeed.filter(item => item.products.find((string)=>string.includes('{{product.id}}')));
+        let feed = allfeed.data.filter(item => item.products.find((string)=>string.includes('{{product.id}}')));
         let str = '';
         feed.forEach(postObj => {
             let imageUrl = postObj.media_url
