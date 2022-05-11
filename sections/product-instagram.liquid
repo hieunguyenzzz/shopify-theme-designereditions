@@ -7,7 +7,12 @@
             ">
   <div class="tw-text-left tw-flex tw-justify-center tw-items-baseline tw-w-full tw-mb-6" id="instagram-recomedations-title" style="display: none;">
     <h2 class="tw-font-bold tw-mb-0 tw-text-center">
-      {{ 'strings.instagram.title' | t }}
+			{% if section.settings.heading %}
+				{{ section.settings.heading }}
+				{% else %}
+				{{ 'strings.instagram.title' | t }}
+			{% endif %}
+      
     </h2>
   </div>
   <div class="tw-w-full tw-grid-cols-2
@@ -70,6 +75,11 @@
 {
     "name": "Instsagram Product",
     "settings": [
+				{
+					"type": "text",
+					"id": "heading",
+					"label": "Heading"
+				},
         {
             "type": "checkbox",
             "id": "fullwidth",
