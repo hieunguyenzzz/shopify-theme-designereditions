@@ -42,6 +42,7 @@
 <script>
       function loadInstagramRecomedations(){
         const allfeed = {{ shop.metafields.instagram.entities.value | json }};
+        console.log("{{ shop.metafields.instagram[shop.metafields.instagram.username.value].value | json }}");
         const localOrigin = allfeed.localOrigin;
         let str = '';
         let show = false;
