@@ -4761,6 +4761,10 @@ html {
   gap: 1px;
 }
 
+.tw-gap-9 {
+  gap: 2.25rem;
+}
+
 .tw-gap-x-\[2\%\] {
   -moz-column-gap: 2%;
        column-gap: 2%;
@@ -5097,6 +5101,11 @@ html {
   padding-bottom: 0.25rem;
 }
 
+.tw-py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .tw-px-\[1em\] {
   padding-left: 1em;
   padding-right: 1em;
@@ -5155,11 +5164,6 @@ html {
 .tw-px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.tw-py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 .tw-py-8 {
@@ -6229,6 +6233,10 @@ html {
 
   .lg\:tw-grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:tw-grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:tw-flex-row {

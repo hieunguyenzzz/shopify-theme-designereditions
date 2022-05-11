@@ -2,7 +2,7 @@
     {% if recommendations.performed and recommendations.products_count > 0 %}
         {% capture items %}
             {% for product in recommendations.products limit: 4 %}
-                <div class="tw-w-full" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+                <div class="tw-w-full tw-flex tw-justify-center" id="product-listing-{{forloop.index }}" data-product-id="{{ forloop.index }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
                     <div class="tw-w-full tw-max-w-[292px] tw-min-h-full">
                         {% render 'product-listing', product: product %}
                     </div>
