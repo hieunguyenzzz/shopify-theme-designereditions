@@ -7,7 +7,7 @@
             ">
   <div class="tw-text-left tw-flex tw-justify-center tw-items-baseline tw-w-full tw-mb-6" id="instagram-recomedations-title" style="display: none;">
     <h2 class="tw-font-bold tw-mb-0 tw-text-center">
-			{% if section.settings.heading %}
+			{% if section.settings.heading != blank %}
 				{{ section.settings.heading }}
 				{% else %}
 				{{ 'strings.instagram.title' | t }}
