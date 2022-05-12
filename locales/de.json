@@ -1051,7 +1051,77 @@
       },
       "payment_errors": {
         "generic_error": "Es gab eine Ausgabe, die Ihre Zahlung bearbeitet. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode.",
-        "rejected_transaction": "Ihre Bezahlung wurde abgelehnt. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode."
+        "rejected_transaction": "Ihre Bezahlung wurde abgelehnt. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode.",
+        "credit_card_processing": "Ihre Zahlung kann aus technischen Gründen nicht bearbeitet werden. Versuchen Sie es in wenigen Minuten erneut oder verwenden Sie eine andere Zahlungsmethode.",
+        "checkout_amount_changed": "Ihre Zahlung könnte nicht bearbeitet werden, da sich der an der Kasse fällige Betrag geändert hat. Bitte überprüfen Sie Ihre Bestellung und versuchen Sie es erneut.",
+        "deferred_payment_not_allowed": "Aufgeschobene Zahlungen sind nicht zulässig. Bitte überprüfen Sie Ihre Bestellung und versuchen Sie es erneut.",
+        "deferred_payment_required": "Diese Bestellung erfordert eine aufgeschobene Zahlung. Bitte überprüfen Sie Ihre Bestellung und versuchen Sie es erneut.",
+        "deferred_amount_changed": "Ihre Zahlung könnte nicht bearbeitet werden, da sich der aufgeschobene Zahlungsbetrag geändert hat. Bitte überprüfen Sie Ihre Bestellung und versuchen Sie es erneut.",
+        "deferred_date_changed": "Ihre Zahlung könnte nicht bearbeitet werden, da sich das aufgeschobene Zahlungsdatum geändert hat. Bitte überprüfen Sie Ihre Bestellung und versuchen Sie es erneut.",
+        "order_total_changed": "Ihre Zahlung könnte nicht bearbeitet werden, da sich Ihre Bestellung insgesamt geändert hat. Überprüfen Sie Ihre Bestellung insgesamt und versuchen Sie es erneut.",
+        "payment_processing": "Ihre Zahlung kann aus technischen Gründen nicht bearbeitet werden. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode.",
+        "payment_processing_no_retry": "Ihre Zahlung kann aus technischen Gründen nicht bearbeitet werden. Bitte versuchen Sie eine andere Zahlungsmethode.",
+        "paypal_zero_amount": "Sie können PayPal nicht verwenden für %{amount} Aufträge. Bestätigen Sie, dass Ihre Bestellung korrekt ist und ohne PayPal ausprobieren.",
+        "paypal_invalid_token": "Paypal war nicht verfügbar. Versuchen Sie es erneut oder verwenden Sie eine andere Checkout -Option.",
+        "pay_later_failed": "Es gab eine Fehlerabwicklung Ihrer Zahlung später. Wählen Sie eine andere Zahlungsmethode und versuchen Sie es erneut.",
+        "three_d_secure_failed": "Ihre Zahlung könnte nicht überprüft werden. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode.",
+        "three_d_secure_failed_duplicate": "Die 3D Secure Authentication der Kreditkarte ist fehlgeschlagen, da ein anderer bereits im Gange ist.",
+        "three_d_secure_throttled": "Zu viele Versuche; Bitte warten Sie, bevor Sie es erneut versuchen",
+        "subscription_agreement_blank": "Um ein Abonnement zu kaufen, müssen Ihre Zahlungsdetails gespeichert werden. Bestätigen Sie, dass Sie Abonnementelemente von Ihrer Bestellung zustimmen oder entfernen.",
+        "insufficient_funds": "Ihre Zahlung wurde aufgrund unzureichender Mittel abgelehnt. Versuchen Sie es erneut oder verwenden Sie eine andere Zahlungsmethode.",
+        "fraud_payment_errors": {
+          "address_mismatch": "Straßenadresse und Postleitzahl stimmen nicht überein.",
+          "cannot_process": "Diese Überweisung kann nicht durchgeführt werden.",
+          "no_match": "Keine Übereinstimmung"
+        }
+      },
+      "shipping_errors": {
+        "shipping_method": "Ihr Wagen wurde aktualisiert und der vorherige Versandkurs ist nicht gültig. Wählen Sie eine neue Rate aus.",
+        "shipping_method_not_available": "Ihr Wagen wurde aktualisiert und die von Ihnen hinzugefügten Artikel können nicht an Ihre Adresse geliefert werden. Entfernen Sie die Elemente, um Ihre Bestellung abzuschließen.",
+        "shipping_method_not_available_generic": {
+          "one": "Diese Bestellung kann nicht an die von Ihnen eingegebene Adresse geliefert werden. Überprüfen Sie Ihre Adresse, um sicherzustellen, dass alle Felder korrekt eingegeben wurden, und versuchen Sie es erneut.",
+          "other": "Einige Artikel in Ihrem Karren können nicht an die von Ihnen eingegebene Adresse geliefert werden. Überprüfen Sie Ihre Adresse, um sicherzustellen, dass alle Felder korrekt eingegeben wurden, und versuchen Sie es erneut."
+        },
+        "shipping_method_not_available_updated": {
+          "one": "Der von Ihnen hinzugefügte Artikel wird nicht an Ihren Standort versendet. Entfernen Sie es, um es zu überprüfen, oder kontaktieren Sie das Geschäft.",
+          "other": "Ein oder mehrere Artikel, die Sie hinzugefügt haben, versenden nicht an Ihren Standort. Entfernen Sie sie, um sie zu überprüfen, oder kontaktieren Sie das Geschäft."
+        }
+      },
+      "alternative_payment_method": {
+        "button_html": "Kasse mit: %{method}",
+        "button_label": "Kasse mit: %{method}"
+      },
+      "paypal": {
+        "button_html": "Kasse mit %{logo}"
+      },
+      "apple_pay": {
+        "button_html": "Kaufen mit %{logo}"
+      },
+      "post_purchase": {
+        "page_title": "Nach Kauf",
+        "title": "Nach Kauf",
+        "escape_confirmation": "Sie haben Ihre Bestellung bezahlt.",
+        "escape_action": "Bestätigungsbestätigung anzeigen ›",
+        "components": {
+          "expand": "Mehr sehen",
+          "processing": "Wird bearbeitet…",
+          "submit": "Einreichen"
+        }
+      },
+      "processing": {
+        "redirecting_page_title": "Umleitung…",
+        "redirecting_title": "Umleitung…",
+        "redirecting_notice": "Warten Sie, während wir Sie umleiten.",
+        "complete_your_purchase_title": "Vervollständigen Sie Ihren Kauf",
+        "continue_to_payment_gateway_notice": "Fahren Sie mit der Zahlung fort, um Ihre Zahlungsinformationen hinzuzufügen.",
+        "continue_to_payment_gateway_button_label": "Fahren Sie weiter zur Zahlung",
+        "complete_your_purchase_title_error": "Korrigieren Sie Ihre Zahlungsinformationen",
+        "continue_to_payment_gateway_notice_error": "Ihre Zahlungsinformationen konnten nicht überprüft werden.",
+        "page_title": "Verarbeitungsauftrag",
+        "title": "Verarbeitungsauftrag",
+        "your_order_has_been_received_title": "Danke für Ihre Bestellung",
+        "you_will_receive_confirmation": "Wir bekommen gerade viele Bestellungen. Sie sollten bald eine Bestätigung per E -Mail oder Text erhalten. Wenn Sie es in der nächsten Stunde nicht erhalten, lassen Sie es uns wissen.",
+        "you_will_not_be_charged": "Sie werden noch nicht berechnet"
       }
     }
   }
