@@ -1121,7 +1121,67 @@
         "title": "Verarbeitungsauftrag",
         "your_order_has_been_received_title": "Danke für Ihre Bestellung",
         "you_will_receive_confirmation": "Wir bekommen gerade viele Bestellungen. Sie sollten bald eine Bestätigung per E -Mail oder Text erhalten. Wenn Sie es in der nächsten Stunde nicht erhalten, lassen Sie es uns wissen.",
-        "you_will_not_be_charged": "Sie werden noch nicht berechnet"
+        "you_will_not_be_charged": "Sie werden noch nicht berechnet",
+        "wait": {
+          "short": "Ihre Bestellung wird verarbeitet.",
+          "medium": {
+            "one": "Ihre Bestellung wird verarbeitet. Die geschätzte Wartezeit ist %{count} Minute.",
+            "other": "Ihre Bestellung wird verarbeitet. Die geschätzte Wartezeit ist %{count} Protokoll."
+          },
+          "long": "Sie erhalten eine E -Mail, sobald die Bestellung bearbeitet wird. Derzeit gibt es ein hohes Bestellvolumen.",
+          "no_auto_refresh_html": "Wenn Sie nicht automatisch umgeleitet sind, %{link}.",
+          "refresh_this_page": "Aktualisieren Sie diese Seite"
+        }
+      },
+      "failed_payment": {
+        "page_title": "Die Zahlung konnte nicht bearbeitet werden",
+        "title": "Die Zahlung konnte nicht bearbeitet werden",
+        "payment_not_processed_title": "Ihre Zahlung könnte nicht bearbeitet werden",
+        "payment_not_processed_text": "Sie wurden nicht angeklagt. Kehren Sie in Ihren Wagen zurück, um Ihren Kauf abzuschließen.",
+        "return_to_cart_button_label": "Kehre zum Warenkorb zurück"
+      },
+      "payment_gateway": {
+        "bank_deposit_label": "Bankdepot",
+        "cash_on_delivery_label": "Bargeld bei Lieferung (Kabeljau)",
+        "money_order_label": "Geldbestellung"
+      },
+      "thank_you": {
+        "title": "Danke für Ihren Einkauf!",
+        "confirmation_email_sent_text": "Eine Bestätigungs -E -Mail wurde an gesendet %{email}",
+        "return_to_store_link_label": "Mit dem Einkaufen fortfahren",
+        "print_link_label": "Druckeingang",
+        "payment_information_title": "Zahlungsinformationen",
+        "page_title": "Danke %{display_name}!",
+        "page_title_no_name": "Danke!",
+        "customer_information_title": "Kundeninformation",
+        "shipping_address_title": "Lieferanschrift",
+        "shipping_address_map_title": "Google Map mit Pin -Point der Versandadresse anzeigen: %{address}",
+        "payment_method_title": "Bezahlverfahren",
+        "shipping_method_title": "Versandmethode",
+        "tracking_number": "Auftragsnummer, Frachtnummer, Sendungscode:",
+        "company_tracking_number": "%{company} Auftragsnummer, Frachtnummer, Sendungscode:",
+        "estimated_arrival": "Voraussichtlicher Liefertermin: ",
+        "estimated_delivery": "Voraussichtliche Lieferung ",
+        "re-order": "Nachdenken Sie die gleichen Elemente nach",
+        "gift_card_confirmation_by_text": "Geschenkkarten werden per Text gesendet. Wenn Sie Ihre nicht erhalten haben, senden Sie sie erneut oder kontaktieren Sie uns.",
+        "gift_card_confirmation_by_email": "Geschenkkarten werden per E -Mail gesendet. Wenn Sie Ihre nicht erhalten haben, senden Sie sie erneut oder kontaktieren Sie uns.",
+        "gift_card_title": "Geschenkkarten",
+        "resend_gift_cards": "Geben Sie Geschenkkarten neu",
+        "thank_you_title": "Ihre Bestellung ist bestätigt",
+        "thank_you_title_payment": "Ihre Zahlung wird bestätigt",
+        "thank_you_confirmed_order_with_email": "Sie erhalten in Kürze eine Bestätigungs -E -Mail mit Ihrer Bestellnummer.",
+        "thank_you_confirmed_order_with_phone": "Sie erhalten in Kürze einen Bestätigungstext mit Ihrer Bestellnummer.",
+        "thank_you_confirmed_order_with_email_and_phone": "Sie erhalten in Kürze eine Bestätigungs -E -Mail und einen Text mit Ihrer Bestellnummer.",
+        "thank_you_confirmed_order_with_email_payment": "Sie haben eine Zahlung für Ihre Bestellung geleistet %{date}.",
+        "thank_you_confirmed_order_with_phone_payment": "Sie haben eine Zahlung für Ihre Bestellung geleistet %{date}.",
+        "thank_you_confirmed_order_with_email_and_phone_payment": "Sie haben eine Zahlung für Ihre Bestellung geleistet %{date}.",
+        "thank_you_confirmed_order_with_email_pick_up": "Sie erhalten eine E -Mail, wenn Ihre Bestellung für die Abholung bereit ist.",
+        "thank_you_confirmed_order_with_phone_pick_up": "Sie erhalten einen Text, wenn Ihre Bestellung für die Abholung bereit ist.",
+        "thank_you_confirmed_order_with_email_and_phone_pick_up": "Sie erhalten eine E -Mail, wenn Ihre Bestellung für die Abholung bereit ist.",
+        "thank_you_confirmed_order_with_missing": "Kontaktieren Sie uns per E -Mail oder Telefon, um eine Bestellbestätigung zu erhalten.",
+        "order_status_confirmed_order_with_email": "Sie erhalten eine E -Mail, wenn Ihre Bestellung fertig ist.",
+        "order_status_confirmed_order_with_phone": "Sie erhalten einen Text, wenn Ihre Bestellung fertig ist.",
+        "order_status_confirmed_order_with_email_and_phone": "Sie erhalten eine E -Mail und einen Text, wenn Ihre Bestellung fertig ist."
       }
     }
   }
