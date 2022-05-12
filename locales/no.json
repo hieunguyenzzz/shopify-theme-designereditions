@@ -2,31 +2,31 @@
   "general": {
     "404": {
       "subtext": "Denne siden eksisterer ikke. Prøv å søke etter hva du vil finne:",
-      "title": "Ups - vi kunne ikke finne den ene"
+      "title": "Ups - vi kunne ikke finne den en"
     },
     "pagination": {
-      "showing_items": "Viser elementer",
+      "showing_items": "Viser ting",
       "of": "av"
     },
     "forms": {
-      "post_error": "Beklager, ser ut som noe gikk galt. Vennligst rett følgende og send igjen:"
+      "post_error": "Beklager, ser ut som om noe gikk galt. Rett følgende og send inn igjen:"
     },
     "breadcrumbs": {
       "home": "Hjem"
     },
     "newsletter_form": {
-      "newsletter_email": "Bli med på vår adresseliste",
+      "newsletter_email": "Bli med på adresselisten vår",
       "thanks": "Takk for at du ble med",
-      "popup_thanks": "Takk for at du blir med, her er kupongkoden din:",
+      "popup_thanks": "Takk for at du ble med, her er kupongkoden din:",
       "email_placeholder": "Epostadresse",
-      "confirmation": "Takk for at du blir med!",
+      "confirmation": "Takk for at du ble med!",
       "submit": "Bli med"
     },
     "search": {
-      "no_results_html": "Søket ditt etter \"{{ terms }}\"ga ikke noen resultater.",
-      "results_for_html": "Søket ditt etter \"{{ terms }}\"Avdekket følgende:",
+      "no_results_html": "Ditt søk etter \"{{ terms }}\"Gjorde ingen resultater.",
+      "results_for_html": "Ditt søk etter \"{{ terms }}\"avslørt følgende:",
       "title": "Søk",
-      "placeholder": "Søk",
+      "placeholder": "Søk i hele butikken her ...",
       "submit": "Søk"
     },
     "language": {
