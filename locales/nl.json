@@ -1431,7 +1431,113 @@
         "too_many_line_items_error": "Je kar kan niet meer bevatten dan %{max} Items.",
         "stock_problems_html": "Een of meer items zijn niet langer beschikbaar. We hebben een <a href='%{link}'>Bijgewerkte kar<\/a>.",
         "changed": "Kar veranderd",
-        "items_changed": "Een of meer items zijn veranderd."
+        "items_changed": "Een of meer items zijn veranderd.",
+        "product_sold_out": "Het product '%{name}'is al uitverkocht.",
+        "variant_requires_selling_plan": "Variant kan alleen worden gekocht met een verkoopplan.",
+        "selling_plan_not_available_for_company_locations": "Er is slechts eenmalige aankoop beschikbaar voor B2B-bestellingen",
+        "digital_product_not_available_for_company_locations": "Dit item kan niet worden toegevoegd aan een B2B -bestelling",
+        "selling_plan_not_applicable": "Kan het verkoopplan niet toepassen op variant",
+        "shipping_address_not_required": "Deze kar vereist geen verzending",
+        "shipping_address_invalid": "Er was een probleem met het berekenen van uw verzendtarieven. Ga door met het afrekenen om een ​​verzendtarief te kiezen voordat u uw bestelling voltooit."
+      },
+      "tags": {
+        "add_articles": "Smal zoeken naar artikelen die ook tag hebben %{tag}",
+        "add_products": "Smal selectie naar producten bij het matchen van producten %{tag}",
+        "remove_articles": "Verbreed zoeken naar artikelen die niet worden getagd %{tag}",
+        "remove_products": "Tag verwijderen %{tag}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Bedankt voor het abonneren op onze mailinglijst.",
+        "disclaimer": "U kunt zich op elk gewenst moment afmelden."
+      },
+      "unsubscribed": {
+        "confirmation": "U hebt zich afgemeld van onze mailinglijst.",
+        "disclaimer": "U ontvangt geen marketingupdates meer van ons. U kunt zich op elk gewenst moment opnieuw abonneren.",
+        "preview": "U bekijkt wat klanten zullen zien wanneer ze zich afmelden."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Je hebt gekozen om open tracking te e -mailen.<\/b>",
+          "visibility": "E -mail Open tarieven worden anoniem gerapporteerd. We zullen alleen zien of u een e -mail hebt geopend als onderdeel van een geaggregeerde e -mail open tarief.",
+          "opt_out_html": "Jij kan <a style='text-decoration:underline;' href='%{link}'>afmelden<\/a> van e -mail Open Tracking als u deze informatie niet wilt delen.",
+          "preview_bar": "U bekijkt wat klanten zullen zien wanneer ze zich aanmelden om open tracking te e -mailen."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Je hebt gekozen voor open tracking van e -mail.<\/b>",
+          "visibility": "We zullen niet zien of u onze e -mails hebt geopend.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Zich aanmelden<\/a> Om een ​​e -mail te e -mailen Open tracking.",
+          "preview_bar": "U bekijkt wat klanten zullen zien wanneer ze zich afmelden voor e -mail open tracking."
+        },
+        "no_longer_track": {
+          "status_html": "<b>We volgen geen e -mail meer opent.<\/b>",
+          "privacy_policy": "Nadat deze e -mail is verzonden, hebben we ons privacybeleid bijgewerkt en we volgen niet langer Opens."
+        },
+        "track": {
+          "status_html": "<b>E -mail Open tracking is gerapporteerd.<\/b>",
+          "visibility": "We zullen alleen zien of u de e -mail hebt geopend, als onderdeel van de totale e -mail open tarief."
+        },
+        "updated_policy": {
+          "status_html": "<b>E -mail Open tracking is gerapporteerd.<\/b>",
+          "visibility": "We hebben ons beleid bijgewerkt en nu geopend van e -mails. E -mail Open tarieven worden anoniem gerapporteerd. We zullen alleen zien of u een e -mail hebt geopend als onderdeel van de totale open tarief voor e -mail.",
+          "opt_out_html": "Als u deze informatie niet wilt delen, kan dat <a style='text-decoration:underline;' href='%{link}'>Afmelden.<\/a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "out_of_stock": "Uitverkocht"
+        }
+      },
+      "product_type": {
+        "label": "Product type"
+      }
+    },
+    "search": {
+      "sorting": {
+        "price_ascending": "Prijs laag naar hoog",
+        "price_descending": "Prijs, hoog tot laag"
+      }
+    },
+    "page_titles": {
+      "shopping_cart": "Uw winkelwagen",
+      "account": "Rekening",
+      "reset_account": "Reset -account",
+      "order": "Volgorde %{name}",
+      "search": "Zoekopdracht",
+      "search_results": {
+        "one": "Zoekopdracht: %{count} resultaat gevonden voor \"%{terms}\"",
+        "other": "Zoekopdracht: %{count} resultaten gevonden voor \"%{terms}\""
+      },
+      "not_found": "404 Niet Gevonden",
+      "checkpoint": "Checkpoint"
+    },
+    "cart": {
+      "discounts_with_count": "%{count} Kortingen zijn toegepast"
+    },
+    "challenge": {
+      "message": "Om door te gaan, laat ons weten dat je geen robot bent.",
+      "error": "Je antwoord was niet correct, probeer het opnieuw.",
+      "submit_button_text": "Indienen"
+    },
+    "checkpoint": {
+      "message": "Los Captcha op om door te gaan",
+      "error": "Captcha -validatie is mislukt",
+      "submit_button_text": "Indienen"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Meestal klaar in 1 uur",
+        "two_hours": "Meestal klaar in 2 uur",
+        "four_hours": "Meestal klaar in 4 uur",
+        "twenty_four_hours": "Meestal klaar in 24 uur",
+        "two_to_four_days": "Meestal klaar in 2-4 dagen",
+        "five_or_more_days": "Meestal klaar in 5+ dagen",
+        "zero_to_two_hours": "Meestal klaar in 2 uur",
+        "two_to_four_hours": "Meestal klaar in 4 uur",
+        "immediately": "Klaar voor ophalen nu"
       }
     }
   }
