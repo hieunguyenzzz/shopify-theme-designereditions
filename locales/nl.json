@@ -690,5 +690,263 @@
   },
   "accessibility": {
     "vendor": "TE DOEN"
+  },
+  "shopify": {
+    "checkout": {
+      "delivery_options": {
+        "shipping_address": "Afleveradres",
+        "pick_up": "Raap op",
+        "pick_up_locations": "Pick -up locaties",
+        "pick_up_in_one_hour": "Meestal klaar in 1 uur",
+        "pick_up_in_two_hours": "Meestal klaar in 2 uur",
+        "pick_up_in_four_hours": "Meestal klaar in 4 uur",
+        "pick_up_in_twenty_four_hours": "Meestal klaar in 24 uur",
+        "pick_up_in_two_to_four_days": "Meestal klaar in 2-4 dagen",
+        "pick_up_in_five_or_more_days": "Meestal klaar in 5+ dagen",
+        "pick_up_in_zero_to_two_hours": "Klaar voor ophalen over 2 uur",
+        "pick_up_in_two_to_four_hours": "Klaar voor ophalen over 4 uur",
+        "pick_up_immediately": "Klaar voor ophalen nu"
+      },
+      "customer_account": {
+        "not_user_label": "Niet %{first_name}?",
+        "sign_in_link_label": "Log in",
+        "save_my_information_label": "Sla deze informatie op voor de volgende keer"
+      },
+      "stock": {
+        "page_title": "Inventarisproblemen",
+        "title": "Uitverkocht",
+        "items_unavailable_notice": "Sommige items zijn niet meer beschikbaar. Uw kar is bijgewerkt.",
+        "quantity_column_header": "Aantal stuks",
+        "status_column_header": "Toestand",
+        "removed_from_cart_notice": "Verwijderd uit kar",
+        "reduced_with_quantity_label": "Enkel en alleen %{quantity_available} links",
+        "remove_from_cart_button_label": "Verwijder uit kar",
+        "go_back_to_cart_button_label": "Ga terug naar mijn winkelwagen"
+      },
+      "order_summary": {
+        "title": "Overzicht van de bestelling",
+        "order_name_label": "Volgorde %{name}",
+        "gift_card_title": "Cadeaukaart",
+        "gift_card_label": "Cadeaukaart",
+        "gift_card_placeholder": "Cadeaukaart",
+        "remove_gift_card_label": "Duidelijke cadeaubon",
+        "remove_discount_label": "Verwijder korting",
+        "applied_discount_message": "%{amount} Off totale bestelprijs",
+        "gift_card_has_been_applied": "Cadeaubon is toegepast",
+        "gift_card_has_been_removed": "Cadeaubon is verwijderd",
+        "gift_card_subscriptions_notice": "Cadeaubonnen zijn alleen van toepassing op uw eerste betaling",
+        "discount_already_applied": "Op deze bestelling is een korting toegepast. Je kunt geen andere korting toevoegen.",
+        "cart_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> Kortingscode is niet geldig voor de items in uw winkelwagen",
+        "discount_requires_customer_notice": "Voer uw verzendgegevens in om de <strong style=\"text-transform:uppercase\">%{code}<\/strong> kortingscode",
+        "customer_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> Kortingscode is nu niet beschikbaar voor u",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> Kortingscode is niet beschikbaar voor uw verzendadres",
+        "customer_already_used_once_per_customer_discount_notice": "De <strong style=\"text-transform:uppercase\">%{code}<\/strong> Kortingscode is al gebruikt",
+        "pickup_label": "Raap op",
+        "no_pickup_location": "Uw bestelling is niet beschikbaar om op te halen. Voer een verzendadres in.",
+        "tip_label": "Tip",
+        "calculating_shipping": "Berekenen ...",
+        "taxes_label": "Belastingen",
+        "estimated_taxes_label": "Geschatte belastingen",
+        "estimated_taxes_finalization_tooltip_content": "De uiteindelijke belasting en het totaal worden bevestigd per e -mail of sms nadat u uw bestelling hebt geplaatst.",
+        "free_total_label": "Vrij",
+        "payment_due_label": "Betaling verschuldigd",
+        "vat_label_html": "Inclusief %{amount} in belastingen",
+        "discount_and_gift_card_savings_notice": "Na %{discount_amount} in kortingen en %{gift_card_amount} In cadeaubonnen",
+        "discount_savings_notice": "Na %{discount_amount} met kortingen",
+        "gift_card_savings_notice": "Na %{gift_card_amount} In cadeaubonnen",
+        "cost_table_title": "Kosten Samenvatting",
+        "quantity_label": "Aantal stuks",
+        "product_change_label": "Wijziging",
+        "product_image_label": "Product afbeelding",
+        "scroll_order_summary": "Scroll voor meer items",
+        "expand_order_summary": "Toon bestelling samenvatting",
+        "collapse_order_summary": "Verberg besteloverzicht",
+        "sale_price": "Verkoopprijs",
+        "total_updated_label": "Bijgewerkte totale prijs:",
+        "unit_price": {
+          "content_html": "%{price}%{accessible_separator}%{per_unit}"
+        },
+        "gift_card_ending": "Cadeaubon eindigend met %{last_characters}",
+        "multiple_shipping_lines_label": "Verzending totaal",
+        "recurring_total_tooltip": "Omvat geen verzending, belasting, rechten of toepasselijke kortingen.",
+        "confirmation_number_label": "Bevestiging #%{confirmation_number}",
+        "higher_value_discount_already_applied": "Er is al een korting korting toegepast.",
+        "percent_off_shipping": "%{percent}% korting op de verzending",
+        "amount_off_shipping": "%{amount} Off verzending",
+        "deferred_payment_info": {
+          "title": "Betaling van %{amount_due} is verschuldigd %{due_at}",
+          "description_html": "Voor vragen over uw bestelling, %{contact_us}."
+        },
+        "payment_terms_totals": {
+          "due_today": "Totaal verschuldigd vandaag",
+          "due_later": "Totaal verschuldigd %{due_at}"
+        }
+      },
+      "shipping": {
+        "shipping_method_title": "Verzendmethode",
+        "subscription_shipping": "Abonnement verzending",
+        "waiting_on_rate_notice": "Beschikbare verzendtarieven krijgen ...",
+        "waiting_on_pickup_location_notice": "Beschikbare pick -up locaties krijgen ...",
+        "no_rates_for_cart_or_destination_notice": "Er zijn geen verzendmethoden beschikbaar voor uw winkelwagen of adres",
+        "no_pickup_location_notice": "Minstens een van uw producten is niet beschikbaar om op te halen",
+        "no_rates_contact_notice": "Neem contact met ons op voor meer informatie",
+        "free_rate_label": "Vrij",
+        "please_enter_your_shipping_information_notice": "Voer uw verzendinformatie in.",
+        "estimated_delivery_time": "Geschatte levering %{time}",
+        "estimated_delivery_time_range": "Geschatte levering %{min_time}–%{max_time}",
+        "arrives_time": "Arriveert %{time}",
+        "arrives_time_range": "Arriveert %{min_time}–%{max_time}",
+        "estimated_time": "Geschatte %{time}",
+        "estimated_time_range": "Geschatte %{min_time}–%{max_time}",
+        "shipping_line_phone_label": "Mobiel telefoonnummer (vereist)",
+        "shipping_line_phone": "Uw koerier kan dit nummer gebruiken om contact met u op te nemen.",
+        "shipping_line_delivery_phone_label": "Mobiele telefoonnummer",
+        "shipping_line_delivery_phone": "We kunnen dit nummer gebruiken om u te bellen of te sms'en over uw levering.",
+        "optional_shipping_line_delivery_instructions_label": "Leveringsinstructies (optioneel)",
+        "shipping_line_delivery_instructions": "Voer de benodigde informatie in, zoals deurcodes of drop-off instructies.",
+        "other_method": {
+          "one": "%{count} andere methode beschikbaar op ",
+          "other": "%{count} Andere methoden beschikbaar beginnen bij "
+        },
+        "shipping_rate_discounted_amount": "Was: %{original_amount}. Nutsvoorzieningen: %{amount}",
+        "subscription_delivery_description": {
+          "prepaid_delivery_frequency": {
+            "one": "voor %{count} levering",
+            "other": "voor %{count} leveringen"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "other": "elk %{count} dagen"
+            },
+            "week": {
+              "other": "elk %{count} weken"
+            },
+            "month": {
+              "other": "elk %{count} maanden"
+            },
+            "year": {
+              "other": "elk %{count} jaar"
+            }
+          },
+          "multiple_subscriptions_shipping_price_label": "%{shipping_price} per levering",
+          "prepaid_shipping_price_label": "%{shipping_price} per levering x %{delivery_interval_count}",
+          "initial_order_discounted": "Eerste verzendkosten %{discounted_shipping_cost}, dan %{frequency_description}",
+          "prepaid_initial_order_discounted_with_renewal": "Eerste verzendkosten %{discounted_shipping_price} %{prepaid_delivery_frequency}, dan %{shipping_price} %{billing_cycle}",
+          "prepaid_initial_order_discounted_with_per_delivery_price_and_renewal": "Eerste verzendkosten %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery}), dan %{shipping_price} %{billing_cycle}",
+          "shipping_price_included": "Opgenomen",
+          "first_n_order_free": {
+            "other": "Eerste %{count} Bestellingen gratis"
+          },
+          "free_for_first_n_order": {
+            "other": "Voor het eerst %{count} bevelen"
+          }
+        },
+        "one_time_purchase_shipping": "Eenmalige verzending"
+      },
+      "localized_fields": {
+        "additional_information": {
+          "title": "Extra informatie"
+        }
+      },
+      "payment": {
+        "amazon_payments_login_hint": "U wordt gevraagd om in te loggen met Amazon.",
+        "amazon_payments_logout": "Log uit bij Amazon Pay",
+        "amazon_payments_failed_mfa_challenge": "De geselecteerde betaalmethode kon niet worden gebruikt. Selecteer een andere methode of neem contact op met uw bank- of kaartuitgever.",
+        "amazon_payments_abandoned_mfa_challenge": "Uw betaling kon niet worden voltooid. Probeer een andere betaalmethode of neem contact op met uw bank- of kaartuitgever.",
+        "amazon_payments_could_not_enqueue_authorize": "Er was een probleem met het verwerken van uw betaling. Probeer het opnieuw of gebruik een andere betaalmethode.",
+        "amount_left_to_pay_label": "Betaling verschuldigd:",
+        "discount_button_action_label": "Voeg kortingscode toe",
+        "gift_card_code_label": "Cadeauboncode",
+        "gift_card_balance_label": "Balans:",
+        "detected_card_brand": "Gedetecteerd kaartmerk: {merk}",
+        "credit_card_vaulting_sign_in_banner_title": "Bewaar uw creditcard",
+        "credit_card_vaulting_sign_in_banner_info": "Log in of maak een account aan om uw creditcard op te slaan voor toekomstige aankopen.",
+        "credit_card_vaulting_sign_in_banner_button_label": "Log in",
+        "ftd_vault_credit_card_label": "Bewaar deze creditcard op mijn account voor een snellere kassa",
+        "card_security_notice": "Alle transacties zijn veilig en gecodeerd.",
+        "card_security_vault_notice": "We hebben uw gegevens nodig voor toekomstige betalingen. Alle transacties zijn veilig en gecodeerd.",
+        "card_information_notice": "Alle transacties zijn veilig en gecodeerd. Creditcardinformatie wordt nooit opgeslagen.",
+        "name_on_card_label": "naam op kaart",
+        "name_on_card_placeholder": "naam op kaart",
+        "card_expiry_label": "Vervaldatum (mm \/ jj)",
+        "card_expiry_placeholder": "Vervaldatum (mm \/ jj)",
+        "credit_card_start_month": "Startmaand",
+        "credit_card_start_year": "Start jaar",
+        "delete_customer_mandate_modal_body": "Als u deze kaart verwijdert, moet u deze opnieuw toevoegen voordat u deze voor betalingen gebruikt.",
+        "delete_customer_mandate_modal_confirm": "Verwijder de kaart",
+        "card_verification_confirm": "Voer voor verificatiedoeleinden in de beveiligingscode van uw kaart in.",
+        "card_expiry_date_explanation": "Vervaldatum van de kaart in formaat: maand, maand, jaar, jaar",
+        "card_verification_value_explanation": "3-cijferige beveiligingscode meestal op de achterkant van uw kaart. American Express-kaarten hebben een 4-cijferige code aan de voorkant.",
+        "card_verification_value_explanation_amex": "4-cijferige beveiligingscode op de voorkant van uw kaart",
+        "card_verification_value_explanation_other": "3-cijferige beveiligingscode op de achterkant van uw kaart",
+        "card_start_label": "Uitgavedatum (mm \/ jj)",
+        "card_start_placeholder": "Uitgavedatum (mm \/ jj)",
+        "card_issue_number_label": "Uitgave nummer",
+        "card_issue_number_placeholder": "Uitgave nummer",
+        "card_change_label": "Wijziging",
+        "card_update_label": "Updatekaart",
+        "ends_with_label": "eindigen met %{last_digits}",
+        "expiry_short": "(Exp %{month}\/%{year})",
+        "saved_by_payment_method": "Gered door %{payment_method}",
+        "same_billing_address_label": "Hetzelfde als verzendadres",
+        "different_billing_address_label": "Gebruik een ander factureringsadres",
+        "billing_address_associated_with_mandate": "Gebruik het adres dat is gekoppeld aan de betaalmethode",
+        "billing_address_associated_with_mandate_info": "Als u uw factureringsadres wilt wijzigen, verwijdert u en voert u uw creditcardgegevens opnieuw in",
+        "free_order_notice_html": "Uw bestelling is <strong>vrij<\/strong>. Er is geen betaling vereist.",
+        "express_checkout_free_order": "U wordt niet in rekening gebracht voor een gratis bestelling",
+        "order_covered_by_gift_cards_notice": {
+          "one": "Uw bestelling wordt gedekt door uw cadeaubon.",
+          "other": "Uw bestelling wordt gedekt door uw cadeaubonnen."
+        },
+        "offsite_gateway_redirect_hint": "Na het klikken op “%{button_label}”, U zult worden doorgestuurd naar %{gateway_label} Om uw aankoop veilig te voltooien.",
+        "billing_address_title": "Facturatie adres",
+        "billing_address_description": "Selecteer het adres dat overeenkomt met uw kaart- of betaalmethode.",
+        "billing_address_description_no_shipping_address": "Voer het adres in dat overeenkomt met uw kaart- of betaalmethode.",
+        "no_js_credit_card_fields_redirect_hint": "U wordt omgeleid om uw betalingsinformatie toe te voegen.",
+        "card_fields_container_prefix": "Veldcontainer voor:",
+        "card_fields_unavailable_html": {
+          "one": "Credit- en betaalpasbetalingen zijn momenteel niet beschikbaar.<br><a href=\"%{current_url}\">Vernieuw deze pagina<\/a> Of probeer het later opnieuw.",
+          "other": "Credit- en betaalpasbetalingen zijn momenteel niet beschikbaar.<br><a href=\"%{current_url}\">Vernieuw deze pagina<\/a> of probeer een andere betaalmethode."
+        },
+        "card_fields_processing_error": "Er was een probleem met het verwerken van de betaling. Probeer deze pagina te vernieuwen of controleer uw internetverbinding.",
+        "technical_error": "Betalingen kunnen op dit moment niet worden verwerkt vanwege een technisch probleem. Probeer het opnieuw over een paar minuten.",
+        "no_method_error": "Deze winkel kan op dit moment geen betalingen accepteren.",
+        "not_configured_error": "Deze winkel kan op dit moment geen betalingen accepteren.",
+        "missing_credit_card_error": "Voer uw kaartgegevens in om de betaling te voltooien",
+        "billing_address_not_supported_for_payment_method_error": "Deze betaalmethode is niet beschikbaar voor uw factureringsadres en valuta. Probeer een andere betaalmethode.",
+        "generic_incorrect_card_info": "Uw betalingsgegevens kunnen niet worden geverifieerd. Controleer uw kaartgegevens en probeer het opnieuw.",
+        "sofort_label": "Overdracht van de bankbank",
+        "klarna_label": "Kleer",
+        "klarna_pay_later_label": "Betaal later met Klarna",
+        "eps_label": "EPS-überweisung",
+        "klarna_slice_it_label": "Financiering met Klarna",
+        "ideal_label": "ideaal",
+        "subscription_card_update_agreement_label": "Door de betaalmethode te wijzigen, wordt uw abonnement en toekomstige terugkerende betalingen bijgewerkt.",
+        "subscription_agreement_label": "Ik begrijp dat ik het eens ben met een abonnement. Het zal worden verlengd voor de prijs en de frequentie vermeld totdat het eindigt of is %{cancelled}.",
+        "subscription_agreement_label_html": "Ik begrijp dat ik het eens ben met een abonnement. Het zal worden verlengd voor de prijs en de frequentie vermeld totdat het eindigt of is <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">geannuleerd<\/a>.\n",
+        "change_currency_section_description": "Selecteer een valutaoptie",
+        "no_real_orders_dev_store": "Deze winkel kan geen echte bestellingen of echte betalingen accepteren.",
+        "waiting_on_payment_methods": "Beschikbare betaalmethoden krijgen ...",
+        "apple_pay_payment_error": "Uw betaling kon niet worden voltooid. Probeer het opnieuw of gebruik een andere betaalmethode.",
+        "taxes_not_included": "Belastingen niet inbegrepen",
+        "no_taxes_banner_content": "Belastingen worden niet in rekening gebracht op deze bestelling. Nadat u de betaling hebt geïnd, kunnen belastingen niet langer worden toegevoegd.",
+        "paypal": {
+          "connect": "Klik om uw PayPal -account aan te sluiten"
+        },
+        "apple": {
+          "connect": "Klik om uw Apple Pay -account aan te sluiten",
+          "not_available": "Apple Pay is niet beschikbaar in deze browser. Om uw Apple Pay -account aan te sluiten, moet u Safari op een Apple -apparaat gebruiken."
+        },
+        "google": {
+          "connect": "Klik om verbinding te maken met uw Google Pay -account"
+        },
+        "account_connected": "Account verbonden",
+        "email_connected": "Account verbonden: ",
+        "mor_disclaimer_html": "Door hieronder te klikken en uw bestelling te voltooien, stemt u ermee in uw item (s) van Flow.io als handelaar in record voor deze transactie te kopen, op Flow.io's <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">Voorwaarden<\/a> en <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">Privacybeleid<\/a>. Flow.io is een internationale dienstverlener %{shop_name}\n"
+      },
+      "payment_summary": {
+        "gift_card_current_balance_notice": "Huidig ​​saldo %{amount}"
+      }
+    }
   }
 }
