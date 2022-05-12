@@ -1035,51 +1035,57 @@
         "blocks": {
           "shipping_address_title": "Envoyez à",
           "change_link_label": "Changer",
-          "change_contact_method_link_label": "Modifier les informations de contact",
-          "change_billing_address_link_label": "Changer l'adresse de facturation",
+          "change_contact_method_link_label": "Modifier les coordonnées",
+          "change_billing_address_link_label": "Modifier l'adresse de facturation",
           "change_shipping_address_link_label": "Changer l'adresse de livraison",
           "change_shipping_method_link_label": "Modifier la méthode d'expédition",
           "change_payment_method_link_label": "Changer la méthode de paiement",
-          "pick_up_in_store_shipping_method_html": "En magasin · %{location_name}"
+          "pick_up_in_store_shipping_method_html": "Ramasser en magasin · %{location_name}",
+          "contact_method_title": "Contacter"
         }
       },
       "marketing": {
-        "accept_marketing_checkbox_label": "Envoyez-moi des nouvelles et des offres",
-        "accept_sms_checkbox_label": "Message texte avec des nouvelles et des offres",
+        "accept_marketing_checkbox_label": "Envoyez-moi un courriel avec des nouvelles et des offres",
+        "accept_sms_checkbox_label": "Envoyez-moi un texto avec des nouvelles et des offres",
         "sms": {
           "disclaimer": {
-            "description_html": "En vous inscrivant via un texte, vous acceptez de recevoir des messages de marketing automatisés récurrents, y compris des rappels de panier, au numéro de téléphone fourni. Le consentement n'est pas une condition d'achat. Répondre arrêter pour vous désabonner. Répondre Aide pour l'aide. La fréquence des messages varie. Les taux de MSG et de données peuvent s'appliquer. Voir notre %{privacy_policy_link} et %{terms_of_service_link}.",
+            "description_html": "En vous inscrivant par SMS, vous acceptez de recevoir des messages marketing automatisés récurrents, y compris des rappels de panier, au numéro de téléphone fourni. Le consentement n'est pas une condition d'achat. Répondre Arrêtez-vous pour se désabonner. Répondre Aide à l'aide. La fréquence des messages varie. MSG et les débits de données peuvent s'appliquer. Voir notre %{privacy_policy_link} et %{terms_of_service_link}.",
             "description_html_transactional": "Nous vous enverrons un reçu de commande et des mises à jour d'expédition récurrentes via un message texte. Répondre arrêter pour vous désabonner. Répondre Aide pour l'aide. La fréquence des messages varie. Les taux de MSG et de données peuvent s'appliquer. Voir notre politique de confidentialité et nos conditions d'utilisation.",
-            "terms_of_service": "Conditions d&#39;utilisation"
+            "terms_of_service": "Conditions d'utilisation",
+            "description_transactional_html": "Nous vous enverrons un reçu de commande et des mises à jour de livraison récurrentes via un SMS. Répondre Arrêtez-vous pour se désabonner. Répondre Aide à l'aide. La fréquence des messages varie. MSG et les débits de données peuvent s'appliquer. Voir notre %{privacy_policy_modal_link} et %{terms_of_service_modal_link}."
           }
         },
         "unsubscribe": {
-          "title": "Vous avez désabonné",
+          "title": "Vous vous êtes désabonné",
           "description": "Vous ne recevrez plus de rappels de panier de notre part."
         },
-        "post_accept_marketing_checkbox_label": "Vous êtes abonné à recevoir des nouvelles et des offres par courriel",
-        "pending_accept_marketing_checkbox_label": "Consultez votre courriel pour confirmer votre abonnement aux nouvelles et aux offres"
+        "post_accept_marketing_checkbox_label": "Vous êtes abonné pour recevoir des nouvelles et des offres par e-mail",
+        "pending_accept_marketing_checkbox_label": "Vérifiez votre e-mail pour confirmer votre abonnement aux actualités et aux offres"
       },
       "shop_policies": {
         "legal_notice": "Mention légale",
         "terms_of_sale": "Conditions de vente"
       },
       "remember_me": {
-        "shopify_pay_label": "Salaire",
-        "save": "Sauvegarder",
+        "shopify_pay_label": "Faire la rémunération",
+        "save": "Sauver",
         "title": "Souviens-toi de moi",
-        "label": "Enregistrez mes informations pour une caisse plus rapide",
-        "description_html": "La prochaine fois que vous allez voir ici ou sur d'autres magasins Powered par Shopify, vous recevrez un code par texte pour acheter en toute sécurité avec la rémunération de la boutique.",
+        "label": "Enregistrez mes informations pour un paiement plus rapide",
+        "description_html": "La prochaine fois que vous passerez ici ou sur d'autres magasins propulsés par Shopify, vous recevrez un code par SMS pour acheter en toute sécurité avec Shop Pay.",
         "mobile_phone_number": "numéro de téléphone portable",
-        "terms_and_privacy_html": "En continuant, vous acceptez de magasiner %{privacy_href} et %{terms_href}.",
+        "terms_and_privacy_html": "En continuant, vous acceptez d'acheter des salaires %{privacy_href} et %{terms_href}.",
         "errors": {
-          "optin": "Payer de la boutique n'est pas disponible"
+          "optin": "Le salaire de la boutique n'est pas disponible"
         },
         "installments": {
-          "paid_in_installments": "Payé en piles avec salaire des magasins.",
-          "view_schedule": "Voir l'horaire"
+          "paid_in_installments": "Payé en versements avec salaire de la boutique.",
+          "view_schedule": "Afficher le calendrier"
         },
-        "terms_of_service": "Conditions d&#39;utilisation"
+        "terms_of_service": "Conditions d'utilisation",
+        "mobile_phone_icon_alt": "Téléphone portable",
+        "title_with_logo_html": "Souviens-toi de moi avec %{shopify_pay}",
+        "label_address_payment_and_faster_checkouts": "Laissez la boutique payer le remplissage de mon adresse et de mon paiement pour les paiements plus rapides.",
+        "label_faster_checkouts_and_thousand_shops": "Économisez mes informations avec le salaire de la boutique pour les paiements plus rapides dans plus d'un million de magasins."
       },
       "order_payment_collection": {
         "changes_summary": {
@@ -1090,35 +1096,36 @@
           "subtracted": "%{count} supprimé"
         },
         "additional_payment_requested": "Paiement de %{total_outstanding} est nécessaire",
-        "checkout_review_and_pay": "Votre commande %{order_name} a été mis à jour. Examinez ces modifications, puis payez pour confirmer votre commande.",
+        "checkout_review_and_pay": "Votre commande %{order_name} a été mis à jour. Passez en revue ces modifications, puis payez pour confirmer votre commande.",
         "order_updated_on": "Votre commande a été mise à jour sur %{last_edited_at}.",
         "order_review_and_pay": "Votre commande a été mise à jour. Examiner et payer pour confirmer votre commande.",
         "pay_now": "Payez maintenant"
       },
       "change_currency": {
         "credit_card_will_be_charged_html": "Votre carte de crédit sera facturée %{amount}",
-        "payment_total_label": "Total total",
-        "change_currency_link": "Changer %{currency_name}",
-        "card_provider_fx_charges_warning": "Votre fournisseur de cartes peut facturer des frais sur %{currency_code} transactions.",
-        "currency_not_supported_by_shop": "La monnaie que vous avez sélectionnée n'est plus disponible. Tous les prix sont maintenant dans %{currency_code}."
+        "payment_total_label": "Total de paiement",
+        "change_currency_link": "Passer à %{currency_name}",
+        "card_provider_fx_charges_warning": "Votre fournisseur de cartes peut facturer des frais %{currency_code} transactions.",
+        "currency_not_supported_by_shop": "La devise que vous avez sélectionnée n'est plus disponible. Tous les prix sont maintenant %{currency_code}."
       },
       "change_country": {
-        "cart_updated_based_on_country": "Votre panier a été mis à jour sur la base de votre pays d'expédition."
+        "cart_updated_based_on_country": "Votre panier a été mis à jour en fonction de votre pays d'expédition."
       },
       "tips": {
-        "title": "Additionner",
-        "description": "Montrer votre soutien à l'équipe à %{shop_name}",
-        "presets_description": "Sélectionnez un pourcentage de conseil",
-        "custom_label": "Pointe personnalisée",
-        "add_tip": "Additionner",
-        "update_tip": "Pointe de mise à jour",
+        "title": "Ajouter la pointe",
+        "description": "Montrez votre soutien à l'équipe à %{shop_name}",
+        "presets_description": "Sélectionnez un pourcentage de pointe",
+        "custom_label": "Conseil personnalisé",
+        "add_tip": "Ajouter la pointe",
+        "update_tip": "Mettre à jour l'astuce",
         "message": "Merci, nous l'apprécions",
         "preset_label": "%{tip_percent}%",
         "no_tip_label": "Rien"
       },
       "open_graph_meta_tag": {
         "title_with_products": {
-          "other": "Acheter %{product_name} et %{count} autres éléments"
+          "other": "Acheter %{product_name} et %{count} autres éléments",
+          "one": "Acheter %{product_name} et %{count} autre élément"
         }
       },
       "subscriptions": {
@@ -1135,22 +1142,22 @@
             "other": "%{count} mois"
           },
           "year": {
-            "other": "%{count} ans"
+            "other": "%{count} années"
           }
         },
         "recurring_totals": "%{total_price} tous %{interval}",
-        "recurring_totals_with_initial_order_shipping_discount": "Premier paiement %{total_price_with_discount}, ensuite %{recurring_total}",
+        "recurring_totals_with_initial_order_shipping_discount": "Premier paiement %{total_price_with_discount}, alors %{recurring_total}",
         "recurring_totals_with_policies": {
           "first_cycles": {
             "one": "Premier paiement %{total_price}",
-            "other": "D'abord %{count} Paiements %{total_price} chaque"
+            "other": "Première %{count} Paiements %{total_price} chaque"
           },
-          "following_cycles": ", ensuite %{total_price} tous %{interval}"
+          "following_cycles": ", alors %{total_price} tous %{interval}"
         },
         "recurring_totals_with_initial_order_shipping_discount_with_policies": {
           "first_cycles": {
-            "one": ", ensuite %{count} paiement à %{total_price}",
-            "other": ", ensuite %{count} paiements à %{total_price} chaque"
+            "one": ", alors %{count} paiement %{total_price}",
+            "other": ", alors %{count} paiements %{total_price} chaque"
           }
         }
       },
@@ -1160,21 +1167,27 @@
         "update_card_button_label": "Carte de mise à jour",
         "delete_customer_mandate": {
           "generic_error": "Il y avait un problème de traitement de votre demande.",
-          "success_message": "Votre méthode de paiement a été supprimée avec succès"
+          "success_message": "Votre mode de paiement a été supprimé avec succès"
         }
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Marchand des termes et conditions records",
+        "privacy_policy": "Marchand de politique de confidentialité enregistrée"
       }
     },
     "links": {
-      "learn_more": "Apprendre encore plus"
+      "learn_more": "Apprendre encore plus",
+      "powered_by_shopify": "Propulsé par Shopify"
     },
     "feed": {
       "more": "Suite"
     },
     "attributes": {
       "password": "le mot de passe",
-      "password_confirmation": "La confirmation de mot de passe",
+      "password_confirmation": "La confirmation du mot de passe",
       "last_name": "nom de famille",
-      "body": "corps"
+      "body": "corps",
+      "first_name": "prénom"
     },
     "addresses": {
       "zip_code": "code postal",
