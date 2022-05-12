@@ -1190,89 +1190,93 @@
       "first_name": "prénom"
     },
     "addresses": {
-      "zip_code": "code postal",
+      "zip_code": "Code postal",
       "pincode": "Code PIN",
       "state_and_territory": "État \/ territoire",
-      "county": "comté",
-      "confirm": "Êtes-vous sûr de vouloir supprimer cette adresse?"
+      "county": "Comté",
+      "confirm": "Êtes-vous sûr de souhaiter supprimer cette adresse?",
+      "postal_code": "Code Postal",
+      "governorate": "Gouverneur"
     },
     "collections": {
       "sorting": {
         "manual": "Mis en exergue",
-        "best_selling": "Meilleure vente",
+        "best_selling": "Le plus vendu",
         "az": "Alphabétiquement, a-z",
-        "za": "Alphabétiquement, Z-A",
+        "za": "Alphabétiquement, z-a",
         "price_ascending": "Prix ​​croissant",
-        "price_descending": "Prix, élevé à faible",
-        "date_ascending": "Date, vieux à nouveau",
-        "date_descending": "Date, nouvelle à vieille"
+        "price_descending": "Prix, haut à bas",
+        "date_ascending": "Date, ancien à nouveau",
+        "date_descending": "Date, nouveau dans l'ancien"
       }
     },
     "errors": {
       "blank": "ne peut pas être vide",
-      "credit_card_session_expired": "L'autorisation de carte de crédit a expiré, veuillez entrer à nouveau vos informations de paiement. Votre carte n'a pas été chargée.",
+      "credit_card_session_expired": "L'autorisation de la carte de crédit a expiré, veuillez à nouveau saisir vos informations de paiement. Votre carte n'a pas été facturée.",
       "empty": "ne peut pas être vide",
       "invalid_email": "Doit être une adresse e-mail valide",
-      "discount_disabled": "Cette réduction a été désactivée",
-      "discount_expired": "Cette réduction n'est plus valide",
-      "discount_limit_reached": "Cette réduction a atteint sa limite d'utilisation",
-      "discount_not_found": "Impossible de trouver un remise valide correspondant au code entré",
-      "customer_already_used_once_per_customer_discount_notice": "Cette réduction a atteint sa limite d'utilisation",
-      "gift_card_already_applied": "Le code a déjà été appliqué à votre caisse",
+      "discount_disabled": "Cette remise a été désactivée",
+      "discount_expired": "Cette remise n'est plus valable",
+      "discount_limit_reached": "Cette remise a atteint sa limite d'utilisation",
+      "discount_not_found": "Impossible de trouver une remise valide correspondant au code entré",
+      "customer_already_used_once_per_customer_discount_notice": "Cette remise a atteint sa limite d'utilisation",
+      "gift_card_already_applied": "Le code a déjà été appliqué à votre paiement",
       "gift_card_currency_mismatch": "%{gift_card_currency} Les cartes-cadeaux ne peuvent pas être appliquées sur %{checkout_currency} ordres",
       "gift_card_depleted": "Il ne reste plus de fonds sur cette carte-cadeau",
       "gift_card_disabled": "La carte-cadeau est désactivée",
       "gift_card_expired": "La carte-cadeau est expirée",
-      "bad_domain": "Contient un nom de domaine non valide",
+      "bad_domain": "contient un nom de domaine non valide",
       "taken": "a déjà été pris",
-      "contains_html_tags": "ne peut pas contenir des balises HTML",
-      "too_short": "est trop court (le minimum est %{count} personnages)",
-      "too_long": "est trop long (le maximum est %{count} personnages)",
-      "email_domain_invalid": "Le fournisseur n'est pas pris en charge",
+      "contains_html_tags": "Impossible de contenir des balises HTML",
+      "too_short": "est trop court (minimum est %{count} personnages)",
+      "too_long": "est trop long (maximum est %{count} personnages)",
+      "email_domain_invalid": "le fournisseur n'est pas pris en charge",
       "invalid_for_country": "n'est pas valable pour %{country}",
       "invalid_for_country_and_province": "n'est pas valable pour %{province} et %{country}",
       "invalid_province_in_country": "n'est pas une province valide dans %{country}",
-      "invalid_state_in_country": "n'est pas un état valide dans %{country}",
+      "invalid_state_in_country": "n'est pas un état valable en %{country}",
       "invalid_region_in_country": "n'est pas une région valide dans %{country}",
-      "not_supported": "n'est pas supporté",
+      "not_supported": "n'est pas pris en charge",
       "full_name_required": "Entrez un prénom et un nom de famille",
       "invalid_for_card_type": "n'est pas valide",
       "invalid_type": "Désolé, nous n'acceptons pas les cartes de ce type",
       "invalid_format": "le format n'est pas valide",
       "expired": "a expiré",
-      "invalid_start_date_or_issue_number_for_debit": "une date de début ou un numéro de numéro valide est requise",
+      "invalid_start_date_or_issue_number_for_debit": "Une date de début ou un numéro d'émission valide est requis",
       "reset_password_html": "Cette adresse e-mail est déjà associée à un compte. Si ce compte est à vous, vous pouvez <a href=\"\/account\/login#recover\">réinitialisez votre mot de passe<\/a>",
-      "verify_email": "Nous avons envoyé un email à %{customer_email}, veuillez cliquer sur le lien inclus pour vérifier votre adresse e-mail."
+      "verify_email": "Nous avons envoyé un email à %{customer_email}, veuillez cliquer sur le lien inclus pour vérifier votre adresse e-mail.",
+      "gift_card_code_invalid": "Le code n'est pas valide"
     },
     "notices": {
       "customer": {
         "password_reset_error": "Erreur de réinitialisation du mot de passe",
-        "no_account_found": "Aucun compte trouvé avec cet email.",
+        "no_account_found": "Aucun compte trouvé avec cet e-mail.",
         "invalid_credentials": "Email ou mot de passe incorrect.",
-        "denylisted_reset_password": "Votre compte n'a pas pu être consulté car le mot de passe actuel n'est pas sécurisé. Vous recevrez un email pour mettre à jour votre mot de passe."
+        "denylisted_reset_password": "Votre compte n'était pas accessible car le mot de passe actuel n'est pas sécurisé. Vous recevrez un e-mail pour mettre à jour votre mot de passe."
       },
       "address": {
         "updated": "Adresse mise à jour avec succès.",
-        "created": "Adresse a créée avec succès",
-        "error_creating": "Erreur lors de la création d'une adresse.",
+        "created": "Adresse créée avec succès",
+        "error_creating": "Erreur de création d'adresse.",
         "deleted": "Adresse supprimée avec succès",
-        "error_deleting": "Erreur lors de la suppression d'une adresse."
+        "error_deleting": "Erreur de suppression de l'adresse.",
+        "error_updating": "Adresse de mise à jour d'erreur"
       },
       "order": {
-        "not_available": "Cet ordre n'est pas disponible",
+        "not_available": "Cette commande n'est pas disponible",
         "financial_status": {
           "authorized": "Autorisé",
           "pending": "En attente",
           "paid": "Payé",
           "unpaid": "Non payé",
-          "voided": "Annulé",
+          "voided": "Vide",
           "partially_paid": "Partiellement payé",
           "partially_refunded": "Partiellement remboursé",
           "refunded": "Remboursé"
         },
         "fulfillment_status": {
-          "fulfilled": "Accompli",
-          "complete": "Compléter",
+          "fulfilled": "Réalisé",
+          "complete": "Complet",
           "partial": "Partiel",
           "unfulfilled": "Insatisfait",
           "restocked": "Réapprovisionné"
@@ -1283,29 +1287,31 @@
         },
         "cancel_reason": {
           "inventory": "Articles indisponibles",
-          "fraud": "Ordre frauduleux",
-          "customer": "Client a changé \/ annulé"
+          "fraud": "Ordonnance frauduleuse",
+          "customer": "Commande modifiée \/ annulée du client"
         },
-        "cash_on_delivery": "Paiement à la livraison (COD)"
+        "cash_on_delivery": "Caisse à la livraison (COD)"
       },
       "cart": {
-        "only_n_items_available": "Vous pouvez seulement ajouter %{count} %{name} au panier.",
-        "too_many_items_in_cart": "Vous ne pouvez pas ajouter plus %{name} au panier.",
+        "only_n_items_available": "Vous ne pouvez ajouter que %{count} %{name} au chariot.",
+        "too_many_items_in_cart": "Vous ne pouvez pas en ajouter plus %{name} au chariot.",
         "all_items_in_cart": "Tout %{count} %{name} sont dans votre panier.",
-        "empty_update": "ne peut pas mettre à jour le panier vide",
-        "missing_parameters": "Aucun identifiant ou paramètre de ligne valide",
-        "generic_error": "Erreur de panier",
-        "too_many_line_items_error": "Votre panier ne peut pas contenir plus de %{max} éléments.",
-        "link_no_longer_exists": "Lien n'existe plus.",
+        "empty_update": "Impossible de mettre à jour le panier vide",
+        "missing_parameters": "Aucun ID valide ou paramètre de ligne",
+        "generic_error": "Erreur de chariot",
+        "too_many_line_items_error": "Votre panier ne peut pas contenir plus que %{max} éléments.",
+        "link_no_longer_exists": "Le lien n'existe plus.",
         "stock_problems_html": "Un ou plusieurs articles ne sont plus disponibles. Nous avons fourni un <a href='%{link}'>chariot mis à jour<\/a>.",
-        "changed": "Le panier a changé",
+        "changed": "Chariot changé",
         "items_changed": "Un ou plusieurs articles ont changé.",
-        "product_sold_out": "Le produit '%{name}'est déjà épuisé.",
+        "product_sold_out": "Le produit '%{name}«est déjà épuisé.",
         "variant_not_found": "Impossible de trouver la variante",
         "variant_requires_selling_plan": "La variante ne peut être achetée qu'avec un plan de vente.",
         "selling_plan_not_applicable": "Ne peut pas appliquer le plan de vente à la variante",
         "shipping_address_not_required": "Ce panier ne nécessite pas d'expédition",
-        "shipping_address_invalid": "Il y avait un problème de calcul de vos taux d'expédition. Continuez à commander pour choisir un taux d'expédition avant de terminer votre commande."
+        "shipping_address_invalid": "Il y avait un problème de calcul de vos taux d'expédition. Continuez à commander pour choisir un taux d'expédition avant de terminer votre commande.",
+        "selling_plan_not_available_for_company_locations": "Un seul achat à un seul temps est disponible pour les commandes B2B",
+        "digital_product_not_available_for_company_locations": "Cet article ne peut pas être ajouté à une commande B2B"
       },
       "storefront": {
         "invalid_password": "Mot de passe incorrect, veuillez réessayer."
