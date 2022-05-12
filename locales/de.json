@@ -1391,6 +1391,115 @@
       "bad_domain": "enthält einen ungültigen Domänennamen",
       "taken": "wurde bereits genommen",
       "contains_html_tags": "HTML -Tags können keine HTML -Tags enthalten"
+    },
+    "notices": {
+      "cart": {
+        "shipping_address_invalid": "Es gab ein Problem, Ihre Versandraten zu berechnen. Fahren Sie mit dem Auschecken fort, um einen Versandkurs auszuwählen, bevor Sie Ihre Bestellung abschließen."
+      },
+      "storefront": {
+        "invalid_password": "Passwort Falsch, bitte versuchen Sie es erneut."
+      },
+      "tags": {
+        "add_articles": "Enge Suche nach Artikeln, die auch Tag mit Tag haben %{tag}",
+        "add_products": "Enge Auswahl für Produkte Matching -Tag %{tag}",
+        "remove_articles": "Die Suche nach Artikeln erweitern, die nicht markiert sind %{tag}",
+        "remove_products": "Tag entfernen %{tag}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Vielen Dank, dass Sie unsere Mailingliste abonniert haben.",
+        "disclaimer": "Sie können sich jederzeit abmelden.",
+        "unsubscribe": "Abbestellen"
+      },
+      "unsubscribed": {
+        "confirmation": "Sie haben sich von unserer Mailingliste abgemeldet.",
+        "disclaimer": "Sie erhalten keine weiteren Marketing -Updates von uns. Sie können jederzeit erneut abonnieren.",
+        "preview": "Sie sehen sich vor, was Kunden sehen werden, wenn sie sich abmelden."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Sie haben sich für eine E -Mail -Open -Tracking entschieden.<\/b>",
+          "visibility": "E -Mail -Open -Preise werden anonym gemeldet. Wir werden nur sehen, ob Sie eine E -Mail im Rahmen eines aggregierten E -Mail -Open -Tarifs geöffnet haben.",
+          "opt_out_html": "Sie können <a style='text-decoration:underline;' href='%{link}'>ablehnen<\/a> von E -Mail Open Tracking Wenn Sie diese Informationen nicht weitergeben möchten.",
+          "preview_bar": "Sie sehen sich vor, was Kunden sehen werden, wenn sie sich für eine E -Mail -Open -Tracking entscheiden."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Sie haben sich von der E -Mail -Open -Tracking abgelehnt.<\/b>",
+          "visibility": "Wir werden nicht sehen, ob Sie unsere E -Mails geöffnet haben.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Telefonieren<\/a> Zum E -Mail offener Tracking.",
+          "preview_bar": "Sie sehen sich vor, was Kunden sehen werden, wenn sie sich von der E -Mail -Open -Tracking abmelden."
+        },
+        "no_longer_track": {
+          "status_html": "<b>Wir verfolgen keine E -Mail -Open mehr.<\/b>",
+          "privacy_policy": "Nachdem diese E -Mail gesendet wurde, haben wir unsere Datenschutzrichtlinien aktualisiert und verfolgen keine Öffnungen mehr."
+        },
+        "track": {
+          "status_html": "<b>E -Mail -Open -Tracking wird gemeldet.<\/b>",
+          "visibility": "Wir werden nur sehen, ob Sie die E -Mail im Rahmen des gesamten E -Mail -Open -Tarifs geöffnet haben."
+        },
+        "updated_policy": {
+          "status_html": "<b>E -Mail -Open -Tracking wird gemeldet.<\/b>",
+          "visibility": "Wir haben unsere Richtlinien aktualisiert und nun E -Mails eröffnen. E -Mail -Open -Preise werden anonym gemeldet. Wir werden nur sehen, ob Sie eine E -Mail im Rahmen des gesamten E -Mail -Open -Tarifs geöffnet haben.",
+          "opt_out_html": "Wenn Sie diese Informationen nicht weitergeben möchten, können Sie <a style='text-decoration:underline;' href='%{link}'>Abmelden.<\/a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "out_of_stock": "Ausverkauft"
+        }
+      },
+      "product_type": {
+        "label": "Produktart"
+      }
+    },
+    "search": {
+      "sorting": {
+        "price_ascending": "Preis niedrig bis hoch",
+        "price_descending": "Preis, hoch bis niedrig"
+      }
+    },
+    "page_titles": {
+      "blog_or_article_with_error": "Fehler - %{title}",
+      "shopping_cart": "Ihr Warenkorb",
+      "create_account": "Benutzerkonto anlegen",
+      "order": "Befehl %{name}",
+      "search": "Suche",
+      "search_results": {
+        "one": "Suche: %{count} Ergebnis für \"gefunden\"%{terms}\"",
+        "other": "Suche: %{count} Ergebnisse für \"gefunden\"%{terms}\""
+      },
+      "collections": "Sammlungen",
+      "checkpoint": "Kontrollpunkt"
+    },
+    "cart": {
+      "discounts_with_count": "%{count} Rabatte wurden angewendet"
+    },
+    "challenge": {
+      "message": "Lassen Sie uns wissen, dass Sie kein Roboter sind.",
+      "error": "Ihre Antwort war nicht korrekt, bitte versuchen Sie es erneut.",
+      "submit_button_text": "Einreichen"
+    },
+    "checkpoint": {
+      "message": "Lösen Sie Captcha, um fortzufahren",
+      "error": "Captcha -Validierung ist fehlgeschlagen",
+      "submit_button_text": "Einreichen"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Normalerweise in 1 Stunde fertig",
+        "two_hours": "Normalerweise in 2 Stunden fertig",
+        "four_hours": "Normalerweise in 4 Stunden fertig",
+        "twenty_four_hours": "Normalerweise in 24 Stunden fertig",
+        "two_to_four_days": "Normalerweise in 2-4 Tagen fertig",
+        "five_or_more_days": "Normalerweise in 5+ Tagen fertig",
+        "zero_to_two_hours": "Normalerweise in 2 Stunden fertig",
+        "two_to_four_hours": "Normalerweise in 4 Stunden fertig",
+        "immediately": "Jetzt bereit für die Abholung",
+        "next_day": "Bereit für die Abholung am nächsten Tag"
+      }
     }
   }
 }
