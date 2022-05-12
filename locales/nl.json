@@ -2,31 +2,31 @@
   "general": {
     "404": {
       "title": "Oeps - we konden die niet vinden",
-      "subtext": "Deze pagina bestaat niet. Probeer te zoeken naar wat u wilt vinden:"
+      "subtext": "Deze pagina bestaat niet. Probeer te zoeken naar wat u zou willen vinden:"
     },
     "pagination": {
       "showing_items": "Items tonen",
       "of": "van"
     },
     "forms": {
-      "post_error": "Sorry, het lijkt erop dat er iets mis ging. Corrigeer het volgende en verzend opnieuw:"
+      "post_error": "Sorry, het lijkt erop dat er iets mis is gegaan. Corrigeer het volgende en dien opnieuw in:"
     },
     "breadcrumbs": {
-      "home": "Huis"
+      "home": "Thuis"
     },
     "newsletter_form": {
       "newsletter_email": "kom bij onze maillijst",
       "thanks": "Bedankt voor uw deelname",
-      "popup_thanks": "Bedankt voor het verbinden, hier is uw kortingscode:",
+      "popup_thanks": "Bedankt voor je deelname, hier is je couponcode:",
       "email_placeholder": "E-mailadres",
       "confirmation": "Bedankt om deel te nemen!",
       "submit": "Meedoen"
     },
     "search": {
-      "no_results_html": "Uw zoektocht naar \"{{ terms }}\"leverde geen resultaten op.",
-      "results_for_html": "Uw zoektocht naar \"{{ terms }}\"Onthulde het volgende:",
+      "no_results_html": "Uw zoektocht naar \"{{ terms }}\"heeft geen resultaten opgeleverd.",
+      "results_for_html": "Uw zoektocht naar \"{{ terms }}\"onthulde het volgende:",
       "title": "Zoekopdracht",
-      "placeholder": "Zoekopdracht",
+      "placeholder": "Zoek hier de hele winkel ...",
       "submit": "Zoekopdracht"
     },
     "language": {
