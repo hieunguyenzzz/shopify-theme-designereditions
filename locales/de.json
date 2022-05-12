@@ -1232,6 +1232,82 @@
         "failed_title": "Ihre Bestellung konnte nicht geliefert werden",
         "failed_contact_merchant": "Kontakt %{company} Lieferung arrangieren.",
         "failed_contact_merchant_no_company": "Kontaktieren Sie uns, um die Lieferung zu arrangieren."
+      },
+      "marketing": {
+        "post_accept_marketing_checkbox_label": "Sie werden abonniert, um E -Mail -Nachrichten und -angebote zu erhalten",
+        "pending_accept_marketing_checkbox_label": "Überprüfen Sie Ihre E -Mails, um Ihr Abonnement für Nachrichten und Angebote zu bestätigen",
+        "accept_sms_checkbox_label": "Schreiben Sie mir Neuigkeiten und Angebote",
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "Datenschutz-Bestimmungen",
+            "terms_of_service": "Nutzungsbedingungen",
+            "description_html": "Durch die Anmeldung per Text erklären Sie sich einig, dass wiederkehrende automatisierte Marketingmeldungen, einschließlich CART -Erinnerungen, unter der angegebenen Telefonnummer empfangen werden. Die Zustimmung ist keine Kaufbedingung. Antwort Stopp, um sich abzumelden. Antwort Hilfe für Hilfe. Die Nachrichtenfrequenz variiert. MSG- und Datenraten können gelten. Sehen Sie unsere %{privacy_policy_link} und %{terms_of_service_link}.",
+            "description_transactional_html": "Wir senden Ihnen eine Bestellbelegung und wiederkehrende Versandaktualisierungen per SMS. Antwort Stopp, um sich abzumelden. Antwort Hilfe für Hilfe. Die Nachrichtenfrequenz variiert. MSG- und Datenraten können gelten. Sehen Sie unsere %{privacy_policy_modal_link} und %{terms_of_service_modal_link}."
+          }
+        },
+        "unsubscribe": {
+          "title": "Sie haben sich abgemeldet",
+          "description": "Sie erhalten keine Cart -Erinnerungen von uns."
+        }
+      },
+      "shop_policies": {
+        "refund_policy": "Rückgaberecht",
+        "privacy_policy": "Datenschutz-Bestimmungen",
+        "terms_of_service": "Nutzungsbedingungen",
+        "shipping_policy": "Versandbedingungen",
+        "terms_of_sale": "Verkaufsbedingungen",
+        "subscription_policy": "Abonnementrichtlinie"
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Händler der Rekordbedingungen und Bedingungen",
+        "privacy_policy": "Händler der Datenschutzpolitik der Aufzeichnungen"
+      },
+      "remember_me": {
+        "shopify_pay_label": "Shop -Bezahlung",
+        "title": "Mich erinnern",
+        "label": "Speichern Sie meine Informationen für eine schnellere Checkout",
+        "description_html": "Wenn Sie das nächste Mal hier oder in anderen von Shopify betriebenen Geschäften einsehen, erhalten Sie einen Code per SMS, um mit Shop Pay sicher zu kaufen.",
+        "mobile_phone_icon_alt": "Handy",
+        "mobile_phone_number": "Handynummer",
+        "terms_and_privacy_html": "Durch Fortsetzung erklären Sie sich damit einverstanden, Pays einzukaufen %{privacy_href} und %{terms_href}.",
+        "privacy_policy": "Datenschutz-Bestimmungen",
+        "terms_of_service": "Nutzungsbedingungen",
+        "installments": {
+          "paid_in_installments": "Bezahlt in Raten mit Shop Pay.",
+          "view_schedule": "Zeitplan anzeigen"
+        },
+        "title_with_logo_html": "Erinnere dich an mich mit %{shopify_pay}",
+        "label_address_payment_and_faster_checkouts": "Lassen Sie Shop bezahlen meine Adresse und Zahlungsinformationen für schnellere Auschecken.",
+        "label_faster_checkouts_and_thousand_shops": "Sparen Sie meine Informationen mit Shop Pay für schnellere Checkouts in über einer Million Geschäften."
+      },
+      "order_payment_collection": {
+        "custom_line_item_description": "Bezahlungsbetrag für Bestellung %{order_name}",
+        "changes_summary": {
+          "removed": "ENTFERNT",
+          "subtracted": "%{count} ENTFERNT"
+        },
+        "additional_payment_requested": "Zahlung von %{total_outstanding} wird gebraucht",
+        "checkout_review_and_pay": "Deine Bestellung %{order_name} wurde aktualisiert. Überprüfen Sie diese Änderungen und zahlen Sie dann, um Ihre Bestellung zu bestätigen.",
+        "order_updated_on": "Ihre Bestellung wurde aktualisiert %{last_edited_at}.",
+        "order_review_and_pay": "Ihre Bestellung wurde aktualisiert. Überprüfen und zahlen Sie, um Ihre Bestellung zu bestätigen.",
+        "pay_now": "Zahlen Sie jetzt"
+      },
+      "change_currency": {
+        "credit_card_will_be_charged_html": "Ihre Kreditkarte wird berechnet %{amount}",
+        "payment_total_label": "Zahlung Gesamt",
+        "change_currency_link": "Ändern %{currency_name}",
+        "card_provider_fx_charges_warning": "Ihr Kartenanbieter kann Gebühren erheben %{currency_code} Transaktionen.",
+        "currency_not_supported_by_shop": "Die von Ihnen ausgewählte Währung ist nicht mehr verfügbar. Alle Preise sind jetzt in %{currency_code}."
+      },
+      "change_country": {
+        "cart_updated_based_on_country": "Ihr Wagen wurde basierend auf Ihrem Versandland aktualisiert."
+      },
+      "tips": {
+        "title": "Tipp hinzufügen",
+        "description": "Zeigen Sie Ihre Unterstützung für das Team bei %{shop_name}",
+        "presets_description": "Wählen Sie einen Tippprozentsatz aus",
+        "custom_label": "Benutzerdefinierte Tipp",
+        "add_tip": "Tipp hinzufügen"
       }
     }
   }
