@@ -12,32 +12,32 @@
   },
   "general": {
     "404": {
-      "title": "Oops - wir konnten das nicht finden",
-      "subtext": "Diese Seite existiert nicht. Suchen Sie nach dem, was Sie finden möchten:"
+      "title": "Hoppla - wir konnten das nicht finden",
+      "subtext": "Diese Seite existiert nicht. Versuchen Sie, nach dem zu suchen, was Sie finden möchten:"
     },
     "pagination": {
-      "showing_items": "Artikel anzeigen.",
+      "showing_items": "Gegenstände anzeigen",
       "of": "von"
     },
     "forms": {
-      "post_error": "Sorry, sieht aus, als wäre etwas schiefgegangen. Bitte korrigieren Sie das Folgende und senden Sie es erneut ein:"
+      "post_error": "Entschuldigung, sieht so aus, als wäre etwas schief gelaufen. Bitte korrigieren Sie Folgendes und senden Sie erneut:"
     },
     "breadcrumbs": {
-      "home": "Zuhause"
+      "home": "Heim"
     },
     "newsletter_form": {
       "newsletter_email": "Treten Sie unserer Mailingliste bei",
-      "thanks": "Vielen Dank für den Beitritt",
-      "popup_thanks": "Vielen Dank für den Beitritt, hier ist Ihr Gutscheincode:",
+      "thanks": "Danke, dass Du mitmachst",
+      "popup_thanks": "Vielen Dank für Ihren Beitritt. Hier ist Ihr Gutscheincode:",
       "email_placeholder": "E-Mail-Addresse",
       "confirmation": "Danke fürs Beitreten!",
-      "submit": "Verbinden"
+      "submit": "Beitreten"
     },
     "search": {
-      "no_results_html": "Ihre Suche nach \"{{ terms }}\"Hat keine Ergebnisse liefert.",
-      "results_for_html": "Ihre Suche nach \"{{ terms }}\"Folgendes gilt:",
+      "no_results_html": "Ihre Suche nach \"{{ terms }}\"Hat keine Ergebnisse erzielt.",
+      "results_for_html": "Ihre Suche nach \"{{ terms }}\"Enthüllte Folgendes:",
       "title": "Suche",
-      "placeholder": "Suche",
+      "placeholder": "Durchsuche hier den gesamten Laden...",
       "submit": "Suche"
     },
     "currency": {
