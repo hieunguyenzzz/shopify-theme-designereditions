@@ -12,15 +12,15 @@
   },
   "general": {
     "404": {
-      "title": "Vaya, no pudimos encontrar que uno",
-      "subtext": "Esta página no existe. Intenta buscar lo que le gustaría encontrar:"
+      "title": "Ups, no pudimos encontrar ese",
+      "subtext": "Esta página no existe. Intente buscar lo que le gustaría encontrar:"
     },
     "pagination": {
-      "showing_items": "Mostrando artículos",
+      "showing_items": "Mostrar elementos",
       "of": "de"
     },
     "forms": {
-      "post_error": "Lo siento, parece que algo salió mal. Por favor, corrija lo siguiente y envíe nuevamente:"
+      "post_error": "Lo siento, parece que algo salió mal. Corrija lo siguiente y envíe nuevamente:"
     },
     "breadcrumbs": {
       "home": "Casa"
@@ -34,10 +34,10 @@
       "submit": "Entrar"
     },
     "search": {
-      "no_results_html": "Tu búsqueda de \"{{ terms }}\"No cedió ningún resultado.",
+      "no_results_html": "Tu búsqueda de \"{{ terms }}\"No arrojó ningún resultado.",
       "results_for_html": "Tu búsqueda de \"{{ terms }}\"Reveló lo siguiente:",
       "title": "Búsqueda",
-      "placeholder": "Búsqueda",
+      "placeholder": "Busca la tienda entera aquí...",
       "submit": "Búsqueda"
     },
     "currency": {
