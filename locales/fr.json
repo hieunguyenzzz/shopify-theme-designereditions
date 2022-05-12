@@ -1307,9 +1307,9 @@
         "product_sold_out": "Le produit '%{name}«est déjà épuisé.",
         "variant_not_found": "Impossible de trouver la variante",
         "variant_requires_selling_plan": "La variante ne peut être achetée qu'avec un plan de vente.",
-        "selling_plan_not_applicable": "Ne peut pas appliquer le plan de vente à la variante",
-        "shipping_address_not_required": "Ce panier ne nécessite pas d'expédition",
-        "shipping_address_invalid": "Il y avait un problème de calcul de vos taux d'expédition. Continuez à commander pour choisir un taux d'expédition avant de terminer votre commande.",
+        "selling_plan_not_applicable": "Impossible d'appliquer le plan de vente à la variante",
+        "shipping_address_not_required": "Ce chariot ne nécessite pas d'expédition",
+        "shipping_address_invalid": "Il y avait un problème à calculer vos tarifs d'expédition. Continuez à vérifier pour choisir un tarif d'expédition avant de terminer votre commande.",
         "selling_plan_not_available_for_company_locations": "Un seul achat à un seul temps est disponible pour les commandes B2B",
         "digital_product_not_available_for_company_locations": "Cet article ne peut pas être ajouté à une commande B2B"
       },
@@ -1317,9 +1317,9 @@
         "invalid_password": "Mot de passe incorrect, veuillez réessayer."
       },
       "tags": {
-        "add_articles": "Recherche étroite à des articles aussi ayant une étiquette %{tag}",
-        "add_products": "Sélection étroite à la balise de correspondance de produits %{tag}",
-        "remove_articles": "Élargir la recherche à des articles qui ne sont pas marqués %{tag}",
+        "add_articles": "Recherche étroite aux articles ayant également une balise %{tag}",
+        "add_products": "Sélection étroite aux produits correspondant à la balise %{tag}",
+        "remove_articles": "Élargir la recherche vers des articles qui ne sont pas étiquetés %{tag}",
         "remove_products": "Enlever l'étiquette %{tag}"
       }
     },
@@ -1330,34 +1330,34 @@
       },
       "unsubscribed": {
         "confirmation": "Vous vous êtes désabonné de notre liste de diffusion.",
-        "disclaimer": "Vous ne recevrez plus de mises à jour de marketing de notre part. Vous pouvez vous abonner à tout moment.",
-        "preview": "Vous prévisuez ce que les clients vont voir quand ils se désabonnerent."
+        "disclaimer": "Vous ne recevrez plus de mises à jour marketing de notre part. Vous pouvez vous abonner à tout moment.",
+        "preview": "Vous apercevez ce que les clients verront lorsqu'ils se désinscrire."
       },
       "open_tracking": {
         "opt_in": {
-          "opted_in_html": "<b>Vous avez opté pour envoyer un courrier électronique au suivi.<\/b>",
-          "visibility": "Les tarifs à ciel ouvert seront signalés anonymement. Nous ne verrons que si vous avez ouvert un courrier électronique dans le cadre d'un tarif libre agrégé.",
-          "opt_out_html": "Tu peux <a style='text-decoration:underline;' href='%{link}'>se désengager<\/a> du courrier électronique Open Suivi si vous ne souhaitez pas partager ces informations.",
-          "preview_bar": "Vous prévisuez ce que les clients verront quand ils optent pour envoyer un courrier électronique au suivi."
+          "opted_in_html": "<b>Vous avez choisi de envoyer un e-mail à un suivi ouvert.<\/b>",
+          "visibility": "Les taux d'ouverture par e-mail seront signalés de manière anonyme. Nous ne verrons que si vous avez ouvert un e-mail dans le cadre d'un taux d'ouverture par e-mail agrégé.",
+          "opt_out_html": "Tu peux <a style='text-decoration:underline;' href='%{link}'>se désengager<\/a> du suivi ouverte par e-mail si vous ne souhaitez pas partager ces informations.",
+          "preview_bar": "Vous prévisualisez ce que les clients verront lorsqu'ils optent pour envoyer un e-mail à un suivi ouvert."
         },
         "opt_out": {
-          "opted_out_html": "<b>Vous avez choisi de sortir du courrier électronique ouvert.<\/b>",
-          "visibility": "Nous ne verrons pas si vous avez ouvert nos courriels.",
-          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Opter<\/a> pour envoyer un suivi ouvert par courrier électronique.",
-          "preview_bar": "Vous prévisuez ce que les clients verront lorsqu'ils optent sur le suivi ouvert par courrier électronique."
+          "opted_out_html": "<b>Vous vous êtes retiré du suivi ouvert par e-mail.<\/b>",
+          "visibility": "Nous ne verrons pas si vous avez ouvert nos e-mails.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Adopter<\/a> Pour envoyer un e-mail à un suivi ouvert.",
+          "preview_bar": "Vous apercevez ce que les clients verront lorsqu'ils se retirent par e-mail à suivi de l'e-mail."
         },
         "no_longer_track": {
-          "status_html": "<b>Nous ne suivons plus aucun email s'ouvre.<\/b>",
-          "privacy_policy": "Une fois que cet email a été envoyé, nous avons mis à jour notre politique de confidentialité et nous ne sommes plus surprises."
+          "status_html": "<b>Nous ne suivons plus d'ouverture par e-mail.<\/b>",
+          "privacy_policy": "Après l'envoi de cet e-mail, nous avons mis à jour notre politique de confidentialité et nous n'ouvrons plus d'ouverture."
         },
         "track": {
-          "status_html": "<b>Le suivi ouvert par courrier électronique est rapporté.<\/b>",
-          "visibility": "Nous ne verrons que si vous avez ouvert l'email, dans le cadre du taux d'ouverture du courrier électronique total."
+          "status_html": "<b>Un suivi ouvert par e-mail est signalé.<\/b>",
+          "visibility": "Nous ne verrons que si vous avez ouvert l'e-mail, dans le cadre du taux d'ouverture par e-mail total."
         },
         "updated_policy": {
-          "status_html": "<b>Le suivi ouvert par courrier électronique est rapporté.<\/b>",
-          "visibility": "Nous avons mis à jour notre politique et suivre maintenant les courriels ouvriers. Les tarifs à ciel ouvert seront signalés anonymement. Nous ne verrons que si vous avez ouvert un courrier électronique dans le cadre du taux d'ouverture du courrier électronique total.",
-          "opt_out_html": "Si vous ne voulez pas partager ces informations, vous pouvez <a style='text-decoration:underline;' href='%{link}'>Se désabonner.<\/a>"
+          "status_html": "<b>Un suivi ouvert par e-mail est signalé.<\/b>",
+          "visibility": "Nous avons mis à jour notre stratégie et le suivi des e-mails ouverts. Les taux d'ouverture par e-mail seront signalés de manière anonyme. Nous ne verrons que si vous avez ouvert un e-mail dans le cadre du taux d'ouverture par e-mail total.",
+          "opt_out_html": "Si vous ne souhaitez pas partager ces informations, vous pouvez <a style='text-decoration:underline;' href='%{link}'>Se désabonner.<\/a>"
         }
       }
     },
@@ -1371,41 +1371,41 @@
     "search": {
       "sorting": {
         "price_ascending": "Prix ​​croissant",
-        "price_descending": "Prix, élevé à faible"
+        "price_descending": "Prix, haut à bas"
       }
     },
     "page_titles": {
       "blog_or_article_with_error": "Erreur - %{title}",
       "products": "Des produits",
       "shopping_cart": "Votre Panier",
-      "order": "Commander %{name}",
+      "order": "Commande %{name}",
       "search_results": {
-        "one": "Chercher: %{count} Résultat trouvé pour \"%{terms}\"",
-        "other": "Chercher: %{count} Résultats trouvés pour \"%{terms}\""
+        "one": "Recherche: %{count} Résultat trouvé pour \"%{terms}\"",
+        "other": "Recherche: %{count} Résultats trouvés pour \"%{terms}\""
       },
-      "not_found": "404 non trouvé"
+      "not_found": "404 introuvable"
     },
     "cart": {
-      "discounts_with_count": "%{count} Des réductions ont été appliquées"
+      "discounts_with_count": "%{count} Des rabais ont été appliqués"
     },
     "challenge": {
-      "message": "Pour continuer, laissez-nous savoir que vous n'êtes pas un robot.",
+      "message": "Pour continuer, faites-nous savoir que vous n'êtes pas un robot.",
       "error": "Votre réponse n'était pas correcte, veuillez réessayer."
     },
     "checkpoint": {
-      "message": "Résoudre captcha pour continuer",
+      "message": "Résoudre Captcha pour continuer",
       "error": "La validation CAPTCHA a échoué"
     },
     "store_availability": {
       "pick_up_time": {
-        "one_hour": "Habituellement prêt en 1 heure",
-        "two_hours": "Habituellement prêt dans 2 heures",
-        "four_hours": "Habituellement prêt dans 4 heures",
-        "twenty_four_hours": "Habituellement prêt dans 24 heures",
-        "two_to_four_days": "Habituellement prêt dans 2-4 jours",
-        "five_or_more_days": "Habituellement prêt dans plus de 5 jours",
-        "zero_to_two_hours": "Habituellement prêt dans 2 heures",
-        "two_to_four_hours": "Habituellement prêt dans 4 heures",
+        "one_hour": "Généralement prêt en 1 heure",
+        "two_hours": "Généralement prêt en 2 heures",
+        "four_hours": "Généralement prêt en 4 heures",
+        "twenty_four_hours": "Généralement prêt dans 24 heures",
+        "two_to_four_days": "Généralement prêt en 2-4 jours",
+        "five_or_more_days": "Généralement prêt dans plus de 5 jours",
+        "zero_to_two_hours": "Généralement prêt en 2 heures",
+        "two_to_four_hours": "Généralement prêt en 4 heures",
         "immediately": "Prêt pour le ramassage maintenant",
         "next_day": "Prêt pour le ramassage le lendemain"
       }
