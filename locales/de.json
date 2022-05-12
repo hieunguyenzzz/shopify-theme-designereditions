@@ -1307,8 +1307,90 @@
         "description": "Zeigen Sie Ihre Unterstützung für das Team bei %{shop_name}",
         "presets_description": "Wählen Sie einen Tippprozentsatz aus",
         "custom_label": "Benutzerdefinierte Tipp",
-        "add_tip": "Tipp hinzufügen"
+        "add_tip": "Tipp hinzufügen",
+        "update_tip": "Tipp aktualisieren",
+        "message": "Danke, wir schätzen es",
+        "preset_label": "%{tip_percent}%",
+        "no_tip_label": "Keiner"
+      },
+      "open_graph_meta_tag": {
+        "title_with_products": {
+          "zero": "Kaufen %{product_name}",
+          "one": "Kaufen %{product_name} und %{count} anderer Artikel",
+          "other": "Kaufen %{product_name} und %{count} andere Dinge"
+        }
+      },
+      "subscriptions": {
+        "recurring_totals": "%{total_price} jeder %{interval}",
+        "recurring_totals_with_initial_order_shipping_discount": "Erste Zahlung %{total_price_with_discount}, dann %{recurring_total}",
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "other": "Zuerst %{count} Zahlungen %{total_price} jeder"
+          },
+          "following_cycles": ", dann %{total_price} jeder %{interval}"
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "one": ", dann %{count} Zahlung bei %{total_price}",
+            "other": ", dann %{count} Zahlungen bei %{total_price} jeder"
+          }
+        }
+      },
+      "customer_payment_methods": {
+        "page_title": "Zahlungsarten",
+        "title": "Zahlungsarten",
+        "delete_customer_mandate": {
+          "generic_error": "Es gab ein Problem mit Ihrer Anfrage.",
+          "success_message": "Ihre Zahlungsmethode wurde erfolgreich gelöscht"
+        }
       }
+    },
+    "pagination": {
+      "previous": "Bisherige"
+    },
+    "links": {
+      "powered_by_shopify": "Angetrieben von Shopify"
+    },
+    "attributes": {
+      "email": "Email",
+      "password_confirmation": "Die Passwortbestätigung",
+      "last_name": "Familienname, Nachname",
+      "body": "Karosserie",
+      "signature": "Die Anschrift"
+    },
+    "addresses": {
+      "zip_code": "PLZ",
+      "pincode": "Geheimzahl",
+      "county": "Bezirk",
+      "emirate": "Emirat",
+      "governorate": "Gouvernement",
+      "confirm": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?"
+    },
+    "collections": {
+      "sorting": {
+        "manual": "Vorgestellt",
+        "best_selling": "Meistverkauft",
+        "az": "Alphabetisch, a-z",
+        "price_ascending": "Preis niedrig bis hoch",
+        "price_descending": "Preis, hoch bis niedrig",
+        "date_ascending": "Datum, alt bis neu"
+      }
+    },
+    "errors": {
+      "blank": "kann nicht leer sein",
+      "blocked_address": "Dieser Ort wird nicht unterstützt.",
+      "credit_card_session_expired": "Die Autorisierung der Kreditkarten ist abgelaufen. Bitte geben Sie Ihre Zahlungsinformationen erneut ein. Ihre Karte wurde nicht berechnet.",
+      "empty": "kann nicht leer sein",
+      "invalid_email": "muss eine gültige E-Mail-Adresse sein",
+      "discount_not_found": "Es kann keinen gültigen Rabatt finden, der dem eingegebenen Code entspricht",
+      "gift_card_already_applied": "Der Code wurde bereits an Ihre Kasse angewendet",
+      "gift_card_code_invalid": "Code ist ungültig",
+      "gift_card_currency_mismatch": "%{gift_card_currency} Geschenkkarten können nicht aufgetragen werden %{checkout_currency} Aufträge",
+      "gift_card_depleted": "Auf dieser Geschenkkarte sind keine Mittel mehr vorhanden",
+      "gift_card_disabled": "Geschenkkarte ist deaktiviert",
+      "bad_domain": "enthält einen ungültigen Domänennamen",
+      "taken": "wurde bereits genommen",
+      "contains_html_tags": "HTML -Tags können keine HTML -Tags enthalten"
     }
   }
 }
