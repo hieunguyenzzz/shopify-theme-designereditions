@@ -786,52 +786,57 @@
         "gift_card_expired": "Cette carte cadeau a expiré",
         "gift_card_depleted": "Cette carte cadeau n'a plus de fonds",
         "gift_card_currency_mismatch": "Seules les cartes-cadeaux en %{checkout_currency} peut être utilisé avec cet ordre",
-        "payment_gateway_needs_paid_plan_error": "Ce mode de paiement ne sont pas disponibles sur le magasin en ce moment",
-        "payment_gateway_not_in_test_mode": "n'est pas configuré pour les commandes de test. Ce magasin ne peut pas accepter les commandes réelles ou des paiements réels.",
-        "payment_gateway_incompatible_with_multi_currency": "Pour compléter cette caisse dans votre devise locale, vous devez payer par carte de crédit.",
-        "payment_gateway_unsupported_for_subscriptions": "Ce mode de paiement ne sont pas disponibles pour les commandes d'abonnement.",
+        "payment_gateway_needs_paid_plan_error": "Ce mode de paiement n'est pas disponible sur le magasin pour le moment",
+        "payment_gateway_not_in_test_mode": "n'est pas configuré pour tester les commandes. Ce magasin ne peut pas accepter de réelles commandes ou de réels paiements.",
+        "payment_gateway_incompatible_with_multi_currency": "Pour terminer ce paiement dans votre devise locale, vous devez payer par carte de crédit.",
+        "payment_gateway_unsupported_for_subscriptions": "Ce mode de paiement n'est pas disponible pour les commandes d'abonnement.",
         "subscription_agreement_blank": "Pour continuer votre achat, acceptez les conditions d'abonnement",
-        "physical_gift_card_invalid_quantity": "postes de cartes-cadeaux physiques doivent avoir une quantité qui correspond au nombre de codes de cartes-cadeaux.",
-        "physical_gift_card_duplicate_code": "poste de carte-cadeau physique contient le code en double.",
-        "physical_gift_card_invalid_code": "code de carte cadeau physique est invalide.",
+        "physical_gift_card_invalid_quantity": "Les articles de ligne de carte-cadeau physique doivent avoir une quantité qui correspond au nombre de codes de carte-cadeau.",
+        "physical_gift_card_duplicate_code": "L'élément de ligne de carte cadeau physique contient du code en double.",
+        "physical_gift_card_invalid_code": "Le code de carte-cadeau physique n'est pas valide.",
         "sms_marketing_phone_invalid": "Entrez un numéro de téléphone valide"
       },
       "payment_errors": {
-        "generic_error": "Il y avait un problème de traitement de votre paiement. Essayez à nouveau ou utilisez une méthode de paiement différente.",
-        "rejected_transaction": "Votre paiement a été refusé. Essayez à nouveau ou utilisez une méthode de paiement différente.",
-        "credit_card_processing": "Votre paiement ne peut être traitée pour des raisons techniques. Essayez à nouveau dans quelques minutes ou utiliser une méthode de paiement.",
-        "order_total_changed": "Votre paiement n'a pas pu être traitée parce que votre total de la commande a changé. Vérifiez total de votre commande et essayer à nouveau.",
-        "payment_processing": "Votre paiement ne peut être traitée pour des raisons techniques. Essayez à nouveau ou utilisez une méthode de paiement différente.",
-        "payment_processing_no_retry": "Votre paiement ne peut être traitée pour des raisons techniques. Veuillez essayer une méthode de paiement différente.",
-        "paypal_zero_amount": "Vous ne pouvez pas utiliser PayPal pour %{amount} ordres. Confirmez votre commande est correct et vérifier sans PayPal.",
-        "paypal_invalid_token": "PayPal n'était pas disponible. Essayez à nouveau ou utiliser une option de paiement différent.",
-        "pay_later_failed": "Il y avait une erreur lors du traitement de votre paiement avec payer plus tard. Choisissez une autre méthode de paiement et essayez à nouveau.",
-        "three_d_secure_failed": "Votre paiement n'a pas pu être vérifiée. Essayez à nouveau ou utilisez une méthode de paiement différente.",
-        "three_d_secure_failed_duplicate": "La 3D de la carte de crédit d'authentification sécurisée a échoué parce que l'autre est déjà en cours.",
-        "three_d_secure_throttled": "Trop d'essais; s'il vous plaît attendre avant d'essayer à nouveau",
-        "subscription_agreement_blank": "Pour acheter un abonnement vos informations de paiement doivent être sauvés. Pour continuer, vérifiez que vous êtes d'accord ou supprimer des éléments de souscription de votre commande.",
-        "insufficient_funds": "Votre paiement a été refusé en raison de fonds insuffisants. Essayez à nouveau ou utilisez une méthode de paiement différente.",
+        "generic_error": "Il y avait un problème de traitement de votre paiement. Réessayez ou utilisez un mode de paiement différent.",
+        "rejected_transaction": "Votre paiement a été refusé. Réessayez ou utilisez un mode de paiement différent.",
+        "credit_card_processing": "Votre paiement ne peut pas être traité pour des raisons techniques. Ressayez dans quelques minutes ou utilisez un mode de paiement différent.",
+        "order_total_changed": "Votre paiement n'a pas pu être traité car votre total de commande a changé. Vérifiez le total de votre commande et réessayez.",
+        "payment_processing": "Votre paiement ne peut pas être traité pour des raisons techniques. Réessayez ou utilisez un mode de paiement différent.",
+        "payment_processing_no_retry": "Votre paiement ne peut pas être traité pour des raisons techniques. Veuillez essayer un autre mode de paiement.",
+        "paypal_zero_amount": "Vous ne pouvez pas utiliser PayPal pour %{amount} ordres. Confirmez que votre commande est correcte et consultez sans paypal.",
+        "paypal_invalid_token": "PayPal n'était pas disponible. Réessayez ou utilisez une autre option de paiement.",
+        "pay_later_failed": "Il y a eu une erreur de traitement de votre paiement avec Pay plus tard. Choisissez un autre mode de paiement et réessayez.",
+        "three_d_secure_failed": "Votre paiement n'a pas pu être vérifié. Réessayez ou utilisez un mode de paiement différent.",
+        "three_d_secure_failed_duplicate": "L'authentification sécurisée 3D de la carte de crédit a échoué car une autre est déjà en cours.",
+        "three_d_secure_throttled": "Trop d'essais; Veuillez patienter avant de réessayer",
+        "subscription_agreement_blank": "Pour acheter un abonnement, vos coordonnées doivent être enregistrées. Pour continuer, confirmez que vous acceptez ou supprimez les éléments d'abonnement de votre commande.",
+        "insufficient_funds": "Votre paiement a été refusé en raison de fonds insuffisants. Réessayez ou utilisez un mode de paiement différent.",
         "fraud_payment_errors": {
           "transaction_declined": "cette transaction a été refusée",
-          "address_mismatch": "L'adresse et le code postal ne correspondent pas.",
-          "cannot_process": "Cette opération ne peut pas être traitée.",
+          "address_mismatch": "L'adresse de la rue et le code postal ne correspondent pas.",
+          "cannot_process": "Cette transaction ne peut pas être traitée.",
           "no_match": "Pas de correspondance"
-        }
+        },
+        "checkout_amount_changed": "Votre paiement n'a pas pu être traité car le montant dû au paiement a changé. Veuillez vérifier votre commande et réessayer.",
+        "deferred_payment_required": "Cette ordonnance nécessite un paiement différé. Veuillez vérifier votre commande et réessayer.",
+        "deferred_amount_changed": "Votre paiement n'a pas pu être traité car le montant du paiement différé a changé. Veuillez vérifier votre commande et réessayer.",
+        "deferred_date_changed": "Votre paiement n'a pas pu être traité car la date de paiement différée a changé. Veuillez vérifier votre commande et réessayer."
       },
       "shipping_errors": {
-        "shipping_method": "Votre panier a été mis à jour et le taux d'expédition précédente n'est pas valide. Sélectionnez un nouveau taux.",
-        "shipping_method_not_available": "Votre panier a été mis à jour et les éléments ajoutés ne peut pas être livré à votre adresse. Retirez les éléments pour compléter votre commande.",
+        "shipping_method": "Votre panier a été mis à jour et le taux d'expédition précédent n'est pas valide. Sélectionnez un nouveau taux.",
+        "shipping_method_not_available": "Votre panier a été mis à jour et les articles que vous avez ajoutés ne peuvent pas être expédiés à votre adresse. Retirez les articles pour terminer votre commande.",
         "shipping_method_not_available_generic": {
-          "one": "Cette commande ne peut pas être livré à l'adresse que vous avez entrée. Passez en revue votre adresse afin que tous les champs ont été saisis correctement et essayez à nouveau.",
-          "other": "Quelques articles dans votre panier ne peuvent être expédiés à l'adresse que vous avez entrée. Passez en revue votre adresse afin que tous les champs ont été saisis correctement et essayez à nouveau."
+          "one": "Cette commande ne peut pas être expédiée à l'adresse que vous avez saisie. Passez en revue votre adresse pour vous assurer que tous les champs ont été entrés correctement et réessayez.",
+          "other": "Certains articles de votre panier ne peuvent pas être expédiés à l'adresse que vous avez saisie. Passez en revue votre adresse pour vous assurer que tous les champs ont été entrés correctement et réessayez."
         },
         "shipping_method_not_available_updated": {
-          "one": "L'élément ajouté ne pas livré à votre emplacement. Retirez-le vérifier, ou contactez le magasin.",
-          "other": "Un ou plusieurs articles que vous avez ajoutés ne sont pas livrés à votre emplacement. Retirez-les à vérifier, ou contactez le magasin."
+          "one": "L'article que vous avez ajouté ne sera pas expédié à votre emplacement. Retirez-le pour vérifier ou contactez le magasin.",
+          "other": "Un ou plusieurs articles que vous avez ajoutés ne sont pas expédiés à votre emplacement. Retirez-les pour vérifier ou contactez le magasin."
         }
       },
       "alternative_payment_method_banner": {
-        "express_checkout": "départ express"
+        "express_checkout": "Accrocheur Express",
+        "or": "OU ALORS"
       },
       "alternative_payment_method": {
         "button_html": "Vérifier avec: %{method}",
@@ -842,34 +847,36 @@
       },
       "post_purchase": {
         "escape_confirmation": "Vous avez payé votre commande.",
-        "escape_action": "Voir confirmation de commande>",
+        "escape_action": "Afficher la confirmation de commande ›",
         "components": {
           "expand": "Voir plus",
-          "processing": "Traitement…"
+          "processing": "Traitement…",
+          "close": "proche"
         }
       },
       "processing": {
-        "redirecting_page_title": "Redirigeant ...",
-        "redirecting_title": "Redirigeant ...",
-        "redirecting_notice": "Attendez que nous vous redirigeons.",
+        "redirecting_page_title": "Redirection…",
+        "redirecting_title": "Redirection…",
+        "redirecting_notice": "Attendez pendant que nous vous redirigeons.",
         "complete_your_purchase_title": "Complétez votre achat",
-        "continue_to_payment_gateway_notice": "Continuer au paiement d'ajouter vos informations de paiement.",
-        "continue_to_payment_gateway_button_label": "Continuer à payer",
-        "complete_your_purchase_title_error": "Corriger vos informations de paiement",
-        "continue_to_payment_gateway_notice_error": "Vos informations de paiement n'a pas pu être vérifiée.",
-        "continue_to_payment_gateway_button_label_error": "informations de paiement de mise à jour",
+        "continue_to_payment_gateway_notice": "Continuez à payer pour ajouter vos informations de paiement.",
+        "continue_to_payment_gateway_button_label": "Continuez à payer",
+        "complete_your_purchase_title_error": "Corrigez vos informations de paiement",
+        "continue_to_payment_gateway_notice_error": "Vos informations de paiement n'ont pas pu être vérifiées.",
+        "continue_to_payment_gateway_button_label_error": "Mettre à jour les informations de paiement",
         "page_title": "Commande en traitement",
         "title": "Commande en traitement",
-        "you_will_receive_confirmation": "Nous recevons beaucoup de commandes en ce moment. Vous devriez recevoir une confirmation par e-mail ou texte bientôt. Si vous ne recevez pas dans la prochaine heure, laissez-nous savoir.",
-        "you_will_not_be_charged": "Vous ne serez pas facturé encore",
+        "you_will_receive_confirmation": "Nous recevons beaucoup de commandes en ce moment. Vous devriez recevoir une confirmation par e-mail ou par SMS bientôt. Si vous ne le recevez pas à l'heure suivante, faites-le nous savoir.",
+        "you_will_not_be_charged": "Vous ne serez pas encore facturé",
         "wait": {
           "medium": {
-            "one": "Votre commande est en cours de traitement. le temps d'attente estimé est %{count} minute.",
-            "other": "Votre commande est en cours de traitement. le temps d'attente estimé est %{count} minutes."
+            "one": "Votre commande est traitée. Le temps d'attente estimé est %{count} minute.",
+            "other": "Votre commande est traitée. Le temps d'attente estimé est %{count} minutes."
           },
           "long": "Vous recevrez un e-mail dès que votre commande est traitée. Il y a actuellement un volume élevé de commandes.",
           "no_auto_refresh_html": "Si vous n'êtes pas automatiquement redirigé, %{link}.",
-          "refresh_this_page": "rafraîchir cette page"
+          "refresh_this_page": "rafraîchir cette page",
+          "short": "Votre commande est traitée."
         }
       },
       "failed_payment": {
