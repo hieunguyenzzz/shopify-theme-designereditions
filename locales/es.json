@@ -606,5 +606,48 @@
       "fr": "Francés",
       "de": "Alemán"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "page_title": "Verificar",
+        "skip_to_content": "saltar al contenido",
+        "breadcrumb": "Migaja de pan",
+        "complete_purchase_button_label": "Orden completa",
+        "authenticate_purchase_button_label": "Autenticar el pago",
+        "all_rights_reserved": "Reservados todos los derechos %{shop_name}",
+        "cart": "Carro",
+        "continue_to_shipping_method": "Continuar enviando",
+        "continue_to_review": "Orden de revisión",
+        "back_to_cart": "Regresar al carrito",
+        "back_to_contact_information": "Volver a la información",
+        "back_to_shipping_method": "Regresar al envío",
+        "back_to_payment_method": "Volver al pago",
+        "choose_shipping_method": "Elija un método de envío",
+        "choose_payment_method": "Elija un método de pago",
+        "choose_billing_address": "Elija una dirección de facturación",
+        "contact_us_html": "Contáctenos para más información",
+        "autocomplete_single_item": "1 artículo disponible",
+        "autocomplete_multi_item": "{{number}} artículos disponibles",
+        "autocomplete_close": "Sugerencias cercanas",
+        "forwarding_indicator": {
+          "new_window": "Se abre en una nueva ventana.",
+          "external": "Abre el sitio web externo.",
+          "external_and_new_window": "Abre un sitio web externo en una nueva ventana."
+        },
+        "checkout_context": {
+          "step_one": "%{shop_name} - Verificar"
+        },
+        "errors": {
+          "session_identifier_not_unique_error": "Algo salió mal con su pedido, intente visitar nuevamente."
+        }
+      },
+      "contact": {
+        "delivery_option_title": "Método de entrega",
+        "contact_method_title": "Información del contacto",
+        "email_or_phone_label": "Correo electrónico o número de teléfono móvil",
+        "email_or_phone_placeholder": "Correo electrónico o número de teléfono móvil"
+      }
+    }
   }
 }
