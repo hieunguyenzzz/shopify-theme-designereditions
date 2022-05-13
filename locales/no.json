@@ -787,53 +787,53 @@
         "customer_validation_error": "Enter a valid email or order number.",
         "customer_validation_error_phone": "Enter a valid phone or order number.",
         "login": "Logg Inn",
-        "unfulfilled_items_title": "Forbereder seg på frakt",
-        "unfulfilled_items_description": "Vi forbereder for tiden disse varene til frakt.",
+        "unfulfilled_items_title": "Preparing for shipping",
+        "unfulfilled_items_description": "We are currently preparing these items for shipping.",
         "marker": {
-          "current": "Gjeldende forsendelsessted",
+          "current": "Current shipment location",
           "shipping": "Sendingsadresse"
         },
         "pick_up_in_store_marker": {
-          "current": "Gjeldende forsendelsessted",
+          "current": "Current shipment location",
           "shipping": "Hentested"
         },
         "fulfillment": {
           "fulfilled_table_title": "Varer i denne forsendelsen",
-          "unfulfilled_table_title": "Varer som forbereder seg på frakt",
+          "unfulfilled_table_title": "Items preparing for shipping",
           "product_image_label": "Product image",
           "description_label": "Beskrivelse",
           "quantity_label": "Mengde"
         },
-        "opt_in_message_html": "Informasjonen din ble lagret med %{shopify_pay}",
-        "order_updates_description_missing": "Du mottar ikke fraktoppdateringer.",
-        "order_updates_subscribe_to_email_notifications": "Få fraktoppdateringer via e -post",
-        "order_updates_subscribe_to_email_or_phone_notifications": "Få fraktoppdateringer via e -post eller tekst",
-        "order_updates_subscribe_to_phone_notifications": "Få fraktoppdateringer etter tekst",
+        "opt_in_message_html": "Your information was successfully saved with %{shopify_pay}",
+        "order_updates_description_missing": "You are not receiving shipping updates.",
+        "order_updates_subscribe_to_email_notifications": "Get shipping updates by email",
+        "order_updates_subscribe_to_email_or_phone_notifications": "Get shipping updates by email or text",
+        "order_updates_subscribe_to_phone_notifications": "Get shipping updates by text",
         "order_updates_submit_subscription": "Sende inn",
-        "track_shipment": "Sporforsendelse",
+        "track_shipment": "Track shipment",
         "shopify_pay": {
-          "order_completed_html": "Bestill fullført med %{shopify_pay}",
-          "learn_more_label": "Lær mer om butikklønn"
+          "order_completed_html": "Order completed with %{shopify_pay}",
+          "learn_more_label": "Learn more about Shop Pay"
         },
         "other_options": "Andre muligheter",
         "delivery_information_label": "Leveringsinformasjon:",
-        "gift_card_sent_confirmation": "Gavekort sendt",
+        "gift_card_sent_confirmation": "Gift cards sent",
         "qr_code": {
-          "send_link_to_phone": "Eller send en lenke til telefonen din",
-          "title": "Spor på telefonen din",
-          "subtitle": "Skann koden med telefonens kamera for å spore med butikk."
+          "send_link_to_phone": "Or send a link to your phone",
+          "title": "Track on your phone",
+          "subtitle": "Scan the code with your phone’s camera to track with Shop."
         },
         "shop_qr_with_sms_upsell": {
           "qr_code": {
-            "title": "Skann med telefonen din",
-            "description": "Butikk vil sende deg sanntids leveringsoppdateringer når bestillingen er sendt."
+            "title": "Scan with your phone",
+            "description": "Shop will send you real-time delivery updates once your order is shipped."
           },
           "sms": {
-            "title": "Eller send en lenke til telefonen din"
+            "title": "Or send a link to your phone"
           }
         },
         "estimated_delivery": "Forventet levering ",
-        "view_business_customer_account": "Vis konto"
+        "view_business_customer_account": "View account"
       },
       "review": {
         "title": "Anmeldelse",
@@ -841,115 +841,115 @@
         "checkout_as_guest": "Sjekk ut som gjest",
         "blocks": {
           "contact_method_title": "Kontakt",
-          "billing_address_title": "Fakturering",
+          "billing_address_title": "Billing",
           "shipping_address_title": "Send til",
           "shipping_method_title": "Metode",
           "payment_method_title": "innbetaling",
           "change_link_label": "Endring",
-          "change_contact_method_link_label": "Endre kontaktinformasjon",
-          "change_billing_address_link_label": "Endre faktureringsadresse",
+          "change_contact_method_link_label": "Change contact information",
+          "change_billing_address_link_label": "Change billing address",
           "change_shipping_address_link_label": "Endre leveringsadresse",
-          "change_shipping_method_link_label": "Endre fraktmetode",
-          "change_payment_method_link_label": "Endre betalingsmetode",
-          "pick_up_in_store_shipping_method_html": "Hent i butikken · %{location_name}"
+          "change_shipping_method_link_label": "Change shipping method",
+          "change_payment_method_link_label": "Change payment method",
+          "pick_up_in_store_shipping_method_html": "Pick up in store · %{location_name}"
         }
       },
       "marketing": {
-        "accept_marketing_checkbox_label": "Send meg en e -post med nyheter og tilbud",
-        "accept_sms_checkbox_label": "Tekst meg med nyheter og tilbud",
+        "accept_marketing_checkbox_label": "Email me with news and offers",
+        "accept_sms_checkbox_label": "Text me with news and offers",
         "sms": {
           "disclaimer": {
             "privacy_policy": "Personvernregler",
-            "terms_of_service": "Tjenestevilkår",
-            "description_html": "Ved å registrere deg via tekst, samtykker du til å motta tilbakevendende automatiserte markedsføringsmeldinger, inkludert CART -påminnelser, på telefonnummeret. Samtykke er ikke en kjøpsbetingelse. Svar stopp for å melde deg av. Svar hjelp for hjelp. Meldingsfrekvensen varierer. MSG- og datahastigheter kan gjelde. Se vår %{privacy_policy_link} og %{terms_of_service_link}.",
+            "terms_of_service": "Terms of Service",
+            "description_html": "By signing up via text, you agree to receive recurring automated marketing messages, including cart reminders, at the phone number provided. Consent is not a condition of purchase. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may apply. View our %{privacy_policy_link} og %{terms_of_service_link}.",
             "description_html_transactional": "Vi sender deg en ordre kvittering og tilbakevendende frakt oppdateringer via tekstmelding. Svar på STOP for å avslutte abonnementet. Svar HELP for å få hjelp. Meldings frekvensen varierer. Meldings- og data kan gjelde. Se våre retningslinjer for personvern og vilkårene for bruk.",
-            "description_transactional_html": "Vi sender deg en bestillingskvittering og tilbakevendende fraktoppdateringer via tekstmelding. Svar stopp for å melde deg av. Svar hjelp for hjelp. Meldingsfrekvensen varierer. MSG- og datahastigheter kan gjelde. Se vår %{privacy_policy_modal_link} og %{terms_of_service_modal_link}."
+            "description_transactional_html": "We’ll send you an order receipt and recurring shipping updates via text message. Reply STOP to unsubscribe. Reply HELP for help. Message frequency varies. Msg & data rates may apply. View our %{privacy_policy_modal_link} og %{terms_of_service_modal_link}."
           }
         },
         "unsubscribe": {
-          "title": "Du har avsluttet abonnert",
-          "description": "Du vil ikke motta flere påminnelser fra oss fra oss."
+          "title": "You’ve unsubscribed",
+          "description": "You won’t receive any more cart reminders from us."
         },
-        "post_accept_marketing_checkbox_label": "Du abonnerer på å motta e -postnyheter og tilbud",
-        "pending_accept_marketing_checkbox_label": "Sjekk e -posten din for å bekrefte abonnementet ditt på nyheter og tilbud"
+        "post_accept_marketing_checkbox_label": "You are subscribed to receive email news and offers",
+        "pending_accept_marketing_checkbox_label": "Check your email to confirm your subscription to news and offers"
       },
       "shop_policies": {
         "refund_policy": "Angrerett",
-        "privacy_policy": "Personvernregler",
-        "terms_of_service": "Tjenestevilkår",
-        "legal_notice": "Juridisk varsel",
-        "shipping_policy": "Fraktpolitikk",
+        "privacy_policy": "Privacy policy",
+        "terms_of_service": "Terms of service",
+        "legal_notice": "Legal notice",
+        "shipping_policy": "Shipping policy",
         "terms_of_sale": "Salgsbetingelser",
-        "subscription_policy": "Abonnementspolicy"
+        "subscription_policy": "Subscription policy"
       },
       "remember_me": {
-        "shopify_pay_label": "Butikklønn",
+        "shopify_pay_label": "Shop Pay",
         "save": "Lagre",
         "title": "Husk meg",
-        "label": "Lagre informasjonen min for en raskere kasse",
-        "description_html": "Neste gang du sjekker ut her eller i andre butikker som er drevet av Shopify, vil du motta en kode med tekstmelding for å kjøpe sikkert med butikklønn.",
+        "label": "Save my information for a faster checkout",
+        "description_html": "Next time you check out here or on other stores powered by Shopify, you’ll receive a code by text message to securely purchase with Shop Pay.",
         "mobile_phone_icon_alt": "Mobiltelefon",
         "mobile_phone_number": "Mobiltelefonnummer",
-        "terms_and_privacy_html": "Ved å fortsette, samtykker du i å handle lønn %{privacy_href} og %{terms_href}.",
+        "terms_and_privacy_html": "By continuing, you agree to Shop Pay’s %{privacy_href} og %{terms_href}.",
         "privacy_policy": "Personvernregler",
-        "terms_of_service": "Tjenestevilkår",
+        "terms_of_service": "Terms of Service",
         "errors": {
-          "optin": "Butikklønn er ikke tilgjengelig"
+          "optin": "Shop Pay isn’t available"
         },
         "installments": {
-          "paid_in_installments": "Betalt i avdrag med butikklønn.",
-          "view_schedule": "Vis tidsplan"
+          "paid_in_installments": "Paid in installments with Shop Pay.",
+          "view_schedule": "View Schedule"
         },
-        "title_with_logo_html": "Husk meg med %{shopify_pay}",
-        "label_address_payment_and_faster_checkouts": "La butikken betale ut min adresse og betalingsinformasjon for raskere kassa.",
-        "label_faster_checkouts_and_thousand_shops": "Lagre informasjonen min med butikklønn for raskere kassa til over en million butikker."
+        "title_with_logo_html": "Remember me with %{shopify_pay}",
+        "label_address_payment_and_faster_checkouts": "Let Shop Pay fill in my address and payment info for faster checkouts.",
+        "label_faster_checkouts_and_thousand_shops": "Save my info with Shop Pay for faster checkouts at over a million stores."
       },
       "notifications": {
-        "title": "Varsler"
+        "title": "Notifications"
       },
       "order_payment_collection": {
-        "custom_line_item_description": "Beløp for å betale for bestilling %{order_name}",
+        "custom_line_item_description": "Amount to pay for order %{order_name}",
         "changes_summary": {
           "added": {
             "one": "La til",
             "other": "%{count} la til"
           },
-          "removed": "Fjernet",
+          "removed": "Removed",
           "subtracted": "%{count} fjernet"
         },
         "additional_payment_requested": "Betaling av %{total_outstanding} trengs",
-        "checkout_review_and_pay": "Din bestilling %{order_name} ble oppdatert. Gjennomgå disse endringene, og betal for å bekrefte bestillingen din.",
-        "order_updated_on": "Bestillingen din ble oppdatert på %{last_edited_at}.",
-        "order_review_and_pay": "Bestillingen din ble oppdatert. Gjennomgå og betal for å bekrefte bestillingen din.",
+        "checkout_review_and_pay": "Your order %{order_name} was updated. Review these changes, then pay to confirm your order.",
+        "order_updated_on": "Your order was updated on %{last_edited_at}.",
+        "order_review_and_pay": "Your order was updated. Review and pay to confirm your order.",
         "pay_now": "Betal nå"
       },
       "change_currency": {
         "currency_button_label": "%{currency} (%{currency_symbol})",
-        "credit_card_will_be_charged_html": "Kredittkortet ditt blir belastet %{amount}",
-        "payment_total_label": "Betaling totalt",
+        "credit_card_will_be_charged_html": "Your credit card will be charged %{amount}",
+        "payment_total_label": "Payment total",
         "conversion_rate": "1 %{from_currency_code} = %{rate} %{to_currency_code}",
         "change_currency_link": "Endre til %{currency_name}",
-        "card_provider_fx_charges_warning": "Kortleverandøren din kan kreve gebyrer på %{currency_code} Transaksjoner.",
-        "currency_not_supported_by_shop": "Valutaen du valgte er ikke lenger tilgjengelig. Alle prisene er nå i %{currency_code}."
+        "card_provider_fx_charges_warning": "Your card provider may charge fees on %{currency_code} transactions.",
+        "currency_not_supported_by_shop": "The currency you selected is no longer available. All prices are now in %{currency_code}."
       },
       "change_country": {
-        "cart_updated_based_on_country": "Vognen din er oppdatert basert på ditt rederi."
+        "cart_updated_based_on_country": "Your cart has been updated based on your shipping country."
       },
       "tips": {
-        "title": "Legg til tips",
-        "description": "Vis din støtte til teamet på %{shop_name}",
-        "presets_description": "Velg en tips prosentandel",
-        "custom_label": "Tilpasset tips",
-        "add_tip": "Legg til tips",
-        "update_tip": "Oppdater tips",
-        "message": "Takk, vi setter pris på det",
+        "title": "Add tip",
+        "description": "Show your support for the team at %{shop_name}",
+        "presets_description": "Select a tip percentage",
+        "custom_label": "Custom tip",
+        "add_tip": "Add tip",
+        "update_tip": "Update tip",
+        "message": "Thank you, we appreciate it",
         "preset_label": "%{tip_percent}%",
         "no_tip_label": "Ingen"
       },
       "open_graph_meta_tag": {
         "title_with_products": {
           "zero": "Kjøp %{product_name}",
-          "one": "Kjøp %{product_name} og %{count} annet vare",
+          "one": "Kjøp %{product_name} og %{count} other item",
           "other": "Kjøp %{product_name} og %{count} andre gjenstander"
         }
       },
@@ -977,14 +977,14 @@
         "recurring_totals_with_policies": {
           "first_cycles": {
             "one": "Første betaling %{total_price}",
-            "other": "Først %{count} betalinger %{total_price} Hver"
+            "other": "Først %{count} payments %{total_price} Hver"
           },
           "following_cycles": ", deretter %{total_price} hver %{interval}"
         },
         "recurring_totals_with_initial_order_shipping_discount_with_policies": {
           "first_cycles": {
-            "one": ", deretter %{count} betaling kl %{total_price}",
-            "other": ", deretter %{count} betalinger på %{total_price} Hver"
+            "one": ", deretter %{count} payment at %{total_price}",
+            "other": ", deretter %{count} payments at %{total_price} Hver"
           }
         }
       },
@@ -993,30 +993,30 @@
         "title": "Betalingsmetoder",
         "update_card_button_label": "Oppdateringskort",
         "delete_customer_mandate": {
-          "generic_error": "Det var et problem som behandler forespørselen din.",
-          "success_message": "Betalingsmetoden din er slettet vellykket"
+          "generic_error": "There was an issue processing your request.",
+          "success_message": "Your payment method has been successfully deleted"
         }
       },
       "mor_policies": {
-        "terms_and_conditions": "Kjøpmann av rekordvilkår og betingelser",
-        "privacy_policy": "Merchant of Record Personvernregler"
+        "terms_and_conditions": "Merchant of Record Terms and Conditions",
+        "privacy_policy": "Merchant of Record Privacy Policy"
       }
     },
     "pagination": {
       "previous": "Tidligere",
-      "next": "Neste"
+      "next": "Next"
     },
     "links": {
-      "powered_by_shopify": "Drevet av Shopify",
+      "powered_by_shopify": "Powered by Shopify",
       "learn_more": "Lære mer"
     },
     "feed": {
       "more": "Mer"
     },
     "attributes": {
-      "email": "e -post",
+      "email": "email",
       "password": "passord",
-      "password_confirmation": "Passordbekreftelsen",
+      "password_confirmation": "The password confirmation",
       "first_name": "fornavn",
       "last_name": "etternavn",
       "body": "kropp",
@@ -1035,32 +1035,32 @@
       "county": "fylke",
       "emirate": "Emirate",
       "governorate": "Governorate",
-      "confirm": "Er du sikker på at du ønsker å slette denne adressen?"
+      "confirm": "Are you sure you wish to delete this address?"
     },
     "collections": {
       "sorting": {
-        "manual": "Utvalgt",
+        "manual": "Featured",
         "best_selling": "Bestselger",
-        "az": "Alfabetisk, A-Z",
-        "za": "Alfabetisk, z-a",
-        "price_ascending": "Pris, lav til høy",
-        "price_descending": "Pris, høy til lav",
-        "date_ascending": "Dato, gammel til ny",
-        "date_descending": "Dato, nytt for gammel"
+        "az": "Alphabetically, A-Z",
+        "za": "Alphabetically, Z-A",
+        "price_ascending": "Price, low to high",
+        "price_descending": "Price, high to low",
+        "date_ascending": "Date, old to new",
+        "date_descending": "Date, new to old"
       }
     },
     "errors": {
-      "blank": "Kan ikke være blank",
-      "blocked_address": "Dette stedet støttes ikke.",
-      "credit_card_session_expired": "Autorisasjon for kredittkort er utløpt, vennligst skriv inn betalingsinformasjonen din igjen. Kortet ditt er ikke belastet.",
-      "empty": "Kan ikke være tomt",
+      "blank": "can't be blank",
+      "blocked_address": "This location isn't supported.",
+      "credit_card_session_expired": "Credit card authorization has expired, please enter your payment information again. Your card has not been charged.",
+      "empty": "can't be empty",
       "invalid_email": "Må være en gyldig e-postadresse",
-      "discount_disabled": "Denne rabatten er deaktivert",
-      "discount_expired": "Denne rabatten er ikke gyldig lenger",
-      "discount_limit_reached": "Denne rabatten har nådd bruksgrensen",
-      "discount_not_found": "Kan ikke finne en gyldig rabatt som samsvarer med koden som er angitt",
-      "customer_already_used_once_per_customer_discount_notice": "Denne rabatten har nådd bruksgrensen",
-      "gift_card_already_applied": "Kode er allerede brukt på kassen din",
+      "discount_disabled": "This discount has been disabled",
+      "discount_expired": "This discount is not valid anymore",
+      "discount_limit_reached": "This discount has reached its usage limit",
+      "discount_not_found": "Unable to find a valid discount matching the code entered",
+      "customer_already_used_once_per_customer_discount_notice": "This discount has reached its usage limit",
+      "gift_card_already_applied": "Code has already been applied to your checkout",
       "gift_card_code_invalid": "Kode er ugyldig",
       "gift_card_currency_mismatch": "%{gift_card_currency} Gavekort kan ikke brukes på %{checkout_currency} ordrene",
       "gift_card_depleted": "Det er ingen midler igjen på dette gavekortet",
