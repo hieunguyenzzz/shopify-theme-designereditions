@@ -1525,14 +1525,14 @@
     },
     "homepage": {
       "mailing_list_join": "Hei du!",
-      "mailing_list_text": "Join our mailing list",
+      "mailing_list_text": "Bli med på adresselisten vår",
       "onboarding": {
-        "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+        "no_content": "Denne delen inkluderer for øyeblikket ikke noe innhold. Legg til innhold i denne delen ved hjelp av sidefeltet."
       }
     },
     "mobile_nav": {
       "account": "Regnskap",
-      "login": "Log In\/Create Account",
+      "login": "Logg inn\/opprett konto",
       "logout": "Logg ut"
     }
   },
