@@ -52,19 +52,19 @@
         "skip_to_content": "Hopp til innholdet",
         "breadcrumb": "Brødsmule",
         "continue_button_label": "Fortsette",
-        "complete_purchase_button_label": "Komplett bestilling",
+        "complete_purchase_button_label": "Fullstendig bestilling",
         "pay_now_button_label": "Betal nå",
-        "authenticate_purchase_button_label": "Autentiser betaling",
+        "authenticate_purchase_button_label": "Autentisere betaling",
         "edit_link_label": "Redigere",
-        "all_rights_reserved": "Alle rettigheter reservert %{shop_name}",
+        "all_rights_reserved": "Alle rettigheter forbeholdt %{shop_name}",
         "print_policies_link_label": "Skrive ut",
-        "cart": "Vogn",
+        "cart": "Handlekurv",
         "close_modal_label": "Lukk",
         "close_notice_label": "Lukk",
         "expand_notice_label": "Se mer",
         "continue_to_shipping_method": "Fortsett å sende",
-        "continue_to_payment_method": "Fortsett å betale",
-        "continue_to_review": "Gjennomgå bestilling",
+        "continue_to_payment_method": "Fortsett å betaling",
+        "continue_to_review": "Gjennomgangsordre",
         "back_to_cart": "Gå tilbake til handlekurven",
         "back_to_contact_information": "Gå tilbake til informasjon",
         "back_to_shipping_method": "Gå tilbake til frakt",
@@ -75,13 +75,13 @@
         "contact_us_html": "Kontakt oss for mer informasjon",
         "autocomplete_title": "Forslag",
         "autocomplete_single_item": "1 vare tilgjengelig",
-        "autocomplete_multi_item": "{{number}} Elementer tilgjengelig",
+        "autocomplete_multi_item": "{{number}} varer tilgjengelig",
         "autocomplete_selection": "{{number}} av {{total}}",
-        "autocomplete_close": "Lukk forslag",
+        "autocomplete_close": "Nære forslag",
         "forwarding_indicator": {
           "new_window": "Åpnes i et nytt vindu.",
-          "external": "Åpner ekstern nettside.",
-          "external_and_new_window": "Åpner ekstern nettside i nytt vindu."
+          "external": "Åpner ekstern nettsted.",
+          "external_and_new_window": "Åpner ekstern nettsted i et nytt vindu."
         },
         "checkout_context": {
           "step_one": "%{shop_name} - Sjekk ut"
@@ -97,10 +97,10 @@
         "shipping_address_title": "Sendingsadresse",
         "delivery_option_title": "Leverings metode",
         "contact_method_title": "Kontaktinformasjon",
-        "email_label": "E-post",
-        "email_placeholder": "E-post",
-        "email_or_phone_label": "E-post eller mobilnummer",
-        "email_or_phone_placeholder": "E-post eller mobilnummer",
+        "email_label": "E -post",
+        "email_placeholder": "E -post",
+        "email_or_phone_label": "E -post eller mobiltelefonnummer",
+        "email_or_phone_placeholder": "E -post eller mobiltelefonnummer",
         "stored_addresses_label": "Lagrede adresser",
         "new_address_label": "Bruk en ny adresse",
         "first_name_label": "Fornavn",
@@ -109,11 +109,11 @@
         "company_label": "Selskap",
         "optional_company_label": "Firma (valgfritt)",
         "address1_label": "Adresse",
-        "address2_label": "Leilighet, Suite, etc.",
-        "optional_address2_label": "Leilighet, suite, etc. (valgfritt)",
+        "address2_label": "Leilighet, suite osv.",
+        "optional_address2_label": "Leilighet, suite osv. (Valgfritt)",
         "city_label": "By",
-        "country_label": "Land \/ region",
-        "country_code": "Land \/ regionskode",
+        "country_label": "Land\/region",
+        "country_code": "Land\/regionkode",
         "province_label": "Provins",
         "province_placeholder": "Provins",
         "county_label": "fylke",
@@ -123,14 +123,14 @@
         "region_label": "Region",
         "region_placeholder": "Region",
         "region_none": "Ingen valgt",
-        "prefecture_label": "Prefecture.",
-        "prefecture_placeholder": "Prefecture.",
+        "prefecture_label": "Prefektur",
+        "prefecture_placeholder": "Prefektur",
         "governorate_label": "Guvernør",
         "governorate_placeholder": "Guvernør",
-        "emirate_label": "Emirate.",
-        "emirate_placeholder": "Emirate.",
-        "state_and_territory_label": "Stat \/ territorium",
-        "state_and_territory_placeholder": "Stat \/ territorium",
+        "emirate_label": "Emirat",
+        "emirate_placeholder": "Emirat",
+        "state_and_territory_label": "Stat\/territorium",
+        "state_and_territory_placeholder": "Stat\/territorium",
         "phone_label": "Telefon",
         "optional_phone_label": "Telefon valgfritt)",
         "phone_placeholder": "Telefon",
@@ -141,16 +141,16 @@
         "postal_code_placeholder": "Postnummer",
         "postcode_label": "Postnummer",
         "postcode_placeholder": "Postnummer",
-        "pincode_label": "PIN-kode",
-        "pincode_placeholder": "PIN-kode",
-        "civic_number_warning": "Add a house number if you have one"
+        "pincode_label": "PIN -kode",
+        "pincode_placeholder": "PIN -kode",
+        "civic_number_warning": "Legg til et husnummer hvis du har et"
       },
       "delivery_options": {
         "free_total_label": "Gratis",
         "ship": "Skip",
         "shipping_address": "Sendingsadresse",
         "pick_up": "Plukke opp",
-        "pick_up_locations": "Pickup locations",
+        "pick_up_locations": "Pickup -lokasjoner",
         "pick_up_in_one_hour": "Usually ready in 1 hour",
         "pick_up_in_two_hours": "Usually ready in 2 hours",
         "pick_up_in_four_hours": "Usually ready in 4 hours",
@@ -249,7 +249,7 @@
         "original_price": "Original pris",
         "sale_price": "Salgs pris",
         "total_updated_label": "Updated total price:",
-        "order_total_updated_label": "Updated total",
+        "order_total_updated_label": "Oppdatert totalt",
         "total_already_paid_label": "Allerede betalt",
         "unit_price": {
           "accessible_separator": "per",
@@ -286,7 +286,7 @@
         "no_rates_for_cart_or_destination_notice": "Det er ingen fraktmetoder tilgjengelig for handlekurven eller adressen din",
         "no_pickup_location_notice": "Minst ett av produktene dine er ikke tilgjengelig for henting",
         "no_rates_for_country_notice": "Ingen fraktpriser funnet for denne adressen.",
-        "no_rates_contact_notice": "Contact us for more information",
+        "no_rates_contact_notice": "Kontakt oss for mer informasjon",
         "free_rate_label": "Gratis",
         "cheapest_rate_label": "Billigste",
         "please_enter_your_shipping_information_notice": "Vennligst skriv inn fraktinformasjonen din.",
@@ -641,7 +641,7 @@
         "redirecting_notice": "Vent mens vi omdirigerer deg.",
         "complete_your_purchase_title": "Complete your purchase",
         "continue_to_payment_gateway_notice": "Continue to payment to add your payment information.",
-        "continue_to_payment_gateway_button_label": "Continue to payment",
+        "continue_to_payment_gateway_button_label": "Fortsett å betaling",
         "complete_your_purchase_title_error": "Correct your payment information",
         "continue_to_payment_gateway_notice_error": "Your payment information couldn’t be verified.",
         "continue_to_payment_gateway_button_label_error": "Update payment information",
@@ -666,7 +666,7 @@
         "title": "Payment couldn’t be processed",
         "payment_not_processed_title": "Your payment couldn’t be processed",
         "payment_not_processed_text": "You haven’t been charged. Return to your cart to complete your purchase.",
-        "return_to_cart_button_label": "Return to cart"
+        "return_to_cart_button_label": "Gå tilbake til handlekurven"
       },
       "payment_gateway": {
         "credit_card_label": "Kredittkort",
@@ -800,7 +800,7 @@
         "fulfillment": {
           "fulfilled_table_title": "Varer i denne forsendelsen",
           "unfulfilled_table_title": "Items preparing for shipping",
-          "product_image_label": "Product image",
+          "product_image_label": "Produktbilde",
           "description_label": "Beskrivelse",
           "quantity_label": "Mengde"
         },
@@ -837,7 +837,7 @@
       },
       "review": {
         "title": "Anmeldelse",
-        "review_title": "Review order",
+        "review_title": "Gjennomgangsordre",
         "checkout_as_guest": "Sjekk ut som gjest",
         "blocks": {
           "contact_method_title": "Kontakt",
@@ -1025,15 +1025,15 @@
     "addresses": {
       "zip_code": "post kode",
       "postal_code": "Postnummer",
-      "postcode": "Postcode",
+      "postcode": "Postnummer",
       "pincode": "Pincode",
       "region": "Region",
-      "prefecture": "Prefecture",
+      "prefecture": "Prefektur",
       "province": "Provins",
       "state": "Stat",
-      "state_and_territory": "State\/territory",
+      "state_and_territory": "Stat\/territorium",
       "county": "fylke",
-      "emirate": "Emirate",
+      "emirate": "Emirat",
       "governorate": "Governorate",
       "confirm": "Are you sure you wish to delete this address?"
     },
@@ -1112,7 +1112,7 @@
         "financial_status": {
           "authorized": "Autorisert",
           "pending": "Avventer",
-          "paid": "Paid",
+          "paid": "Betalt",
           "unpaid": "Ubetalt",
           "voided": "Ugyldig",
           "partially_paid": "Delvis betalt",
@@ -1276,16 +1276,16 @@
     },
     "store_availability": {
       "pick_up_time": {
-        "one_hour": "Usually ready in 1 hour",
-        "two_hours": "Usually ready in 2 hours",
-        "four_hours": "Usually ready in 4 hours",
-        "twenty_four_hours": "Usually ready in 24 hours",
-        "two_to_four_days": "Usually ready in 2-4 days",
-        "five_or_more_days": "Usually ready in 5+ days",
-        "zero_to_two_hours": "Usually ready in 2 hours",
-        "two_to_four_hours": "Usually ready in 4 hours",
-        "immediately": "Ready for pickup now",
-        "next_day": "Ready for pickup next day"
+        "one_hour": "Vanligvis klar på 1 time",
+        "two_hours": "Vanligvis klar på 2 timer",
+        "four_hours": "Vanligvis klar på 4 timer",
+        "twenty_four_hours": "Vanligvis klar på 24 timer",
+        "two_to_four_days": "Vanligvis klar om 2-4 dager",
+        "five_or_more_days": "Vanligvis klar om 5+ dager",
+        "zero_to_two_hours": "Vanligvis klar på 2 timer",
+        "two_to_four_hours": "Vanligvis klar på 4 timer",
+        "immediately": "Klar for henting nå",
+        "next_day": "Klar for henting neste dag"
       }
     }
   },
@@ -1311,7 +1311,7 @@
     "comments": {
       "title": "Legg igjen en kommentar",
       "name": "Navn",
-      "email": "E-post",
+      "email": "E -post",
       "message": "Kommentar",
       "moderated": "Alle bloggkommentarer kontrolleres før publisering",
       "post": "Post Kommentar",
@@ -1402,7 +1402,7 @@
       "subject": "Emne",
       "companyname": "Selskap",
       "address": "Adresse",
-      "email": "Email",
+      "email": "E -post",
       "phone": "Telefonnummer",
       "message": "Beskjed",
       "websiteurl": "nettside-URL",
@@ -1454,7 +1454,7 @@
     },
     "login": {
       "title": "Logg Inn",
-      "email": "E-post",
+      "email": "E -post",
       "password": "Passord",
       "forgot_password": "Glemt passordet?",
       "sign_in": "Logg inn",
@@ -1496,7 +1496,7 @@
     },
     "recover_password": {
       "title": "Tilbakestill passordet ditt",
-      "email": "E-post",
+      "email": "E -post",
       "submit": "Sende inn",
       "cancel": "Avbryt",
       "subtext": "Vi vil sende deg en e-post for å tilbakestille passordet ditt.",
@@ -1513,7 +1513,7 @@
       "title": "Opprett konto",
       "first_name": "Fornavn",
       "last_name": "etternavn",
-      "email": "E-post",
+      "email": "E -post",
       "password": "Passord",
       "submit": "Opprette"
     }
@@ -1590,7 +1590,7 @@
       "redeem": "Use this code at checkout to redeem your gift card",
       "shop_link": "Start shopping",
       "print": "Skrive ut",
-      "email": "Email"
+      "email": "E -post"
     }
   },
   "social": {
@@ -1627,7 +1627,7 @@
     "comments": {
       "title": "Legg igjen en kommentar",
       "name": "Navn",
-      "email": "Email",
+      "email": "E -post",
       "message": "Beskjed",
       "post": "Post Kommentar",
       "moderated": "Please note, comments must be approved before they are published",
@@ -1643,7 +1643,7 @@
       "login_form_password_label": "Passord",
       "login_form_password_placeholder": "Ditt passord",
       "login_form_submit": "Tast inn",
-      "signup_form_email_label": "Email",
+      "signup_form_email_label": "E -post",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
     }
@@ -1680,7 +1680,8 @@
       "sale_ends_in": "Salg avsluttes i",
       "days": "Dager",
       "day": "Dag",
-      "delivery-label-image": "Free-Delivery-Product-Page-no.png"
+      "delivery-label-image": "Free-Delivery-Product-Page-no.png",
+      "email": "E -post"
     },
     "product_options": {
       "choose-colours": "Velg farger:",
@@ -1939,7 +1940,7 @@
       "title": "Søkeresultater",
       "search_for": "Søk etter \"{{ terms }}”",
       "collections": "Collections",
-      "suggestions": "Suggestions"
+      "suggestions": "Forslag"
     }
   },
   "accessibility": {
