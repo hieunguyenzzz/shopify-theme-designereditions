@@ -1373,24 +1373,24 @@
   },
   "collections": {
     "general": {
-      "all_collections": "Collections",
+      "all_collections": "Samlinger",
       "all_products": "Alle produkter",
-      "no_matches": "There are no items in this collection",
-      "shop_by_designer": "Shop by Designer"
+      "no_matches": "Det er ingen ting i denne samlingen",
+      "shop_by_designer": "Handle av designer"
     },
     "sorting": {
       "title": "Sorter etter",
-      "featured": "Featured",
+      "featured": "Utvalgt",
       "best_selling": "Bestselger",
-      "az": "Alphabetically, A-Z",
-      "za": "Alphabetically, Z-A",
-      "price_ascending": "Price, low to high",
-      "price_descending": "Price, high to low",
-      "date_descending": "Date, new to old",
-      "date_ascending": "Date, old to new"
+      "az": "Alfabetisk, A-Z",
+      "za": "Alfabetisk, z-a",
+      "price_ascending": "Pris, lav til høy",
+      "price_descending": "Pris, høy til lav",
+      "date_descending": "Dato, nytt for gammel",
+      "date_ascending": "Dato, gammel til ny"
     },
     "filter": {
-      "filtering_by": "Filtering By:",
+      "filtering_by": "Filtrering av:",
       "refine": "Raffinere"
     }
   },
