@@ -619,7 +619,8 @@
       "sale_ends_in": "La venta termina en",
       "days": "Días",
       "day": "Día",
-      "delivery-label-image": "Free-Delivery-Product-Page-es.png"
+      "delivery-label-image": "Free-Delivery-Product-Page-es.png",
+      "shop_instagram": "Comprar instagram"
     },
     "languages": {
       "en": "inglés",
@@ -630,6 +631,9 @@
     "homepage-chart": {
       "traditional": "Tradicional",
       "chart-label": "*El precio de A F Hansen, Silla de huevo *El precio de A F Hansen, Silla de huevo"
+    },
+    "instagram": {
+      "title": "Galería de Instagram \/ Cliente"
     }
   },
   "shopify": {
