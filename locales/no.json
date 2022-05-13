@@ -1917,6 +1917,10 @@
       "nl": "nederlandsk",
       "fr": "fransk",
       "de": "tysk"
+    },
+    "homepage-chart": {
+      "traditional": "Tradisjonell",
+      "chart-label": "*Prisen for en F Hansen, eggstol *Prisen for en F Hansen, eggstol"
     }
   },
   "templates": {
