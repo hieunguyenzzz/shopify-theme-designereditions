@@ -1571,33 +1571,33 @@
       "continue": "Fortsett Å Handle",
       "qty_error_first": "Kun",
       "qty_error_last": "av dette elementet er tilgjengelig",
-      "qty_sold_out": "Denne varen er utsolgt",
-      "back_in_stock": "Vennligst send meg en e-post når dette er tilgjengelig",
-      "back_in_stock_confirm": "Takk, vi vil kontakte deg når dette er tilgjengelig",
+      "qty_sold_out": "This item is sold out",
+      "back_in_stock": "Please send me an email when this is available",
+      "back_in_stock_confirm": "Thanks, we will contact you when this is available",
       "readmore": "Les mer",
-      "view_in_space": "Se i rommet ditt",
-      "view_in_space_label": "Utsikt i rommet ditt, laster elementet i forstørret virkelighetsvindu",
+      "view_in_space": "View in your space",
+      "view_in_space_label": "View in your space, loads item in augmented reality window",
       "unit_price_label": "Enhetspris"
     }
   },
   "gift_cards": {
     "issued": {
-      "title": "Her er din {{ value }} Gavekort for {{ shop }}!",
-      "subtext": "Her er ditt gavekort!",
+      "title": "Her er din {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
       "disabled": "Funksjonshemmet",
-      "expired": "Utløpt på {{ expiry }}",
+      "expired": "Expired on {{ expiry }}",
       "active": "Går ut på dato den {{ expiry }}",
-      "redeem": "Bruk denne koden ved kassen for å innløse gavekortet ditt",
-      "shop_link": "Begynn å handle",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
       "print": "Skrive ut",
-      "email": "E-post"
+      "email": "Email"
     }
   },
   "social": {
     "icons": {
       "facebook": "Del på Facebook",
-      "twitter": "Del På Twitter",
-      "pinterest": "Del på Pinterest"
+      "twitter": "Share on Twitter",
+      "pinterest": "Share on Pinterest"
     },
     "product_share": {
       "share": "Share"
@@ -1606,43 +1606,43 @@
   "pagefly": {
     "products": {
       "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
+        "regular_price": "Vanlig pris",
+        "sold_out": "Utsolgt",
         "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
+        "on_sale": "Salg",
+        "quantity": "Mengde",
+        "add_to_cart": "Legg i handlekurv",
+        "back_to_collection": "Tilbake til {{ title }}",
+        "view_details": "Vis detaljer"
       }
     },
     "article": {
       "tags": "Tags:",
       "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
+      "by_author": "av {{ author }}",
+      "posted_in": "Postet i",
+      "read_more": "Les mer",
+      "back_to_blog": "Tilbake til {{ title }}"
     },
     "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
+      "title": "Legg igjen en kommentar",
+      "name": "Navn",
       "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
+      "message": "Beskjed",
+      "post": "Post Kommentar",
       "moderated": "Please note, comments must be approved before they are published",
       "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
+      "success": "Your comment was posted successfully! Takk skal du ha!",
       "comments_with_count": {
-        "one": "{{ count }} comment",
+        "one": "{{ count }} kommentar",
         "other": "{{ count }} comments"
       }
     },
     "password_page": {
       "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
+      "login_form_password_label": "Passord",
+      "login_form_password_placeholder": "Ditt passord",
+      "login_form_submit": "Tast inn",
       "signup_form_email_label": "Email",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
@@ -1925,21 +1925,21 @@
   },
   "templates": {
     "search": {
-      "no_results": "Ingen resultater funnet for \"{{ terms }}\". Kontroller stavemåten eller bruk et annet ord eller en setning.",
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
       "page": "Side",
       "products": "Produkter",
       "results_with_count": {
         "one": "{{ count }} resultat",
-        "other": "{{ count }} resultater"
+        "other": "{{ count }} results"
       },
       "results_with_count_and_term": {
-        "one": "{{ count }} Resultat funnet for \"{{ terms }}”",
-        "other": "{{ count }} Resultater funnet for \"{{ terms }}”"
+        "one": "{{ count }} result found for “{{ terms }}”",
+        "other": "{{ count }} results found for “{{ terms }}”"
       },
       "title": "Søkeresultater",
       "search_for": "Søk etter \"{{ terms }}”",
-      "collections": "Samlinger",
-      "suggestions": "Forslag"
+      "collections": "Collections",
+      "suggestions": "Suggestions"
     }
   },
   "accessibility": {
