@@ -667,6 +667,10 @@
       "nl": "Niederländisch",
       "fr": "Französisch",
       "de": "Deutsch"
+    },
+    "homepage-chart": {
+      "traditional": "Traditionell",
+      "chart-label": "*Der Preis für einen Eierstuhl für F Hansen *Der Preis für einen F Hansen, Eierstuhl"
     }
   },
   "templates": {
