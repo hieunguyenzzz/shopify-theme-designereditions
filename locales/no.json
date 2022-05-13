@@ -1336,102 +1336,102 @@
       "check_other_stores": "Sjekk tilgjengelighet i andre butikker",
       "pick_up_available": "Pickup tilgjengelig",
       "pick_up_currently_unavailable": "Pickup for øyeblikket utilgjengelig",
-      "pick_up_available_at_html": "Pickup tilgjengelig på <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Pickup for øyeblikket utilgjengelig på <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}<\/strong>",
+      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}<\/strong>"
     }
   },
   "cart": {
     "general": {
-      "title": "Min Handlevogn",
-      "summary": "Handlevogn Oppsummering",
+      "title": "Min vogn",
+      "summary": "Cart Summary",
       "close_cart": "Lukk",
       "shipping": "Shipping",
-      "tax": "Skatt",
-      "at_checkout": "Beregnet ved kassen",
-      "empty": "Handlekurven din er tom.",
+      "tax": "Avgift",
+      "at_checkout": "Calculated at checkout",
+      "empty": "Your cart is currently empty.",
       "product": "Produkt",
       "price": "Pris",
-      "qty": "Antall",
-      "remove": "Fjerne",
+      "qty": "Qty",
+      "remove": "Ta vekk",
       "total": "Total",
       "subtotal": "Subtotal",
-      "continue": "Fortsett Å Handle",
-      "update": "Oppdater Handlevogn",
-      "checkout": "utsjekking",
-      "note": "Bestill Spesielle Instruksjoner",
-      "recently_viewed": "Du Har Også Sett",
-      "cart_discount": "Rabattkode (Brukt ved Kassen)",
+      "continue": "Fortsette å handle",
+      "update": "Update Cart",
+      "checkout": "Sjekk ut",
+      "note": "Order Special Instructions",
+      "recently_viewed": "You also Viewed",
+      "cart_discount": "Discount Code (Applied at Checkout)",
       "free_shipping_before": "Du er bare",
-      "free_shipping_after": "vekk Fra Gratis Innenlands Frakt!",
-      "free_shipping_qualified": "Din bestilling kvalifiserer For Gratis Innenlands Frakt!",
-      "free_shipping_exclusions": "(Ekskluderer Internasjonalt)",
-      "discounts": "Rabatt",
-      "savings": "Totale Besparelser",
-      "discount_applied": "Rabatt Brukt!",
-      "items": "Produkt (er)"
+      "free_shipping_after": "away from Free Domestic Shipping!",
+      "free_shipping_qualified": "Your order qualifies for Free Domestic Shipping!",
+      "free_shipping_exclusions": "(Excludes International)",
+      "discounts": "Discounts",
+      "savings": "Total Savings",
+      "discount_applied": "Discount Applied!",
+      "items": "Item(s)"
     }
   },
   "collections": {
     "general": {
-      "all_collections": "Samlinger",
-      "all_products": "Alle Produkter",
-      "no_matches": "Det er ingen elementer i denne samlingen",
-      "shop_by_designer": "Handle Etter Designer"
+      "all_collections": "Collections",
+      "all_products": "Alle produkter",
+      "no_matches": "There are no items in this collection",
+      "shop_by_designer": "Shop by Designer"
     },
     "sorting": {
       "title": "Sorter etter",
-      "featured": "Utvalgt",
-      "best_selling": "bestselgende",
-      "az": "Alfabetisk, a-z",
-      "za": "Alfabetisk, z-a",
-      "price_ascending": "Pris, lav til høy",
-      "price_descending": "Pris, høy til lav",
-      "date_descending": "Dato, ny på gammel",
-      "date_ascending": "Dato, gammel til ny"
+      "featured": "Featured",
+      "best_selling": "Bestselger",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
     },
     "filter": {
-      "filtering_by": "Filtrering Av:",
-      "refine": "Avgrense"
+      "filtering_by": "Filtering By:",
+      "refine": "Raffinere"
     }
   },
   "contact": {
     "form": {
       "name": "Navn",
       "firstname": "Fornavn",
-      "lastname": "etternavn",
+      "lastname": "Etternavn",
       "subject": "Emne",
       "companyname": "Selskap",
       "address": "Adresse",
-      "email": "E-post",
+      "email": "Email",
       "phone": "Telefonnummer",
       "message": "Beskjed",
       "websiteurl": "nettside-URL",
-      "acceptsmarketing": "Abonner på å holde seg oppdatert med nye produkter og tilbud!",
+      "acceptsmarketing": "Subscribe to stay updated with new products and offers!",
       "send": "Sende",
-      "post_success": "Takk for at du kontaktet oss. Vi kommer tilbake til deg så snart som mulig."
+      "post_success": "Takk for at du kontaktet oss. We'll get back to you as soon as possible."
     }
   },
   "customer": {
     "account": {
       "title": "Regnskap",
       "logout": "Logg ut",
-      "link": "Tilbake til kontoen",
-      "signup": "Logg inn eller opprett en konto",
+      "link": "Back to Account",
+      "signup": "Login or create an account",
       "details": "kontodetaljer",
-      "view_addresses": "Se adresser",
-      "returns_content": "Retur \/ Exchange.",
-      "return": "Gå tilbake til kontoinformasjon"
+      "view_addresses": "View Addresses",
+      "returns_content": "Return\/Exchange",
+      "return": "Return to Account Details"
     },
     "activate_account": {
-      "title": "Aktiver konto",
-      "subtext": "Opprett passordet ditt for å aktivere kontoen din.",
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
       "password": "Passord",
       "password_confirm": "bekreft passord",
-      "submit": "Aktiver konto",
-      "cancel": "Avvis invitasjon"
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
     },
     "addresses": {
-      "title": "Dine adresser",
+      "title": "Your Addresses",
       "default": "hoved adresse",
       "add_new": "Legg til en ny adresse",
       "edit_address": "Rediger adresse",
