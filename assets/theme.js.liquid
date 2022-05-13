@@ -1634,7 +1634,7 @@ theme.ProductForm = function (context, sectionId, events, Product) {
       if ( Product.variants.length == 1 ) {
         return;
       }
-      events.trigger("variantchange", variant);
+      events.trigger("variantchange", variant, Product,context);
       events.trigger("variantchange:option1:" + variant.option1);
       events.trigger("variantchange:option2:" + variant.option2);
       events.trigger("variantchange:option3:" + variant.option3);
