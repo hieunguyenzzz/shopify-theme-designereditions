@@ -667,6 +667,10 @@
       "nl": "Nederlands",
       "fr": "Frans",
       "de": "Duits"
+    },
+    "homepage-chart": {
+      "traditional": "Traditioneel",
+      "chart-label": "*De prijs voor een f Hansen, eierstoel *De prijs voor een f Hansen, eierstoel"
     }
   },
   "templates": {
