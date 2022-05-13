@@ -1,32 +1,32 @@
 {
   "general": {
     "404": {
-      "subtext": "Den här sidan finns inte. Försök att söka efter vad du vill hitta:",
-      "title": "Oj - vi kunde inte hitta den"
+      "subtext": "This page does not exist. Try searching for what you would like to find:",
+      "title": "Oops - We couldn't find that one"
     },
     "pagination": {
-      "showing_items": "Visar föremål",
+      "showing_items": "Showing items",
       "of": "av"
     },
     "forms": {
-      "post_error": "Tyvärr, ser ut som att något gick fel. Korrigera följande och skicka igen:"
+      "post_error": "Sorry, looks like something went wrong. Please correct the following and submit again:"
     },
     "breadcrumbs": {
       "home": "Hem"
     },
     "newsletter_form": {
       "newsletter_email": "gå med i vår maillista",
-      "thanks": "Tack för att du gick med",
-      "popup_thanks": "Tack för att du gick med, här är din kupongkod:",
+      "thanks": "Thank you for joining",
+      "popup_thanks": "Thank you for joining, here is your coupon code:",
       "email_placeholder": "E-postadress",
-      "confirmation": "Tack för att du gick med!",
+      "confirmation": "Thanks for joining!",
       "submit": "Ansluta sig"
     },
     "search": {
-      "no_results_html": "Din sökning efter \"{{ terms }}\"gav inga resultat.",
-      "results_for_html": "Din sökning efter \"{{ terms }}\"avslöjade följande:",
+      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
+      "results_for_html": "Your search for \"{{ terms }}\" revealed the following:",
       "title": "Sök",
-      "placeholder": "Sök hela butiken här ...",
+      "placeholder": "Search entire store here...",
       "submit": "Sök"
     },
     "language": {
