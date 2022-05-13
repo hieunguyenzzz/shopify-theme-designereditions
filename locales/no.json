@@ -1415,23 +1415,23 @@
     "account": {
       "title": "Regnskap",
       "logout": "Logg ut",
-      "link": "Back to Account",
-      "signup": "Login or create an account",
+      "link": "Tilbake til konto",
+      "signup": "Logg inn eller opprette en konto",
       "details": "kontodetaljer",
-      "view_addresses": "View Addresses",
-      "returns_content": "Return\/Exchange",
-      "return": "Return to Account Details"
+      "view_addresses": "Vis adresser",
+      "returns_content": "Retur\/Exchange",
+      "return": "Gå tilbake til kontodetaljer"
     },
     "activate_account": {
-      "title": "Activate Account",
-      "subtext": "Create your password to activate your account.",
+      "title": "Aktiver konto",
+      "subtext": "Opprett passordet ditt for å aktivere kontoen din.",
       "password": "Passord",
       "password_confirm": "bekreft passord",
-      "submit": "Activate Account",
-      "cancel": "Decline Invitation"
+      "submit": "Aktiver konto",
+      "cancel": "Avslå invitasjon"
     },
     "addresses": {
-      "title": "Your Addresses",
+      "title": "Adressene dine",
       "default": "hoved adresse",
       "add_new": "Legg til en ny adresse",
       "edit_address": "Rediger adresse",
@@ -1443,14 +1443,14 @@
       "city": "By",
       "country": "Land",
       "province": "Provins",
-      "zip": "Post \/ postnummer",
+      "zip": "Post\/postnummer",
       "phone": "Telefon",
-      "set_default": "Sett som standardadresse",
-      "add": "Add Address",
-      "update": "Update Address",
+      "set_default": "Angi som standardadresse",
+      "add": "Legg til adresse",
+      "update": "Oppdateringsadresse",
       "cancel": "Avbryt",
       "edit": "Redigere",
-      "delete": "Delete"
+      "delete": "Slett"
     },
     "login": {
       "title": "Logg Inn",
@@ -1458,8 +1458,8 @@
       "password": "Passord",
       "forgot_password": "Glemt passordet?",
       "sign_in": "Logg inn",
-      "cancel": "Return to Store",
-      "guest_title": "Continue as a guest",
+      "cancel": "Gå tilbake til butikken",
+      "guest_title": "Fortsett som gjest",
       "guest_continue": "Fortsette"
     },
     "orders": {
@@ -1467,26 +1467,26 @@
       "order_number": "Rekkefølge",
       "date": "Dato",
       "payment_status": "Betalingsstatus",
-      "fulfillment_status": "Fulfillment Status",
+      "fulfillment_status": "Oppfyllingsstatus",
       "total": "Total",
-      "none": "You haven't placed any orders yet."
+      "none": "Du har ikke lagt inn noen bestillinger ennå."
     },
     "order": {
       "title": "Rekkefølge",
       "date": "Plassert på",
-      "cancelled": "Order Cancelled on",
+      "cancelled": "Bestill kansellert på",
       "cancelled_reason": "Grunnen til: {{ reason }}",
       "billing_address": "fakturaadresse",
       "payment_status": "Betalingsstatus",
       "shipping_address": "Sendingsadresse",
-      "fulfillment_status": "Fulfillment Status",
+      "fulfillment_status": "Oppfyllingsstatus",
       "discount": "Rabatt",
       "shipping": "Shipping",
       "tax": "Avgift",
       "order_details": "Ordre detaljer",
       "details": {
         "product": "Produkt",
-        "sku": "SKU",
+        "sku": "Sku",
         "price": "Pris",
         "quantity": "Mengde",
         "total": "Total",
@@ -1495,16 +1495,16 @@
       }
     },
     "recover_password": {
-      "title": "Reset your password",
+      "title": "Tilbakestill passordet ditt",
       "email": "E -post",
       "submit": "Sende inn",
       "cancel": "Avbryt",
-      "subtext": "We will send you an email to reset your password.",
-      "success": "We've sent you an email with a link to update your password."
+      "subtext": "Vi sender deg en e -post for å tilbakestille passordet ditt.",
+      "success": "Vi har sendt deg en e -post med en lenke for å oppdatere passordet ditt."
     },
     "reset_password": {
-      "title": "Reset account password",
-      "subtext": "Enter a new password for {{ email }}",
+      "title": "Tilbakestill kontopassordet",
+      "subtext": "Skriv inn et nytt passord for {{ email }}",
       "password": "Passord",
       "password_confirm": "bekreft passord",
       "submit": "Tilbakestille passord"
