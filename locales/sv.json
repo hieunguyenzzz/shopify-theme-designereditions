@@ -1860,6 +1860,10 @@
       "nl": "Holländsk",
       "fr": "Franska",
       "de": "tysk"
+    },
+    "homepage-chart": {
+      "traditional": "Traditionell",
+      "chart-label": "*Priset för en f Hansen, äggstol *Priset för en f Hansen, äggstol"
     }
   },
   "templates": {
