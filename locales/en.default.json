@@ -2,7 +2,7 @@
   "strings": {
     "homepage-chart": {
       "traditional": "Traditional",
-      "chart-label": "*The price for a F Hansen, Egg chair"
+      "chart-label": "*The price for a F Hansen, Egg chair *The price for a F Hansen, Egg chair"
     },
     "languages": {
       "en": "English",
