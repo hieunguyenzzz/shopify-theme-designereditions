@@ -1061,62 +1061,62 @@
       "discount_not_found": "Unable to find a valid discount matching the code entered",
       "customer_already_used_once_per_customer_discount_notice": "This discount has reached its usage limit",
       "gift_card_already_applied": "Code has already been applied to your checkout",
-      "gift_card_code_invalid": "Code is invalid",
-      "gift_card_currency_mismatch": "%{gift_card_currency} gift cards can't be applied on %{checkout_currency} ordrene",
-      "gift_card_depleted": "There are no funds left on this gift card",
-      "gift_card_disabled": "Gift card is disabled",
-      "gift_card_expired": "Gift card is expired",
+      "gift_card_code_invalid": "Kode er ugyldig",
+      "gift_card_currency_mismatch": "%{gift_card_currency} Gavekort kan ikke brukes på %{checkout_currency} ordrene",
+      "gift_card_depleted": "Det er ingen midler igjen på dette gavekortet",
+      "gift_card_disabled": "Gavekort er deaktivert",
+      "gift_card_expired": "Gavekort er utløpt",
       "invalid": "er ugyldig",
-      "bad_domain": "contains an invalid domain name",
+      "bad_domain": "inneholder et ugyldig domenenavn",
       "taken": "har allerede blitt tatt",
-      "contains_html_tags": "cannot contain HTML tags",
-      "too_short": "is too short (minimum is %{count} tegn)",
-      "too_long": "is too long (maximum is %{count} tegn)",
-      "password_mismatch": "must match the provided password",
-      "contains_spaces": "starts or ends with spaces.",
-      "email_domain_invalid": "provider is not supported",
-      "invalid_for_country": "is not valid for %{country}",
-      "invalid_for_country_and_province": "is not valid for %{province} og %{country}",
-      "invalid_province_in_country": "is not a valid province in %{country}",
-      "invalid_state_in_country": "is not a valid state in %{country}",
-      "invalid_region_in_country": "is not a valid region in %{country}",
-      "less_than_or_equal_to": "must be less than or equal to %{count}",
+      "contains_html_tags": "Kan ikke inneholde HTML -tagger",
+      "too_short": "er for kort (minimum er %{count} tegn)",
+      "too_long": "er for lang (maksimalt er %{count} tegn)",
+      "password_mismatch": "Må samsvare med det medfølgende passordet",
+      "contains_spaces": "starter eller slutter med mellomrom.",
+      "email_domain_invalid": "leverandør støttes ikke",
+      "invalid_for_country": "er ikke gyldig for %{country}",
+      "invalid_for_country_and_province": "er ikke gyldig for %{province} og %{country}",
+      "invalid_province_in_country": "er ikke en gyldig provins i %{country}",
+      "invalid_state_in_country": "er ikke en gyldig tilstand i %{country}",
+      "invalid_region_in_country": "er ikke en gyldig region i %{country}",
+      "less_than_or_equal_to": "må være mindre enn eller lik %{count}",
       "not_supported": "er ikke støttet",
-      "full_name_required": "Enter a first name and last name",
+      "full_name_required": "Skriv inn et fornavn og etternavn",
       "invalid_for_card_type": "er ikke gyldig",
-      "invalid_type": "sorry, we do not accept cards of this type",
-      "invalid_format": "format is not valid",
+      "invalid_type": "Beklager, vi godtar ikke kort av denne typen",
+      "invalid_format": "Formatet er ikke gyldig",
       "expired": "har utgått",
-      "invalid_start_date_or_issue_number_for_debit": "a valid start date or issue number is required",
-      "invalid_expiry_year": "is not a valid expiration year",
-      "reset_password_html": "This email address is already associated with an account. If this account is yours, you can <a href=\"\/account\/login#recover\">reset your password<\/a>",
-      "verify_email": "We have sent an email to %{customer_email}, please click the link included to verify your email address."
+      "invalid_start_date_or_issue_number_for_debit": "En gyldig startdato eller utstedelsesnummer er påkrevd",
+      "invalid_expiry_year": "er ikke et gyldig utløpsår",
+      "reset_password_html": "Denne e -postadressen er allerede tilknyttet en konto. Hvis denne kontoen er din, kan du <a href=\"\/account\/login#recover\">Tilbakestill passordet ditt<\/a>",
+      "verify_email": "Vi har sendt en e -post til %{customer_email}, Klikk på lenken som er inkludert for å bekrefte e -postadressen din."
     },
     "notices": {
       "customer": {
-        "password_reset_error": "Password reset error",
-        "no_account_found": "No account found with that email.",
+        "password_reset_error": "Tilbakestilling av passord",
+        "no_account_found": "Ingen kontoer funnet med den e -posten.",
         "invalid_credentials": "Feil email eller passord.",
-        "denylisted_reset_password": "Your account couldn't be accessed because the current password is not secure. You will receive an email to update your password."
+        "denylisted_reset_password": "Kontoen din kunne ikke nås fordi det nåværende passordet ikke er sikkert. Du vil motta en e -post for å oppdatere passordet ditt."
       },
       "address": {
-        "updated": "Successfully updated address.",
-        "error_updating": "Error updating address",
-        "created": "Successfully created address",
-        "error_creating": "Error creating address.",
-        "deleted": "Successfully deleted address",
-        "error_deleting": "Error deleting address."
+        "updated": "Vellykket oppdatert adresse.",
+        "error_updating": "Feiloppdatering av adresse",
+        "created": "Vellykket opprettet adresse",
+        "error_creating": "Feil opprette adresse.",
+        "deleted": "Vellykket slettet adresse",
+        "error_deleting": "Feil å slette adresse."
       },
       "order": {
-        "not_available": "This order is not available",
+        "not_available": "Denne bestillingen er ikke tilgjengelig",
         "financial_status": {
-          "authorized": "Authorized",
+          "authorized": "Autorisert",
           "pending": "Avventer",
           "paid": "Paid",
-          "unpaid": "Unpaid",
-          "voided": "Voided",
-          "partially_paid": "Partially paid",
-          "partially_refunded": "Partially refunded",
+          "unpaid": "Ubetalt",
+          "voided": "Ugyldig",
+          "partially_paid": "Delvis betalt",
+          "partially_refunded": "Delvis refundert",
           "refunded": "Refundert",
           "expired": "Utløpt"
         },
@@ -1124,92 +1124,92 @@
           "fulfilled": "Oppfylt",
           "complete": "Fullstendig",
           "partial": "Delvis",
-          "unfulfilled": "Unfulfilled",
-          "restocked": "Restocked"
+          "unfulfilled": "Uoppfylt",
+          "restocked": "Omstøt"
         },
         "transaction_status": {
           "success": "Suksess",
           "pending": "Avventer",
-          "failure": "Failure",
+          "failure": "Feil",
           "error": "Feil"
         },
         "cancel_reason": {
           "declined": "Betaling avvist",
-          "inventory": "Items unavailable",
-          "fraud": "Fraudulent order",
-          "customer": "Customer changed\/cancelled order",
+          "inventory": "Gjenstander som ikke er tilgjengelige",
+          "fraud": "Uredelig orden",
+          "customer": "Kunden endret\/kansellert ordre",
           "other": "Annen"
         },
-        "cash_on_delivery": "Cash on Delivery (COD)"
+        "cash_on_delivery": "Kontanter ved levering (COD)"
       },
       "cart": {
-        "only_n_items_available": "You can only add %{count} %{name} to the cart.",
-        "too_many_items_in_cart": "You can't add more %{name} to the cart.",
-        "all_items_in_cart": "Alle %{count} %{name} are in your cart.",
-        "empty_update": "Kan ikke oppdatere tom vogn",
-        "missing_parameters": "Ingen gyldig ID- eller linjeparameter",
-        "generic_error": "CART -feil",
-        "too_many_line_items_error": "Vogna din kan ikke inneholde mer enn %{max} gjenstander.",
-        "link_expired": "Link utløpt",
-        "link_no_longer_exists": "Link eksisterer ikke lenger.",
-        "stock_problems_html": "En eller flere varer er ikke lenger tilgjengelige. Vi har gitt en <a href='%{link}'>Oppdatert vogn<\/a>.",
-        "changed": "Handlekurven endret",
-        "items_changed": "En eller flere elementer har endret seg.",
-        "product_sold_out": "Produktet '%{name}'Er allerede utsolgt.",
-        "variant_not_found": "Finner ikke variant",
-        "variant_requires_selling_plan": "Variant kan bare kjøpes med en salgsplan.",
-        "selling_plan_not_applicable": "Kan ikke bruke salgsplan til varianten",
-        "shipping_address_not_required": "Denne handlekurven krever ikke frakt",
-        "shipping_address_invalid": "Det var et problem å beregne fraktprisene dine. Fortsett å sjekke ut for å velge en fraktpris før du fullfører bestillingen.",
-        "selling_plan_not_available_for_company_locations": "Bare engangskjøp er tilgjengelig for B2B-bestillinger",
-        "digital_product_not_available_for_company_locations": "Denne varen kan ikke legges til en B2B -ordre"
+        "only_n_items_available": "Du kan bare legge til %{count} %{name} til handlekurven.",
+        "too_many_items_in_cart": "Du kan ikke legge til mer %{name} til handlekurven.",
+        "all_items_in_cart": "Alle %{count} %{name} er i handlekurven din.",
+        "empty_update": "cannot update empty cart",
+        "missing_parameters": "no valid id or line parameter",
+        "generic_error": "Cart Error",
+        "too_many_line_items_error": "Your cart can't contain more than %{max} items.",
+        "link_expired": "Link expired",
+        "link_no_longer_exists": "Link no longer exists.",
+        "stock_problems_html": "One or more items are no longer available. We've provided an <a href='%{link}'>updated cart<\/a>.",
+        "changed": "Cart changed",
+        "items_changed": "One or more items have changed.",
+        "product_sold_out": "Produktet '%{name}' is already sold out.",
+        "variant_not_found": "Cannot find variant",
+        "variant_requires_selling_plan": "Variant can only be purchased with a selling plan.",
+        "selling_plan_not_applicable": "Cannot apply selling plan to variant",
+        "shipping_address_not_required": "This cart does not require shipping",
+        "shipping_address_invalid": "There was a problem calculating your shipping rates. Continue to checkout to choose a shipping rate before you complete your order.",
+        "selling_plan_not_available_for_company_locations": "Only one-time purchase is available for B2B orders",
+        "digital_product_not_available_for_company_locations": "This item can't be added to a B2B order"
       },
       "storefront": {
-        "invalid_password": "Passord feil, prøv igjen."
+        "invalid_password": "Password incorrect, please try again."
       },
       "tags": {
-        "add_articles": "Smalt søk til artikler som også har tag %{tag}",
-        "add_products": "Smalt utvalg til produkter matchende tag %{tag}",
-        "remove_articles": "Utvide søk til artikler som ikke er merket %{tag}",
-        "remove_products": "Fjern taggen %{tag}"
+        "add_articles": "Narrow search to articles also having tag %{tag}",
+        "add_products": "Narrow selection to products matching tag %{tag}",
+        "remove_articles": "Widen search to articles that aren't tagged %{tag}",
+        "remove_products": "Remove tag %{tag}"
       }
     },
     "email_marketing": {
       "subscribed": {
-        "confirmation": "Takk for at du abonnerer på adresselisten vår.",
-        "disclaimer": "Du kan avslutte abonnementet når som helst.",
+        "confirmation": "Thank you for subscribing to our mailing list.",
+        "disclaimer": "You can unsubscribe at any time.",
         "unsubscribe": "Avslutte abonnementet"
       },
       "unsubscribed": {
-        "confirmation": "Du har avsluttet abonnementet fra adresselisten vår.",
-        "disclaimer": "Du vil ikke motta flere markedsføringsoppdateringer fra oss. Du kan abonnere igjen når som helst.",
-        "preview": "Du forhåndsviser hva kundene vil se når de melder seg ut."
+        "confirmation": "You’ve unsubscribed from our mailing list.",
+        "disclaimer": "You won’t receive any more marketing updates from us. You can subscribe again at any time.",
+        "preview": "You're previewing what customers will see when they unsubscribe."
       },
       "open_tracking": {
         "opt_in": {
-          "opted_in_html": "<b>Du har valgt å sende e -post til åpen sporing.<\/b>",
-          "visibility": "Åpne priser på e -post vil bli rapportert anonymt. Vi vil bare se om du har åpnet en e -post som en del av en samlet e -post åpen rate.",
-          "opt_out_html": "Du kan <a style='text-decoration:underline;' href='%{link}'>Velg bort<\/a> av e -post åpen sporing hvis du ikke vil dele denne informasjonen.",
-          "preview_bar": "Du forhåndsviser hva kundene vil se når de velger å sende e -post til åpen sporing."
+          "opted_in_html": "<b>You’ve opted in to email open tracking.<\/b>",
+          "visibility": "Email open rates will be reported anonymously. We will only see if you’ve opened an email as part of an aggregated email open rate.",
+          "opt_out_html": "Du kan <a style='text-decoration:underline;' href='%{link}'>opt out<\/a> of email open tracking if you do not want to share this information.",
+          "preview_bar": "You're previewing what customers will see when they opt in to email open tracking."
         },
         "opt_out": {
-          "opted_out_html": "<b>Du har valgt bort e -post åpen sporing.<\/b>",
-          "visibility": "Vi vil ikke se om du har åpnet e -postene våre.",
-          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Melde deg på<\/a> For å sende en e -post med åpen sporing.",
-          "preview_bar": "Du forhåndsvisning av hva kundene vil se når de velger bort åpen sporing av e -post."
+          "opted_out_html": "<b>You’ve opted out of email open tracking.<\/b>",
+          "visibility": "We will not see if you’ve opened our emails.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='%{link}'>Melde deg på<\/a> to email open tracking.",
+          "preview_bar": "You're previewing what customers will see when they opt out of email open tracking."
         },
         "no_longer_track": {
-          "status_html": "<b>Vi sporer ikke lenger noen e -post.<\/b>",
-          "privacy_policy": "Etter at denne e -posten ble sendt, oppdaterte vi personvernreglene våre, og vi ikke lenger sporer."
+          "status_html": "<b>We no longer track any email opens.<\/b>",
+          "privacy_policy": "After this email was sent, we updated our privacy policy and we no longer track opens."
         },
         "track": {
-          "status_html": "<b>Det rapporteres om åpen sporing.<\/b>",
-          "visibility": "Vi vil bare se om du har åpnet e -posten, som en del av den totale åpningsrenten for e -post."
+          "status_html": "<b>Email open tracking is reported.<\/b>",
+          "visibility": "We will only see if you’ve opened the email, as part of the total email open rate."
         },
         "updated_policy": {
-          "status_html": "<b>Det rapporteres om åpen sporing.<\/b>",
-          "visibility": "Vi har oppdatert policyen vår, og nå åpner vi e -post. Åpne priser på e -post vil bli rapportert anonymt. Vi vil bare se om du har åpnet en e -post som en del av den totale åpningssatsen for e -post.",
-          "opt_out_html": "Hvis du ikke vil dele denne informasjonen, kan du <a style='text-decoration:underline;' href='%{link}'>Avslutte abonnementet.<\/a>"
+          "status_html": "<b>Email open tracking is reported.<\/b>",
+          "visibility": "We have updated our policy, and now track emails opens. Email open rates will be reported anonymously. We will only see if you’ve opened an email as part of the total email open rate.",
+          "opt_out_html": "If you do not want to share this information, you can <a style='text-decoration:underline;' href='%{link}'>Avslutte abonnementet.<\/a>"
         }
       }
     },
@@ -1238,31 +1238,31 @@
     "search": {
       "sorting": {
         "relevance": "Relevans",
-        "price_ascending": "Pris, lav til høy",
-        "price_descending": "Pris, høy til lav"
+        "price_ascending": "Price, low to high",
+        "price_descending": "Price, high to low"
       }
     },
     "page_titles": {
-      "blog_or_article_with_error": "Feil - %{title}",
+      "blog_or_article_with_error": "Error - %{title}",
       "products": "Produkter",
       "shopping_cart": "din handlevogn",
       "account": "Regnskap",
       "create_account": "Opprett konto",
-      "reset_account": "Tilbakestill konto",
+      "reset_account": "Reset Account",
       "addresses": "Adresser",
       "order": "Rekkefølge %{name}",
       "search": "Søk",
       "search_results": {
-        "one": "Søk: %{count} resultat funnet for \"%{terms}\"",
-        "other": "Søk: %{count} Resultater funnet for \"%{terms}\""
+        "one": "Søk: %{count} result found for \"%{terms}\"",
+        "other": "Søk: %{count} results found for \"%{terms}\""
       },
-      "collections": "Samlinger",
+      "collections": "Collections",
       "not_found": "404 ikke funnet",
       "challenge": "Utfordring",
       "checkpoint": "Kontrollpunkt"
     },
     "cart": {
-      "discounts_with_count": "%{count} Det er brukt rabatter"
+      "discounts_with_count": "%{count} discounts have been applied"
     },
     "challenge": {
       "message": "For å fortsette, gi oss beskjed om at du ikke er en robot.",
