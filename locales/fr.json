@@ -1680,6 +1680,10 @@
       "nl": "Néerlandais",
       "fr": "Français",
       "de": "Allemand"
+    },
+    "homepage-chart": {
+      "traditional": "Traditionnel",
+      "chart-label": "* Le prix pour un F Hansen, chaise d'oeuf * Le prix pour une chaise F Hansen, Egg"
     }
   },
   "templates": {
