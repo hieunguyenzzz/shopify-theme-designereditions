@@ -626,6 +626,10 @@
       "nl": "Holandés",
       "fr": "Francés",
       "de": "Alemán"
+    },
+    "homepage-chart": {
+      "traditional": "Tradicional",
+      "chart-label": "*El precio de A F Hansen, Silla de huevo *El precio de A F Hansen, Silla de huevo"
     }
   },
   "shopify": {
