@@ -23,65 +23,99 @@
   }
 </style>
 <script>
-  function handleShowExpressDeliveryOptions (variantId){
-    const show = document.querySelector("#showExpress").checked
-    if(show){
-      document.querySelector('.product-form').classList.add('show-outstock')
-    }else{
-      document.querySelector('.product-form').classList.remove('show-outstock')
-    }
-    
-    let current = document.querySelector(`[data-in-stock][value="${variantId}"]`)
-    let firstId
-      let instockinput = optionSelectors.product.options.reduce((result,value,index,array)=>{
-        if(index===0){
-          result.push(`option[data-in-stock="true"]`)
-        }
-        if(index>0 && index < array.length){
-          const value = current.dataset[`option-${index}`]
-          result.push(`${result[index-1]||''}[data-option-${index}="${value}"]`)
-        }
-        
-        return result
-      },[]).reduce((result,selector,index)=>{
-        // console.log({selector})
-        document.querySelectorAll(selector).forEach(e=>{
-          if(!firstId&&index===1){
-  			firstId = e.value
-			}
-          
-          result.push(`product-template-swatch-${index+1}-${e.dataset[`option-${index+1}`].toLowerCase()}`)
-        })
-        return result
-      },[])
-     
-      document.querySelectorAll('.swatch-element>input').forEach(e=>{
-        if(instockinput.includes(e.id)){
-         
-          e.setAttribute('data-in-stock',"true")
-        }else{
-          e.setAttribute('data-in-stock',"false")
-        }
-      })
-      if(show){
-        current = document.querySelector(`[data-in-stock="true"][value="${variantId}"]`);
-        if(!current){
-          optionSelectors.selectVariant(firstId)
-          return 
-        }
+  function handleShowExpressDeliveryOptions(variantId, product) {
+    let optionslist = []
+    let current = document.querySelector(`option[value="${variantId}"]`)
+    let instockinput = optionSelectors.product.options.reduce((result, value, index, array) => {
+      if (index === 0) {
+        result.push(`option[data-in-stock="true"]`)
       }
-     
-  }
-  window.addEventListener("themeloaded", function(event) {
-    let variantchangeevent
-    document.querySelector("#showExpress").addEventListener('input',(e)=>{
-      handleShowExpressDeliveryOptions(optionSelectors.variantIdField.value)
-      if(!variantchangeevent){
-        variantchangeevent=Events.on('variantchange', function(variant,product, context){
-          handleShowExpressDeliveryOptions(variant.id)
-        })
+      if (index > 0 && index < array.length) {
+        const value = current.dataset[`option-${index}`]
+        result.push(`${result[index - 1] || ''}[data-option-${index}="${value}"]`)
+      }
+      return result
+    }, []).reduce((result, selector, index) => {
+      document.querySelectorAll(selector).forEach(e => {
+        result.push(`product-template-swatch-${index + 1}-${e.dataset[`option-${index + 1}`].toLowerCase()}`)
+      })
+      return result
+    }, [])
+    document.querySelectorAll('.swatch-element>input').forEach(e => {
+      if (instockinput.includes(e.id)) {
+        e.setAttribute('data-in-stock', "true")
+      } else {
+        e.setAttribute('data-in-stock', "false")
       }
     })
+  }
+  window.addEventListener("themeloaded", function (event) {
+    let variantchangeevent
+    document.querySelector("#showExpress").addEventListener('input', (e) => {
+      if(!variantchangeevent){
+        variantchangeevent=Events.on('variantchange', function (variant, product, context) {
+          const show = document.querySelector("#showExpress").checked
+          if(show){
+            let current =document.querySelector(`option[value="${optionSelectors.variantIdField.value}"]`)
+            console.log('current',current)
+            if(!current.dataset['in-stock']){
+              let option1 = current.dataset['option-1']
+              let option2 = current.dataset['option-2']
+              current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
+              console.log('current',current)
+              if(!current){
+                current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
+                console.log('current',current)
+                if(!current){
+                current =document.querySelector(`option[data-in-stock="true"]`)
+                console.log('current',current)
+                }
+              }
+              
+            }
+            variantId = current.value
+            if(String(variantId)!==String(optionSelectors.variantIdField.value)){
+              optionSelectors.selectVariant(variantId)
+            }else{
+              handleShowExpressDeliveryOptions(variantId)
+            }
+          }
+         
+        })
+      }
+      const show = document.querySelector("#showExpress").checked
+      if (show) {
+        document.querySelector('.product-form').classList.add('show-outstock')
+      } else {
+        document.querySelector('.product-form').classList.remove('show-outstock')
+      }
+      
+      let current =document.querySelector(`option[value="${optionSelectors.variantIdField.value}"]`)
+      console.log('current',current)
+      if(!current.dataset['in-stock']){
+        let option1 = current.dataset['option-1']
+        let option2 = current.dataset['option-2']
+        current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
+        console.log('current',current)
+        if(!current){
+          current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
+          console.log('current',current)
+          if(!current){
+           current =document.querySelector(`option[data-in-stock="true"]`)
+           console.log('current',current)
+          }
+        }
+        
+      }
+      variantId = current.value
+      if(String(variantId)!==String(optionSelectors.variantIdField.value)){
+        console.log('variantId',variantId)
+        optionSelectors.selectVariant(variantId)
+      }else{
+        handleShowExpressDeliveryOptions(variantId)
+      }
+    })
+
   })
 </script>
 {% endif %}
@@ -97,7 +131,6 @@
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
-          			data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                 {% if variant.inventory_quantity > 0 %}
@@ -128,12 +161,11 @@
             {% for variant in product.variants %}
                 {% capture data_options %}
                     {% for option in variant.options %}
-                        data-option-{{forloop.index}}="{{option | handleize}}"{{' '}}
+                      data-option-{{forloop.index}}="{{option | handleize}}"{{' '}}
                     {% endfor %}
                 {% endcapture %}
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
- 					data-available="{{variant.available }}"
                 {% endcapture %}
                 {% capture data-in-stock %}
                 {% if variant.inventory_quantity > 0 %}
