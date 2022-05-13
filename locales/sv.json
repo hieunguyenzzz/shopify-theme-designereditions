@@ -1598,7 +1598,7 @@
       "terms_conditions": "Allmänna Villkor",
       "view_all": "VISA ALLA",
       "all_reviews": "Alla recensioner",
-      "shop_instagram": "Shop Instagram",
+      "shop_instagram": "Butiksinstagram",
       "see_all": "SE ALLT",
       "best_seller": "BÄSTSÄLJARE",
       "new_product": "NY PRODUKT",
@@ -1864,6 +1864,9 @@
     "homepage-chart": {
       "traditional": "Traditionell",
       "chart-label": "*Priset för en f Hansen, äggstol *Priset för en f Hansen, äggstol"
+    },
+    "instagram": {
+      "title": "Instagram \/ kundgalleri"
     }
   },
   "templates": {
