@@ -691,13 +691,6 @@ html {
   width: 3rem;
 }
 
-.tw-btn-circle {
-  border-radius: 9999px;
-  height: 3rem;
-  padding: 0;
-  width: 3rem;
-}
-
 .tw-btn.tw-loading,.tw-btn.tw-loading:hover {
   pointer-events: none;
 }
@@ -3551,6 +3544,12 @@ html {
   min-height: 4rem;
 }
 
+.tw-no-animation {
+  --btn-focus-scale: 1;
+  --animation-btn: 0;
+  --animation-input: 0;
+}
+
 .tw-badge-xs {
   height: .75rem;
   font-size: .75rem;
@@ -3621,32 +3620,9 @@ html {
   width: 2rem;
 }
 
-.tw-btn-circle:where(.tw-btn-md) {
-  border-radius: 9999px;
-  height: 3rem;
-  padding: 0;
-  width: 3rem;
-}
-
-.tw-btn-circle:where(.tw-btn-lg) {
-  border-radius: 9999px;
-  height: 4rem;
-  padding: 0;
-  width: 4rem;
-}
-
 .tw-checkbox-sm {
   height: 1.25rem;
   width: 1.25rem;
-}
-
-.tw-divider-vertical {
-  flex-direction: column;
-  align-self: stretch;
-}
-
-.tw-divider-vertical:after,.tw-divider-vertical:before {
-  height: 100%;
 }
 
 .tw-input-sm {
@@ -3665,26 +3641,6 @@ html {
 
 .tw-alert-sm {
   padding: .5rem;
-}
-
-.tw-divider-vertical {
-  height: auto;
-  margin: 0 1rem;
-  width: 1rem;
-}
-
-.tw-divider-vertical:after,.tw-divider-vertical:before {
-  width: .125rem;
-}
-
-.tw-divider-vertical:not(:empty):before {
-  margin-right: 0;
-  margin-bottom: 1rem;
-}
-
-.tw-divider-vertical:not(:empty):after {
-  margin-left: 0;
-  margin-top: 1rem;
 }
 
 .tw-prose {
@@ -4166,6 +4122,14 @@ html {
   top: 0px;
 }
 
+.tw-top-2 {
+  top: 0.5rem;
+}
+
+.tw-right-2 {
+  right: 0.5rem;
+}
+
 .tw-top-\[calc\(100\%-60px\)\] {
   top: calc(100% - 60px);
 }
@@ -4192,14 +4156,6 @@ html {
 
 .tw--right-8 {
   right: -2rem;
-}
-
-.tw-top-2 {
-  top: 0.5rem;
-}
-
-.tw-right-2 {
-  right: 0.5rem;
 }
 
 .tw-isolate {
@@ -4893,6 +4849,12 @@ html {
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.tw-space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .tw-divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -5131,6 +5093,14 @@ html {
   padding: 0px;
 }
 
+.tw-p-4 {
+  padding: 1rem;
+}
+
+.tw-p-1 {
+  padding: 0.25rem;
+}
+
 .tw-p-6 {
   padding: 1.5rem;
 }
@@ -5141,10 +5111,6 @@ html {
 
 .tw-p-3 {
   padding: 0.75rem;
-}
-
-.tw-p-4 {
-  padding: 1rem;
 }
 
 .tw-p-2 {
@@ -5161,10 +5127,6 @@ html {
 
 .\!tw-p-0 {
   padding: 0px !important;
-}
-
-.tw-p-1 {
-  padding: 0.25rem;
 }
 
 .tw-px-3 {
@@ -5306,6 +5268,10 @@ html {
   padding-bottom: 100px;
 }
 
+.tw-pr-12 {
+  padding-right: 3rem;
+}
+
 .tw-pr-\[20px\] {
   padding-right: 20px;
 }
@@ -5358,16 +5324,12 @@ html {
   padding-bottom: 100%;
 }
 
-.tw-pl-12 {
-  padding-left: 3rem;
-}
-
-.tw-pr-12 {
-  padding-right: 3rem;
-}
-
 .tw-text-left {
   text-align: left;
+}
+
+.\!tw-text-left {
+  text-align: left !important;
 }
 
 .tw-text-center {
@@ -5683,6 +5645,10 @@ html {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.tw-transition-none {
+  transition-property: none;
 }
 
 .\!tw-transition-all {
@@ -6182,6 +6148,10 @@ html {
     position: static;
   }
 
+  .lg\:tw-absolute {
+    position: absolute;
+  }
+
   .lg\:tw-relative {
     position: relative;
   }
@@ -6273,8 +6243,16 @@ html {
     max-height: 600px;
   }
 
+  .lg\:tw-max-h-\[100\%\] {
+    max-height: 100%;
+  }
+
   .lg\:tw-min-h-\[640px\] {
     min-height: 640px;
+  }
+
+  .lg\:tw-min-h-\[80\%\] {
+    min-height: 80%;
   }
 
   .lg\:tw-w-1\/2 {
