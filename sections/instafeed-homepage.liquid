@@ -1,5 +1,5 @@
 {% assign feed = shop.metafields.instagram[shop.metafields.instagram.username.value].value.data  %}
-{% assign localOrigin = shop.metafields.instagram.entities.value.localOrigin %}
+{% assign localOrigin = shop.metafields.instagram[shop.metafields.instagram.username.value].value.localOrigin %}
 {%- capture icon -%}
   {{localOrigin}}/instagram-image?postId=icon&username={{shop.metafields.instagram.username.value}}
 {%- endcapture -%}

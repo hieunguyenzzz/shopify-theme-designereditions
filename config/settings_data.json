@@ -164,7 +164,7 @@
               "menu_heading": "CHAIRS",
               "menu_item": "chairs",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs.webp",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs_1.jpg",
               "nav_image_position": "right",
               "link_text": "Click here",
               "url": "shopify:\/\/collections\/chairs",
@@ -177,7 +177,7 @@
               "menu_heading": "TABLES",
               "menu_item": "tables",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables.webp",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1.jpg",
               "nav_image_position": "right",
               "link_text": "Click here",
               "url": "shopify:\/\/collections\/tables",
@@ -190,7 +190,7 @@
               "menu_heading": "SOFA",
               "menu_item": "sofa",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Sofa.webp",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Sofa_1.jpg",
               "nav_image_position": "right",
               "link_text": "Click here",
               "url": "shopify:\/\/collections\/sofas",
@@ -216,7 +216,7 @@
               "menu_heading": "STORAGE",
               "menu_item": "storage",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Storage.webp",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Storage_1.jpg",
               "nav_image_position": "right",
               "link_text": "Click here",
               "url": "shopify:\/\/collections\/storage",
@@ -229,8 +229,8 @@
               "menu_heading": "ACCESSORIES",
               "menu_item": "accessories",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Clocks.webp",
-              "nav_image_secound": "shopify:\/\/shop_images\/DROPDOWN-Banners-Accessories.webp",
+              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Clocks_1.jpg",
+              "nav_image_secound": "shopify:\/\/shop_images\/DROPDOWN-Banners-Accessories_1.jpg",
               "nav_image_position": "right",
               "link_text": "Click here",
               "url": "shopify:\/\/collections\/accessories",
@@ -281,10 +281,10 @@
           "cart_position": "header",
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
+          "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-2000x250_9905f05a-c05e-41d2-b289-8e063c8e43dc.png",
           "logoname": "DESIGNER EDITIONS",
           "logosize": 20,
-          "logo_max_width": 165,
+          "logo_max_width": 155,
           "logo_position": "inline",
           "logo_align": "center",
           "main_nav": ""
@@ -1340,7 +1340,7 @@
           "162159895992baa653-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-lighting.jpg",
+              "image": "shopify:\/\/shop_images\/Most-Searched-lighting_5dded861-3973-417e-af3e-3c66f9205612.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/lighting",
               "heading": "Mid-Century Lighting -",
@@ -1885,7 +1885,7 @@
           "description": "<p><br\/>Mid-century furniture should be accessible to all. Unfortunately, decades after the deaths of the renowned designers, the prices are high, making these icons available only to the wealthy. We started Designer Editons as an accessible alternative, creating furniture inspired by the iconic designs, cutting out all middlemen and maintaining the same quality standards.<\/p>",
           "url": "\/",
           "urlText": "Learn More",
-          "liquid": "<figure class=\"customdiagram tc\" style=\"\n    display: flex;\n    justify-content: center;\n\">\n      \n        \n        \n<style type=\"text\/css\">\n.customdiagram svg{\nwidth:300px;\nheight:500px;\nmargin:auto\n}\n  #chart-bar-1{\n    height: 0px;\n  }\n  #chart-bar-1.go{\n    animation: chart1 1s forwards;\n    -webkit-animation: chart1 1s forwards;\n  }\n  #chart-bar-2{\n    height: 0px;\n  }\n  #chart-bar-2.go{\n    animation: chart2 1s forwards;\n    -webkit-animation: chart2 1s forwards;\n  }\n  @keyframes chart1 {\n    100% {\n      height: 107px;\n    }\n  }\n  @keyframes chart2 {\n    100% {\n      height: 360px;\n    }\n  }\n  @-webkit-keyframes chart1 {\n    100% {\n      height: 107px;\n    }\n  }\n  @-webkit-keyframes chart2 {\n    100% {\n      height: 360px;\n    }\n  }\n<\/style>\n\n<svg id=\"diagram\" viewBox=\"0 0 290 472\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <g id=\"svg\" stroke=\"none\" stroke-width=\"1\" fill=\"#000000\" fill-rule=\"evenodd\">\n    \t<g id=\"left\">\n        \t<rect id=\"chart-bar-1\" class=\"animateThis go\" x=\"0\" y=\"283\" width=\"132\" height=\"107\" rx=\"3\" transform=\"scale(1,-1) translate(0,-676)\">\n            <\/rect>\n            <text>\n                <tspan x=\"19.68\" y=\"425\">Designer Editions<\/tspan>\n            <\/text>\n            <text font-weight=\"bold\">\n                <tspan x=\"47.384\" y=\"263\">£999<\/tspan>\n            <\/text>\n        <\/g>\n        <g id=\"right\" transform=\"translate(152,0)\">\n            <rect id=\"chart-bar-2\" class=\"animateThis go\" fill=\"#EEE6E2\" x=\"0\" y=\"33\" width=\"132\" height=\"360\" rx=\"3\" transform=\"scale(1,-1) translate(0,-426)\">\n            <\/rect>\n            <text>\n                <tspan x=\"29.464\" y=\"425\">Traditional<\/tspan>\n            <\/text>\n            <text font-weight=\"bold\">\n                <tspan x=\"36.56\" y=\"17\">£4,000*<\/tspan>\n            <\/text>\n        <\/g>\n        <text transform=\"translate(70,470)\" font-size=\"9\" fill=\"#64615F\">\n        \t<tspan>*The price for a F Hansen, Egg chair<\/tspan>\n        <\/text>\n    <\/g>\n<\/svg>\n      \n    <\/figure>"
+          "liquid": "<figure class=\"customdiagram tc\" style=\"\n    display: flex;\n    justify-content: center;\n\">\n      \n        \n        \n<style type=\"text\/css\">\n.customdiagram svg{\nwidth:300px;\nheight:500px;\nmargin:auto\n}\n  #chart-bar-1{\n    height: 0px;\n  }\n  #chart-bar-1.go{\n    animation: chart1 1s forwards;\n    -webkit-animation: chart1 1s forwards;\n  }\n  #chart-bar-2{\n    height: 0px;\n  }\n  #chart-bar-2.go{\n    animation: chart2 1s forwards;\n    -webkit-animation: chart2 1s forwards;\n  }\n  @keyframes chart1 {\n    100% {\n      height: 107px;\n    }\n  }\n  @keyframes chart2 {\n    100% {\n      height: 360px;\n    }\n  }\n  @-webkit-keyframes chart1 {\n    100% {\n      height: 107px;\n    }\n  }\n  @-webkit-keyframes chart2 {\n    100% {\n      height: 360px;\n    }\n  }\n<\/style>\n\n<svg id=\"diagram\" viewBox=\"0 0 290 472\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <g id=\"svg\" stroke=\"none\" stroke-width=\"1\" fill=\"#000000\" fill-rule=\"evenodd\">\n    \t<g id=\"left\">\n        \t<rect id=\"chart-bar-1\" class=\"animateThis go\" x=\"0\" y=\"283\" width=\"132\" height=\"107\" rx=\"3\" transform=\"scale(1,-1) translate(0,-676)\">\n            <\/rect>\n            <text>\n                <tspan x=\"65\" y=\"425\" text-anchor=\"middle\">{{shop.name}}<\/tspan>\n            <\/text>\n            <text font-weight=\"bold\">\n                <tspan x=\"47.384\" y=\"263\">£999<\/tspan>\n            <\/text>\n        <\/g>\n        <g id=\"right\" transform=\"translate(152,0)\">\n            <rect id=\"chart-bar-2\" class=\"animateThis go\" fill=\"#EEE6E2\" x=\"0\" y=\"33\" width=\"132\" height=\"360\" rx=\"3\" transform=\"scale(1,-1) translate(0,-426)\">\n            <\/rect>\n            <text>\n                <tspan x=\"65\" y=\"425\" text-anchor=\"middle\">{{ 'strings.homepage-chart.traditional' | t }}<\/tspan>\n            <\/text>\n            <text font-weight=\"bold\">\n                <tspan x=\"36.56\" y=\"17\">£4,000*<\/tspan>\n            <\/text>\n        <\/g>\n        <text text-anchor=\"middle\" transform=\"translate(150,470)\" font-size=\"9\" fill=\"#64615F\">\n        \t<tspan>{{ 'strings.homepage-chart.chart-label' | t }}<\/tspan>\n        <\/text>\n    <\/g>\n<\/svg>\n      \n    <\/figure>"
         }
       },
       "rev_Uk-Danish-Classics-for-Less-102021": {
@@ -1923,7 +1923,7 @@
           "1650785388ef09e39f-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Storage-01.jpg",
+              "image": "shopify:\/\/shop_images\/Most-Searched-Storage-01_17ff6bb3-872f-44b9-a162-0be1a81e2d26.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/storage",
               "heading": "Unique Storage -",
@@ -1976,7 +1976,7 @@
           "16507862046b175cc3-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Tables_42b110f7-6c28-45b5-9227-c4afd4ed1da9.jpg",
+              "image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/modern-coffee-table",
               "heading": "Classic Coffee Tables -",
@@ -1988,7 +1988,7 @@
           "16507862046b175cc3-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs.jpg",
+              "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs_f8662143-22f3-4100-ab52-ee2f3d7e3d5f.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/lounge-chair",
               "heading": "Lounge Lovers -",
@@ -2029,10 +2029,15 @@
           "heading": "Sofa & Lounge Chair Sale",
           "subHeading": "Now on UP TO 50%"
         }
+      },
+      "rev_uk-danish-classics": {
+        "type": "rev_uk-danish-classics",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_UK-Sofa--Lounge-Chair-Sale",
+      "rev_uk-danish-classics",
       "rev_This-Spring",
       "162159895992baa653",
       "16188954225e385108",
@@ -2047,7 +2052,6 @@
       "16195080989caa835d",
       "163541368248f9d2e8",
       "1635413768a1194b60",
-      "1650784908733d1159",
       "161890494913acaf20"
     ],
     "blocks": {
