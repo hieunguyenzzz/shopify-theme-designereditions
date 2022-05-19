@@ -224,9 +224,10 @@
   {% render 'countdown-timer-product'  class: '' %}
   
 </div>
-<div id="leading_time"   >
   {%- assign leading_time = current_variant.metafields.global.leading-time -%}
   {%- assign upsell_leading_time = current_variant.metafields.global.upsell-leading-time -%}
+<div id="leading_time" data-leading-time="{{leading_time}} / {{upsell_leading_time}}"   >
+
    {% if upsell_leading_time and leading_time ==  'Ships in 18-22 weeks' %}
   {% else %}
   <div class="lg:tw-bg-[#eef5f1] lg:tw-font-bold tw-text-center lg:tw-px-2 lg:tw-py-1 lg:tw-text-sm lg:tw-my-3 lg:tw-mb-2 lg:tw-text-left">{% if current_variant.metafields.global.leading-time %}
