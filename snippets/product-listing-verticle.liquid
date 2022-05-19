@@ -1,0 +1,47 @@
+{% assign variant = product.first_available_variant %}
+{% assign compare_at_price = variant.compare_at_price | floor %}
+{% assign price = variant.price | floor %}
+{% if price < compare_at_price %}
+  {% capture discount %}
+    {{ compare_at_price | minus:price | times:10.000 | divided_by: compare_at_price | round | append: '0'  }}%
+  {% endcapture %}
+{% endif %}
+{% assign image_size     = '360x504' %}
+{% assign featured_image            = product.featured_image %}
+<div class="tw-flex tw-gap-3">
+  <div class="tw-w-1/3 tw-relative">
+    
+
+    {% if product.featured_media %}
+      <a class="tw-block  tw-border tw-border-[#f1f1f1] tw-border-solid" href="{{ product.url }}" title="{{ product.title | escape }}">
+        <div {% if settings.image_flip and product.media.size > 1 %} class=" tw-group" {% endif %}>
+          {%- assign preview_image = product.featured_media.preview_image -%}
+          <div class="tw-relative ">
+            {% render "[image]", image: preview_image image_box_ratio:'100%' image_size:image_size %}
+          </div>
+         
+        </div>
+      </a>
+    {%- else -%}
+      {% capture current %}
+        {% cycle 1, 2, 3, 4, 5, 6 %}
+      {% endcapture %}
+      <div class="tw-w-full" style="padding-bottom:56.25%"></div>
+      <div class="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-flex tw-justify-center tw-items-center tw-p-6">
+        <img class="tw-w-full tw-h-full tw-object-contain" src="{{ 'holderimage.png' | asset_url }}"/>
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  <div class="product-details">
+    <a href="{{ product.url }}{% comment %}{{ product.url | within: collection }}{% endcomment %}" class="js-product-details-link tw-flex tw-flex-col tw-items-start">
+      <h3 class="tw-flex tw-uppercase">
+        <span class="tw-block">
+          {{ product.title }}
+        </span>
+      </h3>
+      {% render 'product-price-listing', product: product %}
+    </a>
+  </div>
+</div>

@@ -57,18 +57,18 @@
           const show = document.querySelector("#showExpress").checked
           if(show){
             let current =document.querySelector(`option[value="${optionSelectors.variantIdField.value}"]`)
-            console.log('current',current)
+           
             if(!current.dataset['in-stock']){
               let option1 = current.dataset['option-1']
               let option2 = current.dataset['option-2']
               current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
-              console.log('current',current)
+             
               if(!current){
                 current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
-                console.log('current',current)
+               
                 if(!current){
                 current =document.querySelector(`option[data-in-stock="true"]`)
-                console.log('current',current)
+               
                 }
               }
               
@@ -91,18 +91,18 @@
       }
       
       let current =document.querySelector(`option[value="${optionSelectors.variantIdField.value}"]`)
-      console.log('current',current)
+     
       if(!current.dataset['in-stock']){
         let option1 = current.dataset['option-1']
         let option2 = current.dataset['option-2']
         current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
-        console.log('current',current)
+       
         if(!current){
           current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
-          console.log('current',current)
+         
           if(!current){
            current =document.querySelector(`option[data-in-stock="true"]`)
-           console.log('current',current)
+          
           }
         }
         
