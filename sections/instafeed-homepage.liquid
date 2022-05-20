@@ -3,7 +3,7 @@
 {%- capture icon -%}
   {{localOrigin}}/instagram-image?postId=icon&username={{shop.metafields.instagram.username.value}}
 {%- endcapture -%}
-<h2 class="tw-text-center">{{'strings.general.shop_instagram' | t}}</h2>
+<h2 class="tw-text-center">{{ section.settings.heading }}</h2>
 <ul class="{% render '[class]-container' fluid:true %} tw-list-none" style="grid-template-columns: repeat(auto-fit, clamp(140px,33%,280px));display:grid;justify-content: center;gap:6px">
   {%- for item in feed -%}
     {% if item.handles.size > 0 %}
