@@ -4572,6 +4572,10 @@ html {
   width: 5px;
 }
 
+.tw-w-\[unset\] {
+  width: unset;
+}
+
 .tw-min-w-\[120px\] {
   min-width: 120px;
 }
@@ -5354,6 +5358,10 @@ html {
 
 .tw-font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.tw-font-body {
+  font-family: var(--main-family);
 }
 
 .tw-text-xs {
