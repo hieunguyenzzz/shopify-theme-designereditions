@@ -59,12 +59,10 @@
                       </svg>
                     </label>
                   {% endif %}
-
                 </div>
                 <div class="tw-space-y-3">
                   {% for handle in item.handles %}
                     {% assign product = all_products[handle] %}
-
                     {% render 'product-listing-verticle',  product: product %}
                   {% endfor %}
                 </div>

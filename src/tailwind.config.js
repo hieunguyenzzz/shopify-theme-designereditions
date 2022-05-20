@@ -30,7 +30,13 @@ module.exports = {
   ],
   daisyui: {
     themes: [
-      "light", // first one will be the default theme
+      {
+        light: {
+          ...require("daisyui/colors/themes")["[data-theme=light]"],
+          "--rounded-box": "0rem", // border radius rounded-box utility class, used in card and other large boxes
+          "--rounded-btn": "0rem", // border radius rounded-btn utility class, used in buttons and similar element
+        },
+      },
     ],
   },
 }

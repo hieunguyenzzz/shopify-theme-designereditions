@@ -454,8 +454,8 @@ html {
   --wa: 36 100% 50%;
   --er: 14 100% 57.1%;
   --border-color: var(--b3);
-  --rounded-box: 1rem;
-  --rounded-btn: 0.5rem;
+  --rounded-box: 0rem;
+  --rounded-btn: 0rem;
   --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
   --animation-input: .2s;
@@ -4252,6 +4252,10 @@ html {
   margin-left: -0.25rem;
 }
 
+.\!tw-mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
 .tw-mt-4 {
   margin-top: 1rem;
 }
@@ -4302,14 +4306,6 @@ html {
 
 .tw-mt-5 {
   margin-top: 1.25rem;
-}
-
-.\!tw-mb-2 {
-  margin-bottom: 0.5rem !important;
-}
-
-.\!tw-mb-1 {
-  margin-bottom: 0.25rem !important;
 }
 
 .tw-block {
@@ -5532,6 +5528,11 @@ html {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.tw-text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .tw-text-\[\#989b9e\] {
   --tw-text-opacity: 1;
   color: rgb(152 155 158 / var(--tw-text-opacity));
@@ -5557,21 +5558,12 @@ html {
   color: rgb(118 120 116 / var(--tw-text-opacity));
 }
 
-.tw-text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
 .tw-text-opacity-30 {
   --tw-text-opacity: 0.3;
 }
 
 .tw-text-opacity-70 {
   --tw-text-opacity: 0.7;
-}
-
-.tw-text-opacity-50 {
-  --tw-text-opacity: 0.5;
 }
 
 .tw-underline {
