@@ -171,7 +171,11 @@
                     <div>
 
                         <div class="section-title hidden-mobile ">
-                            <h1 class="!tw-text-[20px] tw-mt-4">{{ product.title }} </h1>
+                            <h1 class="!tw-text-[20px] tw-mt-4">{{ product.title }} 
+                              {% for options in current_variant.options %}	
+                                {{option}}
+                              {% endfor %}
+                          	</h1>
                             <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
                         </div>
                         <div class="hidden-mobile">
