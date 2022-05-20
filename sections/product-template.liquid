@@ -50,6 +50,9 @@
 <style id="display-option"></style>
 <div id="product-{{ product.id }}" class="product-page product-template prod-{{ section.id }}" data-section-type="product-section" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}">
     {% render 'product-json', product: product %}
+  <script class="variant-json" type="application/json">
+  	{{ current_variant | json}}
+  </script
     {% if collection.description contains '[banner]' and section.settings.show_banner %}
         <div class="collection-banner">
             {% render 'collection-banner-image', collection: collection %}
