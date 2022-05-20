@@ -4,8 +4,17 @@
         {{ current_variant.compare_at_price | minus:current_variant.price | times:10.000 | divided_by:current_variant.compare_at_price | round | append: '0' }}%
     {% endcapture %}
 {% endif %}
-
-
+{% capture title %}
+    {{ product.title }} 
+    {% for option in current_variant.options %}
+    {% assign handleValue = option | handle %}
+    {% assign valuestring = 'strings.product_options.' | append: handleValue | t %}
+    {% if valuestring contains 'translation missing' %}
+        {% assign valuestring = value %}
+    {% endif %}
+    {{valuestring}}
+{% endfor %}
+{% endcapture %}
 {% assign instructions = product.metafields.global %}
 {% assign key = 'inspired-by' %}
 {% assign selcted_variant = "" %}
@@ -171,11 +180,7 @@
                     <div>
 
                         <div class="section-title hidden-mobile ">
-                            <h1 class="!tw-text-[20px] tw-mt-4">{{ product.title }} 
-                              {% for options in current_variant.options %}	
-                                {{option}}
-                              {% endfor %}
-                          	</h1>
+                            <h1 id="product-title" class="!tw-text-[20px] tw-mt-4">{{ title }}</h1>
                             <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
                         </div>
                         <div class="hidden-mobile">
@@ -504,6 +509,8 @@
                             return div.firstChild; 
                         }
                         const newsection = createElementFromHTML(data)
+                        
+                        document.querySelector("#product-title").innerHTML=newsection.querySelector("#product-title").innerHTML 
                         document.querySelector("#product-labels").innerHTML=newsection.querySelector("#product-labels").innerHTML 
                         document.querySelector("#leading_time").innerHTML=newsection.querySelector("#leading_time").innerHTML 
                         document.querySelector("#product-price").innerHTML=newsection.querySelector("#product-price").innerHTML 
