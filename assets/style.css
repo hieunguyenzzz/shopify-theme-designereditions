@@ -4079,6 +4079,11 @@ html {
   position: relative !important;
 }
 
+.tw-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .tw-inset-0 {
   top: 0px;
   right: 0px;
@@ -4152,6 +4157,14 @@ html {
 
 .tw--right-8 {
   right: -2rem;
+}
+
+.tw-top-4 {
+  top: 1rem;
+}
+
+.tw-right-2 {
+  right: 0.5rem;
 }
 
 .tw-isolate {
@@ -6242,6 +6255,10 @@ html {
 
   .lg\:tw-h-\[440px\] {
     height: 440px;
+  }
+
+  .lg\:tw-h-auto {
+    height: auto;
   }
 
   .lg\:tw-max-h-\[600px\] {
