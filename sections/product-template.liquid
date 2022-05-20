@@ -61,7 +61,7 @@
         {% render 'breadcrumb' %}
         <div id="product-content" class="{% render '[class]-container' class: '' %} lg:tw-flex tw-gap-6 tw-relative">
             <div class="section-title hidden-desktop">
-                <h1>{{ product.title }}</h1>
+                <h1>{{ product.title }} {{current_variant.title}}</h1>
             </div>
             <div class="hidden-desktop" style="text-align:center;">
                 <p class="inspire-text ">
