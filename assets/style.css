@@ -4308,6 +4308,10 @@ html {
   margin-top: 1.25rem;
 }
 
+.tw-mt-2 {
+  margin-top: 0.5rem;
+}
+
 .tw-block {
   display: block;
 }
