@@ -1910,6 +1910,7 @@
       },
       "1650784908733d1159": {
         "type": "instafeed",
+        "disabled": true,
         "settings": {
           "heading_font": "sans-serif",
           "heading_size": 18,
@@ -2032,6 +2033,11 @@
       },
       "rev_uk-danish-classics": {
         "type": "rev_uk-danish-classics",
+        "settings": {
+        }
+      },
+      "instafeed-homepage": {
+        "type": "instafeed-homepage",
         "settings": {
         }
       }
