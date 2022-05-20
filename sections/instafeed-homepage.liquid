@@ -20,7 +20,7 @@
           </svg>
         </label>
         <input class="tw-modal-toggle" id="post-{{forloop.index}}" name="instagram" type="radio"/>
-        <label class="tw-modal tw-no-animation tw-transition-none tw-cursor-pointer tw-bg-opacity-70" for="post-none">
+        <label class="tw-modal tw-no-animation tw-transition-none tw-cursor-pointer tw-bg-opacity-70 tw-m-0" for="post-none">
           <label class="tw-modal-box tw-no-animation tw-transition-none tw-overflow-auto tw-p-0 relative tw-rounded-none tw-max-w-md lg:tw-max-w-5xl tw-max-h-[100%]   lg:tw-flex" for="">
             <div class="tw-aspect-square tw-will-change-scroll lg:tw-sticky tw-top-0">
               <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
@@ -31,8 +31,8 @@
                   <img src="{{icon}}" loading="lazy" class="lazyload-fade tw-rounded-full lazyautosizes lazyload" data-src="{{icon}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
                 </div>
                 <a class="tw-flex-1 tw-text-left" href="https://www.instagram.com/{{shop.metafields.instagram.username.value}}/" target="_blank">
-                  <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-m-0">{{shop.metafields.instagram.username.value}}</h3>
-                  <div class="tw-text-sm tw-leading-none">{{shop.metafields.instagram.username.value}}</div>
+                  <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-mb-1">{{shop.metafields.instagram.username.value}}</h3>
+                  <div class="tw-text-sm tw-leading-none tw-text-gray-500">{{shop.metafields.instagram.username.value}}</div>
                 </a>
                 <label class="tw-p-1 tw-absolute tw-top-2 tw-right-0 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-none">
                   <svg aria-label="Close" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewbox="0 0 24 24" width="16">

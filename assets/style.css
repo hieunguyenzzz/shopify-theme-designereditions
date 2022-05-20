@@ -4304,6 +4304,14 @@ html {
   margin-top: 1.25rem;
 }
 
+.\!tw-mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.\!tw-mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
 .tw-block {
   display: block;
 }
@@ -5549,12 +5557,21 @@ html {
   color: rgb(118 120 116 / var(--tw-text-opacity));
 }
 
+.tw-text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .tw-text-opacity-30 {
   --tw-text-opacity: 0.3;
 }
 
 .tw-text-opacity-70 {
   --tw-text-opacity: 0.7;
+}
+
+.tw-text-opacity-50 {
+  --tw-text-opacity: 0.5;
 }
 
 .tw-underline {
