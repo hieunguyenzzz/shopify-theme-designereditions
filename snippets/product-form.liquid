@@ -226,11 +226,11 @@
 </div>
  
 {% if current_variant.available %}
-    <div class="product-add">
+    <div style="margin-bottom:0!important" class="product-add">
         <input id="AddToCart" type="submit" name="button" class="add{% if section.settings.show_payment_button and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}" value="{{ 'products.product.add_to_cart' | t }}"/>
     </div>
 {% else %}
-    <div class="product-add">
+    <div style="margin-bottom:0!important" class="product-add">
         <input id="AddToCart" type="submit" name="button" class="add{% if section.settings.show_payment_button and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}" value="{{ 'products.product.sold_out' | t }}"/>
     </div>
 {% endif %}
@@ -254,7 +254,7 @@
     {% endif %}
  {%- assign leading_time = current_variant.metafields.global.leading-time -%}
   {%- assign upsell_leading_time = current_variant.metafields.global.upsell-leading-time -%}
-<div id="leading_time" data-leading-time="{{leading_time}} / {{upsell_leading_time}}" >
+<div style="margin-bottom:2rem!important" id="leading_time" data-leading-time="{{leading_time}} / {{upsell_leading_time}}" >
    {% if upsell_leading_time and leading_time ==  '#' %}
   {% else %}
   <div class="lg:tw-bg-[#eef5f1] lg:tw-font-bold tw-text-center lg:tw-px-2 lg:tw-py-1 lg:tw-text-sm  lg:tw-mb-2 lg:tw-text-left">
