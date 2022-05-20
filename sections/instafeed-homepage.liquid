@@ -83,3 +83,28 @@
   {%- endfor -%}
 </ul>
 <input class="tw-hidden" hidden id="post-none" name="instagram" type="radio"/>
+{%schema%}
+
+{
+  "name": "Instafeed App",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading",
+      "default": "Instagram shop"
+    }, {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "Custom Liquid (optional)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Instafeed",
+      "category": "Instagram"
+    }
+  ]
+}
+
+{%endschema%}
