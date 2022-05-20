@@ -70,7 +70,7 @@
         {% render 'breadcrumb' %}
         <div id="product-content" class="{% render '[class]-container' class: '' %} lg:tw-flex tw-gap-6 tw-relative">
             <div class="section-title hidden-desktop">
-                <h1>{{ product.title }}</h1>
+                <h1 id="product-title-mobile">{{ title }}</h1>
             </div>
             <div class="hidden-desktop" style="text-align:center;">
                 <p class="inspire-text ">
@@ -511,6 +511,7 @@
                         const newsection = createElementFromHTML(data)
                         
                         document.querySelector("#product-title").innerHTML=newsection.querySelector("#product-title").innerHTML 
+                        document.querySelector("#product-title-mobile").innerHTML=newsection.querySelector("#product-title-mobile").innerHTML 
                         document.querySelector("#product-labels").innerHTML=newsection.querySelector("#product-labels").innerHTML 
                         document.querySelector("#leading_time").innerHTML=newsection.querySelector("#leading_time").innerHTML 
                         document.querySelector("#product-price").innerHTML=newsection.querySelector("#product-price").innerHTML 
