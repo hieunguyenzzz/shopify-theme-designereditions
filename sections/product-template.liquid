@@ -61,7 +61,7 @@
         {% render 'breadcrumb' %}
         <div id="product-content" class="{% render '[class]-container' class: '' %} lg:tw-flex tw-gap-6 tw-relative">
             <div class="section-title hidden-desktop">
-                <h1>{{ product.title }} - {{current_variant.title}}</h1>
+                <h1>{{ product.title }}</h1>
             </div>
             <div class="hidden-desktop" style="text-align:center;">
                 <p class="inspire-text ">
@@ -171,7 +171,7 @@
                     <div>
 
                         <div class="section-title hidden-mobile ">
-                            <h1 class="!tw-text-[20px] tw-mt-4">{{ product.title }}</h1>
+                            <h1 class="!tw-text-[20px] tw-mt-4">{{ product.title }} {{current_variant.title}}</h1>
                             <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
                         </div>
                         <div class="hidden-mobile">
