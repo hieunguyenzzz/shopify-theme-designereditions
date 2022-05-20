@@ -6170,6 +6170,10 @@ html {
     position: static;
   }
 
+  .lg\:tw-absolute {
+    position: absolute;
+  }
+
   .lg\:tw-relative {
     position: relative;
   }
