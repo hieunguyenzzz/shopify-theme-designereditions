@@ -6376,6 +6376,10 @@ html {
     gap: 3rem;
   }
 
+  .lg\:tw-overflow-auto {
+    overflow: auto;
+  }
+
   .lg\:tw-rounded-none {
     border-radius: 0px;
   }

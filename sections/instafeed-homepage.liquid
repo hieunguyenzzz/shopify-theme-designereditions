@@ -25,49 +25,55 @@
             <div class="tw-aspect-square tw-will-change-scroll lg:tw-sticky tw-top-0">
               <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
             </div>
-            <div class=" tw-p-3 tw-space-y-3 lg:tw-w-[33%] lg:tw-min-w-[400px]">
-              <div class="tw-flex tw-gap-3 tw-items-center tw-relative tw-pr-12">
-                <div class="tw-aspect-square tw-w-12 tw-will-change-scroll lg:tw-sticky tw-top-0">
-                  <img src="{{icon}}" loading="lazy" class="lazyload-fade tw-rounded-full lazyautosizes lazyload" data-src="{{icon}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+            <div class="tw-relative  lg:tw-w-[33%] lg:tw-min-w-[400px]">
+              <div class="flex tw-h-full tw-flex-col tw-space-y-3">
+                <div class="tw-flex tw-gap-3 tw-items-center tw-relative tw-pr-12">
+                  <div class="tw-aspect-square tw-w-12 tw-will-change-scroll lg:tw-sticky tw-top-0">
+                    <img src="{{icon}}" loading="lazy" class="lazyload-fade tw-rounded-full lazyautosizes lazyload" data-src="{{icon}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+                  </div>
+                  <a class="tw-flex-1 tw-text-left" href="https://www.instagram.com/{{shop.metafields.instagram.username.value}}/" target="_blank">
+                    <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-mb-1">{{shop.metafields.instagram.username.value}}</h3>
+                    <div class="tw-text-sm tw-leading-none tw-text-gray-500">{{shop.metafields.instagram.username.value}}</div>
+                  </a>
+                  <label class="tw-p-1 tw-absolute tw-top-2 tw-right-0 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-none">
+                    <svg aria-label="Close" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewbox="0 0 24 24" width="16">
+                      <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="3" y2="21"></line>
+                      <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="21" y2="3"></line>
+                    </svg>
+                  </label>
                 </div>
-                <a class="tw-flex-1 tw-text-left" href="https://www.instagram.com/{{shop.metafields.instagram.username.value}}/" target="_blank">
-                  <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-mb-1">{{shop.metafields.instagram.username.value}}</h3>
-                  <div class="tw-text-sm tw-leading-none tw-text-gray-500">{{shop.metafields.instagram.username.value}}</div>
-                </a>
-                <label class="tw-p-1 tw-absolute tw-top-2 tw-right-0 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-none">
-                  <svg aria-label="Close" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewbox="0 0 24 24" width="16">
-                    <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="3" y2="21"></line>
-                    <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="21" y2="3"></line>
-                  </svg>
-                </label>
+                <div class="tw-border-b tw-w-full"></div>
+                <div class="flex-1  tw-relative">
+                  <div class="tw-absolute tw-inset-0 tw-w-full tw-h-full lg:tw-overflow-auto tw-space-y-3">
+                    <div class="tw-flex tw-justify-between tw-w-full">
+                      {% if forloop.index > 1 %}
+                        <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | minus: 1}}">
+                          <svg height="1em" viewbox="0 0 100 100" width="1em">
+                            <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z"></path>
+                          </svg>
+                        </label>
+                      {% endif %}
+                      <div class="tw-flex-1"></div>
+                      {% if forloop.index < feed.size %}
+                        <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
+                          <svg height="1em" viewbox="0 0 100 100" width="1em">
+                            <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
+                          </svg>
+                        </label>
+                      {% endif %}
+                    </div>
+                    <div class="tw-space-y-3">
+                      {% for handle in item.handles %}
+                        {% assign product = all_products[handle] %}
+                        {% render 'product-listing-verticle',  product: product %}
+                      {% endfor %}
+                    </div>
+                    <p class="tw-py-3 tw-whitespace-pre-line">{{item.caption}}</p>
+                  </div>
+                  
+                </div>
               </div>
-              <div class="tw-border-b tw-w-full"></div>
-              <div class="tw-space-y-3">
-                <div class="tw-flex tw-justify-between tw-w-full">
-                  {% if forloop.index > 1 %}
-                    <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | minus: 1}}">
-                      <svg height="1em" viewbox="0 0 100 100" width="1em">
-                        <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z"></path>
-                      </svg>
-                    </label>
-                  {% endif %}
-                  <div class="tw-flex-1"></div>
-                  {% if forloop.index < feed.size %}
-                    <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
-                      <svg height="1em" viewbox="0 0 100 100" width="1em">
-                        <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
-                      </svg>
-                    </label>
-                  {% endif %}
-                </div>
-                <div class="tw-space-y-3">
-                  {% for handle in item.handles %}
-                    {% assign product = all_products[handle] %}
-                    {% render 'product-listing-verticle',  product: product %}
-                  {% endfor %}
-                </div>
-                <p class="tw-py-3 tw-whitespace-pre-line">{{item.caption}}</p>
-              </div>
+              
 
             </div>
 
