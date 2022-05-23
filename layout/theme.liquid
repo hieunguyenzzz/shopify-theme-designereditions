@@ -121,7 +121,9 @@
 {% include 'wiser' %}
 {% include 'wiser_popup' %}
   {% render 'shogun-head' %}
-{% include 'add_header_assets' %}</head>
+{% include 'add_header_assets' %}
+                        {% include 'otRegion' %}            
+                        </head>
 
     <body class="gridlock shifter-left {{ template | handleize }} js-slideout-toggle-wrapper ">
       {% comment %} 
