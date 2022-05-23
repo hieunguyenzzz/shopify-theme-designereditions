@@ -6,7 +6,7 @@
 {% assign description-image-2 = instructions.description-image-2 %}
 {% assign heading-2 = instructions.heading-2 %}
 {% assign short-description-2 = instructions.short-description-2 %}
-{% assign side-image= instructions.dimension-photo %}
+{% assign side-image= instructions.dimension-photo | replace: 'https://res.cloudinary.com/dfgbpib38/image/upload/e_trim', 'https://res.cloudinary.com/dfgbpib38/image/upload/fl_lossy,f_auto,e_trim'  %}
 {% assign product-information = instructions.product-information  %}
 {% assign inspired-by  = shop.name  %}
 {% if instructions.inspired-of %}
