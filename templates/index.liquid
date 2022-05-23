@@ -1,12 +1,13 @@
 <div class="index-sections">
-  {% for collection in collections %}
-  	{{collection.tittle}}
-  {% endfor %}
+ 
   <div class="margins">
   {{ content_for_index }}
   {% section 'instafeed-homepage' %}
   </div>
 </div>
+ {% for collection in collections %}
+  	{{collection.tittle}}
+  {% endfor %}
 <style>
 	  @media screen and (max-width: 768px)
     {   
