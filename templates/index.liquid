@@ -6,7 +6,9 @@
   </div>
 </div>
  {% for collection in collections %}
+	{% if collection.title == blank %}
   	{{ collection.title }}
+	{% endif %}
  {% endfor %}
 <style>
 	  @media screen and (max-width: 768px)
