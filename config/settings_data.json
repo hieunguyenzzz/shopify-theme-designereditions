@@ -2034,9 +2034,15 @@
         "type": "rev_uk-danish-classics",
         "settings": {
         }
+      },
+      "rev_Designer-Editions": {
+        "type": "rev_Designer-Editions",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_Designer-Editions",
       "rev_This-Spring",
       "162159895992baa653",
       "16188954225e385108",
