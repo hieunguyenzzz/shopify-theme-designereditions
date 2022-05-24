@@ -12,7 +12,7 @@
   },
   "general": {
     "404": {
-      "title": "Ups, no pudimos encontrar ese",
+      "title": "Ups, no pudimos encontrar esa página",
       "subtext": "Esta página no existe. Intente buscar lo que le gustaría encontrar:"
     },
     "pagination": {
@@ -20,24 +20,24 @@
       "of": "de"
     },
     "forms": {
-      "post_error": "Lo siento, parece que algo salió mal. Corrija lo siguiente y envíe nuevamente:"
+      "post_error": "Lo sentimos, parece que algo salió mal. Corrija lo siguiente y envíe nuevamente:"
     },
     "breadcrumbs": {
-      "home": "Casa"
+      "home": "Home"
     },
     "newsletter_form": {
       "newsletter_email": "Únete a nuestra lista de correos",
-      "thanks": "Gracias por unirte",
+      "thanks": "Gracias por unirse",
       "popup_thanks": "Gracias por unirse, aquí está su código de cupón:",
       "email_placeholder": "Dirección de correo electrónico",
-      "confirmation": "¡Gracias por unirte!",
-      "submit": "Entrar"
+      "confirmation": "¡Gracias por unirse!",
+      "submit": "Unirse"
     },
     "search": {
-      "no_results_html": "Tu búsqueda de \"{{ terms }}\"No arrojó ningún resultado.",
-      "results_for_html": "Tu búsqueda de \"{{ terms }}\"Reveló lo siguiente:",
+      "no_results_html": "Tu búsqueda de \"{{ terms }}\" No devolvió ningún resultado.",
+      "results_for_html": "Tu búsqueda de \"{{ terms }}\" Devolvió lo siguiente:",
       "title": "Búsqueda",
-      "placeholder": "Busca la tienda entera aquí...",
+      "placeholder": "Busca en la tienda entera aquí...",
       "submit": "Búsqueda"
     },
     "currency": {
