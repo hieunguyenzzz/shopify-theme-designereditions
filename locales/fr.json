@@ -1687,6 +1687,11 @@
     },
     "instagram": {
       "title": "Instagram \/ galerie de clients"
+    },
+    "promo": {
+      "up_to": "Jusqu'à 50% de réduction",
+      "express": "Exprimer",
+      "delivery": "Livraison"
     }
   },
   "templates": {
