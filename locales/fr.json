@@ -23,7 +23,7 @@
       "post_error": "Désolé, on dirait que quelque chose s'est mal passé. Veuillez corriger ce qui suit et soumettre à nouveau:"
     },
     "breadcrumbs": {
-      "home": "Domicile"
+      "home": "Home"
     },
     "newsletter_form": {
       "newsletter_email": "Joignez-vous à notre liste d'envoi",
@@ -34,10 +34,10 @@
       "submit": "Rejoindre"
     },
     "search": {
-      "no_results_html": "Votre recherche \"{{ terms }}\"n'a donné aucun résultat.",
-      "results_for_html": "Votre recherche \"{{ terms }}\"Revalué ce qui suit:",
+      "no_results_html": "Votre recherche \"{{ terms }}\" n'a donné aucun résultat.",
+      "results_for_html": "Votre recherche \"{{ terms }}\" Revalué ce qui suit:",
       "title": "Recherche",
-      "placeholder": "Parcourez le magasin entier ici...",
+      "placeholder": "Parcourez dans le magasin entier ici...",
       "submit": "Recherche"
     },
     "currency": {
