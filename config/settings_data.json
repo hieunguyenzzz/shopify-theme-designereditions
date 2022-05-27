@@ -638,8 +638,8 @@
           "1547243350204"
         ],
         "settings": {
-          "page_size": "full_page",
-          "sidebar_positon": "left"
+          "page_size": "thin",
+          "sidebar_positon": "none"
         }
       },
       "scrolling-announcements": {
@@ -2038,6 +2038,10 @@
       "rev_Designer-Editions": {
         "type": "rev_Designer-Editions",
         "settings": {
+          "heading": "Quality Design For All",
+          "up_to": "Up to",
+          "percent_off": "% OFF",
+          "bottom_text": "Select Lines"
         }
       }
     },
