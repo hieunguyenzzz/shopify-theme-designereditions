@@ -2043,6 +2043,16 @@
           "percent_off": "% OFF",
           "bottom_text": "Select Lines"
         }
+      },
+      "product-instagram": {
+        "type": "product-instagram",
+        "settings": {
+          "heading": "",
+          "fullwidth": false,
+          "maxrows": 2,
+          "maxitems": 4,
+          "gap": 1
+        }
       }
     },
     "content_for_index": [
