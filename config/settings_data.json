@@ -2049,7 +2049,7 @@
         "settings": {
           "heading": "",
           "fullwidth": false,
-          "maxrows": 1,
+          "maxrows": 2,
           "maxitems": 4,
           "gap": 1
         }
