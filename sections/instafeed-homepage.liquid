@@ -3,86 +3,116 @@
 {%- capture icon -%}
   {{localOrigin}}/instagram-image?postId=icon&username={{shop.metafields.instagram.username.value}}
 {%- endcapture -%}
-<h2 class="tw-text-center">{{'strings.general.shop_instagram' | t}}</h2>
-<ul class="{% render '[class]-container' fluid:true %} tw-list-none" style="grid-template-columns: repeat(auto-fit, clamp(140px,33%,280px));display:grid;justify-content: center;gap:6px">
-  {%- for item in feed -%}
-  	{% if forloop.index <= 8 %}
-  		{% if item.handles.size > 0 %}
-      {%- capture imageUrl -%}
-        {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
-      {%- endcapture -%}
-      <li class="tw-group tw-relative">
-        <a target="_blank" href="{{item.permalink}}" class="">
-          <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
-        </a>
-        <label class="tw-absolute tw-cursor-pointer tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center tw-text-xl" for="post-{{forloop.index}}">
-          <svg fill="currentColor" height="1em" stroke-width="0" stroke="currentColor" viewbox="0 0 448 512" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-          </svg>
-        </label>
-        <input class="tw-modal-toggle" id="post-{{forloop.index}}" name="instagram" type="radio"/>
-        <label class="tw-modal tw-no-animation tw-transition-none tw-cursor-pointer tw-bg-opacity-70 tw-m-0" for="post-none">
-          <label class="tw-modal-box tw-no-animation tw-transition-none tw-overflow-auto tw-p-0 relative tw-rounded-none tw-max-w-md lg:tw-max-w-5xl tw-max-h-[100%]   lg:tw-flex" for="">
-            <div class="tw-aspect-square tw-will-change-scroll lg:tw-sticky tw-top-0">
-              <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
-            </div>
-            <div class=" tw-p-3 tw-space-y-3 lg:tw-w-[33%] lg:tw-min-w-[400px]">
-              <div class="tw-flex tw-gap-3 tw-items-center tw-relative tw-pr-12">
-                <div class="tw-aspect-square tw-w-12 tw-will-change-scroll lg:tw-sticky tw-top-0">
-                  <img src="{{icon}}" loading="lazy" class="lazyload-fade tw-rounded-full lazyautosizes lazyload" data-src="{{icon}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
-                </div>
-                <a class="tw-flex-1 tw-text-left" href="https://www.instagram.com/{{shop.metafields.instagram.username.value}}/" target="_blank">
-                  <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-mb-1">{{shop.metafields.instagram.username.value}}</h3>
-                  <div class="tw-text-sm tw-leading-none tw-text-gray-500">{{shop.metafields.instagram.username.value}}</div>
-                </a>
-                <label class="tw-p-1 tw-absolute tw-top-2 tw-right-0 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-none">
-                  <svg aria-label="Close" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewbox="0 0 24 24" width="16">
-                    <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="3" y2="21"></line>
-                    <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="21" y2="3"></line>
-                  </svg>
-                </label>
-              </div>
-              <div class="tw-border-b tw-w-full"></div>
-              <div class="tw-space-y-3">
-                <div class="tw-flex tw-justify-between tw-w-full">
-                  {% if forloop.index > 1 %}
-                    <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | minus: 1}}">
-                      <svg height="1em" viewbox="0 0 100 100" width="1em">
-                        <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z"></path>
+<h2 class="tw-text-center">{{ section.settings.heading}}</h2>
+{% case feed.size %}
+                    {% when 1 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid" role="list">
+                    {% when 2 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
+                    {% when 3 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid lg:tw-grid-cols-3" role="list">
+                    {% when 4 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
+                    {% else %}
+                        <ul class="tw-carousel tw-carousel-center tw-gap-3 tw-w-full lg:tw-grid lg:tw-grid-cols-4 {% render '[class]-container'  class: '' %}" role="list">
+                {% endcase %}
+                {%- for item in feed -%}
+                    {% if forloop.index <= 8 %}
+                    {%- capture imageUrl -%}
+                    {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
+                  {%- endcapture -%}
+                  <li class=" tw-group tw-relative tw-carousel-item">
+                    <a target="_blank" href="{{item.permalink}}" class="tw-w-[40vw] lg:tw-w-[unset]">
+                      <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+                    </a>
+                    <label class="tw-absolute tw-cursor-pointer tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center tw-text-xl" for="post-{{forloop.index}}">
+                      <svg fill="currentColor" height="1em" stroke-width="0" stroke="currentColor" viewbox="0 0 448 512" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
                       </svg>
                     </label>
-                  {% endif %}
-                  <div class="tw-flex-1"></div>
-                  {% if forloop.index < feed.size %}
-                    <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
-                      <svg height="1em" viewbox="0 0 100 100" width="1em">
-                        <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
-                      </svg>
+                    <input class="tw-modal-toggle" id="post-{{forloop.index}}" name="instagram" type="radio"/>
+                    <label class="tw-modal tw-no-animation tw-transition-none tw-cursor-pointer tw-bg-opacity-70 tw-m-0" for="post-none">
+                      <label class="tw-modal-box tw-no-animation tw-transition-none tw-overflow-auto tw-p-0 relative tw-rounded-none tw-max-w-md lg:tw-max-w-5xl tw-max-h-[100%]   lg:tw-flex" for="">
+                        <div class="tw-aspect-square tw-will-change-scroll lg:tw-sticky tw-top-0">
+                          <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+                        </div>
+                        <div class=" tw-p-3 tw-space-y-3 lg:tw-w-[33%] lg:tw-min-w-[400px]">
+                          <div class="tw-flex tw-gap-3 tw-items-center tw-relative tw-pr-12">
+                            <div class="tw-aspect-square tw-w-12 tw-will-change-scroll lg:tw-sticky tw-top-0">
+                              <img src="{{icon}}" loading="lazy" class="lazyload-fade tw-rounded-full lazyautosizes lazyload" data-src="{{icon}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
+                            </div>
+                            <a class="tw-flex-1 tw-text-left" href="https://www.instagram.com/{{shop.metafields.instagram.username.value}}/" target="_blank">
+                              <h3 class="tw-text-lg !tw-text-left tw-font-bold tw-leading-none !tw-mb-1">{{shop.metafields.instagram.username.value}}</h3>
+                              <div class="tw-text-sm tw-leading-none tw-text-gray-500">{{shop.metafields.instagram.username.value}}</div>
+                            </a>
+                            <label class="tw-p-1 tw-absolute tw-top-2 tw-right-0 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-none">
+                              <svg aria-label="Close" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewbox="0 0 24 24" width="16">
+                                <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="3" y2="21"></line>
+                                <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" x1="21" x2="3" y1="21" y2="3"></line>
+                              </svg>
+                            </label>
+                          </div>
+                          <div class="tw-border-b tw-w-full"></div>
+                          <div class="tw-space-y-3">
+                            <div class="tw-flex tw-justify-between tw-w-full">
+                              {% if forloop.index > 1 %}
+                                <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | minus: 1}}">
+                                  <svg height="1em" viewbox="0 0 100 100" width="1em">
+                                    <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z"></path>
+                                  </svg>
+                                </label>
+                              {% endif %}
+                              <div class="tw-flex-1"></div>
+                              {% if forloop.index < feed.size %}
+                                <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
+                                  <svg height="1em" viewbox="0 0 100 100" width="1em">
+                                    <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
+                                  </svg>
+                                </label>
+                              {% endif %}
+            
+                            </div>
+                            <div class="tw-space-y-3">
+                              {% for handle in item.handles %}
+                                {% assign product = all_products[handle] %}
+            
+                                {% render 'product-listing-verticle',  product: product %}
+                              {% endfor %}
+                            </div>
+                            <p class="tw-py-3 tw-whitespace-pre-line">{{item.caption}}</p>
+                          </div>
+            
+                        </div>
+            
+            
+                      </label>
+            
                     </label>
-                  {% endif %}
+                  </li>
+                    {% endif %}
+                      
+                {%- endfor -%}
+                </ul>
 
-                </div>
-                <div class="tw-space-y-3">
-                  {% for handle in item.handles %}
-                    {% assign product = all_products[handle] %}
+<input class="tw-hidden " hidden id="post-none" name="instagram" type="radio"/>
+{%schema%}
 
-                    {% render 'product-listing-verticle',  product: product %}
-                  {% endfor %}
-                </div>
-                <p class="tw-py-3 tw-whitespace-pre-line">{{item.caption}}</p>
-              </div>
+{
+  "name": "Instafeed App",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading",
+      "default": "Instagram shop"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instafeed App",
+      "category": "Instagram Feed"
+    }
+  ]
+}
 
-            </div>
-
-
-          </label>
-
-        </label>
-      </li>
-    {% endif %}
-  	{% endif %}
-    
-
-  {%- endfor -%}
-</ul>
-<input class="tw-hidden" hidden id="post-none" name="instagram" type="radio"/>
+{%endschema%}

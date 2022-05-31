@@ -510,9 +510,17 @@ html {
   .tw-container {
     max-width: 640px;
   }
+
+  .tw-container {
+    max-width: 640px;
+  }
 }
 
 @media (min-width: 768px) {
+  .tw-container {
+    max-width: 768px;
+  }
+
   .tw-container {
     max-width: 768px;
   }
@@ -538,6 +546,10 @@ html {
   .tw-container {
     max-width: 1024px;
   }
+
+  .tw-container {
+    max-width: 1024px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -552,9 +564,17 @@ html {
   .tw-container {
     max-width: 1280px;
   }
+
+  .tw-container {
+    max-width: 1280px;
+  }
 }
 
 @media (min-width: 1536px) {
+  .tw-container {
+    max-width: 1536px;
+  }
+
   .tw-container {
     max-width: 1536px;
   }
@@ -762,6 +782,21 @@ html {
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.tw-carousel-item {
+  box-sizing: content-box;
+  display: flex;
+  flex: none;
+  scroll-snap-align: start;
+}
+
+.tw-carousel-center .tw-carousel-item {
+  scroll-snap-align: center;
+}
+
+.tw-carousel-end .tw-carousel-item {
+  scroll-snap-align: end;
 }
 
 .tw-checkbox:focus {
@@ -4654,6 +4689,10 @@ html {
   width: 5px;
 }
 
+.tw-w-\[40vw\] {
+  width: 40vw;
+}
+
 .tw-min-w-\[120px\] {
   min-width: 120px;
 }
@@ -4895,6 +4934,10 @@ html {
 
 .tw-gap-px {
   gap: 1px;
+}
+
+.tw-gap-10 {
+  gap: 2.5rem;
 }
 
 .tw-gap-x-\[2\%\] {
@@ -6331,6 +6374,10 @@ html {
     display: flex;
   }
 
+  .lg\:tw-grid {
+    display: grid;
+  }
+
   .lg\:tw-hidden {
     display: none;
   }
@@ -6389,6 +6436,14 @@ html {
 
   .lg\:tw-w-\[54px\] {
     width: 54px;
+  }
+
+  .lg\:tw-w-\[20vw\] {
+    width: 20vw;
+  }
+
+  .lg\:tw-w-\[unset\] {
+    width: unset;
   }
 
   .lg\:tw-min-w-\[400px\] {
