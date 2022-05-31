@@ -12,33 +12,82 @@
 				{% else %}
 				{{ 'strings.instagram.title' | t }}
 			{% endif %}
-      
+        
     </h2>
   </div>
-  <div class="tw-w-full tw-grid-cols-2
-            {% case section.settings.gap %}
-    						{%- when 1 -%}
-    							tw-gap-3
-    						{%- when 2 -%}
-    							tw-gap-6
-    						{%- when 3 -%}
-                	tw-gap-9
-                {%- when 4 -%}
-                	tw-gap-12
-            {% endcase %}
-              {% case section.settings.maxitems %}
-                  {%- when 3 -%}
-                     md:tw-grid-cols-3
-                  {%- when 4 -%}
-                     lg:tw-grid-cols-4
-                    {%- when 5 -%}
-                     lg:tw-grid-cols-5
-                    {%- when 6 -%}
-                     lg:tw-grid-cols-6
-              {% endcase %} tw-grid" id="instagram-recomedations">
+<scrolling-carousel class="tw-w-full tw-relative">
+  <ul class="tw-carousel tw-carousel-center tw-gap-[1vw] tw-w-full " id="instagram-recomedations">
     <img class="lazyload-fade lazyautosizes lazyload" data-src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7" height="2px" onload="loadInstagramRecomedations()" width="2px"/>
-  </div>
+  </ul>
+  <scrolling-arrow-left hidden>
+    <button class="tw-absolute tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-transform tw-rotate-180 tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-left-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+        <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline  points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
+    </button>
+  </scrolling-arrow-left>
+  <scrolling-arrow-right hidden>
+    <button class="tw-absolute tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-right-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+        <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
+    </button>
+  </scrolling-arrow-right>
+  </scrolling-carousel>
 </div>
+
+<script>
+
+class ScrollingCarousel extends HTMLElement {
+    constructor() {
+        super();
+        this.timer = null
+        
+        const handleIntersection = (entries, observer) => {
+            if (!entries[0].isIntersecting) 
+                return;
+            
+            observer.unobserve(this);
+            this.start()
+        }
+        new IntersectionObserver(handleIntersection.bind(this), {
+            rootMargin: '0px 0px 500px 0px'
+        }).observe(this);
+    }
+    start  ()  {
+        const timer = this.timer
+        const sroller = this.querySelector('ul')
+        const arrowLeft = this.querySelector('scrolling-arrow-left')
+        const arrowRight = this.querySelector('scrolling-arrow-right')
+        arrowRight.addEventListener('click', () => {
+            sroller.scrollLeft = sroller.scrollLeft + sroller.clientWidth
+        })
+        arrowLeft.addEventListener('click', () => {
+            sroller.scrollLeft = sroller.scrollLeft - sroller.clientWidth
+        })
+
+        const valid = () => {
+            if (sroller.scrollLeft === 0) {
+                arrowLeft.setAttribute('hidden', true)
+            } else {
+                arrowLeft.removeAttribute('hidden')
+            }
+            if (sroller.scrollLeft + sroller.clientWidth === sroller.scrollWidth) {
+                arrowRight.setAttribute('hidden', true)
+            } else {
+                arrowRight.removeAttribute('hidden')
+            }
+        }
+        sroller.addEventListener('scroll', () => {
+            if (timer !== null) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(valid, 150);
+        }, false);
+
+        valid()
+
+    }
+}
+customElements.define('scrolling-carousel', ScrollingCarousel);
+
+</script>
 <script>
       function loadInstagramRecomedations(){
         const allfeed = {{ shop.metafields.instagram[shop.metafields.instagram.username.value].value | json }};
@@ -54,12 +103,12 @@
                     return
                 }
                 let imageUrl =`${localOrigin}/instagram-image?postId=${postObj.id}&username=${postObj.username}`
-                str=str+`<a target="_blank" href="${postObj.permalink}" class="keen-slider__slide tw-group">
+                str=str+`<li class="tw-group tw-relative tw-carousel-item"><a target="_blank" href="${postObj.permalink}" class="tw-w-[40vw] md:tw-w-[30vw] lg:tw-w-[23vw]">
                     <img src="${imageUrl}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="${imageUrl}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
                     <div class="tw-pointer-events-none tw-absolute tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center">
                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
                     </div>
-                </a>`;
+                </a></li>`;
                 show = true;
             }
         });
@@ -68,6 +117,9 @@
             document.getElementById('instagram-recomedations-title').style.display = 'block';
         }
         document.querySelector('#instagram-recomedations' ).innerHTML=str;
+        const instagramslider = document.querySelector('scrolling-carousel');
+        console.log({instagramslider});
+        instagramslider.start()
     };
 </script>
 
