@@ -3,16 +3,26 @@
 {%- capture icon -%}
   {{localOrigin}}/instagram-image?postId=icon&username={{shop.metafields.instagram.username.value}}
 {%- endcapture -%}
-<h2 class="tw-text-center">{{'strings.general.shop_instagram' | t}}</h2>
-<ul class="{% render '[class]-container' fluid:true %} tw-list-none" style="grid-template-columns: repeat(auto-fit, clamp(140px,33%,280px));display:grid;justify-content: center;gap:6px">
-  {%- for item in feed -%}
-  	{% if forloop.index <= 8 %}
-  		{% if item.handles.size > 0 %}
-      {%- capture imageUrl -%}
+<h2 class="tw-text-center">{{ section.settings.heading}}</h2>
+{% case feed.size %}
+                    {% when 1 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid" role="list">
+                    {% when 2 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
+                    {% when 3 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid lg:tw-grid-cols-3" role="list">
+                    {% when 4 %}
+                        <ul class="tw-container tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
+                    {% else %}
+                        <ul class="tw-carousel tw-carousel-center tw-gap-3 tw-w-full {% render '[class]-container'  class: '' %}" role="list">
+                {% endcase %}
+                {%- for item in feed -%}
+                    
+                        {%- capture imageUrl -%}
         {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
       {%- endcapture -%}
-      <li class="tw-group tw-relative">
-        <a target="_blank" href="{{item.permalink}}" class="">
+      <li class=" tw-group tw-relative tw-carousel-item">
+        <a target="_blank" href="{{item.permalink}}" class="tw-w-[40vw] lg:tw-w-[20vw]">
           <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
         </a>
         <label class="tw-absolute tw-cursor-pointer tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center tw-text-xl" for="post-{{forloop.index}}">
@@ -79,10 +89,28 @@
 
         </label>
       </li>
-    {% endif %}
-  	{% endif %}
-    
+                {%- endfor -%}
+                </ul>
 
-  {%- endfor -%}
-</ul>
-<input class="tw-hidden" hidden id="post-none" name="instagram" type="radio"/>
+<input class="tw-hidden " hidden id="post-none" name="instagram" type="radio"/>
+{%schema%}
+
+{
+  "name": "Instafeed App",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading",
+      "default": "Instagram shop"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instafeed App",
+      "category": "Instagram Feed"
+    }
+  ]
+}
+
+{%endschema%}
