@@ -6,7 +6,8 @@
 <h2 class="tw-text-center">{{'strings.general.shop_instagram' | t}}</h2>
 <ul class="{% render '[class]-container' fluid:true %} tw-list-none" style="grid-template-columns: repeat(auto-fit, clamp(140px,33%,280px));display:grid;justify-content: center;gap:6px">
   {%- for item in feed -%}
-    {% if item.handles.size > 0 %}
+  	{% if forloop.index <= 8 %}
+  		{% if item.handles.size > 0 %}
       {%- capture imageUrl -%}
         {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
       {%- endcapture -%}
@@ -79,6 +80,8 @@
         </label>
       </li>
     {% endif %}
+  	{% endif %}
+    
 
   {%- endfor -%}
 </ul>
