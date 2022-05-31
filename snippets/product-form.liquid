@@ -61,17 +61,18 @@
             if(!current.dataset['in-stock']){
               let option1 = current.dataset['option-1']
               let option2 = current.dataset['option-2']
-              current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
-             
+              let option3 = current.dataset['option-3']
+              console.log({current,option1,option2,option3})
+              current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"][data-option-3="${option3}"]`)
+              if(!current){
+                current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
+              }
               if(!current){
                 current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
-               
-                if(!current){
-                current =document.querySelector(`option[data-in-stock="true"]`)
-               
-                }
               }
-              
+              if(!current){
+                  current =document.querySelector(`option[data-in-stock="true"]`)
+                }
             }
             variantId = current.value
             if(String(variantId)!==String(optionSelectors.variantIdField.value)){
@@ -93,20 +94,21 @@
       let current =document.querySelector(`option[value="${optionSelectors.variantIdField.value}"]`)
      
       if(!current.dataset['in-stock']){
-        let option1 = current.dataset['option-1']
-        let option2 = current.dataset['option-2']
-        current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
-       
-        if(!current){
-          current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
-         
-          if(!current){
-           current =document.querySelector(`option[data-in-stock="true"]`)
-          
-          }
-        }
-        
-      }
+              let option1 = current.dataset['option-1']
+              let option2 = current.dataset['option-2']
+              let option3 = current.dataset['option-3']
+              console.log({current,option1,option2,option3})
+              current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"][data-option-3="${option3}"]`)
+              if(!current){
+                current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"][data-option-2="${option2}"]`)
+              }
+              if(!current){
+                current =document.querySelector(`option[data-in-stock="true"][data-option-1="${option1}"]`)
+              }
+              if(!current){
+                  current =document.querySelector(`option[data-in-stock="true"]`)
+                }
+            }
       variantId = current.value
       if(String(variantId)!==String(optionSelectors.variantIdField.value)){
         console.log('variantId',variantId)
