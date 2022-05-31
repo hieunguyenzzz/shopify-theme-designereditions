@@ -13,7 +13,7 @@
         <div class="gridlock-fluid">
             <div class="row">
             {% endif %}
-            <article class="row" id="promo-images">
+            <article class="row tw-relative" id="promo-images">
                 {% assign is_odd = false %}
                 {% if section.blocks.size == 1 or section.blocks.size == 3 or section.blocks.size == 5 or section.blocks.size == 7 %}
                     {% assign is_odd = true %}
@@ -34,7 +34,7 @@
                         {% when '100%' %}
                             {%- assign image_width = 'desktop-12 tablet-6' -%}
                     {% endcase %}
-                    <div class="tw-relative pimg homepage-promo {{ image_width }} {% if is_odd and forloop.first %}mobile-3{% else %}mobile-half{% endif %} promo-{{ block.id }}" {{ block.shopify_attributes }}>
+                    <div class="md:tw-relative pimg homepage-promo {{ image_width }} {% if is_odd and forloop.first %}mobile-3{% else %}mobile-half{% endif %} promo-{{ block.id }}" {{ block.shopify_attributes }}>
                         {% if block.settings.link != blank and block.settings.button == blank %}
                             <a href="{{ block.settings.link }}">
                             {% endif %}
