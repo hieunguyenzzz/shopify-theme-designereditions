@@ -4565,6 +4565,10 @@ html {
   height: 4rem;
 }
 
+.tw-h-8 {
+  height: 2rem;
+}
+
 .tw-max-h-\[100\%\] {
   max-height: 100%;
 }
@@ -4707,6 +4711,10 @@ html {
 
 .tw-w-16 {
   width: 4rem;
+}
+
+.tw-w-8 {
+  width: 2rem;
 }
 
 .tw-min-w-\[120px\] {

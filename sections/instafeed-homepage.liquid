@@ -16,10 +16,10 @@
                     {% when 4 %}
                         <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
                     {% else %}
-                        <ul class="tw-carousel tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
+                        <ul class="tw-carousel tw-px-6 tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
                 {% endcase %}
                 {%- for item in feed -%}
-                    {% if forloop.index <= 8 %}
+                    {% if forloop.index <= 16%}
                     {%- capture imageUrl -%}
                     {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
                   {%- endcapture -%}
@@ -65,7 +65,7 @@
                                 </label>
                               {% endif %}
                               <div class="tw-flex-1"></div>
-                              {% if forloop.index < feed.size and forloop.index < 8 %}
+                              {% if forloop.index < feed.size and forloop.index < 16%}
                                 <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
                                   <svg height="1em" viewbox="0 0 100 100" width="1em">
                                     <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
@@ -98,12 +98,12 @@
 
 <input class="tw-hidden " hidden id="post-none" name="instagram" type="radio"/>
 <scrolling-arrow-left hidden>
-  <button class="tw-absolute tw-text-gray-500 tw-flex tw-items-center tw-justify-center tw-w-16 tw-h-16 tw-text-4xl tw-transform tw-rotate-180 tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-left-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+  <button class="tw-absolute tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-transform tw-rotate-180 tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-left-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
       <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline  points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
   </button>
 </scrolling-arrow-left>
 <scrolling-arrow-right hidden>
-  <button class="tw-absolute tw-text-gray-500 tw-flex tw-items-center tw-justify-center tw-w-16 tw-h-16 tw-text-4xl tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-right-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+  <button class="tw-absolute tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-right-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
       <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
   </button>
 </scrolling-arrow-right>
