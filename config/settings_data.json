@@ -1910,6 +1910,7 @@
       },
       "1650784908733d1159": {
         "type": "instafeed",
+        "disabled": true,
         "settings": {
           "heading_font": "sans-serif",
           "heading_size": 18,
@@ -2056,6 +2057,16 @@
       },
       "rev_platinum-jubilee-bank-holiday-1": {
         "type": "rev_platinum-jubilee-bank-holiday-1",
+        "settings": {
+          "heading": "All Year Round",
+          "subheading": "Live In Style",
+          "up_to": "Up to",
+          "percent_off": "% OFF",
+          "bottom_text": "Select Lines"
+        }
+      },
+      "instafeed-homepage": {
+        "type": "instafeed-homepage",
         "settings": {
         }
       }
