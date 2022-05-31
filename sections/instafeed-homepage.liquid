@@ -63,7 +63,7 @@
                                 </label>
                               {% endif %}
                               <div class="tw-flex-1"></div>
-                              {% if forloop.index < feed.size %}
+                              {% if forloop.index < feed.size and forloop.index < 8 %}
                                 <label class="tw-p-1 tw-btn tw-btn-square tw-btn-sm tw-text-2xl tw-btn-ghost" for="post-{{forloop.index | plus:1}}">
                                   <svg height="1em" viewbox="0 0 100 100" width="1em">
                                     <path class="arrow" d="M 10,50 L 50,90 L 55,90 L 15,50  L 55,10 L 50,10 Z" transform="translate(100, 100) rotate(180) "></path>
