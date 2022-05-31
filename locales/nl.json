@@ -674,6 +674,11 @@
     },
     "instagram": {
       "title": "Instagram \/ klantgalerij"
+    },
+    "promo": {
+      "up_to": "Tot 50% korting",
+      "express": "Nadrukkelijk",
+      "delivery": "Levering"
     }
   },
   "templates": {

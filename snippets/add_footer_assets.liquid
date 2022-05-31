@@ -1,4 +1,3 @@
-
 {% assign page_sliders = '' | split: ',' %}{% assign article_sliders = '' | split: ',' %}{% assign collection_sliders = '' | split: ',' %}{% assign embeded_sliders = '' | split: ',' %}{% if request.path contains '/pages/' %}
 
 {% capture current_page_slug %}{{ request.path | replace: '/pages/', '' }}{% endcapture %}
@@ -113,25 +112,23 @@
     {% endfor %}
 
 
-<script type="text/javascript">
-
-    document.addEventListener("DOMContentLoaded", function(event) {
-        if (typeof jQuery == 'undefined') {
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
             if (typeof jQuery == 'undefined') {
-                var page_selector = document.querySelector(".rev_slider_logo");
-                var home_selector = document.querySelector("rs-module-wrap");
+                if (typeof jQuery == 'undefined') {
+                    var page_selector = document.querySelector(".rev_slider_logo");
+                    var home_selector = document.querySelector("rs-module-wrap");
 
-                if(home_selector != null){
-                    home_selector.innerHTML = '<img src="{{asset_url_rev}}jquery-missing.jpg">';
-                    home_selector.style.visibility = "visible";
-                }
+                    if(home_selector != null){
+                        home_selector.innerHTML = '<img src="{{asset_url_rev}}jquery-missing.jpg">';
+                        home_selector.style.visibility = "visible";
+                    }
 
-                if(page_selector != null){
-                    page_selector.src = "{{asset_url_rev}}jquery-missing.jpg";
-                    page_selector.style.display = "block";
+                    if(page_selector != null){
+                        page_selector.src = "{{asset_url_rev}}jquery-missing.jpg";
+                        page_selector.style.display = "block";
+                    }
                 }
             }
-        }
-    });
-
-</script>
+        });
+    </script>

@@ -18,7 +18,7 @@
 }
   // Set the date we're counting down to
   var date = new Date("{% render 'countdown-timer-string' %}")
-  var countDownDate = addHours(date,7).getTime();
+  var countDownDate = addHours(date,6).getTime();
   var now = new Date().getTime();
   var distance = countDownDate - now;
   if(distance>0){

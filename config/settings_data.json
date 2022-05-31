@@ -127,7 +127,7 @@
     "checkout_logo_position": "center",
     "checkout_logo_size": "small",
     "checkout_body_background_image": "",
-    "checkout_body_background_color": "#ffffff",
+    "checkout_body_background_color": "#eef6f1",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#f7f7f7",
@@ -638,8 +638,8 @@
           "1547243350204"
         ],
         "settings": {
-          "page_size": "full_page",
-          "sidebar_positon": "left"
+          "page_size": "thin",
+          "sidebar_positon": "none"
         }
       },
       "scrolling-announcements": {
@@ -1976,7 +1976,7 @@
           "16507862046b175cc3-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1.jpg",
+              "image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1_720x_copy_1.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/modern-coffee-table",
               "heading": "Classic Coffee Tables -",
@@ -2034,10 +2034,34 @@
         "type": "rev_uk-danish-classics",
         "settings": {
         }
+      },
+      "rev_Designer-Editions": {
+        "type": "rev_Designer-Editions",
+        "settings": {
+          "heading": "Platinum Jubilee Bank Holiday",
+          "up_to": "Up to",
+          "percent_off": "% OFF",
+          "bottom_text": "Select Lines"
+        }
+      },
+      "product-instagram": {
+        "type": "product-instagram",
+        "settings": {
+          "heading": "",
+          "fullwidth": false,
+          "maxrows": 2,
+          "maxitems": 4,
+          "gap": 1
+        }
+      },
+      "rev_platinum-jubilee-bank-holiday-1": {
+        "type": "rev_platinum-jubilee-bank-holiday-1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_uk-danish-classics",
+      "rev_platinum-jubilee-bank-holiday-1",
       "rev_This-Spring",
       "162159895992baa653",
       "16188954225e385108",

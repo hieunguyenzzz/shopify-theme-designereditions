@@ -1867,6 +1867,11 @@
     },
     "instagram": {
       "title": "Instagram \/ kundgalleri"
+    },
+    "promo": {
+      "up_to": "Upp till 50% rabatt",
+      "express": "uttrycka",
+      "delivery": "Leverans"
     }
   },
   "templates": {

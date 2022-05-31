@@ -5,7 +5,7 @@
     {% endcapture %}
 {% endif %}
 {% capture title %}
-    {{ product.title }} 
+    {{ product.title }} - 
     {% for option in current_variant.options %}
     {% assign handleValue = option | handle %}
     {% assign valuestring = 'strings.product_options.' | append: handleValue | t %}
