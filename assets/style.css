@@ -6374,6 +6374,10 @@ html {
     display: flex;
   }
 
+  .lg\:tw-grid {
+    display: grid;
+  }
+
   .lg\:tw-hidden {
     display: none;
   }
@@ -6436,6 +6440,10 @@ html {
 
   .lg\:tw-w-\[20vw\] {
     width: 20vw;
+  }
+
+  .lg\:tw-w-\[unset\] {
+    width: unset;
   }
 
   .lg\:tw-min-w-\[400px\] {
