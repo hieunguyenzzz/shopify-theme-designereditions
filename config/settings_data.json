@@ -2053,9 +2053,15 @@
           "maxitems": 4,
           "gap": 1
         }
+      },
+      "rev_platinum-jubilee-bank-holiday-1": {
+        "type": "rev_platinum-jubilee-bank-holiday-1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_platinum-jubilee-bank-holiday-1",
       "rev_Designer-Editions",
       "rev_This-Spring",
       "162159895992baa653",
