@@ -8,15 +8,15 @@
   
 {% case feed.size %}
                     {% when 1 %}
-                        <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid" role="list">
+                        <ul class="{% render '[class]-container'%} tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid" role="list">
                     {% when 2 %}
-                        <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
+                        <ul class="{% render '[class]-container'%} tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
                     {% when 3 %}
-                        <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid lg:tw-grid-cols-3" role="list">
+                        <ul class="{% render '[class]-container'%} tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid lg:tw-grid-cols-3" role="list">
                     {% when 4 %}
-                        <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
+                        <ul class="{% render '[class]-container'%} tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
                     {% else %}
-                        <ul class="tw-carousel tw-px-6 tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
+                        <ul class="{% render '[class]-container'%} tw-carousel tw-px-6 tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
                 {% endcase %}
                 {%- for item in feed -%}
                     {% if forloop.index <= 16%}
