@@ -23,7 +23,7 @@
                     {%- capture imageUrl -%}
                     {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
                   {%- endcapture -%}
-                  <li class="tw-group tw-relative tw-carousel-item">
+                  <li class="tw-group tw-relative tw-carousel-item" style="scroll-snap-align:start">
                     <a target="_blank" style="max-width:calc((1200px - 3vw) / 4)" href="{{item.permalink}}" class="tw-w-[40vw] md:tw-w-[30vw] lg:tw-w-[23vw]">
                       <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
                     </a>
