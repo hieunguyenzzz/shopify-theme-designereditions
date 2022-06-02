@@ -16,7 +16,7 @@
                     {% when 4 %}
                         <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
                     {% else %} 
-                        <ul class="tw-carousel tw-px-6 tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
+                        <ul class="tw-carousel tw-carousel-center tw-gap-[1vw] tw-w-full" role="list">
                 {% endcase %}
                 {%- for item in feed -%}
                     {% if forloop.index <= 16%}
