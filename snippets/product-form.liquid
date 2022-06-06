@@ -260,18 +260,24 @@
    {% if upsell_leading_time and leading_time ==  '#' %}
   {% else %}
   <div class="lg:tw-bg-[#eef5f1] tw-justify-center lg:tw-justify-start tw-gap-3 tw-items-start lg:tw-font-bold tw-text-center lg:tw-px-2 lg:tw-py-1 lg:tw-text-sm  lg:tw-mb-2 lg:tw-text-left tw-flex">
-    <div>{% if leading_time %}
-    {{leading_time}}
-  {% else %}
-      Ships in 18-22 weeks
-  {% endif %}</div>
-    <div class="tw-dropdown tw-dropdown-hover tw-dropdown-end">
+    {% if leading_time %}
+    <div>{{leading_time}}</div> <div class="tw-dropdown tw-dropdown-hover tw-dropdown-end">
       <label tabindex="0" class="!tw-m-0 tw-h-[1.6em] tw-flex tw-items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="tw-stroke-current tw-h-4 tw-w-4 tw-flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></label>
       <div tabindex="0" class="!tw--right-5 tw-text-center tw-shadow-lg tw-border tw-border-solid tw-border-gray-500 tw-dropdown-content tw-p-3 tw-bg-base-100 tw-rounded-md tw-w-52">
         <svg class="tw-fill-gray-500 tw-text-sm tw-absolute tw--top-[8px] tw-right-6 tw-scale-x-150" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 512 512"><polygon points="256 32 20 464 492 464 256 32"></polygon></svg>
         {{section.settings.leading_time_description}}
       </div>
     </div>
+  {% else %}
+      <div>Ships in 18-22 weeks</div> <div class="tw-dropdown tw-dropdown-hover tw-dropdown-end">
+      <label tabindex="0" class="!tw-m-0 tw-h-[1.6em] tw-flex tw-items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="tw-stroke-current tw-h-4 tw-w-4 tw-flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></label>
+      <div tabindex="0" class="!tw--right-5 tw-text-center tw-shadow-lg tw-border tw-border-solid tw-border-gray-500 tw-dropdown-content tw-p-3 tw-bg-base-100 tw-rounded-md tw-w-52">
+        <svg class="tw-fill-gray-500 tw-text-sm tw-absolute tw--top-[8px] tw-right-6 tw-scale-x-150" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 512 512"><polygon points="256 32 20 464 492 464 256 32"></polygon></svg>
+        {{section.settings.leading_time_description}}
+      </div>
+    </div>
+  {% endif %}
+   
   </div>
   {% endif %}
   {% if upsell_leading_time and upsell_leading_time != '#' %}
