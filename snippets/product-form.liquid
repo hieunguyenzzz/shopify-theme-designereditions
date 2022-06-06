@@ -134,15 +134,15 @@
                 {% capture data-inventory-quantity %}
                     data-inventory-quantity="{{variant.inventory_quantity}}"
                 {% endcapture %}
-                {% capture data-in-stock %}
-                {% if variant.inventory_quantity > 0 %}
+                {%- capture data-in-stock -%}
+                {%- if variant.inventory_quantity > 0 -%}
                   data-in-stock="true"
-                  {% else %}
+                  {%- else -%}
                   data-in-stock="false"
-                {% endif %}
+                {%- endif -%}
                    
                     data-in-available="{{variant.available }}"
-                {% endcapture %}
+                {%- endcapture -%}
                 <option value="{{ variant.id }}" data-available="{{product.available}}" {% if variant == current_variant %} selected="selected" {% endif %} {{data_options}} {{data-inventory-quantity}} {{data-in-stock}}>
                     {{ variant.title }}
                     -
