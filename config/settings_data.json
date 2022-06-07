@@ -2070,10 +2070,15 @@
         "type": "rev_Designer-Editions1",
         "settings": {
         }
+      },
+      "rev_spring-bank-holiday-sale-1": {
+        "type": "rev_spring-bank-holiday-sale-1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_Designer-Editions1",
+      "rev_spring-bank-holiday-sale-1",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
