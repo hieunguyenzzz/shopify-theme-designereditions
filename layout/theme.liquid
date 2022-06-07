@@ -124,7 +124,10 @@
 
                         {% include 'otRegion' %} 
       <meta name="facebook-domain-verification" content="bf89nu0z5c0kzpfhictd92hhl43b64" />
-                        {% include 'add_header_assets' %}</head>
+                        {% include 'add_header_assets' %}
+  {{ 'algolia_config.js' | asset_url | script_tag }}
+  
+  </head>
 
     <body class="gridlock shifter-left {{ template | handleize }} js-slideout-toggle-wrapper ">
       {% comment %} 
