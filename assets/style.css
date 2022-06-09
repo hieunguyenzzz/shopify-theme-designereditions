@@ -4902,10 +4902,6 @@ html {
   gap: 2rem;
 }
 
-.tw-gap-9 {
-  gap: 2.25rem;
-}
-
 .tw-gap-2 {
   gap: 0.5rem;
 }
@@ -4983,6 +4979,11 @@ html {
 
 .tw-overflow-y-auto {
   overflow-y: auto;
+}
+
+.tw-overscroll-contain {
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
 }
 
 .tw-truncate {
@@ -5369,6 +5370,11 @@ html {
   padding-right: 2rem;
 }
 
+.tw-px-\[20px\] {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .tw-pt-3 {
   padding-top: 0.75rem;
 }
@@ -5447,6 +5453,10 @@ html {
 
 .tw-pb-\[100\%\] {
   padding-bottom: 100%;
+}
+
+.tw-pr-6 {
+  padding-right: 1.5rem;
 }
 
 .tw-text-left {
@@ -6472,10 +6482,6 @@ html {
 
   .lg\:tw-grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .lg\:tw-grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:tw-flex-row {
