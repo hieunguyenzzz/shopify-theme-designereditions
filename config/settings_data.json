@@ -2058,21 +2058,27 @@
       "rev_platinum-jubilee-bank-holiday-1": {
         "type": "rev_platinum-jubilee-bank-holiday-1",
         "settings": {
-          "heading": "All Year Round",
-          "subheading": "Live In Style",
-          "up_to": "Up to",
-          "percent_off": "% OFF",
-          "bottom_text": "Select Lines"
         }
       },
       "instafeed-homepage": {
         "type": "instafeed-homepage",
         "settings": {
+          "heading": "Shop Instagram - Less than humble about your abode?"
+        }
+      },
+      "rev_Designer-Editions1": {
+        "type": "rev_Designer-Editions1",
+        "settings": {
+        }
+      },
+      "rev_spring-bank-holiday-sale-1": {
+        "type": "rev_spring-bank-holiday-sale-1",
+        "settings": {
         }
       }
     },
     "content_for_index": [
-      "rev_platinum-jubilee-bank-holiday-1",
+      "rev_spring-bank-holiday-sale-1",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",

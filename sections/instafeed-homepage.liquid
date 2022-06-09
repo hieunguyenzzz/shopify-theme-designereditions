@@ -4,27 +4,27 @@
   {{localOrigin}}/instagram-image?postId=icon&username={{shop.metafields.instagram.username.value}}
 {%- endcapture -%}
 <h2 class="tw-text-center">{{ section.settings.heading}}</h2>
-<scrolling-carousel class="tw-w-full tw-relative">
+<scrolling-carousel class="tw-w-full tw-block {% render '[class]-container'%} tw-relative ">
   
 {% case feed.size %}
                     {% when 1 %}
                         <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid" role="list">
                     {% when 2 %}
-                        <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
+                        <ul class=" tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2" role="list">
                     {% when 3 %}
                         <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid lg:tw-grid-cols-3" role="list">
                     {% when 4 %}
                         <ul class="tw-w-full tw-gap-3 tw-mx-auto tw-tw-grid md:tw-grid-cols-2 lg:grid-cols-4" role="list">
-                    {% else %}
-                        <ul class="tw-carousel tw-px-6 tw-carousel-center tw-gap-[1vw] tw-w-full lg:tw-px-[2.5vw] " role="list">
+                    {% else %} 
+                        <ul class="tw-carousel tw-carousel-center tw-gap-[1vw] tw-w-full" role="list">
                 {% endcase %}
                 {%- for item in feed -%}
                     {% if forloop.index <= 16%}
                     {%- capture imageUrl -%}
                     {{localOrigin}}/instagram-image?postId={{item.id}}&username={{item.username}}
                   {%- endcapture -%}
-                  <li class="tw-group tw-relative tw-carousel-item">
-                    <a target="_blank" href="{{item.permalink}}" class="tw-w-[40vw] md:tw-w-[30vw] lg:tw-w-[23vw]">
+                  <li class="tw-group tw-relative tw-carousel-item" style="scroll-snap-align:start">
+                    <a target="_blank" style="max-width:calc((1200px - 3vw) / 4)" href="{{item.permalink}}" class="tw-w-[40vw] md:tw-w-[30vw] lg:tw-w-[23vw]">
                       <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
                     </a>
                     <label class="tw-absolute tw-cursor-pointer tw-inset-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-700 tw-text-white tw-flex tw-justify-center tw-items-center tw-text-xl lg:tw-text-3xl" for="post-{{forloop.index}}">
@@ -34,7 +34,7 @@
                     </label>
                     <input class="tw-modal-toggle" id="post-{{forloop.index}}" name="instagram" type="radio"/>
                     <label class="tw-modal tw-no-animation tw-transition-none tw-cursor-pointer tw-bg-opacity-70 tw-m-0" for="post-none">
-                      <label class="tw-modal-box tw-no-animation tw-transition-none tw-overflow-auto tw-p-0 relative tw-rounded-none tw-max-w-md lg:tw-max-w-5xl tw-max-h-[100%]   lg:tw-flex" for="">
+                      <label style="max-height:600px" class="tw-modal-box tw-no-animation tw-transition-none tw-overflow-auto tw-p-0 relative tw-rounded-none tw-max-w-md lg:tw-max-w-5xl tw-max-h-[100%]   lg:tw-flex" for="">
                         <div class="tw-aspect-square tw-will-change-scroll lg:tw-sticky tw-top-0">
                           <img src="{{imageUrl}}" loading="lazy" class="lazyload-fade lazyautosizes lazyload" data-src="{{imageUrl}}" data-sizes="auto" width="400" height="400" alt="{{shop.name}}"/>
                         </div>
@@ -97,14 +97,19 @@
                 </ul>
 
 <input class="tw-hidden " hidden id="post-none" name="instagram" type="radio"/>
-<scrolling-arrow-left hidden>
-  <button class="tw-absolute tw-hidden lg:tw-flex tw-text-gray-500 !tw-m-0  tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-transform tw-rotate-180 tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-left-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
-      <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline  points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
+                          <style>
+                          scrolling-arrow-left,scrolling-arrow-right{
+                            display:block
+                          }s
+                          </style>
+<scrolling-arrow-left hidden >
+  <button class="tw-absolute   tw-text-gray-500 !tw-m-0  tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-transform tw-rotate-180 tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-left-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+      <svg class="tw-m-auto" width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline  points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
   </button>
 </scrolling-arrow-left>
-<scrolling-arrow-right hidden>
-  <button class="tw-absolute tw-hidden lg:tw-flex tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-right-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
-      <svg width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
+<scrolling-arrow-right hidden >
+  <button class="tw-absolute  tw-text-gray-500 !tw-m-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-8 tw-text-2xl tw-translate-y-1/2 tw-rounded-full tw-pointer-events-auto tw-bottom-1/2 tw-right-6 tw-bg-base-100 tw-bg-opacity-60 hover:tw-bg-opacity-100 hover:tw-shadow">
+      <svg class="tw-m-auto" width="1em" height="1em" fill="none" stroke-width="0.03em" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.14 14.74"><g ><polyline points="0.74 14.07 6.79 7.41 0.74 0.67"/></g></svg>
   </button>
 </scrolling-arrow-right>
 </scrolling-carousel>

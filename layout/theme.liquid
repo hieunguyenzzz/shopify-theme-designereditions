@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js">
 
-    <head><meta content="R8yd7Y_lyaqnX0CW7OMyPM5pxpuLKiiQTNx9x2qdYcU" name="google-site-verification"/>
+    <head>
+      
+      <meta name="msvalidate.01" content="7DE985A286B3855C135FDEF3A1991B88" />
+      <meta content="R8yd7Y_lyaqnX0CW7OMyPM5pxpuLKiiQTNx9x2qdYcU" name="google-site-verification"/>
+    
     <meta name="google-site-verification" content="B5gWPJYz-I0Jz1TqWYtYUDOk_bM1iiMIpcDQzE8yZDw" />
     {% render 'pagefly-head' %}<meta content="SSbXQhBz3svbld1NEBYPzxgATU15UVLF9MZYkbe5Ox4" name="google-site-verification"/>
     <meta charset="utf-8"/>
@@ -25,6 +29,9 @@
           gtag('config', 'G-DX6ESQQVQ0');
         </script>
       {% endcomment %}
+      
+      
+      <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"52004776"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
       
       <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -124,7 +131,12 @@
 
                         {% include 'otRegion' %} 
       <meta name="facebook-domain-verification" content="bf89nu0z5c0kzpfhictd92hhl43b64" />
-                        {% include 'add_header_assets' %}</head>
+                        {% include 'add_header_assets' %}
+  {{ 'algolia_config.js' | asset_url | script_tag }}
+  
+  
+  <meta name="msvalidate.01" content="7DE985A286B3855C135FDEF3A1991B88" />
+  </head>
 
     <body class="gridlock shifter-left {{ template | handleize }} js-slideout-toggle-wrapper ">
       {% comment %} 
