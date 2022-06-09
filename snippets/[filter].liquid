@@ -447,7 +447,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
         stepPercent
       });
     }
-    console.log({sliderWidth, stepLen, handleOffset})
     return steps;
   }
 
@@ -557,7 +556,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
         }
       }
     }
-    console.log({newX, handlePosition ,steps})
     return steps[indexOfClosest];
   }
 
@@ -590,11 +588,11 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     event.preventDefault();
     if (!dragging) return;
     const handleOffset = getHandleOffset();
-    const clientX = event.clientX || event.touches[0].clientX;
+    const clientX = (event.clientX || event.touches[0].clientX) ;
     window.requestAnimationFrame(() => {
       if (!dragging) return;
-      const mouseX = clientX - slider.offsetLeft;
       const handlePosition = currentHandle.dataset.handlePosition ;
+      const mouseX = clientX - slider.offsetLeft - ( handlePosition === "start"?handleOffset:2 * handleOffset) ;
       let newX = Math.max(
         handleOffset,
         Math.min(mouseX, slider.offsetWidth )
@@ -678,7 +676,7 @@ const settings = {
   end: Number(document.querySelector("[data-max-value]").dataset.maxValue),
   values:{
     start: Number(document.querySelector("[name='filter.v.price.gte']").value),
-    end: Number(document.querySelector("[name='filter.v.price.lte']").value || document.querySelector("[data-max-value]").dataset.maxValue),
+    end: Number(document.querySelector("[name='filter.v.price.lte']").value),
   },
   increment: 1
 };
