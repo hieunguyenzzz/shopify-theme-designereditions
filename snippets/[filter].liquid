@@ -678,7 +678,7 @@ const settings = {
   end: Number(document.querySelector("[data-max-value]").dataset.maxValue),
   values:{
     start: Number(document.querySelector("[name='filter.v.price.gte']").value),
-    end: Number(document.querySelector("[name='filter.v.price.lte']").value),
+    end: Number(document.querySelector("[name='filter.v.price.lte']").value || document.querySelector("[data-max-value]").dataset.maxValue),
   },
   increment: 1
 };
