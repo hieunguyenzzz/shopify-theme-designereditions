@@ -11,7 +11,7 @@
     {{'strings.general.sale_ends_in' | t}}:
     <span id="{{id}}">00:00:00</span>
 </div>
-
+<div class="test_data">{{settings.countdown_date  | default: shop.metafields.global.countdown_timer}}</div>
 
 <script>
     // Set the date we're counting down to
@@ -22,7 +22,6 @@
   // Set the date we're counting down to
   var date = new Date("{% render 'countdown-timer-string' %}")
   var countDownDate = addHours(date,6).getTime();
-console.log(date);
     // Update the count down every 1 second
     var x = setInterval(function () { // Get today's date and time
         var now = new Date().getTime();
