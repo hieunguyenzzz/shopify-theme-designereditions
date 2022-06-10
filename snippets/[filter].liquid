@@ -592,7 +592,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     window.requestAnimationFrame(() => {
       if (!dragging) return;
       const handlePosition = currentHandle.dataset.handlePosition ;
-      const mouseX = clientX - 2*slider.offsetLeft - ( handlePosition === "start"?2*handleOffset:4 * handleOffset) ;
+      const mouseX = clientX - slider.offsetLeft - ( handlePosition === "start"?10+handleOffset:10+2 * handleOffset) ;
       let newX = Math.max(
         handleOffset,
         Math.min(mouseX, slider.offsetWidth )
