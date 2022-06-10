@@ -306,14 +306,14 @@
                                         </div>
                                     </div>
                                     <div class="tw-collapse-content">
-                                        <div class="tw-flex tw-space-x-3 tw-py-3 tw-pr-6">
+                                        <div class="tw-flex tw-space-x-3 tw-py-3 tw-pr-3">
                                             <div class="tw-flex tw-items-baseline tw-flex-1 tw-space-x-3 filter-group-display__price-range-from">
                                                 <label  class="tw-text-xs" for="Filter-{{ filter.min_value.param_name }}">{{'strings.general.from' | t}}: {{localization.country.currency.symbol}}</label>
-                                                <input  class="tw-flex-1 tw-input-disabled tw-w-0 tw-input tw-input-bordered tw-input-sm" name="{{ filter.min_value.param_name }}" id="Filter-{{ filter.min_value.param_name }}" {% if filter.min_value.value -%} value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} placeholder="0" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                                                <input  class="tw-flex-1 tw-w-0 tw-input tw-input-bordered tw-input-sm" name="{{ filter.min_value.param_name }}" id="Filter-{{ filter.min_value.param_name }}" {% if filter.min_value.value -%} value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} placeholder="0" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
                                             </div>
                                             <div class="tw-flex tw-capitalize tw-items-baseline tw-flex-1 tw-space-x-3 filter-group-display__price-range-to">
                                                 <label class="tw-text-xs" for="Filter-{{ filter.max_value.param_name }}">{{'strings.general.to' | t}}: {{localization.country.currency.symbol}}</label>
-                                                <input  class="tw-flex-1 tw-input-disabled tw-w-0 tw-input tw-input-bordered tw-input-sm" name="{{ filter.max_value.param_name }}" id="Filter-{{ filter.max_value.param_name }}" {% if filter.max_value.value -%} value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                                                <input  class="tw-flex-1  tw-w-0 tw-input tw-input-bordered tw-input-sm" name="{{ filter.max_value.param_name }}" id="Filter-{{ filter.max_value.param_name }}" {% if filter.max_value.value -%} value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
                                             </div>
                                         </div>
                                         <div class="tw-px-4">
