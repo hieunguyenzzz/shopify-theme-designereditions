@@ -593,10 +593,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       if (!dragging) return;
       const handlePosition = currentHandle.dataset.handlePosition ;
       const mouseX = clientX - slider.offsetLeft - ( handlePosition === "start"?handleOffset:2 * handleOffset) ;
-      let newX = Math.max(
-        handleOffset,
-        Math.min(mouseX, slider.offsetWidth )
-      );
+      let newX = mouseX;
       const currentStep = getClosestStep(newX, handlePosition);
       values[handlePosition] = currentStep.value;
       render();
