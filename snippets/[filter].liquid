@@ -43,7 +43,7 @@
   margin-bottom: 0.3em;
 }
 .multi-range__track {
-  height: 10px;
+  height: 2px;
   width: 100%;
   background: transparent;
   position: absolute;
@@ -70,18 +70,18 @@
   transform: translateX(10px);
 }
 .multi-range__handle {
-
-  background: #343434;
-  position: absolute;
-  top: 50%;
-  cursor: -webkit-grab;
-  cursor: grab;
-  height: 20px;
-  width: 20px;
-  transform: translateY(-50%) translateX(10px);
-  border : 1px solid white;
-  touch-action: none;
-  
+    background: #343434;
+    position: absolute;
+    top: 50%;
+    cursor: -webkit-grab;
+    cursor: grab;
+    height: 20px;
+    width: 20px;
+    transform: translateY(-50%) translateX(10px);
+    border: 2px solid rgb(19, 20, 19);
+    touch-action: none;
+    background: white;
+    border-radius: 99em;
 }
 .multi-range__handle:first-child{
     transform: translateY(-50%) translateX(-10px);
