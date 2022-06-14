@@ -2075,10 +2075,15 @@
         "type": "rev_spring-bank-holiday-sale-1",
         "settings": {
         }
+      },
+      "rev_Summer-Sale-2022": {
+        "type": "rev_Summer-Sale-2022",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_spring-bank-holiday-sale-1",
+      "rev_Summer-Sale-2022",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
