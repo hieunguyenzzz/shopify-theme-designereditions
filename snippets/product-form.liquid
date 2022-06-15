@@ -1,9 +1,11 @@
 {% assign featuredShowexpress = false %}
+  {% if product.variants.size > 1  %}
 {% for variant in product.variants %}
   {% if variant.inventory_quantity > 0  %}
     {% assign featuredShowexpress = true %}
   {% endif %}
 {% endfor %}
+  {% endif %}
 <input type="hidden" name="product_url" id="product_url" value="{{ product.title | handle }}">
   {% form 'product', product, id: "AddToCartForm", class: "product_form !tw-flex tw-flex-col", data-product-form:product_form_config, data-product-id: product.id %}
 <!--   <a class="sprs" href="#product-reviews"> <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">    </span></a> -->
