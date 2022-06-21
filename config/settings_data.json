@@ -2080,9 +2080,15 @@
         "type": "rev_Summer-Sale-2022",
         "settings": {
         }
+      },
+      "rev_Home-Refresh": {
+        "type": "rev_Home-Refresh",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_Home-Refresh",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
