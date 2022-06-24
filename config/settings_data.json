@@ -1903,11 +1903,6 @@
         "settings": {
         }
       },
-      "rev_UK-Home-Story": {
-        "type": "rev_UK-Home-Story",
-        "settings": {
-        }
-      },
       "1650784908733d1159": {
         "type": "instafeed",
         "disabled": true,
@@ -2031,20 +2026,6 @@
           "subHeading": "Now on UP TO 50%"
         }
       },
-      "rev_uk-danish-classics": {
-        "type": "rev_uk-danish-classics",
-        "settings": {
-        }
-      },
-      "rev_Designer-Editions": {
-        "type": "rev_Designer-Editions",
-        "settings": {
-          "heading": "Platinum Jubilee Bank Holiday",
-          "up_to": "Up to",
-          "percent_off": "% OFF",
-          "bottom_text": "Select Lines"
-        }
-      },
       "product-instagram": {
         "type": "product-instagram",
         "settings": {
@@ -2066,11 +2047,6 @@
           "heading": "Shop Instagram - Less than humble about your abode?"
         }
       },
-      "rev_Designer-Editions1": {
-        "type": "rev_Designer-Editions1",
-        "settings": {
-        }
-      },
       "rev_spring-bank-holiday-sale-1": {
         "type": "rev_spring-bank-holiday-sale-1",
         "settings": {
@@ -2085,10 +2061,15 @@
         "type": "rev_Home-Refresh",
         "settings": {
         }
+      },
+      "rev_tech-slider1": {
+        "type": "rev_tech-slider1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_Home-Refresh",
+      "rev_tech-slider1",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
