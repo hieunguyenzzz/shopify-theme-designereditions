@@ -1,10 +1,14 @@
 {% assign page_sliders = '' | split: ',' %}{% assign article_sliders = '' | split: ',' %}{% assign collection_sliders = '' | split: ',' %}{% assign embeded_sliders = '' | split: ',' %}{% if request.path contains '/pages/' %}
 
-{% capture current_page_slug %}{{ request.path | replace: '/pages/', '' }}{% endcapture %}
+{% assign iso_code_before = request.locale.iso_code | prepend: '/' %}
+{% assign iso_code_with = iso_code_before | append: '/' %}
 
-
-
-
+{% if request.path contains iso_code_with %}
+  {% capture current_page_slug %}{{ request.path | replace: iso_code_before, '' }}{% endcapture %}
+  {% capture current_page_slug %}{{ current_page_slug | replace: '/pages/', '' }}{% endcapture %}
+{% else %}
+  {% capture current_page_slug %}{{ request.path | replace: '/pages/', '' }}{% endcapture %}
+{% endif %}
 
 {% for slider_alias in page_sliders %}
 {% capture current_page_with_string %}{{ '_' | append: current_page_slug }}{% endcapture %}
@@ -18,30 +22,21 @@
 
 {% endfor %}
 
-
-
 {% elsif request.path contains '/blogs' %}
 
 {% assign article_url_path = article.url %}
-
 
 {% if article_url_path == null %}
 
 {% assign blog_url_path = blog.url %}
 
-
-
 {% capture current_blog_slug %}{{ blog_url_path | replace: '/blogs/', '' }}{% endcapture %}
-
-
 
 {% else %}
 
 {% capture current_article_slug %}{{ article_url_path | replace: blog.url, '' }}{% endcapture %}
 
 {% capture current_article_slug %}{{ current_article_slug | replace: '/', '' }}{% endcapture %}
-
-
 
 
 {% for slider_alias in article_sliders %}
@@ -56,23 +51,12 @@
 
 {% endfor %}
 
-
-
-
-
-
-
 {% endif %}
-
 
 {% elsif request.path contains '/collections' %}
 
-
-
 {% if collection.url != null %}
 {% capture current_collection_slug %}{{ collection.url | replace: '/collections/', '' }}{% endcapture %}
-
-
 
 {% for slider_alias in article_sliders %}
 {% capture current_collection_with_string %}{{ '_' | append: current_collection_slug }}{% endcapture %}
@@ -86,21 +70,13 @@
 
 {% endfor %}
 
-
-
 {% endif %}
-
 
 {% elsif request.path == '/' %}
 
-
-
 {% else %}
 
-
 {% endif %}
-
-
 
 
 {% for slider_alias in embeded_sliders %}
@@ -110,7 +86,6 @@
       {% include snippet_name %}
 
     {% endfor %}
-
 
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function(event) {
