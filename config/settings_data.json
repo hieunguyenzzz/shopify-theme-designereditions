@@ -2061,9 +2061,15 @@
         "type": "rev_tech-slider1",
         "settings": {
         }
+      },
+      "rev_Summer-Inspiration": {
+        "type": "rev_Summer-Inspiration",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_Summer-Inspiration",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
