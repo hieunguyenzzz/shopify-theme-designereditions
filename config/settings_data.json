@@ -2057,11 +2057,6 @@
         "settings": {
         }
       },
-      "rev_Home-Refresh": {
-        "type": "rev_Home-Refresh",
-        "settings": {
-        }
-      },
       "rev_tech-slider1": {
         "type": "rev_tech-slider1",
         "settings": {
@@ -2069,7 +2064,6 @@
       }
     },
     "content_for_index": [
-      "rev_tech-slider1",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
