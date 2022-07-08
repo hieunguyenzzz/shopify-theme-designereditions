@@ -19,6 +19,8 @@
       "delivery": "Delivery"
     },
     "general": {
+      "general": "General",
+      "tags": "Tags",
       "address": "Address",
       "contact_us": "Contact Us",
       "email": "Email",
