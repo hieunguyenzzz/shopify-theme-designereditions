@@ -39,7 +39,7 @@
         {% for group_tag in blogs.faq.all_tags %}
             {%- assign handlizeTag = group_tag | handleize -%}
             {%- if group_tag contains 'c:' -%}
-                <li><label class="hover:tw-text-secondary" for="{{handlizeTag}}">{{ group_tag | replace: 'c:', '' }} ({{ group_tag.total_count }})</label></li>
+                <li><label class="hover:tw-text-primary" for="{{handlizeTag}}">{{ group_tag | replace: 'c:', '' }} ({{ group_tag.total_count }})</label></li>
             {%- endif -%}
         {% endfor %}
       </ul>
@@ -52,7 +52,7 @@
         {% for group_tag in blogs.faq.all_tags %}
             {%- unless group_tag contains 'c:' -%}
             {%- assign handlizeTag = group_tag | handleize -%}
-                <li><label class="hover:tw-text-secondary" for="{{handlizeTag}}">{{ group_tag }} ({{ group_tag.total_count }})</label></li>
+                <li><label class="hover:tw-text-primary" for="{{handlizeTag}}">{{ group_tag }} ({{ group_tag.total_count }})</label></li>
             {%- endunless -%}
         {% endfor %}
       </ul>
