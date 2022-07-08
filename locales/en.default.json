@@ -19,7 +19,7 @@
       "delivery": "Delivery"
     },
     "general": {
-      "general": "General",
+      "categories": "Categories",
       "tags": "Tags",
       "address": "Address",
       "contact_us": "Contact Us",
