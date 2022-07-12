@@ -1,0 +1,77 @@
+<div class="additional-info-block">
+  <div class="accordion-block">
+    {% for block in section.blocks %}
+    {% assign text = block.settings.text_info %}
+    {% if text != blank %}
+    <div class="set">
+      <div class="title-block active">
+        <span class="icon-small">
+          <svg viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="SVGInline-34-title"><title id="SVGInline-34-title">Checkbox</title><path class="check_path" d="M24.593 2.226L9.294 16.65c-.234.226-.54.35-.867.35-.337 0-.663-.133-.898-.38L.374 9.407c-.5-.494-.5-1.32 0-1.813a1.255 1.255 0 0 1 1.797 0l6.286 6.325L22.86.35c.244-.237.571-.351.908-.351.347.01.663.155.888.413a1.284 1.284 0 0 1-.062 1.813" fill-rule="evenodd"></path></svg>
+        </span>
+        <h3>{{ text }}</h3>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% comment %}
+<div class="additional-info-block">
+  <div class="accordion-block">
+    <div class="set">
+      <div class="title-block active">
+        <span class="icon-small">
+          <svg viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="SVGInline-34-title"><title id="SVGInline-34-title">Checkbox</title><path class="check_path" d="M24.593 2.226L9.294 16.65c-.234.226-.54.35-.867.35-.337 0-.663-.133-.898-.38L.374 9.407c-.5-.494-.5-1.32 0-1.813a1.255 1.255 0 0 1 1.797 0l6.286 6.325L22.86.35c.244-.237.571-.351.908-.351.347.01.663.155.888.413a1.284 1.284 0 0 1-.062 1.813" fill-rule="evenodd"></path></svg>
+        </span>
+        <h3>10 years warranty</h3>
+      </div>
+    </div>
+    <div class="set">
+      <div class="title-block active">
+        <span class="icon-small">
+          <svg viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="SVGInline-34-title"><title id="SVGInline-34-title">Checkbox</title><path class="check_path" d="M24.593 2.226L9.294 16.65c-.234.226-.54.35-.867.35-.337 0-.663-.133-.898-.38L.374 9.407c-.5-.494-.5-1.32 0-1.813a1.255 1.255 0 0 1 1.797 0l6.286 6.325L22.86.35c.244-.237.571-.351.908-.351.347.01.663.155.888.413a1.284 1.284 0 0 1-.062 1.813" fill-rule="evenodd"></path></svg>
+        </span>
+        <h3>Buy now, pay later with 0% APR</h3>
+      </div>
+    </div>
+    <div class="set">
+      <div class="title-block active">
+        <span class="icon-small">
+          <svg viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="SVGInline-34-title"><title id="SVGInline-34-title">Checkbox</title><path class="check_path" d="M24.593 2.226L9.294 16.65c-.234.226-.54.35-.867.35-.337 0-.663-.133-.898-.38L.374 9.407c-.5-.494-.5-1.32 0-1.813a1.255 1.255 0 0 1 1.797 0l6.286 6.325L22.86.35c.244-.237.571-.351.908-.351.347.01.663.155.888.413a1.284 1.284 0 0 1-.062 1.813" fill-rule="evenodd"></path></svg>
+        </span>
+        <h3>Optional Assembly</h3>
+      </div>
+      <div class="content-block">
+        <p>Please discuss with our team, prices depend on location, access, floor.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomment %}
+
+{% schema %}
+  {
+   "name": "Additional info",
+    "max_blocks": 3,
+    "settings": [],
+  "blocks": [
+  {
+    "type": "info",
+    "name": "additional info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text_info",
+        "label": "Text"
+        }
+    ]
+  }
+ ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
