@@ -38,7 +38,7 @@
               {%- unless item.variant.title contains 'Default' -%}
                 <p>
                   {% for option in item.product.options %}
-                  <span>{{ option }}:</span> {{ item.variant.options[forloop.index0] }}<br/>
+                    {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
                   {% endfor %}
                 </p>
               {%- endunless -%}
@@ -103,7 +103,7 @@
                           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
                         </dt>
                         <dd data-cart-item-regular-price>
-                          <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_2" data-item-key="{{item.key}}" data-original-price="{{item.original_price}}" style="display:none !important;"></span>{{ item.original_price | money }}
+                          <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_price | money }}
                         </dd>
                       </div>
 
@@ -133,34 +133,15 @@
                     </dl>
                   </div>
               </div>
-              
-              
-              
-              
-              
-              {% comment %}
               <div class="qty">
                 <label for="quantity">{{ 'products.product.quantity' | t }}</label>
                 <input min="1" type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} />
               </div>
-              {% endcomment %}
-              
-              <div class="cart-qty selector-wrapper">
-                <h5>{{ 'products.product.quantity' | t }}</h5>
-                
-                <div class="quanity-selector-div">
-                <a class="minus adjust-qty quantity-control-down">-</a>
-                <input min="1" type="text" name="updates[]" class="cart_qty" data-id="{{item.id}}" id="updates_{{ item.id }}" value="{{ item.quantity }}" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} />
-                <a class="plus adjust-qty quantity-control-up">+</a>
-                  </div>
-                  
-              </div>
-              
               <div class="line-pricing">
                 <p><b>{{ 'cart.general.total' | t }}</b></p>
                 <h5>
                   <p><span class="cart-item-price money {% if item.original_price > item.final_price or item.variant.compare_at_price > item.final_price %}onsale{% endif %}" data-key="{{item.key}}" style="margin-right: 5px;"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</span>
-                    {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" data-original-price="{{item.original_line_price}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
+                    {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
                 </h5>
               </div>
               {% if item.line_level_discount_allocations.size > 0 %}
@@ -171,9 +152,6 @@
             </div>
           </div>
         {% endfor %}
-        
-        
-        {% section 'Cart-Upsell' %}
       </div>
       <div id="basket-right" class="desktop-4 tablet-6 mobile-3">
         <h2>{{ 'cart.general.summary' | t }}</h2>
@@ -218,15 +196,6 @@
             <span class="cart-total"></span></h3>
           </div>
         </div>
-        <div class="klara-block">
-         <p>or as low as <span class="price-block">$398</span>/mo.<a class="learn-more-btn js-no-transition" href="#">Learn more</a></p>
-        </div>
-        <div class="shipping-date-details">
-                    <div class="wrap">
-                      <p>Your order ships in 2 days</p>
-                    </div>
-                  </div>
-        
         <div class="cart-extras rte-accordion">
           {% if settings.show_shipping_countdown %}
             {% render 'cart-free-shipping', cart: cart %}
@@ -246,14 +215,6 @@
         </div>
         <div class="cart-buttons">
           <input type="submit" name="checkout" id="checkout" value="{{ 'cart.general.checkout' | t }}" class="button" />
-          
-          <div class="cart__item-row cart__terms">
-              <input type="checkbox" id="CartTerms" class="cart__terms-checkbox">
-              <label for="CartTerms" class="text-label">
-                <small>I agree with the <a href="/pages/terms-conditions" target="_blank" class="js-no-transition">terms and conditions</a></small>
-              </label>
-            </div>
-          
           <!-- <h5 class="text-center or-divider"><span>Or</span></h5>
           <div class="clear"></div>
           {% if additional_checkout_buttons %}
@@ -267,12 +228,9 @@
               <img src="{{ type | payment_type_img_url }}" />
             {% endfor %}
           </div>
-          
-         {% section 'cart-additional-info' %}
-          
           <div class="clear"></div>
            <input type="submit" name="update" id="update-cart" value="{{ 'cart.general.update' | t }}" class="outline-button" />
-           <a class="outline-button continue-shopping-btn" href="/collections">{{ 'cart.general.continue' | t }}</a>
+           <a class="outline-button" href="/collections">{{ 'cart.general.continue' | t }}</a>
         </div>
       </div>
     </form>
@@ -295,4 +253,3 @@
   </script>
 </div>
 {% include 'wiser_related' %}{% include 'wiser_recommended' %}{% include 'wiser_trending' %}{% include 'wiser_recentview' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_topselling' %}{% include 'wiser_recent_related' %}
-
