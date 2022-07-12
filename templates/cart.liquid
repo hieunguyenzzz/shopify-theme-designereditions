@@ -133,9 +133,21 @@
                     </dl>
                   </div>
               </div>
+              {% comment %}
               <div class="qty">
                 <label for="quantity">{{ 'products.product.quantity' | t }}</label>
                 <input min="1" type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} />
+              </div>
+              {% endcomment %}
+              <div class="cart-qty selector-wrapper">
+                <h5>{{ 'products.product.quantity' | t }}</h5>
+                
+                <div class="quanity-selector-div">
+                <a class="minus adjust-qty quantity-control-down">-</a>
+                <input min="1" type="text" name="updates[]" class="cart_qty" data-id="{{item.id}}" id="updates_{{ item.id }}" value="{{ item.quantity }}" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %} max="{{ item.variant.inventory_quantity }}" {% endunless %} />
+                <a class="plus adjust-qty quantity-control-up">+</a>
+                  </div>
+                  
               </div>
               <div class="line-pricing">
                 <p><b>{{ 'cart.general.total' | t }}</b></p>
