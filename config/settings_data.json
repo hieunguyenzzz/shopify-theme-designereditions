@@ -2127,7 +2127,7 @@
       "Cart-Upsell": {
         "type": "Cart-Upsell",
         "settings": {
-          "show_Upsell": false,
+          "show_Upsell": true,
           "upsell_heading": "You may also like",
           "bestseller_collection": "",
           "product_to_show": 5
