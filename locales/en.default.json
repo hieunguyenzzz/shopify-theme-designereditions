@@ -408,7 +408,7 @@
       "discount_applied": "Discount Applied!",
       "items": "Item(s)",
       "agreeterm_alert": "You must agree with the terms and conditions of sales to check out",
-      "agreeterm_html": "I agree with the <a href=\"\/pages\/terms-conditions\" target=\"_blank\" class=\"js-no-transition tw-text-secondary tw-underline\">terms and conditions<\/a>"
+      "agreeterm_html": "I agree with the <a href=\"\/pages\/terms-conditions\" style=\"color:black\" target=\"_blank\" class=\"js-no-transition tw-text-secondary tw-underline\">terms and conditions<\/a>"
     }
   },
   "collections": {
