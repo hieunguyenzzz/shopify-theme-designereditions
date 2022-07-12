@@ -86,7 +86,7 @@
     "new_icon": true,
     "sale_icon": true,
     "sold_out_icon": true,
-    "ajax_cart_method": "drawer",
+    "ajax_cart_method": "page",
     "show_tax_note": true,
     "show_shipping_note": true,
     "show_cart_notes": true,
