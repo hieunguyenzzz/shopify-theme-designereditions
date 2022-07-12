@@ -328,6 +328,116 @@
     })</script>
 
 {% endif %}
-  
+   {% if template == 'cart' %}
+      <script>
+        $(".cart-qty .adjust-qty").click(function(){
+          var oldValue =parseInt($(this).siblings('.cart_qty').val());
+          var item_price = $(this).parents('.cart-price').find(".bold_cart_item_price_2").data('original-price');
+//           console.log(item_price);
+          //     console.log(oldValue);
+
+          if ($(this).hasClass('plus')) {
+            var newVal = parseFloat(oldValue) + 1;
+          } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+              var newVal = parseFloat(oldValue) - 1;
+            } else {
+              newVal = 0;
+            }
+          }
+          
+          var item_total = item_price * newVal;
+          console.log(item_total);
+
+          $(this).siblings('.cart_qty').val(newVal);
+          //       location.reload();
+          var id = $(this).siblings('.cart_qty').data('id');
+          if(newVal == 0)
+          {
+            location.reload();
+          }
+          var updates = {
+            updates: {}
+          };
+
+          if(id != ''){
+            updates['updates'][id] = newVal;
+            //     updates['updates'][closest.variant_id] = 1;
+
+          }
+
+          $.ajax({
+            url: "/cart/update.js",
+            type: "POST",
+            data: updates,
+            dataType: "json",
+            success: function (response) {
+              jQuery.getJSON('/cart.js', function(cart) {
+                var price = cart.total_price;
+                var p_price = Shopify.formatMoney(cart.total_price,{{ shop.money_format | json }});
+                var total_price = Shopify.formatMoney(item_total,{{ shop.money_format | json }}); 
+				console.log(total_price);
+                $('.cart-final-details .cart-original-total').html(p_price);
+                $('#shopping-cart .CartCount').html(cart.item_count + " {{ 'cart.general.items' | t }}");
+                $('.header-section .CartCount').html(cart.item_count);
+//                 $(this).parents('.cart-price').siblings('.line-pricing').find(".cart-item-price").html(total_price);
+                 
+//                  console.log(total_price);
+                
+              });
+
+             
+            },
+            error: function(error){
+            }
+          });
+          $(this).parents('.cart-qty').siblings('.line-pricing').find(".cart-item-price").html(Shopify.formatMoney(item_total,{{ shop.money_format | json }}));
+//            $(this).parents('.cart-price').addClass("testt");
+        });
+        $(".cart_qty").focusout(function(){
+            var item_price = $(this).parents('.cart-price').find(".bold_cart_item_price_2").data('original-price');
+          console.log(item_price);
+           var oldValue =parseInt($(this).val());
+          var id = $(this).data('id');
+		  var item_total = item_price * oldValue;
+          
+          var updates = {
+            updates: {}
+          };
+
+          if(id != ''){
+            updates['updates'][id] = oldValue;
+            //     updates['updates'][closest.variant_id] = 1;
+
+          }
+
+          $.ajax({
+            url: "/cart/update.js",
+            type: "POST",
+            data: updates,
+            dataType: "json",
+            success: function (response) {
+              jQuery.getJSON('/cart.js', function(cart) {
+                var price = cart.total_price;
+                var p_price = Shopify.formatMoney(cart.total_price,{{ shop.money_format | json }})
+
+                $('.cart-final-details .cart-original-total').html(p_price);
+                $('#shopping-cart .CartCount').html(cart.item_count + " {{ 'cart.general.items' | t }}");
+                $('.header-section .CartCount').html(cart.item_count);
+              });
+
+            },
+            error: function(error){
+            }
+          });
+          if(oldValue == 0)
+          {
+          	$(this).parents(".cart-item").find(".remove").trigger("click");
+          }
+           $(this).parents('.cart-qty').siblings('.line-pricing').find(".cart-item-price").html(Shopify.formatMoney(item_total,{{ shop.money_format | json }}));
+        });
+      </script>
+      {% endif %}
   {% include 'add_footer_assets' %}</body>
 </html>
