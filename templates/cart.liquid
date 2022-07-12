@@ -153,7 +153,7 @@
                 <p><b>{{ 'cart.general.total' | t }}</b></p>
                 <h5>
                   <p><span class="cart-item-price money {% if item.original_price > item.final_price or item.variant.compare_at_price > item.final_price %}onsale{% endif %}" data-key="{{item.key}}" style="margin-right: 5px;"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total_2" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.final_line_price | money }}</span>
-                    {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
+                    {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" data-original-price="{{item.original_line_price}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
                 </h5>
               </div>
               {% if item.line_level_discount_allocations.size > 0 %}
