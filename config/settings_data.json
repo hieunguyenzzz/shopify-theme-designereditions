@@ -2090,6 +2090,36 @@
         "type": "rev_angled-header1",
         "settings": {
         }
+      },
+      "cart-additional-info": {
+        "type": "cart-additional-info",
+        "blocks": {
+          "724fde5a-60d0-447b-8fd9-0d73b4e8e6f2": {
+            "type": "info",
+            "settings": {
+              "text_info": "10 years warranty"
+            }
+          },
+          "00a48644-faeb-447d-b320-10190b96e4ad": {
+            "type": "info",
+            "settings": {
+              "text_info": "Buy now, pay later with 0% APR"
+            }
+          },
+          "b3953f30-98c9-4dc0-841b-acb215cd2590": {
+            "type": "info",
+            "settings": {
+              "text_info": "Optional Assembly"
+            }
+          }
+        },
+        "block_order": [
+          "724fde5a-60d0-447b-8fd9-0d73b4e8e6f2",
+          "00a48644-faeb-447d-b320-10190b96e4ad",
+          "b3953f30-98c9-4dc0-841b-acb215cd2590"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
