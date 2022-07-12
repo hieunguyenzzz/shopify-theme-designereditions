@@ -1,0 +1,81 @@
+<section class="product-recommendations cart-upsell-section">
+  <div class="page-width">
+    <div class="section-row">
+      <div class="section-title">
+        <h2 class="title-text">{{ section.settings.upsell_heading | escape }}</h2>
+      </div>
+   
+    <div class="product-list">
+      <div class="list-wrap">
+        {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
+        {% render 'UpSell-Product-Item' , product: product %}
+        {% endfor %}
+        
+        {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+            {% if block.settings.product  != blank %}
+            {% assign prod = all_products[block.settings.product] %}
+             {% render 'UpSell-Product-Item' , product: prod %}
+            {% endif %}
+        {% endfor %}
+      {% endif %}
+      </div>
+    </div>
+     </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Cart Upsell",
+    "settings": [
+		{
+            "type": "checkbox",
+            "id": "show_Upsell",
+            "label": "Show Upsell",
+            "default": true
+        }, 
+		{
+            "type": "text",
+            "id": "upsell_heading",
+            "label": "Heading",
+            "default": "You may also like"
+        },
+		{
+            "type": "collection",
+            "id": "bestseller_collection",
+            "label": "Collection for bestsellers"
+      	},
+		{
+            "type": "range",
+            "id": "product_to_show",
+            "label": "Product to show",
+            "default": 5,
+            "min": 0,
+            "max": 5,
+            "step": 1
+        }
+	],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+		"limit": 5,
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Pick a product"
+          }
+        ]
+      }
+    ],
+   "presets":[
+      {
+       "name":"UpSell Section",
+       "category":"UpSell"
+
+	  }
+   ]
+  }
+{% endschema %}
