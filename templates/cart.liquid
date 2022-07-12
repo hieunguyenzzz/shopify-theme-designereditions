@@ -249,6 +249,8 @@
               <img src="{{ type | payment_type_img_url }}" />
             {% endfor %}
           </div>
+          
+           {% section 'cart-additional-info' %}
           <div class="clear"></div>
            <input type="submit" name="update" id="update-cart" value="{{ 'cart.general.update' | t }}" class="outline-button" />
            <a class="outline-button continue-shopping-btn" href="/collections">{{ 'cart.general.continue' | t }}</a>
