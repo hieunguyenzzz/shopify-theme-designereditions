@@ -206,6 +206,7 @@ body.cart h1.page-title{font-size:24px}
 .gridlock.template-cart .cart-final-details .total{border-top: 1px solid #e5e5e5; padding-top: 10px; margin-top: 10px;}
 .gridlock.template-cart .klara-block{margin-bottom:10px;text-align:left}
 .gridlock.template-cart .klara-block p:last-child{margin-bottom:0 !important}
+.gridlock.template-cart .klara-block p,.gridlock.template-cart .shipping-date-details p{line-height:1.5}
 .gridlock.template-cart .shipping-date-details{margin-bottom:10px;text-align:left}
 .gridlock.template-cart .shipping-date-details p:last-child{margin-bottom:0 !important}
 .gridlock.template-cart .cart__item-row.cart__terms .cart__terms-checkbox{height:auto}
