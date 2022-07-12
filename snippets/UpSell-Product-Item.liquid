@@ -1,0 +1,50 @@
+{% assign variant = product.first_available_variant %}
+{% assign compare_at_price = variant.compare_at_price | floor %}
+{% assign price = variant.price | floor %}
+{% if price < compare_at_price %}
+    {% capture discount %}
+    {{ compare_at_price | minus:price | times:10.000 | divided_by: compare_at_price | round | append: '0'  }}%
+    {% endcapture %}
+{% endif %}
+<div class="product-single">
+    <div class="product-wrapper">
+      <div class="product-image-block">
+        <a href="{{product.url}}" class="product-link">
+          {% if product.featured_media %}
+		        {%- assign preview_image = product.featured_media.preview_image -%}
+              <div class="image-wrap">
+                <img src="{{ preview_image | img_url:"450x450" }}" alt="" class="primary-image">
+                {% if product.media.size > 1 %}
+                	{%- assign second_image = product.media[1] -%}
+                    <img src="{{ second_image | img_url:"450x450"}}" alt="" class="secondary-image">
+                {% endif %}
+              </div>
+          {% endif %}
+        </a>
+
+         <div class="delivery-tag">
+        <img src="{{'strings.general.delivery-label-image' | t | file_img_url:'100x100'}}" alt="">
+      </div>
+        {% if discount %}
+      <span class="discount-tag">{{'strings.general.percentage_off' | t: number:discount}}</span>
+        {% endif %}
+      </div>
+
+
+      <div class="product-details-block">
+        <a href="" class="product-link">
+          <div class="details flex">
+            <span class="product-title">{{ product.title }}</span>
+            <div class="price-block">
+              {% if price < compare_at_price %}
+              <span class="price-compare">{{compare_at_price | money}}</span>
+              <span class="disconut-price">{{ price | money }}</span>
+              {% else %}
+              <span class="disconut-price">{{ price | money }}</span>
+              {% endif %}
+             </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
