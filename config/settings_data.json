@@ -381,7 +381,10 @@
           "show_product_video": false,
           "show_product_model": false,
           "enable_product_reviews": true,
-          "reviews_heading": "RECENSIONER"
+          "reviews_heading": "RECENSIONER",
+          "leading_time_description": "All items are dispatched within 2-5 working days. Some European dispatch times may be longer due to processing\/admin. Any quantity of items that are not in stock or clearly displayed as due into stock with a certain date will be manufactured to order, please allow 12 - 18 weeks for these.",
+          "outstock_leading_time_description": "Upon ordering your items will be handcrafted especially for you. This takes time and expertise so we allow 4 -5 weeks for manufacture, quality assurance and packaging. 4 weeks travel to the U.K., and then there’s customs clearance and admin. It’s worth the wait!",
+          "upsell_leading_time_description": "The dates given are approximate, given to us by our shippers. This does not take into account, customs clearance, decanting of containers, labeling, organisation, and distribution from our UK warehouse."
         }
       },
       "blog-template": {
@@ -2097,19 +2100,19 @@
           "724fde5a-60d0-447b-8fd9-0d73b4e8e6f2": {
             "type": "info",
             "settings": {
-              "text_info": "10 years warranty"
+              "text_info": "5 Year Warranty"
             }
           },
           "00a48644-faeb-447d-b320-10190b96e4ad": {
             "type": "info",
             "settings": {
-              "text_info": "Buy now, pay later with 0% APR"
+              "text_info": "No Extra Taxes Or Duty Guaranteed"
             }
           },
           "b3953f30-98c9-4dc0-841b-acb215cd2590": {
             "type": "info",
             "settings": {
-              "text_info": "Optional Assembly"
+              "text_info": "5* Trust Pilot Reviews"
             }
           }
         },
