@@ -256,6 +256,10 @@ body.cart .cart-item .quanity-selector-div .quantity-control-up{max-width:30px;w
 @media screen and (max-width: 1024px) {
   .spf-has-filter #gf-products {    display: grid !important;    grid-template-columns: 1fr 1fr !important;   }
 }
+
+@media only screen and (max-width:979px){
+  body.cart #basket-right{padding:0;margin-top:30px}
+}
 /* ------------------------- Ranel.das ------------------------ */
 .spf-col-xl-3, .spf-col-lg-4, .spf-col-md-6, .spf-col-sm-6{ max-width: 100% !important;}
 .product-right {/* width: 343px !important; */}
