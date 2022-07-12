@@ -2120,6 +2120,15 @@
         ],
         "settings": {
         }
+      },
+      "Cart-Upsell": {
+        "type": "Cart-Upsell",
+        "settings": {
+          "show_Upsell": false,
+          "upsell_heading": "You may also like",
+          "bestseller_collection": "",
+          "product_to_show": 5
+        }
       }
     },
     "content_for_index": [
