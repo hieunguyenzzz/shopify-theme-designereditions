@@ -19,6 +19,12 @@
   .gf-refine-toggle-mobile {border:none !important; float:right !important;width: 35% !important;}
 }*/
 
+
+ul#cart li a {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (min-width: 1025px) {
   .spf-has-filter #gf-products {    display: grid !important;    /* grid-template-columns: 1fr 1fr 1fr !important; */  }
 }
