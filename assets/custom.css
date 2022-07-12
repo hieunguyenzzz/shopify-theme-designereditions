@@ -248,6 +248,11 @@ body.cart .cart-item .quanity-selector-div .quantity-control-up{max-width:30px;w
 @media screen and (min-width: 1025px) {
   .spf-has-filter #gf-products {    display: grid !important;    /* grid-template-columns: 1fr 1fr 1fr !important; */  }
 }
+@media only screen and (max-width:1440px){
+  .gridlock.template-cart .row{width:100% !important;padding-left:1rem !important;padding-right:1rem !important}
+}
+
+
 @media screen and (max-width: 1024px) {
   .spf-has-filter #gf-products {    display: grid !important;    grid-template-columns: 1fr 1fr !important;   }
 }
