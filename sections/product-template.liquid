@@ -72,14 +72,7 @@
             <div class="section-title hidden-desktop">
                 <h1 id="product-title-mobile">{{ title }}</h1>
             </div>
-            <div class="hidden-desktop" style="text-align:center;">
-                <p class="inspire-text ">
-
-                    <span>{{ 'strings.general.inspired_by' | t }}</span>
-                    <a href="{{ inspired-by-url }}">
-                        {{ inspired-by  }}</a>
-                </p>
-            </div>
+            
             {% case section.settings.image_section_size %}
                 {% when 'small' %}
                     {%- assign image_width = 'desktop-5 desktop-push-1 tablet-3 mobile-3 span-5 push-1' -%}
@@ -183,15 +176,7 @@
                             <h1 id="product-title" class="!tw-text-[20px] tw-mt-4">{{ title }}</h1>
                             <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
                         </div>
-                        <div class="hidden-mobile">
-                            <p class="inspire-text">
-                                <span>{{ 'strings.general.inspired_by' | t }}
-                                </span>
-                                <a href="{{ inspired-by-url }}">
-                                    {{ inspired-by }}</a>
-
-                            </p>
-                        </div>
+                        
                         <div class="small-desc">
                             {% for field in product.metafields.text %}
                                 {{ field | last }}
