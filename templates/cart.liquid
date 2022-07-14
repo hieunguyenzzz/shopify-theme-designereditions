@@ -156,7 +156,11 @@
                     {% if item.original_line_price > item.final_line_price %}<del><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" data-item-key="{{item.key}}" data-original-price="{{item.original_line_price}}" style="display:none !important;"></span>{{ item.original_line_price | money }}</del>{% endif %}</p>
                 </h5>
               </div>
-              
+              {% if item.line_level_discount_allocations.size > 0 %}
+                {% for discount_allocation in item.line_level_discount_allocations %}
+                  <p class="onsale"><i class="la la-tag"></i> {{ 'cart.general.discount_applied' | t }} {{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
         {% endfor %}
