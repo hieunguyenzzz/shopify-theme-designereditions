@@ -7,16 +7,18 @@
    
     <div class="product-list">
       <div class="list-wrap">
-        {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
-        {% render 'UpSell-Product-Item' , product: product %}
-        {% endfor %}
         
-        {% if section.blocks.size > 0 %}
+        
+       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
             {% if block.settings.product  != blank %}
             {% assign prod = all_products[block.settings.product] %}
              {% render 'UpSell-Product-Item' , product: prod %}
             {% endif %}
+        {% endfor %}
+         {% else %}
+         {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
+        {% render 'UpSell-Product-Item' , product: product %}
         {% endfor %}
       {% endif %}
       </div>
