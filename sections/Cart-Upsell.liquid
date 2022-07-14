@@ -18,12 +18,15 @@
         {% endfor %}
          {% else %}
          {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
+           {%- assign product_show = 'no' -%}
            {%- for item in cart.items -%}
-         {%- if item.product.handle != product.handle -%}
-              {% render 'UpSell-Product-Item' , product: product %}
-         {%- endif -%}
+         {%- if item.product.handle == product.handle -%}
+             {%- assign product_show = 'yes' -%}
+      {%- endif -%}
      {% endfor %}
-       
+         {%- if product_show =='no' -%}
+           {% render 'UpSell-Product-Item' , product: prod %}
+           {% endif %}
         {% endfor %}
       {% endif %}
       </div>
