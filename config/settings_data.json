@@ -164,7 +164,6 @@
               "menu_heading": "CHAIRS",
               "menu_item": "chairs",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Chairs_1.jpg",
               "promo_url": "shopify:\/\/collections\/chairs",
               "promo_url_secound": "\/",
               "nav_image_position": "right",
@@ -179,7 +178,6 @@
               "menu_heading": "TABLES",
               "menu_item": "tables",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1.jpg",
               "promo_url": "shopify:\/\/collections\/tables",
               "promo_url_secound": "\/",
               "nav_image_position": "right",
@@ -194,7 +192,6 @@
               "menu_heading": "SOFA",
               "menu_item": "sofa",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Sofa_1.jpg",
               "promo_url": "shopify:\/\/collections\/sofas",
               "promo_url_secound": "\/",
               "nav_image_position": "right",
@@ -209,7 +206,6 @@
               "menu_heading": "LIGHTING",
               "menu_item": "lighting",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/Most-Searched-lighting.jpg",
               "promo_url": "shopify:\/\/collections\/lighting",
               "promo_url_secound": "\/",
               "nav_image_position": "right",
@@ -224,7 +220,6 @@
               "menu_heading": "STORAGE",
               "menu_item": "storage",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Storage_1.jpg",
               "promo_url": "shopify:\/\/collections\/storage",
               "promo_url_secound": "\/",
               "nav_image_position": "right",
@@ -239,9 +234,7 @@
               "menu_heading": "ACCESSORIES",
               "menu_item": "accessories",
               "menu_items": "",
-              "nav_image": "shopify:\/\/shop_images\/DROPDOWN-Banners-Clocks_1.jpg",
               "promo_url": "shopify:\/\/collections\/accessories",
-              "nav_image_secound": "shopify:\/\/shop_images\/DROPDOWN-Banners-Accessories_1.jpg",
               "promo_url_secound": "shopify:\/\/collections\/accessories",
               "nav_image_position": "right",
               "link_text": "Click here",
@@ -295,7 +288,6 @@
           "cart_position": "header",
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-2000x250_9905f05a-c05e-41d2-b289-8e063c8e43dc.png",
           "logoname": "DESIGNER EDITIONS",
           "logosize": 20,
           "logo_max_width": 155,
@@ -338,7 +330,6 @@
           "a07aa2ee-9834-47c9-8e0d-161669592c59"
         ],
         "settings": {
-          "logo": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-600x75-cut.png",
           "description": "Hand Made Designer Furniture from around the world come together at Designer Editions, bringing you a vast range of designer furniture, lighting and accessories at a fraction of the high street price.",
           "footer_text_align": "left",
           "show_credit_cards": true,
@@ -985,7 +976,6 @@
         "disabled": true,
         "settings": {
           "style": "style_1",
-          "image": "shopify:\/\/shop_images\/woman-relazing-and-journalling-on-couch.jpg",
           "layout": "right",
           "color": "#f9f9f9",
           "image_width": "33%",
@@ -1112,7 +1102,6 @@
           "dd1658c2-dd54-4686-912e-1a30f8a1de2d": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/EU-2.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p>No Extra Taxes \/ Duty<\/p><p>Guaranteed <\/p>",
@@ -1131,7 +1120,6 @@
           "6e281097-1f48-4b35-8b25-3cbfb40e7085": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2aa.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p><strong>RETURNS<\/strong><\/p><p>30-Day Returns<\/p>",
@@ -1150,7 +1138,6 @@
           "fe1bdd83-57be-4473-9b52-91c9b0f32168": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/3aa.webp",
               "image_width": "33%",
               "overlay_opacity": 0,
               "heading": "<p><strong>WARRANTY<\/strong><\/p><p>5 Years Warranty<\/p>",
@@ -1345,7 +1332,6 @@
           "162159895992baa653-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Dining-chairs.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/dining-chairs",
               "heading": "Classic Dining -",
@@ -1357,7 +1343,6 @@
           "162159895992baa653-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-lighting_5dded861-3973-417e-af3e-3c66f9205612.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/lighting",
               "heading": "Mid-Century Lighting -",
@@ -1370,7 +1355,6 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Tables_42b110f7-6c28-45b5-9227-c4afd4ed1da9.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/modern-coffee-table",
               "heading": "Modern, Vintage - Coffee Tables",
@@ -1383,7 +1367,6 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/lounge-chair",
               "heading": "Lounge Lovers ❥",
@@ -1936,7 +1919,6 @@
           "1650785388ef09e39f-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Storage-01_17ff6bb3-872f-44b9-a162-0be1a81e2d26.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/storage",
               "heading": "Unique Storage -",
@@ -1948,7 +1930,6 @@
           "1650785388ef09e39f-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Sofa5.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/sofas",
               "heading": "70's Vintage, Mid-Century -",
@@ -1989,7 +1970,6 @@
           "16507862046b175cc3-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DROPDOWN-Banners-tables_1_720x_copy_1.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/modern-coffee-table",
               "heading": "Classic Coffee Tables -",
@@ -2001,7 +1981,6 @@
           "16507862046b175cc3-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Most-Searched-Loungechairs_f8662143-22f3-4100-ab52-ee2f3d7e3d5f.jpg",
               "image_width": "33%",
               "link": "shopify:\/\/collections\/lounge-chair",
               "heading": "Lounge Lovers -",
@@ -2129,7 +2108,7 @@
         "settings": {
           "show_Upsell": true,
           "upsell_heading": "You may also like",
-          "bestseller_collection": "",
+          "bestseller_collection": "all-bestselling",
           "product_to_show": 5
         }
       }
@@ -2155,12 +2134,6 @@
       "161890494913acaf20"
     ],
     "blocks": {
-      "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "15323590465973626552": {
         "type": "shopify:\/\/apps\/translate-currency-langshop\/blocks\/langshop\/84899e01-2b29-42af-99d6-46d16daa2111",
         "disabled": false,
