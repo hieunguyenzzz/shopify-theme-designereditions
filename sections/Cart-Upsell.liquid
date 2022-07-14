@@ -8,7 +8,9 @@
     <div class="product-list">
       <div class="list-wrap">
         
-        
+        {% assign mlcount = 0 %}
+
+
        {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
             {% if block.settings.product  != blank %}
@@ -17,15 +19,16 @@
             {% endif %}
         {% endfor %}
          {% else %}
-         {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
+         {% for product in collections[section.settings.bestseller_collection].products limit: 10 %}
            {%- assign product_show = 'no' -%}
            {%- for item in cart.items -%}
-         {%- if item.product.handle == product.handle -%}
-             {%- assign product_show = 'yes' -%}
-      {%- endif -%}
-     {% endfor %}
-         {%- if product_show =='no' -%}
+             {%- if item.product.handle == product.handle -%}
+               {%- assign product_show = 'yes' -%}
+             {%- endif -%}
+           {% endfor %}
+           {%- if product_show =='no' and mlcount < section.settings.product_to_show -%}
            {% render 'UpSell-Product-Item' , product: product %}
+              {% assign mlcount = mlcount | plus:1 %}
            {% endif %}
         {% endfor %}
       {% endif %}
