@@ -440,7 +440,7 @@
           {
           	$(this).parents(".cart-item").find(".remove").trigger("click");
           }
-           $(this).parents('.cart-qty').siblings('.line-pricing').find(".cart-item-price").html(Shopify.formatMoney(item_total,{{ shop.money_format | json }}));
+         //  $(this).parents('.cart-qty').siblings('.line-pricing').find(".cart-item-price").html(Shopify.formatMoney(item_total,{{ shop.money_format | json }}));
         });
       </script>
       {% endif %}
