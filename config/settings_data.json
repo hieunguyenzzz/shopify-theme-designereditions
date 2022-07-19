@@ -2132,9 +2132,15 @@
           "bestseller_collection": "",
           "product_to_show": 5
         }
+      },
+      "rev_sizzling-summer-sale": {
+        "type": "rev_sizzling-summer-sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_sizzling-summer-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
