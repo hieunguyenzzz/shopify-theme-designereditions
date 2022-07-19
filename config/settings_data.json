@@ -2086,6 +2086,7 @@
       },
       "rev_angled-header1": {
         "type": "rev_angled-header1",
+        "disabled": true,
         "settings": {
         }
       },
