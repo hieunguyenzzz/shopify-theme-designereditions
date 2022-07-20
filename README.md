@@ -1,1 +1,1 @@
-https://designer-editions2.myshopify.com/
+https://designicons1.myshopify.com/
