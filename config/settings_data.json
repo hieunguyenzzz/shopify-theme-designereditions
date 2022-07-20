@@ -2,6 +2,8 @@
   "presets": {
   },
   "current": {
+    "contact_phone": "+44 20 8133 4903",
+    "contact_email": "customersupport@designicons1.com",
     "announcement_bar_background": "#eef5f1",
     "announcement_bar_text_color": "#333333",
     "homepage_pre_scroll_color": "#000000",
@@ -2086,6 +2088,7 @@
       },
       "rev_angled-header1": {
         "type": "rev_angled-header1",
+        "disabled": true,
         "settings": {
         }
       },
@@ -2127,9 +2130,15 @@
           "bestseller_collection": "",
           "product_to_show": 5
         }
+      },
+      "rev_image-hero1": {
+        "type": "rev_image-hero1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_image-hero1",
       "rev_angled-header1",
       "rev_This-Spring",
       "product-three-section",

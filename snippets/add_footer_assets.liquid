@@ -87,23 +87,3 @@
 
     {% endfor %}
 
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(event) {
-            if (typeof jQuery == 'undefined') {
-                if (typeof jQuery == 'undefined') {
-                    var page_selector = document.querySelector(".rev_slider_logo");
-                    var home_selector = document.querySelector("rs-module-wrap");
-
-                    if(home_selector != null){
-                        home_selector.innerHTML = '<img src="{{asset_url_rev}}jquery-missing.jpg">';
-                        home_selector.style.visibility = "visible";
-                    }
-
-                    if(page_selector != null){
-                        page_selector.src = "{{asset_url_rev}}jquery-missing.jpg";
-                        page_selector.style.display = "block";
-                    }
-                }
-            }
-        });
-    </script>
