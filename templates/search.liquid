@@ -76,13 +76,54 @@
                             {% render 'product-listing', product: item, collection: collection %}
                         {% endif %}
                     </div>
-                {% endfor %}
+                {% endfor %}ß
             </div>
         </div>
 
-        {% render 'pagination', paginate: paginate %}
+        {% if paginate.next %}
+        <load-more-button class="tw-flex tw-justify-center tw-mx-auto tw-col-span-full">
+            <a role="button" id="load-more-{{section.id}}" href="{{ paginate.next.url }}" class="tw-px-6 tw-animate-spin">
+                <svg class=" tw-text-black tw-text-opacity-30 tw-w-7 tw-h-7" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke-width="4" stroke="currentColor"></circle>
+                    <path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+                </svg>
+            </a>
+        </load-more-button>
+        {% endif %}
 
     {% endif %}
 
 {% endpaginate %}
 {% include 'wiser_recentview' %}{% include 'wiser_trending' %}{% include 'wiser_topselling' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_recent_related' %}
+
+<script>
+    class LoadMoreButton extends HTMLElement {
+       constructor() {
+         super();
+           const target = this.children[0]
+           const createInteraction=(target)=>{
+               const handleIntersection = (entries, observer) => {
+                   if (!entries[0].isIntersecting) return;
+                   observer.unobserve(target);
+                   fetch(target.href+'&section_id=search-page-template-items-per-page').then(response => response.text()).then(data => {
+                        function createElementFromHTML(htmlString) {
+                            var div = document.createElement('div');
+                            div.innerHTML = htmlString.trim();
+                            return div.firstChild; 
+                        }
+                        const newsection = createElementFromHTML(data)
+                        this.classList.add('tw-hidden')
+                        const documentFragment = document.createDocumentFragment();
+                        newsection.childNodes.forEach(node => document.querySelector("#gf-products").appendChild(node.cloneNode(true)));
+                        
+                    });
+                 }
+           
+               new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 400px 0px'}).observe(target);
+           }
+           createInteraction(target)
+       }
+       
+     }
+     customElements.define('load-more-button', LoadMoreButton);
+   </script>
