@@ -1,12 +1,63 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
-{% endschema %}
+{% paginate search.results by 24 %}
+{% if search.performed %}
+{% for item in search.results %}
+{%- if item.type == 'GSC_HIDDEN_PRODUCT' -%}
+    {%- continue -%}
+{%- endif -%}
 
-{% stylesheet %}
-{% endstylesheet %}
+<div class="tw-col-span-1" id="prod-{{ product.id }}" data-alpha="{{ product.title }}" data-price="{{ product.price }}">
+    <!-- Article -->
+    {% if item.object_type == 'article' %}
+        <div class="collection-image ci">
+            <!--'item' is an article All article object properties can be accessed. -->
+            {% if item.image %}
+                <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                    {%- render 'basic-responsive-image', type: item.image, data_widths: '[180, 360, 540, 720]'  -%}
+                    <noscript>
+                        <img src="{{ item.image | img_url: '800x' }}" alt="{{ item.image.alt }}">
+                    </noscript>
+                </a>
+            {% else %}
+                <div class="search-content prod-image">
+                    {{ item.content | strip_html | trancate: 200 }}
+                </div>
+            {% endif %}
+        </div>
+        <!-- PAGE -->
+    {% elsif item.object_type == 'page' %}
+        <div class="collection-image ci">
+            <!--'item' is a page. All page object properties can be accessed. -->
 
-{% javascript %}
-{% endjavascript %}
+            {% if item.content contains "img" %}
+                {% assign feat_image = item.content | split: 'src="' %}
+                {% assign feat_image = feat_image[1] | split: '"' | first | replace: '//cdn', 'http://cdn' | replace: 'http:http://', 'http://' | remove: 'https:'  %}
+                <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                    <img src="{{ feat_image }}" alt="{{ item.title }}">
+                </a>
+            {% else %}
+                <div class="search-content prod-image">
+                    {{ item.content | strip_html | trancate: 200 }}
+                </div>
+            {% endif %}
+        </div>
+        <!-- Product -->
+    {% else %}
+        <!-- 'item' is a product. All product object properties can be accessed.-->
+        {% render 'product-listing', product: item, collection: collection %}
+    {% endif %}
+</div>
+{% endfor %}
+        {% if paginate.next %}
+        <load-more-button class="tw-flex tw-justify-center tw-mx-auto tw-col-span-full">
+            <a role="button" id="load-more-{{section.id}}" href="{{ paginate.next.url }}" class="tw-px-6 tw-animate-spin">
+                <svg class=" tw-text-black tw-text-opacity-30 tw-w-7 tw-h-7" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke-width="4" stroke="currentColor"></circle>
+                    <path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+                </svg>
+            </a>
+        </load-more-button>
+        {% endif %}
+
+    {% endif %}
+
+{% endpaginate %}
