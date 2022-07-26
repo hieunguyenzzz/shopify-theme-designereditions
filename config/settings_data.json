@@ -2137,10 +2137,15 @@
         "type": "rev_sizzling-summer-sale",
         "settings": {
         }
+      },
+      "rev_great-ideas-1": {
+        "type": "rev_great-ideas-1",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_sizzling-summer-sale",
+      "rev_great-ideas-1",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
