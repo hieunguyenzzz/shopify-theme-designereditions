@@ -2142,10 +2142,15 @@
         "type": "rev_great-ideas-1",
         "settings": {
         }
+      },
+      "rev_inspirational-design": {
+        "type": "rev_inspirational-design",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_great-ideas-1",
+      "rev_inspirational-design",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
