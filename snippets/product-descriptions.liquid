@@ -6,7 +6,24 @@
 {% assign description-image-2 = instructions.description-image-2 %}
 {% assign heading-2 = instructions.heading-2 %}
 {% assign short-description-2 = instructions.short-description-2 %}
-{% assign side-image= instructions.dimension-photo | replace: 'https://res.cloudinary.com/dfgbpib38', 'https://imageproxy.designereditions.com/api/images/dfgbpib38' %}
+{%- capture side-image -%}
+  {% if product.metafields.global.dimension %}
+    {{ product.metafields.global.dimension | metafield_tag }}
+  {%- else -%}
+    {% assign imageurl= instructions.dimension-photo | replace: 'https://res.cloudinary.com/dfgbpib38', 'https://imageproxy.designereditions.com/api/images/dfgbpib38' %}
+    {%- if imageurl != blank -%}
+      <img
+        class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]"
+        src="{{ imageurl }}"
+      >
+    {%- else -%}
+      <img
+        class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]"
+        src="{{ 'bg.png' | asset_url }}"
+      >
+    {%- endif -%}
+  {% endif %}
+{%- endcapture -%}
 {% assign product-information = instructions.product-information  %}
 {% assign inspired-by  = shop.name  %}
 {% if instructions.inspired-of %}
@@ -66,11 +83,7 @@
         </h2>
         <div class="tw-flex tw-gap-6 tw-flex-col md:tw-flex-row tw-w-full md:tw-items-center">
             <div class="tw-flex-1 tw-flex tw-justify-center tw-items-center">
-                {%- if side-image != blank -%}
-                    <img class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]" src="{{ side-image }}">
-                {%- else -%}
-                    <img class="lifestyle__img tw-m-auto lazyloaded tw-max-h-[300px] lg:tw-max-h-[600px]" src="{{ 'bg.png' | asset_url }}">
-                {%- endif -%}
+                {{ side-image }}
             </div>
             <div class="tw-flex-1 main-desc">
                 <!-- <h3>Product Details</h3> -->
