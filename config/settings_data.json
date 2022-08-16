@@ -2077,16 +2077,6 @@
         "settings": {
         }
       },
-      "rev_summer-inspiration-1": {
-        "type": "rev_summer-inspiration-1",
-        "settings": {
-        }
-      },
-      "rev_angled-header1": {
-        "type": "rev_angled-header1",
-        "settings": {
-        }
-      },
       "cart-additional-info": {
         "type": "cart-additional-info",
         "blocks": {
@@ -2148,7 +2138,6 @@
       }
     },
     "content_for_index": [
-      "rev_timeless-design",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
