@@ -4,16 +4,16 @@
       <div class="section-title">
         <h2 class="title-text">{{ section.settings.upsell_heading | escape }}</h2>
       </div>
-
+              {%- assign showcollection = true -%}
     <div class="product-list">
       <div class="list-wrap">
         {% for item in cart.items %}
             {% for product in item.product.metafields.global.upsells.value %}
               {% render 'UpSell-Product-Item' , product: product %}
-              {%- assign hadItems = true -%}
+              {%- assign showcollection = false -%}
             {%- endfor -%}
           {%- endfor -%}
-        {%- unless hadItems -%}
+        {%- if showcollection -%}
            {% for product in collections[section.settings.bestseller_collection].products limit: section.settings.product_to_show %}
           {% render 'UpSell-Product-Item' , product: product %}
         {% endfor %}
@@ -26,7 +26,7 @@
               {% endif %}
           {% endfor %}
         {% endif %}
-        {%- endunless -%}
+        {%- endif -%}
        
       </div>
     </div>
