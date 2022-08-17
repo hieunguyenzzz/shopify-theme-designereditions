@@ -1,3 +1,43 @@
+<style>
+  
+
+.product-recommendations .product-list .product-single{padding:0 15px} 
+
+.product-recommendations .product-image-block .image-wrap{position:relative;overflow:hidden}
+.product-recommendations .product-image-block{position:relative}
+.product-recommendations .product-image-block .image-wrap img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;padding: 4%;}
+.product-recommendations .product-image-block .image-wrap:after{content:"";display:block;width:100%;padding-bottom:100%}
+
+.product-recommendations .product-image-block .product-link{border:1px solid rgb(241,241,241,1);display:block}
+
+.product-recommendations .section-title{text-align:left;padding:0;margin-bottom:25px}
+.product-recommendations .product-list .list-wrap{margin:0 -15px}
+
+.product-recommendations .product-list .delivery-tag{position:absolute;top:0;left:0;z-index:2}
+
+.product-recommendations .product-details-block{margin-top:15px}
+
+
+.product-recommendations .discount-tag {background-color: #fbf3ee;color: #000;padding-left: 5px;padding-right: 5px;font-weight: 600;font-size: 12px;letter-spacing: 0;display: inline-block;margin-top: 25px;top:0;right:0;position:absolute}
+
+.product-recommendations .product-details-block .details{align-items:baseline;flex-wrap:wrap}
+.product-recommendations .product-details-block .product-title{font-size:12px;line-height:24px;font-weight:700;text-transform:uppercase;width:auto}
+
+
+.product-recommendations .product-details-block .price-block{display:flex;align-items:center}
+
+.product-recommendations .product-details-block .price-block .price-compare{font-size:11px;line-height:24px;text-decoration:line-through;color:rgb(83, 83, 83);opacity:0.5;margin-right:5px}
+.product-recommendations .product-details-block .price-block .disconut-price{font-size:14px;line-height:24px;color:red;font-weight:bold}
+
+.product-recommendations .product-image-block .secondary-image{opacity:0;visibility:hidden}
+.product-recommendations .product-image-block:hover .secondary-image{opacity:1;visibility:visible}
+.product-recommendations .product-image-block:hover .primary-image{opacity:0;visibility:hidden}
+
+
+
+.product-recommendations .list-wrap:not(.slick-initialized):not(.slick-slider) .product-single{display:none}
+
+</style>
 <section class="product-recommendations cart-upsell-section">
   <div class="page-width">
     <div class="section-row">
