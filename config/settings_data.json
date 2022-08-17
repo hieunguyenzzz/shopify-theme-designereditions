@@ -2112,7 +2112,7 @@
         "settings": {
           "show_Upsell": true,
           "upsell_heading": "You may also like",
-          "bestseller_collection": "",
+          "bestseller_collection": "bestseller",
           "product_to_show": 5
         }
       },
