@@ -122,7 +122,6 @@
 
             <div id="product-photos" class="tw-relative product-photos product-{{ product.id }} {{ image_width }}" data-product-single-media-group data-gallery-config='{{ product_gallery_config }}' {{ gallery_data }}>
                 <div id="product-labels">
-                    <img class="tw-absolute tw-max-w-[150px] tent tw-w-1/3 tw-z-10 tw-top-0 tw-left-0"  src="{{'strings.general.delivery-label-image' | t | file_img_url:'150x150'}}"/>
                     {% if discount %}
                         <span class="tw-bg-[#fbf3ee] tw-bg-opacity-90 tw-px-[1em] md:tw-text-xl lg:tw-text-2xl tw-font-bold !tw-leading-loose tw-text-black tw-z-10 empty:tw-hidden tw-absolute tw-right-0 tw-top-0">
                             {{'strings.general.percentage_off' | t: number:discount}}</span>
