@@ -122,6 +122,7 @@
     "popup_background_color": "#ffffff",
     "favicon": "shopify:\/\/shop_images\/Designer-Editions-Logo_copy.png",
     "countdown_date": "",
+    "countdown_text": "Sale ends in :",
     "checkout_header_image": "",
     "checkout_logo_image": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-2000x250.png",
     "checkout_logo_position": "center",
