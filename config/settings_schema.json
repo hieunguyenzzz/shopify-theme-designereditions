@@ -1291,7 +1291,7 @@
       {
         "type": "text",
         "id": "countdown_text",
-        "label": "Date",
+        "label": "Text",
         "default": "Sale ends in"
       }
     ]
