@@ -3,7 +3,12 @@
 {% endunless %}
 <div style="display: none;" id="{{id}}-wrap"  class="flex lg:tw-static tw-w-full tw-absolute tw-left-0 tw-top-0 tw-gap-2">
   <div class="tw-flex lg:tw-flex-col lg:tw-flex lg:tw-justify-start lg:tw-text-black lg:tw-bg-transparent tw-w-full tw-justify-center tw-items-baseline tw-text-white tw-bg-black tw-text-left tw-mb-4 tw-text-sm tw-font-semibold tw-text-opacity-70">
-    {{'strings.general.sale_ends_in' | t}}: 
+     {% assign text = settings.countdown_text %}
+    {% if text %}
+        {{ text }}
+      {% else %}
+       {{'strings.general.sale_ends_in' | t}}:
+    {% endif %}
   <div class="lg:tw-mt-1 tw-leading-[32px] lg:tw-w-full  tw-uppercase tw-font-mono tw-font-semibold tw-bg-black tw-px-3 tw-text-white"><div class="tw-text-lg tw-inline-block tw-align-sub"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path></svg></div> <span id="{{id}}">00:00:00</span></div>
   </div>
 </div>
