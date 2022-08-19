@@ -16,7 +16,7 @@
             <div class="{% render '[class]-container' class: '' %}" id="content">
                 <div class="grid_wrapper" id="main-content">
                     <div class="section-title desktop-12 mobile-3 span-12">
-                        {% render 'countdown-timer'  class: '' %}
+                        {% render 'countdown-timer'  class: '' text:section.settings.countdown_text %}
                         <h1 class="tw-py-6">
                             {% if collection.handle == 'all' %}
                                 {{ 'collections.general.all_products' | t }}
