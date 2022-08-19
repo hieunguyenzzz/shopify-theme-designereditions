@@ -588,6 +588,7 @@
       "collection-page-template": {
         "type": "collection-page-template",
         "settings": {
+          "countdown_text": "Sale ends in :",
           "full_width": false,
           "grid": 4,
           "products_per_page": 48,
