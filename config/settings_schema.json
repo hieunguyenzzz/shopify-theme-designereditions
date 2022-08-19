@@ -1286,7 +1286,8 @@
       {
         "type": "text",
         "id": "countdown_date",
-        "label": "Date"
+        "label": "Date",
+        "info": " [Edit](https:\/\/designer-editions2.myshopify.com\/admin\/apps\/1ec75eb29325798ee9d8e6bdf9b6a82c)"
       },
       {
         "type": "text",
