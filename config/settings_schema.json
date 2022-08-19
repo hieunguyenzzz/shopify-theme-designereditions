@@ -1285,15 +1285,10 @@
     "settings": [
       {
         "type": "text",
-        "id": "countdown_date",
-        "label": "Date",
-        "info": " [Edit](https:\/\/designer-editions2.myshopify.com\/admin\/apps\/1ec75eb29325798ee9d8e6bdf9b6a82c)"
-      },
-      {
-        "type": "text",
         "id": "countdown_text",
         "label": "Text",
-        "default": "Sale ends in"
+        "default": "Sale ends in",
+        "info": " [Edit time](https:\/\/designer-editions2.myshopify.com\/admin\/apps\/1ec75eb29325798ee9d8e6bdf9b6a82c)"
       }
     ]
   }
