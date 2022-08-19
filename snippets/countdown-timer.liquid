@@ -8,7 +8,11 @@
             <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
         </svg>
     </div>
-    {{'strings.general.sale_ends_in' | t}}:
+    {% if text %}
+      {{ text }}
+      {% else %}
+       {{'strings.general.sale_ends_in' | t}}:
+    {% endif %}
     <span id="{{id}}">00:00:00</span>
 </div>
 
