@@ -1,7 +1,7 @@
 {% assign current_variant =  product.selected_or_first_available_variant %}
 {% if current_variant.price < current_variant.compare_at_price %}
     {% capture discount %}
-        {{ current_variant.compare_at_price | minus:current_variant.price | times:10.000 | divided_by:current_variant.compare_at_price  | append: '0' }}%
+        {{ current_variant.compare_at_price | minus:current_variant.price | times:100.000 | divided_by:current_variant.compare_at_price  | append: '00' }}%
     {% endcapture %}
 {% endif %}
 <script>
