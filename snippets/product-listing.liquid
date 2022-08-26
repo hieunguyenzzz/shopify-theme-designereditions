@@ -3,7 +3,7 @@
 {% assign price = variant.price | floor %}
 {% if price < compare_at_price %}
     {% capture discount %}
-    {{ compare_at_price | minus:price | times:10.000 | divided_by: compare_at_price | round | append: '0'  }}%
+    {{ compare_at_price | minus:price | times:100.000 | divided_by: compare_at_price | round   }}%
     {% endcapture %}
 {% endif %}
 {% assign image_size     = '360x504' %}
