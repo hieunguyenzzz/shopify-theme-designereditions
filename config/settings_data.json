@@ -121,7 +121,6 @@
     "popup_text_color": "#000000",
     "popup_background_color": "#ffffff",
     "favicon": "shopify:\/\/shop_images\/Designer-Editions-Logo_copy.png",
-    "countdown_date": "",
     "countdown_text": "Sale ends in :",
     "checkout_header_image": "",
     "checkout_logo_image": "shopify:\/\/shop_images\/Designer-Editions-Text-Logo-2000x250.png",
@@ -137,6 +136,7 @@
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#333333",
     "checkout_error_color": "#ff0000",
+    "countdown_date": "",
     "scroll_color": "#000000",
     "scroll_background": "#ffffff",
     "accent_color": "#e1c0a6",
@@ -589,7 +589,6 @@
       "collection-page-template": {
         "type": "collection-page-template",
         "settings": {
-          "countdown_text": "Sale ends in :",
           "full_width": false,
           "grid": 4,
           "products_per_page": 48,
@@ -2145,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_danish-classics-july",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
