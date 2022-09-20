@@ -2141,9 +2141,15 @@
         "type": "rev_danish-classics-july",
         "settings": {
         }
+      },
+      "rev_autumn-has-landed": {
+        "type": "rev_autumn-has-landed",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_autumn-has-landed",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
