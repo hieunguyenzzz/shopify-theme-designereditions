@@ -2141,9 +2141,15 @@
         "type": "rev_autumn-has-landed",
         "settings": {
         }
+      },
+      "rev_timeless-modern-design": {
+        "type": "rev_timeless-modern-design",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_timeless-modern-design",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
