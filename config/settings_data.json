@@ -2132,11 +2132,6 @@
         "settings": {
         }
       },
-      "rev_timeless-design": {
-        "type": "rev_timeless-design",
-        "settings": {
-        }
-      },
       "rev_danish-classics-july": {
         "type": "rev_danish-classics-july",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_autumn-has-landed",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
