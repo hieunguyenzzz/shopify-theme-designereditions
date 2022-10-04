@@ -2122,11 +2122,6 @@
         "settings": {
         }
       },
-      "rev_great-ideas-1": {
-        "type": "rev_great-ideas-1",
-        "settings": {
-        }
-      },
       "rev_inspirational-design": {
         "type": "rev_inspirational-design",
         "settings": {
@@ -2137,11 +2132,6 @@
         "settings": {
         }
       },
-      "rev_autumn-has-landed": {
-        "type": "rev_autumn-has-landed",
-        "settings": {
-        }
-      },
       "rev_timeless-modern-design": {
         "type": "rev_timeless-modern-design",
         "settings": {
@@ -2149,7 +2139,6 @@
       }
     },
     "content_for_index": [
-      "rev_timeless-modern-design",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
