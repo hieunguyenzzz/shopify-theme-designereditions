@@ -2136,9 +2136,15 @@
         "type": "rev_timeless-modern-design",
         "settings": {
         }
+      },
+      "rev_autumn-design-trends": {
+        "type": "rev_autumn-design-trends",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_autumn-design-trends",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
