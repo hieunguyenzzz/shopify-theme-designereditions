@@ -2073,11 +2073,6 @@
         "settings": {
         }
       },
-      "rev_Summer-Inspiration": {
-        "type": "rev_Summer-Inspiration",
-        "settings": {
-        }
-      },
       "cart-additional-info": {
         "type": "cart-additional-info",
         "blocks": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_Designer-Classics-Furniture",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
