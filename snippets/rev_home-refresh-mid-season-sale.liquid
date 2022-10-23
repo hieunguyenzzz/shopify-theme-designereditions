@@ -1,6 +1,6 @@
 {% capture asset_url_rev %}{% include 'asset_url_rev' %}{% endcapture %}<div class = "" id="revslider_foot_home-refresh-mid-season-sale">
 			<!-- START Home Refresh REVOLUTION SLIDER 6.5.6.14 --><p class="rs-p-wp-fix"></p>
-			<rs-module-wrap id="rev_slider_45_1_wrapper" data-source="gallery" style="visibility:hidden;background:#f2f2f2;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+			<rs-module-wrap id="rev_slider_45_1_wrapper" data-source="gallery" style="visibility:hidden;background:#f2f2f2;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;position:fixed;top:0px;height:0px">
 				<rs-module id="rev_slider_45_1" style="" data-version="6.5.6.14">
 					<rs-slides>
 						<rs-slide style="position: absolute;" data-key="rs-67" data-title="Slide 1" data-duration="9000" data-anim="ms:500ms;" data-in="o:0;" data-out="a:false;">
@@ -136,6 +136,7 @@ Now On
 
 							--><rs-layer
 								id="slider-45-slide-67-layer-3" 
+								class="rs-pxl-13"
 								data-type="image"
 								data-rsp_ch="on"
 								data-xy="xo:50px,50px,50px,-500px;y:m,m,m,b;yo:0,0,0,10px;"
@@ -150,6 +151,7 @@ Now On
 
 							--><rs-layer
 								id="slider-45-slide-67-layer-11" 
+								class="rs-pxl-13"
 								data-type="image"
 								data-rsp_ch="on"
 								data-xy="x:r,r,r,c;xo:100px,100px,100px,8px;y:m,m,m,b;yo:0,0,0,10px;"
@@ -222,7 +224,11 @@ Now On
 					visibilityLevelsKey:"6261614fea8a3",
 					gridwidth:"1920,1920,1920,480",
 					gridheight:"720,720,720,600",
+					autoHeight:true,
+					enableUpscaling:true,
 					lazyType:"smart",
+					fixedOnTop:true,
+					forceOverflow:true,
 					perspective:600,
 					perspectiveType:"local",
 					editorheight:"720,384,292,644",
