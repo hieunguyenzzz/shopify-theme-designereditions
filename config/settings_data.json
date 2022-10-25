@@ -2112,11 +2112,6 @@
           "product_to_show": 5
         }
       },
-      "rev_sizzling-summer-sale": {
-        "type": "rev_sizzling-summer-sale",
-        "settings": {
-        }
-      },
       "rev_inspirational-design": {
         "type": "rev_inspirational-design",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_home-refresh-mid-season-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
