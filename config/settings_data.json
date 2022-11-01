@@ -2058,11 +2058,6 @@
           "heading": "Shop Instagram - Less than humble about your abode?"
         }
       },
-      "rev_spring-bank-holiday-sale-1": {
-        "type": "rev_spring-bank-holiday-sale-1",
-        "settings": {
-        }
-      },
       "rev_Summer-Sale-2022": {
         "type": "rev_Summer-Sale-2022",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_get-hygge-this-autumn",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
