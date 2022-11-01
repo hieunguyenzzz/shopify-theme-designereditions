@@ -2141,9 +2141,15 @@
         "type": "rev_get-hygge-this-autumn",
         "settings": {
         }
+      },
+      "rev_next-level-discount-autumn": {
+        "type": "rev_next-level-discount-autumn",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_next-level-discount-autumn",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
