@@ -2058,11 +2058,6 @@
           "heading": "Shop Instagram - Less than humble about your abode?"
         }
       },
-      "rev_Summer-Sale-2022": {
-        "type": "rev_Summer-Sale-2022",
-        "settings": {
-        }
-      },
       "rev_tech-slider1": {
         "type": "rev_tech-slider1",
         "settings": {
@@ -2127,11 +2122,6 @@
         "settings": {
         }
       },
-      "rev_Designer-Classics-Furniture": {
-        "type": "rev_Designer-Classics-Furniture",
-        "settings": {
-        }
-      },
       "rev_home-refresh-mid-season-sale": {
         "type": "rev_home-refresh-mid-season-sale",
         "settings": {
@@ -2149,7 +2139,6 @@
       }
     },
     "content_for_index": [
-      "rev_next-level-discount-autumn",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
