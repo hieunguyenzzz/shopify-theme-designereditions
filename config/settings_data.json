@@ -2102,11 +2102,6 @@
           "product_to_show": 5
         }
       },
-      "rev_inspirational-design": {
-        "type": "rev_inspirational-design",
-        "settings": {
-        }
-      },
       "rev_danish-classics-july": {
         "type": "rev_danish-classics-july",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_Black-Friday-Sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
