@@ -2141,9 +2141,15 @@
         "type": "rev_black-friday-wk2",
         "settings": {
         }
+      },
+      "rev_style-your-home": {
+        "type": "rev_style-your-home",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_style-your-home",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
