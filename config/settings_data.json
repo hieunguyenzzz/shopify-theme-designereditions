@@ -2141,9 +2141,15 @@
         "type": "rev_style-your-home",
         "settings": {
         }
+      },
+      "rev_DE-christmas-sale": {
+        "type": "rev_DE-christmas-sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_DE-christmas-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
