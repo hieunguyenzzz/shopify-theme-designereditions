@@ -2122,11 +2122,6 @@
         "settings": {
         }
       },
-      "rev_next-level-discount-autumn": {
-        "type": "rev_next-level-discount-autumn",
-        "settings": {
-        }
-      },
       "rev_The-Best-Of-Autumn": {
         "type": "rev_The-Best-Of-Autumn",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_style-your-home",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
