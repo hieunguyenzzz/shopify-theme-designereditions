@@ -2102,11 +2102,6 @@
           "product_to_show": 5
         }
       },
-      "rev_danish-classics-july": {
-        "type": "rev_danish-classics-july",
-        "settings": {
-        }
-      },
       "rev_timeless-modern-design": {
         "type": "rev_timeless-modern-design",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_DE-christmas-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
