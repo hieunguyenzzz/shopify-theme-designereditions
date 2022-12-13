@@ -2141,9 +2141,15 @@
         "type": "rev_DE-christmas-sale",
         "settings": {
         }
+      },
+      "rev_ready-big-day": {
+        "type": "rev_ready-big-day",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_ready-big-day",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
