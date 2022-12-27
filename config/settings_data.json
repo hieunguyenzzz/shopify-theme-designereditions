@@ -2137,19 +2137,19 @@
         "settings": {
         }
       },
-      "rev_ready-big-day": {
-        "type": "rev_ready-big-day",
+      "rev_christmas-sale-limited-time": {
+        "type": "rev_christmas-sale-limited-time",
         "settings": {
         }
       },
-      "rev_christmas-sale-limited-time": {
-        "type": "rev_christmas-sale-limited-time",
+      "rev_year-end-sale": {
+        "type": "rev_year-end-sale",
         "settings": {
         }
       }
     },
     "content_for_index": [
-      "rev_christmas-sale-limited-time",
+      "rev_year-end-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
