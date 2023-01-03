@@ -2107,11 +2107,6 @@
         "settings": {
         }
       },
-      "rev_home-refresh-mid-season-sale": {
-        "type": "rev_home-refresh-mid-season-sale",
-        "settings": {
-        }
-      },
       "rev_get-hygge-this-autumn": {
         "type": "rev_get-hygge-this-autumn",
         "settings": {
@@ -2146,10 +2141,15 @@
         "type": "rev_year-end-sale",
         "settings": {
         }
+      },
+      "rev_january-winter-sale": {
+        "type": "rev_january-winter-sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
-      "rev_year-end-sale",
+      "rev_january-winter-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
