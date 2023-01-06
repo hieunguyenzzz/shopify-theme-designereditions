@@ -42,7 +42,10 @@
                   {% endfor %}
                 </p>
               {%- endunless -%}
-
+ {% if item.variant.metafields.global.leading-time %}
+                <div class="tw-italic tw-text-sm">{{ item.variant.metafields.global.leading-time }}</div>
+                <input class="tw-hidden tw-italic tw-text-sm tw-pointer-events-none tw-p-0 tw-indent-0 tw-leading-snug tw-border-none tw-h-auto" type="text" name="attributes[{{item.product.title}} {{item.variant.title}} leading time]" value="{{ item.variant.metafields.global.leading-time }}">
+              {% endif %}
               {% if item.selling_plan_allocation %}
                <p>{{ item.selling_plan_allocation.selling_plan.name }}<p>
               {% endif %}
