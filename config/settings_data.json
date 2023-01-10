@@ -2141,9 +2141,15 @@
         "type": "rev_january-winter-sale",
         "settings": {
         }
+      },
+      "rev_home-comfort": {
+        "type": "rev_home-comfort",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_home-comfort",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
