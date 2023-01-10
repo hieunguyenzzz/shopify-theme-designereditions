@@ -2112,11 +2112,6 @@
         "settings": {
         }
       },
-      "rev_The-Best-Of-Autumn": {
-        "type": "rev_The-Best-Of-Autumn",
-        "settings": {
-        }
-      },
       "rev_Black-Friday-Sale": {
         "type": "rev_Black-Friday-Sale",
         "settings": {
@@ -2149,7 +2144,6 @@
       }
     },
     "content_for_index": [
-      "rev_january-winter-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
