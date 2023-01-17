@@ -1,0 +1,22 @@
+{% if request.design_mode %} <div style="background-color:white; min-height:50px">{% endif %}
+                         {% include 'rev_dine-in-style' %}
+                         {% if request.design_mode %}</div>{% endif %}
+
+                      {% schema %}
+                            {"name":"Slider Revolution","class":"index-section index-section--flush","settings":[
+                                                {
+                                                 "type": "paragraph",
+                                                  "content": "Section: Dine in style"
+                                                },
+                                                {
+                                                 "type": "paragraph",
+                                                  "content": "Click the Save button to visible the slider contents"
+                                                }
+                                            ],"presets":[
+                                                {
+                                                 "name": "Slider Revolution--Dine in style",
+                                                  "category": "Image"
+                                                }
+                                            ]
+                                            }
+                      {% endschema %}
