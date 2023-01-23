@@ -1,4 +1,4 @@
-{% capture asset_url_rev %}{% include 'asset_url_rev' %}{% endcapture %}
+{% capture asset_url_rev %}{% render 'asset_url_rev' %}{% endcapture %}
 <link rel="preload" as="font" href="{{asset_url_rev}}revicons.woff?5510888" type="font/woff" crossorigin="anonymous" media="all"/>
 <link rel="preload" as="font" href="{{asset_url_rev}}fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossorigin="anonymous" media="all"/>
 <link rel="stylesheet" href="{{asset_url_rev}}font-awesome.css?6.5.6.16" type="text/css" />

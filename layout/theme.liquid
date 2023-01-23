@@ -136,7 +136,7 @@
   
   
   <meta name="msvalidate.01" content="7DE985A286B3855C135FDEF3A1991B88" />
-  {% include 'add_header_assets' %}</head>
+  {% render 'add_header_assets' %}</head>
 
     <body class="gridlock shifter-left {{ template | handleize }} template-{{ template | handleize }} js-slideout-toggle-wrapper ">
       {% comment %} 
@@ -444,5 +444,5 @@
         });
       </script>
       {% endif %}
-  {% include 'add_footer_assets' %}</body>
+  {% render 'add_footer_assets' %}</body>
 </html>
