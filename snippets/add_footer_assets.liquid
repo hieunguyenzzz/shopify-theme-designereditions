@@ -17,7 +17,7 @@
 {% if slider_alias contains current_page_with_string %}
 {% capture snippet_name %}{{ slider_alias | replace: current_page_with_string, '' }}{% endcapture %}
 
-{% render snippet_name %}
+{% include snippet_name %}
 {% endif %}
 
 {% endfor %}
@@ -46,7 +46,7 @@
 {% if slider_alias contains current_article_with_string %}
 {% capture snippet_name %}{{ slider_alias | replace: current_article_with_string, '' }}{% endcapture %}
 
-{% render snippet_name %}
+{% include snippet_name %}
 {% endif %}
 
 {% endfor %}
@@ -65,7 +65,7 @@
 {% if slider_alias contains current_collection_with_string %}
 {% capture snippet_name %}{{ slider_alias | replace: current_collection_with_string, '' }}{% endcapture %}
 
-{% render snippet_name %}
+{% include snippet_name %}
 {% endif %}
 
 {% endfor %}
@@ -83,7 +83,7 @@
 
       {% capture snippet_name %}{{ slider_alias }}{% endcapture %}
 
-      {% render snippet_name %}
+      {% include snippet_name %}
 
     {% endfor %}
 
