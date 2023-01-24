@@ -2146,9 +2146,15 @@
         "type": "rev_dine-in-style",
         "settings": {
         }
+      },
+      "rev_end-of-january-sale": {
+        "type": "rev_end-of-january-sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_end-of-january-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
