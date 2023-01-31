@@ -1,0 +1,22 @@
+{% if request.design_mode %} <div style="background-color:white; min-height:50px">{% endif %}
+                         {% include 'rev_be-inspired-2023' %}
+                         {% if request.design_mode %}</div>{% endif %}
+
+                      {% schema %}
+                            {"name":"Slider Revolution","class":"index-section index-section--flush","settings":[
+                                                {
+                                                 "type": "paragraph",
+                                                  "content": "Section: Be inspired 2023"
+                                                },
+                                                {
+                                                 "type": "paragraph",
+                                                  "content": "Click the Save button to visible the slider contents"
+                                                }
+                                            ],"presets":[
+                                                {
+                                                 "name": "Slider Revolution--Be inspired 2023",
+                                                  "category": "Image"
+                                                }
+                                            ]
+                                            }
+                      {% endschema %}

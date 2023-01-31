@@ -2146,9 +2146,15 @@
         "type": "rev_end-of-january-sale",
         "settings": {
         }
+      },
+      "rev_be-inspired-2023": {
+        "type": "rev_be-inspired-2023",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_be-inspired-2023",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
