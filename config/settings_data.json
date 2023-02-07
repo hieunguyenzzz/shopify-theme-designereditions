@@ -2146,9 +2146,15 @@
         "type": "rev_be-inspired-2023",
         "settings": {
         }
+      },
+      "rev_danish-classics-collection": {
+        "type": "rev_danish-classics-collection",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_danish-classics-collection",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
