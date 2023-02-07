@@ -2132,11 +2132,6 @@
         "settings": {
         }
       },
-      "rev_home-comfort": {
-        "type": "rev_home-comfort",
-        "settings": {
-        }
-      },
       "rev_dine-in-style": {
         "type": "rev_dine-in-style",
         "settings": {
@@ -2154,7 +2149,6 @@
       }
     },
     "content_for_index": [
-      "rev_be-inspired-2023",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
