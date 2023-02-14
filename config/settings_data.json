@@ -2146,9 +2146,15 @@
         "type": "rev_danish-classics-collection",
         "settings": {
         }
+      },
+      "rev_fab-feb-sale": {
+        "type": "rev_fab-feb-sale",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_fab-feb-sale",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
