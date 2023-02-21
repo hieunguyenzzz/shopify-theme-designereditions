@@ -2146,9 +2146,15 @@
         "type": "rev_fab-feb-sale",
         "settings": {
         }
+      },
+      "rev_spring-bank-holiday-sale-11": {
+        "type": "rev_spring-bank-holiday-sale-11",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_spring-bank-holiday-sale-11",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
