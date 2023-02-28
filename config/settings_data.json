@@ -2146,9 +2146,15 @@
         "type": "rev_spring-bank-holiday-sale-11",
         "settings": {
         }
+      },
+      "rev_timeless_elegant": {
+        "type": "rev_timeless_elegant",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
+      "rev_timeless_elegant",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
