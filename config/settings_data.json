@@ -2112,11 +2112,6 @@
         "settings": {
         }
       },
-      "rev_year-end-sale": {
-        "type": "rev_year-end-sale",
-        "settings": {
-        }
-      },
       "rev_january-winter-sale": {
         "type": "rev_january-winter-sale",
         "settings": {
@@ -2154,7 +2149,6 @@
       }
     },
     "content_for_index": [
-      "rev_spring-bank-holiday-sale-11",
       "rev_This-Spring",
       "product-three-section",
       "162159895992baa653",
