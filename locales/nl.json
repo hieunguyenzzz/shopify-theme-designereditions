@@ -1497,9 +1497,6 @@
         "value": {
           "out_of_stock": "Uitverkocht"
         }
-      },
-      "product_type": {
-        "label": "Product type"
       }
     },
     "search": {
