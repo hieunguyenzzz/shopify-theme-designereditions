@@ -1462,9 +1462,6 @@
         "value": {
           "out_of_stock": "Ausverkauft"
         }
-      },
-      "product_type": {
-        "label": "Produktart"
       }
     },
     "search": {

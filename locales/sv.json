@@ -1160,20 +1160,10 @@
     },
     "filters": {
       "availability": {
-        "label": "Tillgänglighet",
         "value": {
           "in_stock": "I lager",
           "out_of_stock": "Slut i lager"
         }
-      },
-      "vendor": {
-        "label": "varumärke"
-      },
-      "price": {
-        "label": "Pris"
-      },
-      "product_type": {
-        "label": "Produkttyp"
       }
     },
     "search": {
